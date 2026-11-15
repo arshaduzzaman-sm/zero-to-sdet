@@ -7,6 +7,7 @@ hide:
   - footer
   - author
   - feedback
+  - path
 updated: "2026-11-15"
 ---
 

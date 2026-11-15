@@ -27,6 +27,24 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Navigation for scale, part A (owner request: professional UI that stays clean at 2000+ topics)
+
+**Done**
+
+- Rule: the top tabs never grow. Only the seven learning sections, in Learning Path order (Infrastructure now before Advanced Testing). "The Professional SDET" tab shortened to "Professional SDET". New topics always go inside a section.
+- Home is reached by the logo and the breadcrumb ("Home > Section > Topic", `overrides/partials/path.html`). About, Changelog, Privacy and GitHub moved to the footer (`overrides/partials/copyright.html`).
+- `navigation.prune`: each page carries only its own section's menu. Measured: 94 links / 66 KB per page before, 20 links / 37 KB after; stays flat as topics grow.
+- Sidebar: unfinished topics show a small "Soon" text label instead of an icon.
+- Top of page: only the Edit button (the "view source" button removed).
+- End of page: feedback and author share one row (`overrides/partials/content.html`), wraps on phones.
+- Checked in light, dark and narrow screenshots.
+
+**Next step**
+
+Part B: menu and section overview pages built by a script from each topic's front matter (order, group, level, status), so adding a topic never means editing a hand-written list.
+
+---
+
 ## 2026-11-15 · Phase 1 · Step 1.8: "Was this page helpful?" and comments template
 
 **Done**

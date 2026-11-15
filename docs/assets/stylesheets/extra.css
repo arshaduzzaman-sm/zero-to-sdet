@@ -477,17 +477,28 @@
   }
 }
 
-/* ---------- Byline at the end of every page ------------------------------- */
-.md-source-file.zts-byline {
+/* ---------- End of page: feedback (left) + author (right) --------------- */
+.zts-page-end {
   margin-top: 2.4rem;
-  padding-top: 0.9rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--zts-border);
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem 1.4rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem 2rem;
+}
+.zts-page-end:not(:has(*)) {
+  display: none;
+}
+.zts-page-end .md-source-file.zts-byline {
+  margin: 0;
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
   color: var(--md-default-fg-color--light);
 }
-.md-source-file.zts-byline a {
+.zts-page-end .md-source-file.zts-byline a {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -516,13 +527,26 @@
 
 /* ---------- "Was this page helpful?" ------------------------------------- */
 .md-feedback.zts-feedback {
-  margin: 2rem 0 0;
-  padding: 1rem 1.2rem;
-  border-radius: var(--zts-radius);
-  background: var(--zts-surface);
+  margin: 0;
+  text-align: left;
 }
 .zts-feedback .md-feedback__title {
+  float: left;
+  margin: 0 0.8rem 0 0;
+  line-height: 2.2rem;
   font-weight: 700;
+}
+.zts-feedback .md-feedback__list {
+  place-content: center start;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+}
+.zts-feedback .md-feedback__note {
+  clear: both;
+}
+.md-typeset .zts-feedback .md-feedback__note > *,
+.zts-feedback .md-feedback__note > div {
+  margin: 0.6rem 0 0;
 }
 .zts-feedback .md-feedback__icon {
   width: 2.2rem;
@@ -563,4 +587,39 @@
 @media (prefers-reduced-motion: reduce) {
   .zts-feedback .md-feedback__icon { transition: none; }
   .zts-feedback .md-feedback__note > div:not([hidden]) { animation: none; }
+}
+
+/* ---------- Sidebar: unfinished topics -------------------------------------
+   A small "Soon" label in text (not an icon, not colour alone), so a list of
+   hundreds of topics stays calm and readable. */
+.md-nav .md-status--draft:after {
+  content: "Soon";
+  width: auto;
+  height: auto;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  -webkit-mask-image: none;
+  mask-image: none;
+  background-color: transparent;
+  border: 1px solid var(--zts-border);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.55rem;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+.md-nav__link:has(.md-status--draft) .md-ellipsis {
+  color: var(--md-default-fg-color--light);
+}
+
+/* ---------- Footer links (About, Changelog, Privacy, GitHub) ---------------- */
+.zts-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.2rem;
+  margin-bottom: 0.4rem;
+}
+.zts-footer-links a {
+  color: var(--md-footer-fg-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

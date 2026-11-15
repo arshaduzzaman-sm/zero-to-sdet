@@ -1,0 +1,22 @@
+{#-
+  Zero to SDET: breadcrumb ("Home > Core Automation > API testing").
+  Based on the theme's partials/path.html. Change: the first item always
+  says "Home". The home page is not in the tabs (the logo links home), so
+  the theme would otherwise show its long SEO title here.
+  Hidden on a page with `hide: [path]` (the home page).
+-#}
+{% import "partials/path-item.html" as item with context %}
+{% if not (page.meta and page.meta.hide and "path" in page.meta.hide) %}
+  <nav class="md-path" aria-label="{{ lang.t('nav') }}">
+    <ol class="md-path__list">
+      <li class="md-path__item">
+        <a href="{{ '' | url }}" class="md-path__link">
+          <span class="md-ellipsis">Home</span>
+        </a>
+      </li>
+      {% for nav_item in page.ancestors | reverse %}
+        {{ item.render(nav_item) }}
+      {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

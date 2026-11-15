@@ -20,7 +20,6 @@ edit_uri = "edit/main/docs/"
 extra_css = ["assets/stylesheets/extra.css"]
 
 nav = [
-  { "Home" = "index.md" },
   { "Start Here" = [
     "start-here/index.md",
     { "How to use this site" = "start-here/how-to-use-this-site/index.md" },
@@ -53,6 +52,17 @@ nav = [
     { "UI automation" = "core-automation/ui-automation/index.md" },
     { "Reporting and logging" = "core-automation/reporting-and-logging/index.md" },
   ] },
+  { "Infrastructure" = [
+    "infrastructure/index.md",
+    { "CI/CD (teaching topic)" = "infrastructure/ci-cd/index.md" },
+    { "Docker for testers" = "infrastructure/docker-for-testers/index.md" },
+    { "Linux and shell" = "infrastructure/linux-and-shell/index.md" },
+    { "Networking for testers" = "infrastructure/networking-for-testers/index.md" },
+    { "Debugging toolkit" = "infrastructure/debugging-toolkit/index.md" },
+    { "Everyday tools" = "infrastructure/everyday-tools/index.md" },
+    { "Cloud and Kubernetes basics" = "infrastructure/cloud-and-kubernetes/index.md" },
+    { "Observability" = "infrastructure/observability/index.md" },
+  ] },
   { "Advanced Testing" = [
     "advanced-testing/index.md",
     { "Mocking and stubbing" = "advanced-testing/mocking-and-stubbing/index.md" },
@@ -71,18 +81,7 @@ nav = [
     { "AI in testing" = "advanced-testing/ai-in-testing/index.md" },
     { "Tricky real-world cases" = "advanced-testing/tricky-real-world-cases/index.md" },
   ] },
-  { "Infrastructure" = [
-    "infrastructure/index.md",
-    { "CI/CD (teaching topic)" = "infrastructure/ci-cd/index.md" },
-    { "Docker for testers" = "infrastructure/docker-for-testers/index.md" },
-    { "Linux and shell" = "infrastructure/linux-and-shell/index.md" },
-    { "Networking for testers" = "infrastructure/networking-for-testers/index.md" },
-    { "Debugging toolkit" = "infrastructure/debugging-toolkit/index.md" },
-    { "Everyday tools" = "infrastructure/everyday-tools/index.md" },
-    { "Cloud and Kubernetes basics" = "infrastructure/cloud-and-kubernetes/index.md" },
-    { "Observability" = "infrastructure/observability/index.md" },
-  ] },
-  { "The Professional SDET" = [
+  { "Professional SDET" = [
     "professional-sdet/index.md",
     { "A day in the life" = "professional-sdet/a-day-in-the-life/index.md" },
     { "Your first weeks in a new job" = "professional-sdet/your-first-weeks/index.md" },
@@ -109,10 +108,6 @@ nav = [
     { "Glossary" = "glossary.md" },
     { "Tags" = "tags.md" },
   ] },
-  { "About" = [
-    { "About" = "about.md" },
-    { "Changelog" = "changelog.md" },
-  ] },
 ]
 
 [project.theme]
@@ -123,7 +118,6 @@ font = false
 features = [
   "announce.dismiss",
   "content.action.edit",
-  "content.action.view",
   "content.code.annotate",
   "content.code.copy",
   "content.code.select",
@@ -135,6 +129,7 @@ features = [
   "navigation.instant",
   "navigation.instant.progress",
   "navigation.path",
+  "navigation.prune",
   "navigation.sections",
   "navigation.tabs",
   "navigation.top",

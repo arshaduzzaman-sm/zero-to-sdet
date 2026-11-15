@@ -1,0 +1,16 @@
+{#-
+  Zero to SDET: page body. Based on the theme's partials/content.html.
+  Change: "Was this page helpful?" and "Written by" share one row at the end
+  of the page (.zts-page-end), instead of two stacked blocks.
+-#}
+{% include "partials/actions.html" %}
+{% if "<h1" not in page.content %}
+  <h1>{{ page.title | d(config.site_name, true)}}</h1>
+{% endif %}
+{{ page.content }}
+{% include "partials/tags.html" %}
+<div class="zts-page-end">
+  {% include "partials/feedback.html" %}
+  {% include "partials/source-file.html" %}
+</div>
+{% include "partials/comments.html" %}
