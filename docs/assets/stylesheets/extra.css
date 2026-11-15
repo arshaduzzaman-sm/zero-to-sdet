@@ -1,0 +1,76 @@
+/* Zero to SDET: small additions to the theme. Keep this file short and readable. */
+
+/* Comfortable reading: a slightly larger body text and line height. */
+.md-typeset {
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* Home page hero */
+.zts-hero {
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+.zts-hero h1 {
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+}
+.zts-hero__lead {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+}
+.zts-hero .md-button {
+  margin: 0.4rem 0.3rem;
+}
+
+/* Cards: a gentle lift on hover so people see they can click. */
+.md-typeset .grid.cards > ul > li {
+  transition: border-color 125ms, box-shadow 125ms;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: var(--md-shadow-z2);
+}
+
+/* "I need to…" cards: let the whole card be the click target. */
+.zts-tasks li {
+  position: relative;
+}
+.zts-tasks li strong a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Home page: no "edit / view source" buttons over the hero. */
+.md-content__inner:has(.zts-hero) > .md-content__button {
+  display: none;
+}
+
+/* "Pick your path": two columns on wide screens, so four cards sit as 2 x 2. */
+.md-typeset .grid.zts-paths > ul {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+}
+
+/* Diagrams sit in the middle of the page. */
+.md-typeset .mermaid {
+  text-align: center;
+}
+
+/* Closing call to action */
+.zts-cta {
+  text-align: center;
+  padding: 1rem 0 2rem;
+}
+
+/* Phones: a little less padding. */
+@media screen and (max-width: 44.9375em) {
+  .zts-hero {
+    padding-top: 1rem;
+  }
+  .zts-hero__lead {
+    font-size: 1.1rem;
+  }
+}

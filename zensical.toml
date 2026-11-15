@@ -17,6 +17,8 @@ repo_url = "https://github.com/arshaduzzaman-sm/zero-to-sdet"
 repo_name = "arshaduzzaman-sm/zero-to-sdet"
 edit_uri = "edit/main/docs/"
 
+extra_css = ["assets/stylesheets/extra.css"]
+
 nav = [
   { "Home" = "index.md" },
   { "Start Here" = [

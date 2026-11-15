@@ -27,6 +27,27 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Steps 1.5 and 1.6: Home page and Learning Path
+
+**Done**
+
+- 1.5 Home page (`docs/index.md`): hero with promise, tagline, "Start learning" and "Star on GitHub" buttons; "What is an SDET?" in plain words; "I need to…" finder with 12 task cards (whole card clickable); "Pick your path" (4 role paths, 2 x 2); cards for every area; "How every lesson works"; star call to action.
+- 1.6 Learning Path (`docs/learning-path.md`): plain-words box, a straight top-to-bottom Mermaid map with the level reached after each stage, and four ordered paths: manual tester to automation, junior to mid, mid to senior, interview prep in 4 weeks.
+- `docs/assets/stylesheets/extra.css`: comfortable text size, hero, card hover, centred diagrams, 2-column path cards, no edit buttons over the home hero, phone padding.
+- Checked with screenshots at desktop and 600 px width. All 44 icons render. Strict build clean.
+
+**Owner instruction (standing):** keep the UI beginner-friendly; every lesson must be learnable step by step; finish gradually.
+
+**Note**
+
+- Headless Chrome cannot render narrower than about 500 px, so a real phone-width check (390 px) is added with Playwright device emulation in Phase 3.
+
+**Next step**
+
+1.7 About page and footer with the author name.
+
+---
+
 ## 2026-11-15 · Phase 1 · Steps 1.1 to 1.4: skeleton, Zensical config, Markdown features, local preview
 
 **Done**
