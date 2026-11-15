@@ -230,3 +230,27 @@
 - term: Virtual environment
   meaning: A private folder of Python packages for one project, so projects do not mix up each other's versions.
   page: start-here/environment-setup/index.md
+
+- term: Happy path
+  meaning: The normal way a user uses a feature, with good data and no mistakes. It is usually the first thing you test.
+  page: think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md
+
+- term: Negative test
+  meaning: A test that sends bad input on purpose, like a wrong code or a short password, to check the app refuses it.
+  page: think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md
+
+- term: Edge case
+  meaning: A test right at a limit, like a code used at exactly 10 minutes. Bugs often hide at limits.
+  page: think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md
+
+- term: Scope
+  meaning: What is part of a task, and what is not. Writing it down stops you from testing the wrong thing.
+  page: think-like-a-tester/learning-a-new-testing-area/asking-the-right-questions.md
+
+- term: Risk
+  meaning: Something that could go wrong, and how much it would hurt users or the company. Testers test the biggest risks first.
+  page: think-like-a-tester/learning-a-new-testing-area/index.md
+
+- term: Playbook
+  meaning: A list of steps a team follows every time for the same kind of job, so nobody has to invent the plan again.
+  page: think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md

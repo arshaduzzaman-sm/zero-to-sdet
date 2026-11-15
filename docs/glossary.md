@@ -21,7 +21,7 @@ that teaches it.
 
 <!-- BEGIN glossary (generated from data/glossary.yml, do not edit by hand) -->
 
-<nav class="zts-az" aria-label="Jump to a letter" markdown>[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [L](#l) [M](#m) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v)</nav>
+<nav class="zts-az" aria-label="Jump to a letter" markdown>[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [L](#l) [M](#m) [N](#n) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v)</nav>
 
 ## A
 
@@ -103,6 +103,11 @@ that teaches it.
 
     Learn more: [Test levels and the pyramid](think-like-a-tester/test-levels-and-the-pyramid/index.md)
 
+[](){ #edge-case }**Edge case**
+:   A test right at a limit, like a code used at exactly 10 minutes. Bugs often hide at limits.
+
+    Learn more: [The 9-step playbook](think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md)
+
 [](){ #endpoint }**Endpoint**
 :   One address of an API that you can send a request to, like /products or /orders/42.
 
@@ -154,6 +159,11 @@ that teaches it.
 
 ## H
 
+[](){ #happy-path }**Happy path**
+:   The normal way a user uses a feature, with good data and no mistakes. It is usually the first thing you test.
+
+    Learn more: [The 9-step playbook](think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md)
+
 [](){ #http }**HTTP (Hypertext Transfer Protocol)**
 :   The set of rules web browsers and APIs use to send requests and answers.
 
@@ -202,6 +212,13 @@ that teaches it.
 
     Learn more: [Mocking and stubbing](advanced-testing/mocking-and-stubbing/index.md)
 
+## N
+
+[](){ #negative-test }**Negative test**
+:   A test that sends bad input on purpose, like a wrong code or a short password, to check the app refuses it.
+
+    Learn more: [The 9-step playbook](think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md)
+
 ## P
 
 [](){ #page-object }**Page Object**
@@ -213,6 +230,11 @@ that teaches it.
 :   Measuring how fast the app is and how much it can handle before it slows down or breaks.
 
     Learn more: [Performance testing](advanced-testing/performance-testing/index.md)
+
+[](){ #playbook }**Playbook**
+:   A list of steps a team follows every time for the same kind of job, so nobody has to invent the plan again.
+
+    Learn more: [The 9-step playbook](think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md)
 
 [](){ #playwright }**Playwright**
 :   A tool that controls a real web browser from code, so a test can click, type and check a page.
@@ -253,7 +275,17 @@ that teaches it.
 
     Learn more: [API testing](core-automation/api-testing/index.md)
 
+[](){ #risk }**Risk**
+:   Something that could go wrong, and how much it would hurt users or the company. Testers test the biggest risks first.
+
+    Learn more: [Learning a new testing area](think-like-a-tester/learning-a-new-testing-area/index.md)
+
 ## S
+
+[](){ #scope }**Scope**
+:   What is part of a task, and what is not. Writing it down stops you from testing the wrong thing.
+
+    Learn more: [Asking the right questions](think-like-a-tester/learning-a-new-testing-area/asking-the-right-questions.md)
 
 [](){ #sdet }**SDET (Software Development Engineer in Test)**
 :   A tester who writes code to test software.

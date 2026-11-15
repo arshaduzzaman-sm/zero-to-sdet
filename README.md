@@ -98,7 +98,7 @@ open it.
 
 [Open the Think Like a Tester overview](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/)
 
-- [Learning a new testing area](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/learning-a-new-testing-area/): A 9-step playbook for any testing task you have never done before. *(coming soon)*
+- [Learning a new testing area](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/learning-a-new-testing-area/): A 9-step playbook for any testing task you have never done before.
 - [The SDET role](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/the-sdet-role/): What an SDET does, how it differs from QA, and the seven testing principles. *(coming soon)*
 - [Test levels and the pyramid](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/test-levels-and-the-pyramid/): Unit, integration, API, UI and end-to-end tests, and how many of each to write. *(coming soon)*
 - [Test design techniques](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/test-design-techniques/): Boundary values, decision tables and more: find the tests that catch the most bugs. *(coming soon)*

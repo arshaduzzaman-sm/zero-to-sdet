@@ -35,6 +35,34 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 2 · Topic 1: Learning a new testing area
+
+**Done**
+
+- The first full topic. Its playbook page follows one realistic task (Arshad is asked to own password reset testing) through all nine steps, against the Practice App, with real outputs at every step. It includes "How an experienced SDET thinks", "Red flags", "Jump to what you need", templates, a Bug Hunt and official resources.
+- Six lessons, each built on the lesson template (before you start, outcomes, why it matters at work, plain words and a diagram, step by step with real output, common mistakes, "if you see this error", try it yourself with a folded solution, quick check, references):
+  - how to approach a task you have never done;
+  - the 9-step playbook;
+  - asking the right questions;
+  - reading official docs fast;
+  - learning from code and examples;
+  - when to ask for help.
+- Templates in `modules/think_like_a_tester/learning_a_new_testing_area/`: day-one questions, one-page test plan and learning log, plus Arshad's filled-in example plan. The pages pull them in from `modules/`, so the site always shows the tested files. 9 tests check the credit line, every section, and that the example fills the whole template.
+- Bug Hunt: use the playbook on password reset. Its answer is BH-06, folded on the tour page.
+- Every fact was checked against the real app while writing. Three were corrected: the 404 answer format, which tests exist for invoices (a lesson in "search before you call it a gap"), and a doubtful error example, replaced with one seen for real (`command not found: pytest`).
+- Glossary: 6 new terms (happy path, negative test, edge case, scope, risk, playbook). Readability: grade 2.4 to 3.3 on every page.
+
+**Open (definition of done)**
+
+- One cheat sheet image per topic (brief 7.5): to make once a few topics are written, in one style for all.
+- "Read aloud once": for the owner, when reviewing.
+
+**Next step**
+
+Topic 2: The SDET role.
+
+---
+
 ## 2026-11-15 · Phase 1.5 · Step 1.5.8: Practice App tour page, and the Phase 1.5 gate
 
 **Done**

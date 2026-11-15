@@ -38,7 +38,15 @@ nav = [
   ] },
   { "Think Like a Tester" = [
     "think-like-a-tester/index.md",
-    { "Learning a new testing area" = "think-like-a-tester/learning-a-new-testing-area/index.md" },
+    { "Learning a new testing area" = [
+      "think-like-a-tester/learning-a-new-testing-area/index.md",
+      { "How to approach a new task" = "think-like-a-tester/learning-a-new-testing-area/how-to-approach-a-new-task.md" },
+      { "The 9-step playbook" = "think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md" },
+      { "Asking the right questions" = "think-like-a-tester/learning-a-new-testing-area/asking-the-right-questions.md" },
+      { "Reading official docs fast" = "think-like-a-tester/learning-a-new-testing-area/reading-official-docs-fast.md" },
+      { "Learning from code and examples" = "think-like-a-tester/learning-a-new-testing-area/learning-from-code-and-examples.md" },
+      { "When to ask for help" = "think-like-a-tester/learning-a-new-testing-area/when-to-ask-for-help.md" },
+    ] },
     { "The SDET role" = "think-like-a-tester/the-sdet-role/index.md" },
     { "Test levels and the pyramid" = "think-like-a-tester/test-levels-and-the-pyramid/index.md" },
     { "Test design techniques" = "think-like-a-tester/test-design-techniques/index.md" },

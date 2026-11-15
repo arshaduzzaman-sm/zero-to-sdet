@@ -18,7 +18,7 @@ Before you automate anything, you need to know what to test and why. This pillar
 
     A 9-step playbook for any testing task you have never done before.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**The SDET role**](the-sdet-role/index.md)
 
