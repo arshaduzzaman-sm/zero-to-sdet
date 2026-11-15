@@ -129,7 +129,7 @@ The delivery rules, as the product owner wrote them in the story:
 
 ## When it goes wrong
 
-- **The table is huge.** 6 conditions give 64 rows, 10 give over a thousand. First, check if the rule can be split: maybe "delivery type" and "member price" are two separate rules. If it is still too big, use pairwise testing (coming later in this topic), which picks a smart, small set of combinations.
+- **The table is huge.** 6 conditions give 64 rows, 10 give over a thousand. First, check if the rule can be split: maybe "delivery type" and "member price" are two separate rules. If it is still too big, use [pairwise testing](pairwise-testing.md), which picks a smart, small set of combinations.
 - **Some rows can't happen in real life.** For example, "guest" and "member" can't both be yes. Don't delete the row silently. Mark it "impossible" with the reason, so a reader knows you thought about it.
 - **A condition isn't yes or no.** Delivery might be standard, express or pick-up. That's fine: the condition gets three values, and the table gets more rows. 3 delivery types × 2 member values × 2 order sizes = 12 rows.
 - **The product owner says "just make it work like before".** Ask them to fill one or two of the unclear rows anyway. "Before" often never had this mix, and an answer now saves a bug report later.

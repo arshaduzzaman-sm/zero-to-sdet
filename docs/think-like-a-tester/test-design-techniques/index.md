@@ -30,8 +30,12 @@ No one can test every possible input. A form with one number field already has m
 - [Boundary values](boundary-values.md): test right at the edges, where off-by-one bugs live
 - [Decision tables](decision-tables.md): when the result depends on several conditions together
 - [State transitions](state-transitions.md): for anything with a status that changes, like an order
+- [Pairwise testing](pairwise-testing.md): cover every pair of settings (browsers, devices, payments) with few tests
+- [Error guessing](error-guessing.md): try the inputs and actions that break software again and again
+- [Exploratory testing](exploratory-testing.md): focused, time-boxed sessions that find what scripts miss
+- [Checklist-based testing](checklist-based-testing.md): short checklists for web forms and APIs, so the basics are never skipped
 
-More techniques are on the way in this topic: pairwise testing, error guessing, exploratory testing, checklist-based testing, and statement and branch coverage.
+One more lesson is on the way: statement and branch coverage, which shows which lines of code your tests really run.
 
 ## 1. Understand the ask
 
@@ -99,7 +103,7 @@ python -m pytest -q
 ```
 
 ```text
-49 passed in 0.03s
+56 passed in 0.03s
 ```
 
 Then do something many people skip: break each rule on purpose, to check the tests would notice. For age, change `MIN_AGE <= age` to `MIN_AGE < age`, so an 18-year-old is refused. The group tests still pass. Only the edge test catches it:
@@ -134,7 +138,7 @@ Use the worksheets on your next real story, even a small one. After a few times,
 
 !!! question "Stuck? Try this"
     - **The story has no clear rule to work from.** Write down your best guess as a table, and ask the product owner "is this right?" People correct a wrong table much faster than they answer an open question.
-    - **There are too many combinations.** Split the rule into smaller rules first. If it is still too big, pairwise testing (coming next in this topic) picks a smart small set.
+    - **There are too many combinations.** Split the rule into smaller rules first. If it is still too big, [pairwise testing](pairwise-testing.md) picks a smart small set.
     - **You don't know which technique fits.** Ask: does one value matter at a time (groups and edges), several conditions together (decision table), or what happened before (state transitions)?
     - **The developers say "we already tested that".** Show them your table and ask which rows their tests cover. Gaps usually appear in a minute, and nobody has to argue.
 
@@ -172,12 +176,50 @@ Copy these into your own notes or project. Each file starts with a line that say
     --8<-- "modules/think_like_a_tester/test_design_techniques/templates/state_transition_worksheet.md"
     ```
 
+=== "pairwise.py"
+
+    ```python
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/pairwise.py"
+    ```
+
+=== "Error guessing checklist"
+
+    ```markdown
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/error_guessing_checklist.md"
+    ```
+
+=== "Exploratory charter"
+
+    ```markdown
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/exploratory_charter.md"
+    ```
+
+=== "Example session notes"
+
+    ```markdown
+    --8<-- "modules/think_like_a_tester/test_design_techniques/examples/session_notes_cancel_order.md"
+    ```
+
+=== "Web form checklist"
+
+    ```markdown
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/web_form_checklist.md"
+    ```
+
+=== "API endpoint checklist"
+
+    ```markdown
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/api_endpoint_checklist.md"
+    ```
+
 === "How to use them"
 
     1. Pick the worksheet that fits the rule: one value (groups and edges), several conditions (decision table), or a changing status (state transitions).
     2. Fill it from the story, word for word. Every blank you can't fill is a question for the team.
     3. Use `python boundaries.py LOW HIGH` and `python decision_table.py "A" "B" "C"` to skip the busy work.
     4. Turn each row into one test, or one row of `pytest.mark.parametrize`.
+    5. For settings like browsers and devices, run `python pairwise.py NAME=a,b NAME=c,d` to get a small set that covers every pair.
+    6. Keep the error guessing and the two checklists next to every test plan, and add your team's own bugs to them.
 
 ## Bug Hunt
 

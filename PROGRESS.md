@@ -40,6 +40,29 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 4, part B: four more techniques
+
+**Done**
+
+- Four lessons, written straight to the reader, each with "When it goes wrong":
+  - pairwise testing: 36 checkout combinations cut to 9 that cover every pair, with NIST's research on why pairs are enough;
+  - error guessing: a probe of tricky usernames found two real problems in the example rule. "José" is accepted but the Bengali name "আরশাদ" is refused (Python doesn't count the vowel sign "া" as a letter), and wide letters that look like "admin" are accepted. The lesson shows how to raise these as questions before writing tests;
+  - exploratory testing: a charter, a time box, and real session notes on order cancelling (found a misleading message for unknown actions);
+  - checklist-based testing: ready-to-use web form and API endpoint checklists, and how to keep them short.
+- New templates: `pairwise.py` (no extra packages), error guessing checklist, exploratory charter, web form checklist, API endpoint checklist. Plus an example session and a probe script.
+- 45 topic tests (was 27): pairwise covers every pair, the probe shows both open questions, every checklist has its sections.
+- 4 new glossary terms. "Exploratory testing" now points to its lesson.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Pages: Think like a tester, then Test design techniques.
+
+**Next step**
+
+Last lesson of Topic 4: statement and branch coverage. It needs the `coverage` package; waiting for the owner's yes.
+
+---
+
 ## 2026-11-16 · Phase 2 · Voice: no story characters (owner request)
 
 **Done**

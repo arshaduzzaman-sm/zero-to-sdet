@@ -40,7 +40,7 @@ def test_the_example_uses_the_boundaries_template_unchanged():
 def test_the_example_suite_passes():
     result = pytest_in(EXAMPLES)
     assert result.returncode == 0, result.stdout
-    assert "49 passed" in result.stdout
+    assert "56 passed" in result.stdout
 
 
 def test_boundaries_lists_both_sides_of_each_edge():
@@ -134,9 +134,77 @@ def test_the_tests_catch_the_bugs_shown_in_the_lessons(
         ("partitions_and_boundaries_worksheet.md", ["## Groups", "## Edges", "## Questions"]),
         ("decision_table_worksheet.md", ["## The table", "## Check the table"]),
         ("state_transition_worksheet.md", ["## The state table", "## Tests to write"]),
+        ("error_guessing_checklist.md", ["## Text", "## Actions", "## Our team's past bugs"]),
+        ("exploratory_charter.md", ["## Charter", "## Notes", "## Found", "## Wrap-up"]),
+        ("web_form_checklist.md", ["## Fields", "## Errors", "## Sending", "## Safety"]),
+        ("api_endpoint_checklist.md", ["## Bad input", "## Who can do it"]),
     ],
 )
 def test_worksheets_have_their_sections(name, sections):
     text = (TEMPLATES / name).read_text(encoding="utf-8")
     for section in sections:
         assert section in text
+
+
+def load_pairwise():
+    sys.path.insert(0, str(TEMPLATES))
+    try:
+        import pairwise
+    finally:
+        sys.path.pop(0)
+    return pairwise
+
+
+@pytest.mark.parametrize(
+    "settings",
+    [
+        {"Browser": ["Chrome", "Firefox", "Safari"], "Device": ["Desktop", "Phone"]},
+        {
+            "Browser": ["Chrome", "Firefox", "Safari"],
+            "Device": ["Desktop", "Phone"],
+            "Payment": ["Card", "PayPal", "Gift card"],
+            "Language": ["English", "Bengali"],
+        },
+        {f"S{n}": ["a", "b", "c"] for n in range(6)},
+    ],
+    ids=["two settings", "checkout", "six settings"],
+)
+def test_pairwise_covers_every_pair_with_fewer_rows(settings):
+    pairwise = load_pairwise()
+    rows = pairwise.pairwise(settings)
+    covered = set().union(*(pairwise.pairs_in(row) for row in rows))
+    assert covered == pairwise.all_pairs(settings)
+    every = 1
+    for values in settings.values():
+        every *= len(values)
+    assert len(rows) <= every
+
+
+def test_pairwise_prints_the_checkout_table():
+    result = run(
+        str(TEMPLATES / "pairwise.py"),
+        "Browser=Chrome,Firefox,Safari",
+        "Device=Desktop,Phone",
+        "Payment=Card,PayPal,Gift card",
+        "Language=English,Bengali",
+    )
+    assert result.returncode == 0
+    assert result.stdout.splitlines()[0] == "| # | Browser | Device | Payment | Language |"
+    assert "9 tests cover every pair. Every combination would be 36 tests." in result.stdout
+
+
+def test_pairwise_explains_a_bad_setting():
+    pairwise = load_pairwise()
+    with pytest.raises(ValueError, match="Expected NAME=value,value"):
+        pairwise.parse(["Browser"])
+    assert run(str(TEMPLATES / "pairwise.py")).returncode == 2
+
+
+def test_the_guesses_probe_shows_the_two_open_questions():
+    result = run("try_guesses.py")
+    assert result.returncode == 0
+    lines = {line[:32].strip(): line[32:].strip() for line in result.stdout.splitlines()}
+    assert lines["an accent"] == "accepted"
+    assert lines["a Bengali name"] == "Username can only use letters and numbers"
+    assert lines["wide letters (look like admin)"] == "accepted"
+    assert lines["emoji"] == "Username can only use letters and numbers"

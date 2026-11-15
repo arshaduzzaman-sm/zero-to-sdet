@@ -74,6 +74,11 @@ that teaches it.
 
 ## C
 
+[](){ #checklist-based-testing }**Checklist-based testing**
+:   Testing with a short list of things that must be true for every feature of one kind, like every web form.
+
+    Learn more: [Checklist-based testing](think-like-a-tester/test-design-techniques/checklist-based-testing.md)
+
 [](){ #cicd }**CI/CD (Continuous Integration and Continuous Delivery)**
 :   A setup that builds the app and runs the tests every time someone changes the code, then helps ship it.
 
@@ -138,10 +143,15 @@ that teaches it.
 
     Learn more: [Equivalence partitioning](think-like-a-tester/test-design-techniques/equivalence-partitioning.md)
 
+[](){ #error-guessing }**Error guessing**
+:   Trying the inputs and actions that often break software, like emoji, double clicks or 29 February.
+
+    Learn more: [Error guessing](think-like-a-tester/test-design-techniques/error-guessing.md)
+
 [](){ #exploratory-testing }**Exploratory testing**
 :   Testing by learning the app as you go, trying ideas and following anything that looks odd, instead of following a script.
 
-    Learn more: [Test design techniques](think-like-a-tester/test-design-techniques/index.md)
+    Learn more: [Exploratory testing](think-like-a-tester/test-design-techniques/exploratory-testing.md)
 
 ## F
 
@@ -268,6 +278,11 @@ that teaches it.
 
     Learn more: [UI automation](core-automation/ui-automation/index.md)
 
+[](){ #pairwise-testing }**Pairwise testing**
+:   Picking a small set of tests where every pair of settings, like Safari with PayPal, appears together at least once.
+
+    Learn more: [Pairwise testing](think-like-a-tester/test-design-techniques/pairwise-testing.md)
+
 [](){ #parametrize }**Parametrize**
 :   A pytest feature that runs the same test many times, once for each row of values you give it.
 
@@ -385,6 +400,11 @@ that teaches it.
 :   One check written down step by step, with the expected result, so anyone can run it the same way.
 
     Learn more: [Test cases](think-like-a-tester/test-cases/index.md)
+
+[](){ #test-charter }**Test charter**
+:   One sentence that sets the goal of an exploratory testing session. Explore something, with some idea, to find out something.
+
+    Learn more: [Exploratory testing](think-like-a-tester/test-design-techniques/exploratory-testing.md)
 
 [](){ #test-condition }**Test condition**
 :   One thing worth testing, found by reading the story. For example, "a code older than 10 minutes must not work".

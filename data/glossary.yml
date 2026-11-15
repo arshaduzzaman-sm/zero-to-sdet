@@ -86,7 +86,7 @@
 
 - term: Exploratory testing
   meaning: Testing by learning the app as you go, trying ideas and following anything that looks odd, instead of following a script.
-  page: think-like-a-tester/test-design-techniques/index.md
+  page: think-like-a-tester/test-design-techniques/exploratory-testing.md
 
 - term: Fixture
   meaning: In pytest, a small helper that gets something ready for a test, like a logged-in user, and cleans it up afterwards.
@@ -323,3 +323,19 @@
 - term: Parametrize
   meaning: A pytest feature that runs the same test many times, once for each row of values you give it.
   page: think-like-a-tester/test-design-techniques/equivalence-partitioning.md
+
+- term: Pairwise testing
+  meaning: Picking a small set of tests where every pair of settings, like Safari with PayPal, appears together at least once.
+  page: think-like-a-tester/test-design-techniques/pairwise-testing.md
+
+- term: Error guessing
+  meaning: Trying the inputs and actions that often break software, like emoji, double clicks or 29 February.
+  page: think-like-a-tester/test-design-techniques/error-guessing.md
+
+- term: Test charter
+  meaning: One sentence that sets the goal of an exploratory testing session. Explore something, with some idea, to find out something.
+  page: think-like-a-tester/test-design-techniques/exploratory-testing.md
+
+- term: Checklist-based testing
+  meaning: Testing with a short list of things that must be true for every feature of one kind, like every web form.
+  page: think-like-a-tester/test-design-techniques/checklist-based-testing.md
