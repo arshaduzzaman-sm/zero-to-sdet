@@ -1,0 +1,24 @@
+# Runs locally before every commit. Install once with: pre-commit install
+# ruff and the other checks from PROJECT_BRIEF.md step 1.12 are added later.
+minimum_pre_commit_version: "4.0.0"
+
+repos:
+  # Blocks any commit that contains a password, key or token.
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+
+  # Small safety checks that cost nothing.
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-toml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: ["--markdown-linebreak-ext=md"]

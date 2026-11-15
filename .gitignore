@@ -1,0 +1,125 @@
+# Zero to SDET: files that must never be committed.
+# See SECURITY.md (section 9 of PROJECT_BRIEF.md) for why.
+
+# ===== Secrets and personal config =====
+# Real values live in .env (never committed). Fake examples live in .env.example.
+.env
+.env.*
+!.env.example
+*.secret
+secrets/
+credentials*.json
+service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+id_rsa*
+id_ed25519*
+.netrc
+.pypirc
+local_settings.py
+*.local.ini
+*.local.toml
+*.local.yaml
+
+# ===== Private notes and drafts (keep these outside the repo; this is a safety net) =====
+private/
+notes-private/
+*.private.md
+screenshots-original/
+*-original.png
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+.eggs/
+build/
+dist/
+wheels/
+pip-wheel-metadata/
+.installed.cfg
+
+# Virtual environments
+.venv/
+.venv-*/
+venv/
+env/
+ENV/
+
+# Tool caches
+.ruff_cache/
+.mypy_cache/
+.pytype/
+.pyre/
+.hypothesis/
+.tox/
+.nox/
+.cache/
+
+# ===== Testing and reports =====
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+reports/
+report.html
+junit*.xml
+allure-results/
+allure-report/
+test-results/
+playwright-report/
+playwright/.auth/
+screenshots/failures/
+locust_*.csv
+locust_*.html
+zap-report*
+*.log
+logs/
+
+# ===== Databases and Docker data =====
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+pgdata/
+mysql-data/
+mongo-data/
+docker-data/
+docker-compose.override.yml
+compose.override.yaml
+
+# ===== Website build (Zensical) =====
+site/
+.zensical/
+
+# ===== macOS / Windows / Linux =====
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*~
+
+# ===== Editors and IDEs =====
+/.vscode/*
+!/.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.code-workspace
+
+# ===== AI assistant local settings =====
+.claude/settings.local.json
+
+# ===== Node (in case a tool needs it) =====
+node_modules/
