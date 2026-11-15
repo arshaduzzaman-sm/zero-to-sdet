@@ -157,9 +157,7 @@ class ReviewIn(BaseModel):
 
 
 class ReviewOut(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
-    id: int
+    id: str = Field(description="A number without MongoDB, a MongoDB ObjectId with it")
     product_id: int
     user_id: int
     username: str
@@ -278,3 +276,9 @@ class ClockIn(BaseModel):
 class ClockOut(BaseModel):
     now: datetime
     is_real_time: bool
+
+
+class SyncOut(BaseModel):
+    orders: int = Field(description="Orders copied to order_facts")
+    days: int = Field(description="Days in daily_sales")
+    synced_at: datetime

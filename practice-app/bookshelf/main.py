@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import re
 import uuid
+from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI, Request
 from fastapi.responses import RedirectResponse
@@ -12,9 +14,11 @@ from . import __version__, errors
 from .api import admin, auth, cart, orders, products, tools, users
 from .clock import Clock
 from .config import Settings
-from .database import prepare
+from .database import prepare, sync_reporting
 from .db import make_engine, make_sessionmaker
 from .mailer import Outbox
+from .reporting import SyncLoop
+from .reviews import MongoReviews, SqlReviews
 from .security import make_hasher
 
 SAFE_REQUEST_ID = re.compile(r"^[A-Za-z0-9._-]{1,64}$")
@@ -35,13 +39,19 @@ Every response has an `X-Request-ID` header.
 
 def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or Settings.from_env()
-    if settings.database_url.startswith("sqlite:///"):
-        from pathlib import Path
+    for url in (settings.database_url, settings.reporting_database_url):
+        if url.startswith("sqlite:///"):
+            Path(url.removeprefix("sqlite:///")).parent.mkdir(parents=True, exist_ok=True)
 
-        Path(settings.database_url.removeprefix("sqlite:///")).parent.mkdir(
-            parents=True, exist_ok=True
-        )
+    @asynccontextmanager
+    async def lifespan(app: FastAPI):
+        loop = SyncLoop(lambda: sync_reporting(app), settings.reporting_sync_seconds)
+        loop.start()
+        yield
+        loop.stop()
+
     app = FastAPI(
+        lifespan=lifespan,
         title="Bookshelf Practice App",
         version=__version__,
         description=DESCRIPTION,
@@ -52,6 +62,12 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.settings = settings
     app.state.engine = make_engine(settings.database_url)
     app.state.sessionmaker = make_sessionmaker(app.state.engine)
+    app.state.reporting_engine = make_engine(settings.reporting_database_url)
+    app.state.reporting_sessionmaker = make_sessionmaker(app.state.reporting_engine)
+    if settings.mongodb_url:
+        app.state.reviews = MongoReviews(settings.mongodb_url, settings.mongodb_database)
+    else:
+        app.state.reviews = SqlReviews(app.state.sessionmaker)
     app.state.clock = Clock()
     app.state.outbox = Outbox(settings.outbox_dir)
     app.state.hasher = make_hasher(settings.fast_password_hashing)

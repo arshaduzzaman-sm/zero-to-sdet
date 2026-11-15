@@ -17,10 +17,12 @@ from ..deps import (
     MaybeUser,
     PageNumber,
     PageSize,
+    Reviews,
     page_count,
 )
 from ..errors import ApiError, not_found
-from ..models import Category, Order, OrderItem, Product, Review, User
+from ..models import Category, Order, OrderItem, Product, User
+from ..reviews import DuplicateReviewError
 from ..schemas import (
     CategoryOut,
     Page,
@@ -54,17 +56,6 @@ ORDER_BY = {
     Sort.name: (Product.name.asc(), Product.id.asc()),
     Sort.name_desc: (Product.name.desc(), Product.id.asc()),
 }
-
-
-def rating_stats(db: Session, product_ids: list[int]) -> dict[int, tuple[float, int]]:
-    if not product_ids:
-        return {}
-    rows = db.execute(
-        select(Review.product_id, func.avg(Review.rating), func.count(Review.id))
-        .where(Review.product_id.in_(product_ids))
-        .group_by(Review.product_id)
-    )
-    return {pid: (round(float(avg), 2), count) for pid, avg, count in rows}
 
 
 def product_out(product: Product, stats: dict[int, tuple[float, int]]) -> ProductOut:
@@ -102,6 +93,7 @@ def list_categories(db: Db) -> list[Category]:
 def list_products(
     db: Db,
     user: MaybeUser,
+    reviews: Reviews,
     q: Annotated[str | None, Query(max_length=100, description=SEARCH_HELP)] = None,
     category: Annotated[str | None, Query(max_length=60, description=CATEGORY_HELP)] = None,
     min_price_cents: Annotated[int | None, Query(ge=0)] = None,
@@ -142,7 +134,7 @@ def list_products(
     products = db.scalars(
         query.order_by(*ORDER_BY[sort]).offset((page - 1) * size).limit(size)
     ).all()
-    stats = rating_stats(db, [p.id for p in products])
+    stats = reviews.stats([p.id for p in products])
     return {
         "items": [product_out(p, stats) for p in products],
         "page": page,
@@ -153,9 +145,9 @@ def list_products(
 
 
 @router.get("/products/{product_id}", response_model=ProductOut, summary="Get one product")
-def get_product(product_id: int, db: Db, user: MaybeUser) -> ProductOut:
+def get_product(product_id: int, db: Db, user: MaybeUser, reviews: Reviews) -> ProductOut:
     product = visible_product(db, product_id, user)
-    return product_out(product, rating_stats(db, [product.id]))
+    return product_out(product, reviews.stats([product.id]))
 
 
 def check_category(db: Session, category_id: int) -> None:
@@ -180,7 +172,9 @@ def create_product(body: ProductIn, _admin: AdminUser, db: Db, clock: AppClock) 
 @router.patch(
     "/products/{product_id}", response_model=ProductOut, summary="Change a product (admin)"
 )
-def update_product(product_id: int, body: ProductUpdateIn, _admin: AdminUser, db: Db) -> ProductOut:
+def update_product(
+    product_id: int, body: ProductUpdateIn, _admin: AdminUser, db: Db, reviews: Reviews
+) -> ProductOut:
     product = db.get(Product, product_id)
     if product is None:
         raise not_found("product")
@@ -191,7 +185,7 @@ def update_product(product_id: int, body: ProductUpdateIn, _admin: AdminUser, db
         setattr(product, name, value)
     db.commit()
     db.refresh(product)
-    return product_out(product, rating_stats(db, [product.id]))
+    return product_out(product, reviews.stats([product.id]))
 
 
 @router.delete(
@@ -210,15 +204,9 @@ def delete_product(product_id: int, _admin: AdminUser, db: Db) -> Response:
 @router.get(
     "/products/{product_id}/reviews", response_model=list[ReviewOut], summary="Read reviews"
 )
-def list_reviews(product_id: int, db: Db, user: MaybeUser) -> list[Review]:
+def list_reviews(product_id: int, db: Db, user: MaybeUser, reviews: Reviews) -> list[dict]:
     visible_product(db, product_id, user)
-    return list(
-        db.scalars(
-            select(Review)
-            .where(Review.product_id == product_id)
-            .order_by(Review.created_at.desc(), Review.id.desc())
-        )
-    )
+    return reviews.list_for(product_id)
 
 
 @router.post(
@@ -228,8 +216,8 @@ def list_reviews(product_id: int, db: Db, user: MaybeUser) -> list[Review]:
     summary="Review a product you bought",
 )
 def create_review(
-    product_id: int, body: ReviewIn, user: CurrentUser, db: Db, clock: AppClock
-) -> Review:
+    product_id: int, body: ReviewIn, user: CurrentUser, db: Db, clock: AppClock, reviews: Reviews
+) -> dict:
     visible_product(db, product_id, user)
     bought = db.scalar(
         select(func.count(OrderItem.order_id))
@@ -242,18 +230,19 @@ def create_review(
     )
     if not bought:
         raise ApiError(403, "NOT_A_BUYER", "You can review only products you have bought.")
-    if db.scalars(
-        select(Review).where(Review.product_id == product_id, Review.user_id == user.id)
-    ).first():
-        raise ApiError(409, "ALREADY_REVIEWED", "You have already reviewed this product.")
-    review = Review(
-        product_id=product_id,
-        user_id=user.id,
-        username=user.username,
-        rating=body.rating,
-        text=body.text.strip(),
-        created_at=clock.now(),
-    )
-    db.add(review)
-    db.commit()
-    return review
+    already = ApiError(409, "ALREADY_REVIEWED", "You have already reviewed this product.")
+    if reviews.exists(product_id, user.id):
+        raise already
+    try:
+        return reviews.add(
+            {
+                "product_id": product_id,
+                "user_id": user.id,
+                "username": user.username,
+                "rating": body.rating,
+                "text": body.text,
+                "created_at": clock.now(),
+            }
+        )
+    except DuplicateReviewError:  # two requests at the same moment
+        raise already from None

@@ -87,9 +87,16 @@ def test_clock_rules(client, login, app):
 def test_health_and_version(client):
     health = client.get("/api/health")
     assert health.status_code == 200
-    assert health.json() == {"status": "ok", "services": {"api": "up", "database": "up"}}
+    assert health.json()["status"] == "ok"
+    assert health.json()["services"] == {
+        "api": "up",
+        "main_database": "up",
+        "reporting_database": "up",
+        "reviews_database": "up",
+    }
     version = client.get("/api/version").json()
-    assert version["version"] == "1.0.0" and version["database"] == "sqlite"
+    assert version["version"] == "1.0.0"
+    assert set(version["databases"]) == {"main", "reporting", "reviews"}
 
 
 def test_every_response_has_a_request_id(client):

@@ -33,6 +33,31 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1.5 · Step 1.5.3: databases and Faker seed data
+
+**Done**
+
+- `practice-app/docker-compose.yml`: PostgreSQL 17.12 (main), MySQL 8.4.13 (reporting copy), MongoDB 8.0.38 (reviews). Images pinned to exact version and digest; ports on 127.0.0.1 only (55432, 53306, 57017); passwords from `.env` with fake defaults; health checks. Step 1.5.6 adds the app and Mailpit to it.
+- The app chooses its databases from `.env`: no settings means SQLite files (no Docker needed); the three URLs mean PostgreSQL + MySQL + MongoDB. `/api/version` says which is in use; `/api/health` shows each one up or down.
+- Reviews: one store with two backends (MongoDB collection with a unique index, or a SQL table). The API does not know which one it uses.
+- Reporting copy (`order_facts`, `daily_sales`): refreshed every 60 seconds by a background thread and on demand with `POST /api/admin/reporting/sync`. Each sync rebuilds both tables in one transaction. Checked live: a new order reached MySQL within seconds, not at once (good material for "the copy lags" lessons).
+- Faker seed: 40 customers (all `@example.com`, a few unverified) with about 65 orders in every status, coupons, payments and about 20 reviews. Fixed seed, so the same data on every computer. The fixed data lessons rely on did not change. A reset with all of it takes about 1.2 seconds.
+- Bug found by running the tests on PostgreSQL: `POST /api/admin/reset` froze, because the request's own read of the users table held a lock that `DROP TABLE` waited for. Fixed by ending that transaction first. SQLite does not lock this way, so the SQLite tests could not catch it.
+- Tests: 8 new (reporting, Faker data). All 109 app tests pass on SQLite and on the Docker databases (`BOOKSHELF_TEST_*` settings); 129 tests in the repo.
+- New packages, checked on PyPI and pinned with hashes: psycopg (binary), pymysql, pymongo, faker.
+- Mailpit's host port moves from 8025 to 58025 in DESIGN.md: 8025 is already used by another project on the owner's computer, and others may have the same clash.
+- `.env.example`, README (start with Docker, how to connect to each database) and DESIGN.md updated.
+
+**How to check**
+
+`cd practice-app && docker compose up -d`, copy `.env.example` to `.env` and remove the `#` in front of the three `*_URL` lines, then `../.venv/bin/python -m bookshelf`. `/api/version` lists postgresql, mysql and mongodb. Connect a database client to the addresses in the README.
+
+**Next step**
+
+Step 1.5.4: the web pages (Jinja2), with a `data-testid` on every element.
+
+---
+
 ## 2026-11-15 · Phase 1.5 · Step 1.5.2: Practice App API
 
 **Done**

@@ -64,7 +64,7 @@ class Product(Base):
     image_path: Mapped[str | None] = mapped_column(String(255))
     created_at: Mapped[datetime]
 
-    category: Mapped[Category] = relationship(lazy="joined")
+    category: Mapped[Category] = relationship(lazy="joined", innerjoin=True)
 
 
 class Cart(Base):
@@ -177,8 +177,8 @@ class File(Base):
 
 
 class Review(Base):
-    """Product reviews. With Docker they live in MongoDB (step 1.5.3); without Docker
-    (SQLite mode) they live in this table."""
+    """Product reviews when MongoDB is not used (no-Docker mode). With MongoDB this
+    table is not created: see reviews.py."""
 
     __tablename__ = "reviews"
     __table_args__ = (UniqueConstraint("product_id", "user_id"),)

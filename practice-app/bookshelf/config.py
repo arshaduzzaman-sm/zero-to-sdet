@@ -32,7 +32,18 @@ def read_env_file(path: Path) -> dict[str, str]:
 
 @dataclass
 class Settings:
+    # Main database. Without Docker: a SQLite file. With Docker: PostgreSQL.
     database_url: str = f"sqlite:///{DATA_DIR / 'bookshelf.db'}"
+    # Reporting copy (order_facts, daily_sales). Without Docker: a second SQLite file.
+    reporting_database_url: str = f"sqlite:///{DATA_DIR / 'reporting.db'}"
+    # Reviews. Empty: a `reviews` table in the main database. With Docker: MongoDB.
+    mongodb_url: str = ""
+    mongodb_database: str = "bookshelf"
+    # How often the reporting copy is refreshed, in seconds (0: only when an admin asks).
+    reporting_sync_seconds: int = 60
+    # Extra Faker customers (each with a few orders and reviews) in the seed data.
+    fake_customers: int = 40
+    faker_seed: int = 2026
     # Signs login tokens and OTP codes. Random on every start unless set in .env.
     secret_key: str = field(default_factory=lambda: secrets.token_urlsafe(32))
     token_minutes: int = 30
@@ -56,6 +67,9 @@ class Settings:
         settings = cls()
         text = {
             "DATABASE_URL": "database_url",
+            "REPORTING_DATABASE_URL": "reporting_database_url",
+            "MONGODB_URL": "mongodb_url",
+            "MONGODB_DATABASE": "mongodb_database",
             "SECRET_KEY": "secret_key",
             "HOST": "host",
             "SEED_CUSTOMER_PASSWORD": "seed_customer_password",
@@ -64,6 +78,12 @@ class Settings:
         for key, name in text.items():
             if env.get(key):
                 setattr(settings, name, env[key])
+        for key, name in (
+            ("REPORTING_SYNC_SECONDS", "reporting_sync_seconds"),
+            ("FAKE_CUSTOMERS", "fake_customers"),
+        ):
+            if env.get(key):
+                setattr(settings, name, int(env[key]))
         if env.get("PORT"):
             settings.port = int(env["PORT"])
         if env.get("TOKEN_MINUTES"):
@@ -75,5 +95,14 @@ class Settings:
         return settings
 
     @property
-    def database_kind(self) -> str:
-        return self.database_url.split(":", 1)[0].split("+", 1)[0]
+    def database_kinds(self) -> dict[str, str]:
+        """Which database does each job, e.g. {"main": "postgresql", ...}."""
+
+        def kind(url: str) -> str:
+            return url.split(":", 1)[0].split("+", 1)[0]
+
+        return {
+            "main": kind(self.database_url),
+            "reporting": kind(self.reporting_database_url),
+            "reviews": "mongodb" if self.mongodb_url else kind(self.database_url),
+        }

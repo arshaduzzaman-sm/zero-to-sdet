@@ -1,0 +1,66 @@
+# The Practice App's databases. For practice on your own computer only.
+#
+#   docker compose up -d      start (first time: downloads the images)
+#   docker compose down       stop (your data stays)
+#   docker compose down -v    stop and delete all data
+#
+# Every port listens on 127.0.0.1 only, so other computers cannot reach it.
+# Passwords come from .env (copy .env.example); the defaults are fake.
+# Images are pinned to an exact version and digest, so they never change by surprise.
+# Step 1.5.6 adds the app itself and Mailpit to this file.
+
+name: bookshelf
+
+services:
+  postgres:
+    image: postgres:17.12@sha256:0d938e975177bef9f1f61f3f9dbcf2e0aa0a139568f66d3415ed8892eb97f6ac
+    environment:
+      POSTGRES_DB: bookshelf
+      POSTGRES_USER: bookshelf
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local_only_password}
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bookshelf -d bookshelf"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  mysql:
+    image: mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902
+    environment:
+      MYSQL_DATABASE: reporting
+      MYSQL_USER: bookshelf
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-local_only_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-local_only_root_password}
+    ports:
+      - "127.0.0.1:53306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u bookshelf -p$$MYSQL_PASSWORD --silent"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+
+  mongo:
+    image: mongo:8.0.38@sha256:d97fea17ccb8d004cd137be8dab54d70d0df11be69c9f422aefe4484c8414ab7
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: bookshelf
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-local_only_password}
+    ports:
+      - "127.0.0.1:57017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  postgres-data:
+  mysql-data:
+  mongo-data:

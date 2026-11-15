@@ -1,15 +1,25 @@
 """The starting data. It is the same on every start and after every reset, so
 lessons can say "log in as arshad" or "product 4 has only 3 left".
 
-All of it is fake. Step 1.5.3 adds more customers and orders made with Faker
-(with a fixed random seed, so they are the same every time too).
+Two parts, all fake:
+1. Fixed data written out below: 3 users, 3 categories, 13 products, 3 coupons,
+   2 delivered orders with reviews. Lessons rely on these exact values.
+2. Faker data: 40 more customers (FAKE_CUSTOMERS) with orders and reviews, for
+   lessons that need volume (search, pages, reports, performance). Faker and
+   the random choices use a fixed seed (FAKER_SEED), so this data is also the
+   same on every computer. Emails are always @example.com.
+
+Seeded orders are history: they do not change the product stock.
 """
 
 from __future__ import annotations
 
+import random
+import re
 from datetime import UTC, datetime, timedelta
 
 from argon2 import PasswordHasher
+from faker import Faker
 from sqlalchemy.orm import Session
 
 from . import money
@@ -17,13 +27,14 @@ from .config import Settings
 from .models import (
     Category,
     Coupon,
+    CouponUse,
     Order,
     OrderItem,
     Payment,
     Product,
-    Review,
     User,
 )
+from .reviews import ReviewStore
 
 START = datetime(2026, 1, 1, 9, 0, tzinfo=UTC)
 
@@ -86,7 +97,9 @@ ORDERS = [
 ]  # fmt: skip
 
 
-def seed(session: Session, settings: Settings, hasher: PasswordHasher) -> None:
+def seed(
+    session: Session, settings: Settings, hasher: PasswordHasher, reviews: ReviewStore
+) -> None:
     categories = {slug: Category(name=name, slug=slug) for name, slug in CATEGORIES}
     session.add_all(categories.values())
 
@@ -121,12 +134,14 @@ def seed(session: Session, settings: Settings, hasher: PasswordHasher) -> None:
         )
     session.add_all(users.values())
 
-    for code, kind, value, ends_at, once in COUPONS:
-        session.add(
-            Coupon(code=code, kind=kind, value=value, ends_at=ends_at, once_per_customer=once)
-        )
+    coupons = {
+        code: Coupon(code=code, kind=kind, value=value, ends_at=ends_at, once_per_customer=once)
+        for code, kind, value, ends_at, once in COUPONS
+    }
+    session.add_all(coupons.values())
     session.flush()
 
+    review_docs = []
     for username, lines, status, created_at, review in ORDERS:
         user = users[username]
         subtotal = sum(products[sku].price_cents * quantity for sku, quantity in lines)
@@ -160,14 +175,147 @@ def seed(session: Session, settings: Settings, hasher: PasswordHasher) -> None:
             )
         )
         rating, text = review
-        session.add(
-            Review(
-                product_id=products[lines[0][0]].id,
-                user_id=user.id,
-                username=user.username,
-                rating=rating,
-                text=text,
-                created_at=created_at + timedelta(days=5),
-            )
+        review_docs.append(
+            {
+                "product_id": products[lines[0][0]].id,
+                "user_id": user.id,
+                "username": user.username,
+                "rating": rating,
+                "text": text,
+                "created_at": created_at + timedelta(days=5),
+            }
         )
+
+    if settings.fake_customers > 0:
+        review_docs += add_fake_customers(session, settings, hasher, products, coupons)
     session.commit()
+    reviews.add_many(review_docs)
+
+
+# ----- Faker data -----
+
+FAKER_LOCALES = ["en_US", "en_GB", "en_IN", "es_ES"]
+LAST_DAY = datetime(2026, 10, 31, 23, 0, tzinfo=UTC)  # fixed, so the data never changes
+STATUS_WEIGHTS = {"delivered": 50, "shipped": 15, "paid": 15, "cancelled": 10, "pending": 10}
+REVIEW_TEXT = {
+    1: ["Not what I expected.", "The pages came loose after a week."],
+    2: ["Too basic for me.", "Some examples did not work."],
+    3: ["Okay, but a bit long.", "Useful in parts."],
+    4: ["Good value.", "Helped me a lot at work.", "Clear and practical."],
+    5: ["Excellent, I use it every day.", "The best one I have bought.", "Easy to follow."],
+}
+
+
+def fake_username(fake: Faker, taken: set[str]) -> str:
+    base = re.sub(r"[^a-z0-9_]", "", fake.user_name().lower())[:16] or "user"
+    base = base if len(base) >= 3 else f"{base}_user"
+    name, number = base, 1
+    while name in taken:
+        number += 1
+        name = f"{base}{number}"
+    taken.add(name)
+    return name
+
+
+def random_time(rng: random.Random, start: datetime, end: datetime) -> datetime:
+    seconds = max(0, int((end - start).total_seconds()))
+    return (start + timedelta(seconds=rng.randint(0, seconds))).replace(microsecond=0)
+
+
+def add_fake_customers(
+    session: Session,
+    settings: Settings,
+    hasher: PasswordHasher,
+    products: dict[str, Product],
+    coupons: dict[str, Coupon],
+) -> list[dict]:
+    fake = Faker(FAKER_LOCALES)
+    fake.seed_instance(settings.faker_seed)
+    rng = random.Random(settings.faker_seed)  # noqa: S311  (fake data, not security)
+    taken = {username for username, *_ in USERS}
+    for_sale = [product for product in products.values() if product.is_active]
+    statuses, weights = list(STATUS_WEIGHTS), list(STATUS_WEIGHTS.values())
+    review_docs = []
+
+    for _ in range(settings.fake_customers):
+        username = fake_username(fake, taken)
+        joined = random_time(rng, START, LAST_DAY - timedelta(days=30))
+        user = User(
+            username=username,
+            email=f"{username}@example.com",
+            full_name=fake.name(),
+            password_hash=hasher.hash(settings.seed_customer_password),
+            role="customer",
+            is_verified=rng.random() < 0.9,  # a few never finished signing up
+            shipping_address=fake.address().replace("\n", ", ")[:300],
+            created_at=joined,
+        )
+        session.add(user)
+        session.flush()
+        if not user.is_verified:
+            continue
+
+        used_welcome = False
+        reviewed: set[int] = set()
+        for _ in range(rng.randint(0, 4)):
+            created_at = random_time(rng, joined, LAST_DAY)
+            status = rng.choices(statuses, weights)[0]
+            lines = [(p, rng.randint(1, 3)) for p in rng.sample(for_sale, rng.randint(1, 3))]
+            coupon = None
+            if not used_welcome and rng.random() < 0.15:
+                coupon, used_welcome = coupons["WELCOME10"], True
+            elif rng.random() < 0.1:
+                coupon = coupons["FREESHIP"]
+            subtotal = sum(product.price_cents * quantity for product, quantity in lines)
+            totals = money.calculate(subtotal, coupon.kind if coupon else None,
+                                     coupon.value if coupon else 0)  # fmt: skip
+            moved_days = {"shipped": 2, "delivered": 5, "cancelled": 1}.get(status, 0)
+            order = Order(
+                user_id=user.id,
+                status=status,
+                coupon_code=coupon.code if coupon else None,
+                shipping_address=user.shipping_address,
+                created_at=created_at,
+                updated_at=created_at + timedelta(days=moved_days),
+                **totals.as_dict(),
+            )
+            order.items = [
+                OrderItem(product_id=p.id, quantity=q, unit_price_cents=p.price_cents)
+                for p, q in lines
+            ]
+            session.add(order)
+            session.flush()
+            payment_status = {"pending": "declined", "cancelled": "refunded"}.get(
+                status, "succeeded"
+            )
+            session.add(
+                Payment(
+                    order_id=order.id,
+                    card_last4="0002" if payment_status == "declined" else "4242",
+                    status=payment_status,
+                    amount_cents=totals.total_cents,
+                    sandbox_ref=f"sbx_seed_{order.id:04d}",
+                    created_at=created_at,
+                )
+            )
+            if coupon is not None and status != "pending":
+                session.add(CouponUse(coupon_id=coupon.id, user_id=user.id, order_id=order.id))
+
+            if status != "delivered":
+                continue
+            for product, _quantity in lines:
+                if product.id in reviewed or rng.random() > 0.4:
+                    continue
+                reviewed.add(product.id)
+                rating = rng.choices([1, 2, 3, 4, 5], [1, 1, 3, 6, 8])[0]
+                review_docs.append(
+                    {
+                        "product_id": product.id,
+                        "user_id": user.id,
+                        "username": user.username,
+                        "rating": rating,
+                        "text": rng.choice(REVIEW_TEXT[rating]),
+                        "created_at": order.updated_at + timedelta(days=rng.randint(1, 20)),
+                    }
+                )
+    return review_docs

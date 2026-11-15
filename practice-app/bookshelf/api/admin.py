@@ -7,11 +7,11 @@ from typing import Annotated, Literal
 from fastapi import APIRouter, Query, Request
 from sqlalchemy import func, select
 
-from ..database import reset_data
+from ..database import reset_data, sync_reporting
 from ..deps import AdminUser, AppClock, AppSettings, Db, PageNumber, PageSize, page_count
 from ..errors import ApiError
 from ..models import Order
-from ..schemas import ClockIn, ClockOut, Message, OrderOut, OrderStatusIn, Page
+from ..schemas import ClockIn, ClockOut, Message, OrderOut, OrderStatusIn, Page, SyncOut
 from .orders import order_out
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
@@ -65,12 +65,24 @@ def change_status(
 
 
 @router.post("/reset", response_model=Message, summary="Put all data back to the start")
-def reset(_admin: AdminUser, request: Request, clock: AppClock) -> Message:
+def reset(_admin: AdminUser, db: Db, request: Request, clock: AppClock) -> Message:
     """Deletes everything (new accounts, carts, orders, reviews) and loads the seed
     data again. The clock goes back to real time."""
+    # This request already read the users table (to check the admin). On PostgreSQL
+    # and MySQL that read holds a lock until the transaction ends, and DROP TABLE
+    # would wait for it forever. So end this request's transaction first.
+    db.rollback()
+    db.close()
     reset_data(request.app)
     clock.reset()
     return Message(message="All data is back to the start.")
+
+
+@router.post("/reporting/sync", response_model=SyncOut, summary="Refresh the reporting copy now")
+def reporting_sync(_admin: AdminUser, request: Request) -> dict:
+    """Copies every order into the reporting database (order_facts, daily_sales).
+    It also runs by itself every minute."""
+    return sync_reporting(request.app)
 
 
 def clock_allowed(settings) -> None:

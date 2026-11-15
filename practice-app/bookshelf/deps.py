@@ -16,6 +16,7 @@ from .config import Settings
 from .errors import ApiError
 from .mailer import Outbox
 from .models import User
+from .reviews import ReviewStore
 from .security import read_token
 
 bearer = HTTPBearer(
@@ -44,11 +45,16 @@ def get_hasher(request: Request) -> PasswordHasher:
     return request.app.state.hasher
 
 
+def get_reviews(request: Request) -> ReviewStore:
+    return request.app.state.reviews
+
+
 Db = Annotated[Session, Depends(get_db)]
 AppSettings = Annotated[Settings, Depends(get_settings)]
 AppClock = Annotated[Clock, Depends(get_clock)]
 AppOutbox = Annotated[Outbox, Depends(get_outbox)]
 Hasher = Annotated[PasswordHasher, Depends(get_hasher)]
+Reviews = Annotated[ReviewStore, Depends(get_reviews)]
 Credentials = Annotated[HTTPAuthorizationCredentials | None, Depends(bearer)]
 
 NOT_LOGGED_IN = {"WWW-Authenticate": "Bearer"}

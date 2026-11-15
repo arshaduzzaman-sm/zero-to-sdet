@@ -89,8 +89,8 @@ as real requirements to design tests from.
 ### For testers (built in on purpose)
 
 - **API docs** at `/docs` (Swagger UI) and `/openapi.json`.
-- **Health page** at `/status` (and `/api/health` as JSON): API, PostgreSQL,
-  MySQL, MongoDB and Mailpit each show up or down.
+- **Health page** at `/status` (and `/api/health` as JSON): the API, the main,
+  reporting and reviews databases, and Mailpit each show up or down.
 - **Version** at `/api/version` and in the page footer. Each lesson names the
   app version it was written for.
 - **Stable test hooks:** every button, field and message on the web page has a
@@ -131,8 +131,9 @@ flowchart LR
 | Start | `docker compose up` | One command on macOS, Windows and Linux |
 
 Host ports avoid the usual defaults, so the app never clashes with a database
-you already run: API `8080`, Mailpit `8025`, PostgreSQL `55432`, MySQL `53306`,
-MongoDB `57017`. Everything binds to `127.0.0.1`.
+you already run: API `8080`, Mailpit `58025`, PostgreSQL `55432`, MySQL `53306`,
+MongoDB `57017`. Everything binds to `127.0.0.1`. Images are pinned to an exact
+version and digest: PostgreSQL 17.12, MySQL 8.4.13, MongoDB 8.0.38.
 
 ## 4. Data model
 
@@ -262,6 +263,11 @@ erDiagram
 
 In SQLite mode (no Docker) the reviews live in a `reviews` table instead of MongoDB.
 
+**Seed data:** fixed rows that lessons rely on (3 users, 3 categories, 13
+products, 3 coupons, 2 delivered orders), plus 40 Faker customers with about 65
+orders and 20 reviews. Faker and the random choices use a fixed seed, so the data
+is the same on every computer. Seeded orders are history: they do not change stock.
+
 Money is stored as whole **cents** (`price_cents = 1299` means 12.99), so sums
 never have rounding errors. Times are stored in **UTC** and shown in the
 browser's time zone.
@@ -271,7 +277,11 @@ browser's time zone.
 | Table | Columns | Filled by |
 | --- | --- | --- |
 | `order_facts` | `order_id`, `customer_email`, `status`, `item_count`, `total_cents`, `created_at`, `synced_at` | Reporting sync (every minute, or on demand) |
-| `daily_sales` | `sales_date`, `orders_count`, `revenue_cents` | Reporting sync |
+| `daily_sales` | `sales_date`, `orders_count`, `revenue_cents` (paid, shipped and delivered orders only) | Reporting sync |
+
+Each sync rebuilds both tables in one transaction, so a reader never sees half a
+sync. Between syncs the copy is behind the main database: tests must sync or wait.
+Without Docker, the reporting copy is a second SQLite file.
 
 ### MongoDB (reviews)
 
