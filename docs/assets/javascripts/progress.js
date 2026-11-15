@@ -8,8 +8,8 @@
  * - Lesson pages: a "Mark as done" button at the end ([data-zts-done]).
  * - Every page: links to finished lessons get a check mark (menu, cards, lists).
  * - Learning Path: "X of Y lessons done" under each path ([data-zts-path]).
- * - Skills Matrix: the boxes can be ticked; a summary shows each level and the
- *   next skill to learn ([data-zts-matrix]).
+ * - Skills Matrix: the boxes can be ticked; a summary shows each area and the
+ *   next skill to learn ([data-zts-matrix]). Every h2 with ticks is an area.
  * - Section overviews: "X of Y topics done", and when every topic is done, a
  *   short message the reader can edit and share (no pop-ups).
  *
@@ -19,7 +19,6 @@
   "use strict";
 
   var KEY = "zts-progress-v1";
-  var LEVEL_NAMES = /^(Junior|Mid-level|Senior|Lead)\b|^At every level/;
 
   // ---------------------------------------------------------------- storage
 
@@ -152,12 +151,14 @@
     article.querySelectorAll("h2, .task-list-item").forEach(function (node) {
       if (node.tagName === "H2") {
         var name = node.textContent.replace("¶", "").trim();
-        current = LEVEL_NAMES.test(name) ? { name: name, heading: node, items: [] } : null;
-        if (current) levels.push(current);
+        current = { name: name, heading: node, items: [] };
+        levels.push(current);
       } else if (current) {
         current.items.push(node);
       }
     });
+
+    levels = levels.filter(function (level) { return level.items.length > 0; });
 
     levels.forEach(function (level) {
       level.items.forEach(function (item) {

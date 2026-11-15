@@ -30,7 +30,7 @@ import build_reference  # same folder; the list of allowed tags
 
 DOCS = build_nav.DOCS
 MODULES = Path("modules")
-LEVELS = ["Beginner", "Intermediate", "Advanced", "Senior"]
+LEVELS = ["Beginner", "Intermediate", "Advanced"]
 SLUG = re.compile(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$")
 CODE_FOLDERS = ["templates", "examples", "exercises", "solutions", "tests"]
 

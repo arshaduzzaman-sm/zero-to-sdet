@@ -8,7 +8,7 @@ tags:
   - Practice App
 nav_title: "Capstone project"
 order: 130
-group: "Senior skills"
+group: "Building and leading"
 summary: "Build a full framework against the Practice App, from API to CI."
 ---
 

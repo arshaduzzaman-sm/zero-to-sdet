@@ -8,7 +8,7 @@ tags:
 nav_title: "Career roadmap"
 order: 140
 group: "Your career"
-summary: "What junior, mid, senior and lead SDETs know and do."
+summary: "How an SDET career grows, and what each next step asks of you."
 ---
 
 # Career roadmap
@@ -18,7 +18,7 @@ summary: "What junior, mid, senior and lead SDETs know and do."
 
 ## What you will learn
 
-- Junior, mid, senior, lead: what each level knows and does
+- How the work changes as you grow, and what each next step asks of you
 - Which languages job ads ask for, and reading a little TypeScript and Java
 
 ## Templates you will get

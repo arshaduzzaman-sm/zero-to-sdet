@@ -43,7 +43,7 @@ All content is in **simple, clear English**.
 | Project name | **Zero to SDET** |
 | Repository name | `zero-to-sdet`: a **new** repository created fresh in Phase 0 (see section 3A) |
 | Site title | **Zero to SDET — Everything you need to become a professional SDET** |
-| Tagline | *From your first test to senior level, step by step. Hands-on with Python, real templates, free.* |
+| Tagline | *Learn software testing and test automation, step by step. Real templates and code you can use at work. Free.* (changed 2026-11-16: no level words) |
 | GitHub topics | `sdet`, `sdet-roadmap`, `qa-to-sdet`, `test-automation`, `python`, `pytest`, `api-testing`, `bdd`, `qa` |
 
 Use the name and tagline consistently in `zensical.toml`, the README, the home page, the social preview image and the About page.
@@ -58,12 +58,18 @@ I am the **only author**. My name appears on the site (see section 10).
 
 | Reader | What they need |
 | --- | --- |
-| Manual tester moving to automation | A clear path, simple words, templates to copy |
-| Junior SDET (0–2 years) | Real-world patterns, frameworks, debugging, team workflow |
-| Mid-level SDET | Advanced topics: contract, performance, security, multi-database |
-| Senior / lead SDET | Test architecture, quality strategy, mentoring, leading quality |
+| Someone who has never tested | Simple words, every step shown, what to do when stuck |
+| Manual tester moving to automation | A clear path, templates to copy |
+| Engineer who already automates | Real-world patterns, frameworks, debugging, team workflow, advanced topics |
+| Engineer who leads quality | Test architecture, quality strategy, mentoring, leading quality |
 | Job seeker | Interview prep, portfolio project, career roadmap |
 | Anyone at work with a task today | The one page that solves their problem right now |
+
+**For everyone (owner decision, 2026-11-16).** The site never sorts readers into levels. Phrases like "zero to mid level", "junior to mid-level" or "first test to senior level" are not used anywhere: in taglines, the home page, the Learning Path or the Skills Matrix (which is grouped by skill area, not by level). Each page must answer the question of someone who has never tested, of an engineer stuck on a task today, and of an experienced engineer looking for a template.
+
+**Real templates (owner decision, 2026-11-16).** Templates are the scripts, code snippets, checklists and plans people really use at work, ready to copy and adapt. No toy exercises. Every topic also covers what to do when stuck, how to plan, and what to do at each stage.
+
+**The author's note (owner decision, 2026-11-16).** Home (short) and About (full) carry the author's note: the content comes from the author's own work and from what many people have shared online; the author gathered it in one place, in plain words, and thanks them.
 
 ### Core idea 1: learn it on the job
 
@@ -276,7 +282,8 @@ A small online shop built for testing, in `practice-app/`. **Every topic tests t
 - **Running it online:** GitHub Codespaces only (owner decision, 2026-11-15). A "Open in Codespaces" button gives each learner their own private copy of the whole app in the cloud, with nothing to install. The app is never hosted on a shared public server, and GitHub Pages hosts only the lesson site (it cannot run the app).
 - **Data:** fake only, seeded with Faker. Passwords are clearly fake (for example `local_only_password`), loaded from `.env`. Every service binds to `localhost` only.
 - **Planted bugs:** about 30 deliberate bugs across API, database, UI, security and performance, added over time: a starter set in Phase 1.5, the rest when the topic that needs them is written. Each topic ends with a **"Bug Hunt"**: the reader finds the bugs and writes bug reports. Answers sit on a separate solutions page, folded by default.
-- **The lessons come first (owner decision, 2026-11-15).** The site is the main product; the app is a helper. After Phase 1.5 the app only changes when a lesson needs it. Many readers will never run the app, so every lesson must teach fully from the page alone (section 7.3).
+- **The pages are the product (owner decisions, 2026-11-15 and 2026-11-16).** Running the app means downloading the repository and starting it locally, so most readers never will. Lessons use real job situations as examples and show every output on the page. The app appears only in an optional "Try it on the Practice App" box.
+- **Earlier wording (2026-11-15):** The site is the main product; the app is a helper. After Phase 1.5 the app only changes when a lesson needs it. Many readers will never run the app, so every lesson must teach fully from the page alone (section 7.3).
 - **Versioned:** each lesson names the app version it uses, so updates never break old pages.
 
 ---
@@ -290,7 +297,7 @@ Every topic's `index.md` is a playbook for someone doing this for the first time
 1. **Understand the ask.** Questions to ask your lead on day one: what system, why now, what "done" means, deadline, environments, access.
 2. **Picture the system.** A simple diagram of what you are testing and where the data flows.
 3. **Learn just enough.** A 30–60 minute reading path through the official docs, in order, with what to skip for now.
-4. **Get something running.** Copy the topic's template and run a first test against the Practice App within an hour.
+4. **Get something running.** Copy the topic's template and get a first result in the reader's own project within an hour (the Practice App is an optional place to try it).
 5. **Decide what to test.** Test ideas specific to this area, sorted by risk, using the test design techniques.
 6. **Write a one-page plan** with the test plan template, and share it before building.
 7. **Build in small steps.** Smoke test, then happy path, then negative cases, then edge cases.
@@ -311,7 +318,7 @@ Each playbook also has a **"How an experienced SDET thinks about this"** box, a 
 8. The template: code tabs (code · how to run · expected output), pulled from `modules/`.
 9. **"Common mistakes"** box.
 10. **"If you see this error"** box: the real error text and the fix.
-11. **"Try it yourself":** an exercise against the Practice App, with the solution in a collapsed block.
+11. **"Try it yourself":** an exercise from a real job situation, with the solution (and its result) in a collapsed block.
 12. **Quick check:** three questions.
 13. **References:** every source used, plus the tool version the page was written for and the date the links were last checked.
 14. Footer: previous / next, "Edit this page on GitHub", comments, feedback widget, author line.
@@ -323,7 +330,7 @@ Each playbook also has a **"How an experienced SDET thinks about this"** box, a 
 - One new idea at a time. If a page needs three new ideas, it becomes three pages.
 - After every few steps, a **"Check: you should now see…"** line with a screenshot.
 - When something can go wrong, show the real error and the fix.
-- **Learn from the page alone (owner decision, 2026-11-15).** A reader who never installs or runs anything must still learn everything: every command, request and click is followed by its real output or a screenshot on the page, and every exercise solution shows the result too. Running the Practice App is the best way to practise, never a requirement to understand.
+- **Learn from the page alone (owner decision, 2026-11-15).** A reader who never installs or runs anything must still learn everything: every command, request and click is followed by its real output or a screenshot on the page, and every exercise solution shows the result too. Running the Practice App is an optional way to practise, never a requirement to understand.
 
 ### 7.4 Install and setup steps (every tool)
 
@@ -512,7 +519,7 @@ People share things that make them look good or genuinely help someone else. Nev
 Topics and lessons added on 2026-11-15 from the skills matrix gap check (step 0.6) are marked *(added 0.6)*.
 Pillar 6, AI-Powered QA, was added by the owner on 2026-11-15 (11 topics; the old Pillar 3 topic "AI in testing" moved into it).
 
-Each row is one topic folder. Its lessons become pages; its templates become files in `modules/`. Every topic uses the Practice App where possible.
+Each row is one topic folder. Its lessons become pages; its templates become files in `modules/`. Examples come from real job situations; the Practice App is optional (owner decision, 2026-11-16).
 
 ### Start Here
 
@@ -528,7 +535,7 @@ Each row is one topic folder. Its lessons become pages; its templates become fil
 | Topic | Lessons | Templates |
 | --- | --- | --- |
 | Learning a new testing area | How to approach a task you have never done; the 9-step playbook; asking the right questions; reading official docs fast; learning from source code and examples; when to ask for help | Day-one questions checklist; one-page test plan; learning log |
-| The SDET role | What an SDET does; SDET vs QA vs developer; skills map; the seven testing principles *(added 0.6)*; the test process and testware *(added 0.6)* | Skills self-assessment |
+| The SDET role | What an SDET does; SDET vs QA vs developer; skills map; the seven testing principles *(added 0.6)*; the test process and testware *(added 0.6)* | New team onboarding checklist; 30-60-90 day plan; automation readiness checklist *(changed 2026-11-16)* |
 | Test levels and the pyramid | Unit, integration, API, UI, end-to-end; the test pyramid; the testing trophy; non-functional test types: performance, usability, compatibility, reliability *(added 0.6)* | Test level decision chart |
 | Test design techniques | Equivalence partitioning; boundary values; decision tables; state transitions; pairwise; error guessing; exploratory testing; checklist-based testing *(added 0.6)*; white-box testing: statement and branch coverage *(added 0.6)* | Worksheet per technique; pairwise generator; coverage example |
 | Static testing and reviews *(added 0.6)* | What static testing is; reviewing requirements and user stories; finding ambiguity and missing cases; review types (informal, walkthrough, inspection); static analysis tools | Requirements review checklist; user story review worksheet |

@@ -1,7 +1,7 @@
 ---
 title: "The Professional SDET: Teamwork, Releases, Career and Leadership"
 description: "How SDETs work in real teams: Agile, Git, releases, incidents, metrics, clean code, interviews and leading quality."
-updated: "2026-11-15"
+updated: "2026-11-16"
 nav_title: "Professional SDET"
 order: 60
 ---
@@ -84,7 +84,7 @@ Knowing tools is half the job. This pillar covers how SDETs work with people: in
 
 </div>
 
-## Senior skills
+## Building and leading
 
 <div class="grid cards zts-topics" markdown>
 
@@ -94,11 +94,11 @@ Knowing tools is half the job. This pillar covers how SDETs work with people: in
 
     <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
 
--   [**Leading quality (senior level)**](leading-quality/index.md)
+-   [**Leading quality**](leading-quality/index.md)
 
     Design test architecture, choose tools and lead quality for a team.
 
-    <span class="zts-chip">Senior</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Advanced</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
 
 -   [**Capstone project**](capstone-project/index.md)
 
@@ -114,7 +114,7 @@ Knowing tools is half the job. This pillar covers how SDETs work with people: in
 
 -   [**Career roadmap**](career-roadmap/index.md)
 
-    What junior, mid, senior and lead SDETs know and do.
+    How an SDET career grows, and what each next step asks of you.
 
     <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
 

@@ -1,5 +1,5 @@
 ---
-title: "Zero to SDET: Learn Test Automation from Your First Test to Senior Level"
+title: "Zero to SDET: Learn Software Testing and Test Automation, Step by Step"
 description: "Free, step-by-step SDET course with Python. Learn API, database, UI, BDD and performance testing with real templates you can copy."
 hide:
   - navigation
@@ -8,7 +8,7 @@ hide:
   - author
   - feedback
   - path
-updated: "2026-11-15"
+updated: "2026-11-16"
 ---
 
 <div class="zts-hero" markdown>
@@ -17,9 +17,9 @@ updated: "2026-11-15"
 
 # Zero to SDET
 
-<p class="zts-hero__lead">Everything you need to become a professional SDET.</p>
+<p class="zts-hero__lead">Everything you need to test software well, in one place.</p>
 
-<p class="zts-hero__sub">From your first test to senior level, step by step. Hands-on with Python, real templates, free.</p>
+<p class="zts-hero__sub">Learn software testing and test automation, step by step. Real templates and code you can use at work. Free.</p>
 
 [Start learning](start-here/index.md){ .md-button .md-button--primary }
 [:fontawesome-brands-github: Star on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet){ .md-button }
@@ -121,21 +121,21 @@ Not sure where to begin? Choose the one that sounds most like you. Each path lis
 
     [See the manual tester path](learning-path.md#manual-tester-to-automation)
 
--   :lucide-trending-up:{ .lg .middle } **Junior to mid-level**
+-   :lucide-trending-up:{ .lg .middle } **Build a whole test suite**
 
     ---
 
     You can write tests. Now build whole frameworks, run them in CI, and test databases and BDD.
 
-    [See the junior path](learning-path.md#junior-to-mid-level)
+    [See the test suite path](learning-path.md#build-a-whole-test-suite)
 
--   :lucide-mountain:{ .lg .middle } **Mid-level to senior**
+-   :lucide-mountain:{ .lg .middle } **Design how a team tests**
 
     ---
 
     Design test systems, test at scale, and lead quality for a team.
 
-    [See the senior path](learning-path.md#mid-level-to-senior)
+    [See the team path](learning-path.md#design-how-a-team-tests)
 
 -   :lucide-calendar-check:{ .lg .middle } **Interview prep in 4 weeks**
 
@@ -149,7 +149,7 @@ Not sure where to begin? Choose the one that sounds most like you. Each path lis
 
 Not sure what you already know? Open the [Skills Matrix](start-here/skills-matrix.md), tick what you can do, and the first empty box is your next lesson.
 
-## The route, from first test to senior
+## The route
 
 The site follows six stages. Go in order, or jump to the one you need today.
 
@@ -193,7 +193,11 @@ Every lesson follows the same pattern, so you always know what comes next.
 4. **Common mistakes.** The errors people hit, and how to fix them.
 5. **Try it yourself.** A small exercise, with the answer hidden until you want it.
 
-All practice happens on the **Practice App**, a small online shop built for testing, so you never touch a real company's system.
+The examples come from real work: the tasks, plans, code and checklists people use in testing jobs every day. You can read and learn without installing anything. If you want a safe place to practise, the [Practice App](start-here/practice-app-tour/index.md) is a small online shop built for testing.
+
+## Why I made this
+
+Everything on this site comes from my own work as a tester and from what many generous people have shared online. I gathered it in one place, in order and in plain words, so that anyone can learn from it. You can read [the full note](about.md#why-i-made-this) on the About page.
 
 <div class="zts-cta" markdown>
 

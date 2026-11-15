@@ -23,7 +23,7 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:api" title="Testing the requests and answers that apps send to each other.">API <span class="zts-tag__count">7</span></a>
 <a class="zts-tag" href="#tag:bdd" title="Writing tests as plain English examples that everyone can read.">BDD <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:bug-reports" title="Writing bug reports that developers can act on fast.">Bug reports <span class="zts-tag__count">1</span></a>
-<a class="zts-tag" href="#tag:career" title="Growing as an SDET, from your first job to senior level.">Career <span class="zts-tag__count">16</span></a>
+<a class="zts-tag" href="#tag:career" title="Growing in your testing career, from interviews to working in a team.">Career <span class="zts-tag__count">16</span></a>
 <a class="zts-tag" href="#tag:cicd" title="Running tests automatically every time code changes.">CI/CD <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:clean-code" title="Test code that is easy to read, change and trust.">Clean code <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:cloud" title="Testing apps that run on cloud servers and Kubernetes.">Cloud <span class="zts-tag__count">1</span></a>

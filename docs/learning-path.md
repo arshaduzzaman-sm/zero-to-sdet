@@ -1,19 +1,19 @@
 ---
-title: "SDET Learning Path: From Manual Tester to Senior SDET"
-description: "The full SDET learning path on one map: what to learn first, what comes next, and four step-by-step paths for your role."
+title: "SDET Learning Path: What to Learn First, and What Comes Next"
+description: "The full SDET learning path on one map: what to learn first, what comes next, and four step-by-step paths for what you want to do."
 tags:
   - Getting started
   - Career
-updated: "2026-11-15"
+updated: "2026-11-16"
 nav_title: "Learning Path"
 order: 60
 nav_section: "start-here"
-summary: "The whole journey on one map, plus step-by-step paths for your role."
+summary: "The whole journey on one map, plus step-by-step paths for what you want to do."
 ---
 
 # SDET Learning Path
 
-This page shows the whole journey on one map, then gives you a step-by-step path for where you are today.
+This page shows the whole journey on one map, then gives you a step-by-step path for what you want to do next.
 
 !!! info "In plain words"
     Learning to be an SDET is like learning to drive. First you learn the car and the rules.
@@ -35,18 +35,18 @@ config:
 flowchart TD
     A("<b>1. Start Here</b><br/>Set up your computer · Python for testers")
     B("<b>2. Think Like a Tester</b><br/>Test design · test cases · bug reports · plans")
-    C("<b>3. Core Automation</b><br/>pytest · API · database · BDD · Playwright<br/><i>You are now a junior SDET</i>")
-    D("<b>4. Infrastructure</b><br/>CI/CD · Docker · Linux · debugging<br/><i>You are now a mid-level SDET</i>")
-    E("<b>5. Advanced Testing</b><br/>Performance · security · contracts · microservices<br/><i>You are now a senior SDET</i>")
-    F("<b>6. The Professional SDET</b><br/>Releases · metrics · leading quality<br/><i>Ready to lead a team</i>")
+    C("<b>3. Core Automation</b><br/>pytest · API · database · BDD · Playwright")
+    D("<b>4. Infrastructure</b><br/>CI/CD · Docker · Linux · debugging")
+    E("<b>5. Advanced Testing</b><br/>Performance · security · contracts · microservices")
+    F("<b>6. The Professional SDET</b><br/>Releases · metrics · leading quality")
     A --> B --> C --> D --> E --> F
 ```
 
-The line in italics shows roughly which level you reach after each stage.
+You don't have to go in order. If you have a task at work today, jump to the topic you need: every page says what to read first.
 Everyone moves at their own speed, and that is fine.
 
 !!! tip "Check where you are"
-    The [Skills Matrix](start-here/skills-matrix.md) lists every skill by level. Tick what you know, then pick the path below that fits.
+    The [Skills Matrix](start-here/skills-matrix.md) lists every skill by area. Tick what you know, then pick the path below that fits.
 
 ---
 
@@ -71,7 +71,7 @@ Everyone moves at their own speed, and that is fine.
 
 ---
 
-## Junior to mid-level
+## Build a whole test suite
 
 **For you if:** you can write tests, but someone else designs the framework.
 **Goal:** build and run a whole test suite on your own.
@@ -93,7 +93,7 @@ Everyone moves at their own speed, and that is fine.
 
 ---
 
-## Mid-level to senior
+## Design how a team tests
 
 **For you if:** you build test suites on your own and want to design how a team tests.
 **Goal:** own quality for a product, and be trusted to say a release is safe.

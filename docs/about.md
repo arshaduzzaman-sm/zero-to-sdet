@@ -1,12 +1,12 @@
 ---
 title: "About Zero to SDET"
 description: "Who writes Zero to SDET, why it exists, how it is licensed, and how you can help make it better."
-updated: "2026-11-15"
+updated: "2026-11-16"
 ---
 
 # About Zero to SDET
 
-Zero to SDET is a free learning site for anyone who wants to become a professional SDET (Software Development Engineer in Test): from a manual tester writing their first automated test, all the way to a senior engineer leading quality for a team.
+Zero to SDET is a free learning site about software testing and test automation, for everyone: someone who has never tested, an engineer stuck on a task today, and an experienced engineer looking for a template to adapt. (SDET means Software Development Engineer in Test: a tester who writes code to test software.)
 
 ## Who writes it
 
@@ -29,14 +29,25 @@ Zero to SDET is a free learning site for anyone who wants to become a profession
 
 </div>
 
+## Why I made this
+
+Everything on this site comes from two places: my own work as a tester, and what many generous people have shared online: official documentation, blog posts, talks, open-source projects and answers in forums.
+
+None of it is secret. It was just scattered. I put it in one place, in order, in plain words, and checked every example, so that anyone can learn from it: someone who has never tested, an engineer stuck on a task today, or an experienced engineer looking for a template to adapt.
+
+Thank you to everyone whose work made this possible.
+
+Arshaduzzaman SM
+
 ## Why this site exists
 
-Many testers are told at work, "test the database" or "set up BDD", with no one to show them how. Good material exists, but it is spread across many places, often assumes you can already code, and rarely shows the whole road from your first test to senior level.
+Many testers are told at work, "test the database" or "set up BDD", with no one to show them how. Good material exists, but it is spread across many places, often assumes you can already code, and rarely shows how to plan the work, or what to do when you are stuck.
 
 Zero to SDET puts that road in one place:
 
 - **Every page stands on its own.** If you land here from a search, the page tells you what you need to know first and links to it.
-- **Everything runs.** Every code example and template is tested, and you practise on the Practice App, a small online shop built for testing.
+- **Real templates.** The scripts, code snippets, checklists and plans people use at work, ready to copy and adapt. Every code template is tested.
+- **Learn from the page.** Every step shows its result, so you can learn without installing anything. The Practice App, a small online shop built for testing, is there if you want to practise.
 - **Plain words first.** Every idea starts with an everyday example, then the real thing. Every new word is explained.
 - **Official sources.** Every page links to the original documentation, so you can go deeper on your own.
 

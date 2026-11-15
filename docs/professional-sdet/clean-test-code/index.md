@@ -8,7 +8,7 @@ tags:
   - Python
 nav_title: "Clean test code"
 order: 110
-group: "Senior skills"
+group: "Building and leading"
 summary: "Test code that is easy to read, change and trust."
 ---
 

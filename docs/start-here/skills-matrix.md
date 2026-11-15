@@ -1,24 +1,24 @@
 ---
-title: "SDET Skills Matrix: Every Skill from Junior to Lead (Checklist)"
-description: "A checklist of every skill an SDET needs, from junior to lead, built from 58 real job ads. Tick what you know and see what to learn next."
+title: "SDET Skills Matrix: Every Testing Skill in One Checklist"
+description: "A checklist of every skill an SDET uses at work, grouped by area and built from 58 real job ads. Tick what you know and see what to learn next."
 level: Beginner
 tags:
   - Career
   - Getting started
 hide:
   - progress
-updated: "2026-11-15"
+updated: "2026-11-16"
 nav_title: "Skills Matrix"
 order: 50
-summary: "Every SDET skill from junior to lead. Tick what you know and find your next lesson."
+summary: "Every SDET skill, grouped by area. Tick what you know and find your next lesson."
 ---
 
-# SDET Skills Matrix: Every Skill from Junior to Lead
+# SDET Skills Matrix: Every Testing Skill in One Checklist
 
-This page lists every skill a professional SDET needs, sorted by level, with a link to the lesson that teaches it.
+This page lists every skill SDETs use at work, grouped by area, with a link to the lesson that teaches it.
 
 !!! info "In plain words"
-    Think of this page as a map of a big video game. Each level has new skills to win.
+    Think of this page as a map of a big city. Each area has its own streets to learn.
     You tick the ones you already have, and the empty boxes show you where to go next.
 
 !!! note "Before you start"
@@ -29,11 +29,11 @@ This page lists every skill a professional SDET needs, sorted by level, with a l
 
 ## How to use this checklist
 
-1. Start at **Junior**. Tick every skill you can already do without help.
+1. Pick the area you need today, or start at the top. Tick every skill you can already do without help.
 2. The first empty box is your next lesson. Click its link.
-3. When almost every box in a level is ticked, move to the next level.
+3. Inside each area, the skills people usually learn first come first.
 
-You don't need to finish one level before you peek at the next one. Real people learn in a messy order, and that is fine.
+You don't need to finish one area before you look at the next. Real people learn in a messy order, and that is fine.
 
 <div class="zts-matrix" data-zts-matrix data-zts-matrix-panel hidden markdown>
 <p class="zts-matrix__title">Your progress: <strong data-zts-total>0 of 0</strong> skills</p>
@@ -54,11 +54,9 @@ A low number does not mean a skill is useless. It often means only some companie
 
 ---
 
-## Junior SDET (0 to 2 years)
+## Think like a tester
 
-A junior SDET can write and run automated tests that someone else designed, and report what they find clearly.
-
-### Think like a tester
+What to test, and why: test design, test cases and bug reports.
 
 - [ ] Explain what an SDET does, and how it differs from QA and developer roles · [The SDET role](../think-like-a-tester/the-sdet-role/index.md)
 - [ ] Know the seven testing principles and the steps of the test process · [The SDET role](../think-like-a-tester/the-sdet-role/index.md)
@@ -71,7 +69,25 @@ A junior SDET can write and run automated tests that someone else designed, and 
 - [ ] Write a clear test case with steps and an expected result · in 36% of ads · [Test cases](../think-like-a-tester/test-cases/index.md)
 - [ ] Write a bug report a developer can act on, and know severity vs priority · in 53% of ads · [Bug reports](../think-like-a-tester/bug-reports/index.md)
 
-### Write code
+---
+
+## Plan and report
+
+Decide what to test first, and tell people what you found.
+
+- [ ] Write a one-page test plan for a feature, sorted by risk · in 24% of ads · [Test strategy and planning](../think-like-a-tester/test-strategy-and-planning/index.md)
+- [ ] Decide what not to automate · [Test strategy and planning](../think-like-a-tester/test-strategy-and-planning/index.md)
+- [ ] Manage test cases and test runs in a tool (TestRail, Xray, Zephyr) · in 36% of ads · [Jira and test management](../professional-sdet/jira-and-test-management/index.md)
+- [ ] Estimate test effort and write a test summary report · [Communicating your work](../professional-sdet/communicating-your-work/index.md)
+- [ ] Test a hotfix under time pressure · [Regression, hotfixes and incidents](../professional-sdet/regression-hotfixes-and-incidents/index.md)
+- [ ] Read a test framework someone else wrote, and make your first useful change · [Your first weeks in a new job](../professional-sdet/your-first-weeks/index.md)
+- [ ] Know where testing fits in Waterfall, V-model, Agile and DevOps · [SDET in Agile](../professional-sdet/sdet-in-agile/index.md)
+
+---
+
+## Write test code
+
+Python, pytest, API, database and UI tests.
 
 - [ ] Write basic Python: variables, lists, dictionaries, loops, functions, classes, errors · in 70% of ads · [Python for testers](../start-here/python-for-testers/index.md)
 - [ ] Set up Python, VS Code and a virtual environment · [Environment setup](environment-setup/index.md)
@@ -83,30 +99,6 @@ A junior SDET can write and run automated tests that someone else designed, and 
 - [ ] Read test data from JSON, CSV and YAML files · in 34% of ads · [Data-driven testing](../core-automation/data-driven-testing/index.md)
 - [ ] Automate a web page with Playwright: locators, waits, assertions · in 53% of ads · [UI automation](../core-automation/ui-automation/index.md)
 - [ ] Produce a test report and read logs · in 31% of ads · [Reporting and logging](../core-automation/reporting-and-logging/index.md)
-
-### Find out what went wrong
-
-- [ ] Read a stack trace and find the line that failed · in 65% of ads · [Debugging toolkit](../infrastructure/debugging-toolkit/index.md)
-- [ ] Use browser DevTools (Network and Console tabs) and curl · [Debugging toolkit](../infrastructure/debugging-toolkit/index.md)
-- [ ] Use basic Linux commands to move around and read logs · in 18% of ads · [Linux and shell](../infrastructure/linux-and-shell/index.md)
-
-### Work in a team
-
-- [ ] Use Git: clone, branch, commit, push, open a pull request · in 41% of ads · [Git in a team](../professional-sdet/git-in-a-team/index.md)
-- [ ] Work in Scrum or Kanban, and test against acceptance criteria · in 41% and 53% of ads · [SDET in Agile](../professional-sdet/sdet-in-agile/index.md)
-- [ ] Use Jira tickets and link tests to stories · in 25% of ads · [Jira and test management](../professional-sdet/jira-and-test-management/index.md)
-- [ ] Know the difference between smoke tests, regression tests and retesting a fix · in 56% of ads · [Regression, hotfixes and incidents](../professional-sdet/regression-hotfixes-and-incidents/index.md)
-- [ ] Give a short, clear daily status update · in 68% of ads · [Communicating your work](../professional-sdet/communicating-your-work/index.md)
-- [ ] Know what a normal working day looks like · [A day in the life](../professional-sdet/a-day-in-the-life/index.md)
-
----
-
-## Mid-level SDET (2 to 5 years)
-
-A mid-level SDET designs and builds tests for a whole feature on their own, and keeps them running in the team's pipeline.
-
-### Build stronger tests
-
 - [ ] Build a reusable API client class with login and tokens (API key, Bearer, OAuth2) · in 12% of ads · [API testing](../core-automation/api-testing/index.md)
 - [ ] Check an API response against a schema · [API testing](../core-automation/api-testing/index.md)
 - [ ] Prove an API write really reached the database · [API + database](../core-automation/api-and-database/index.md)
@@ -121,20 +113,42 @@ A mid-level SDET designs and builds tests for a whole feature on their own, and 
 - [ ] Test with checklists · [Test design techniques](../think-like-a-tester/test-design-techniques/index.md)
 - [ ] Handle email, OTP codes, file uploads, PDFs and time zones in tests · [Tricky real-world cases](../advanced-testing/tricky-real-world-cases/index.md)
 
-### Make tests fast and trustworthy
+---
+
+## Make tests fast and trustworthy
+
+Tests the team can rely on, that run quickly.
 
 - [ ] Replace slow or unreliable services with mocks · in 8% of ads · [Mocking and stubbing](../advanced-testing/mocking-and-stubbing/index.md)
 - [ ] Find and fix flaky tests, and run tests in parallel · in 24% and 13% of ads · [Flaky tests and speed](../advanced-testing/flaky-tests-and-speed/index.md)
 - [ ] Write clean, readable test code that others can maintain · in 22% of ads · [Clean test code](../professional-sdet/clean-test-code/index.md)
 - [ ] Review a teammate's test code and get yours reviewed · in 24% of ads · [Working with developers](../professional-sdet/working-with-developers/index.md)
 
-### Run tests everywhere
+---
+
+## Find out what went wrong
+
+Read errors, logs and network traffic to find the cause.
+
+- [ ] Read a stack trace and find the line that failed · in 65% of ads · [Debugging toolkit](../infrastructure/debugging-toolkit/index.md)
+- [ ] Use browser DevTools (Network and Console tabs) and curl · [Debugging toolkit](../infrastructure/debugging-toolkit/index.md)
+- [ ] Use basic Linux commands to move around and read logs · in 18% of ads · [Linux and shell](../infrastructure/linux-and-shell/index.md)
+
+---
+
+## Run tests everywhere
+
+Pipelines, containers and the network your tests run on.
 
 - [ ] Run tests in a CI pipeline on every push (GitHub Actions, Jenkins) · in 75% of ads · [CI/CD](../infrastructure/ci-cd/index.md)
 - [ ] Build a test environment with Docker and Docker Compose · in 31% of ads · [Docker for testers](../infrastructure/docker-for-testers/index.md)
 - [ ] Understand DNS, ports, HTTPS, cookies, sessions and CORS · in 15% of ads · [Networking for testers](../infrastructure/networking-for-testers/index.md)
 
-### Test more than the happy path
+---
+
+## Test more than the happy path
+
+Performance, security, accessibility, mobile, data and services.
 
 - [ ] Run a basic load test and read the results · in 37% of ads · [Performance testing](../advanced-testing/performance-testing/index.md)
 - [ ] Write load tests with Locust, k6 and JMeter, and know when teams pick each · JMeter in 11 ads, k6 in 9, Locust in 2 · [Performance testing](../advanced-testing/performance-testing/index.md)
@@ -146,23 +160,11 @@ A mid-level SDET designs and builds tests for a whole feature on their own, and 
 - [ ] Test a data pipeline or ETL job end to end · in 22% of ads · [Data and ETL testing](../advanced-testing/data-and-etl-testing/index.md)
 - [ ] Test services that talk to each other (microservices) · in 22% of ads · [Testing microservices](../advanced-testing/testing-microservices/index.md)
 
-### Plan and report
-
-- [ ] Write a one-page test plan for a feature, sorted by risk · in 24% of ads · [Test strategy and planning](../think-like-a-tester/test-strategy-and-planning/index.md)
-- [ ] Decide what not to automate · [Test strategy and planning](../think-like-a-tester/test-strategy-and-planning/index.md)
-- [ ] Manage test cases and test runs in a tool (TestRail, Xray, Zephyr) · in 36% of ads · [Jira and test management](../professional-sdet/jira-and-test-management/index.md)
-- [ ] Estimate test effort and write a test summary report · [Communicating your work](../professional-sdet/communicating-your-work/index.md)
-- [ ] Test a hotfix under time pressure · [Regression, hotfixes and incidents](../professional-sdet/regression-hotfixes-and-incidents/index.md)
-- [ ] Read a test framework someone else wrote, and make your first useful change · [Your first weeks in a new job](../professional-sdet/your-first-weeks/index.md)
-- [ ] Know where testing fits in Waterfall, V-model, Agile and DevOps · [SDET in Agile](../professional-sdet/sdet-in-agile/index.md)
-
 ---
 
-## Senior SDET (5 to 8 years)
+## Design the test system
 
-A senior SDET designs how a team tests, builds the framework others use, and is trusted to say whether a release is safe.
-
-### Design the test system
+Frameworks, tools and the kinds of tests a big system needs.
 
 - [ ] Design a test automation framework from scratch, in layers · in 70% of ads · [Leading quality](../professional-sdet/leading-quality/index.md) and [Capstone project](../professional-sdet/capstone-project/index.md)
 - [ ] Choose a test automation tool with a fair, written comparison · [Leading quality](../professional-sdet/leading-quality/index.md)
@@ -174,7 +176,11 @@ A senior SDET designs how a team tests, builds the framework others use, and is 
 - [ ] Catch visual changes with screenshot comparison · [Visual regression](../advanced-testing/visual-regression/index.md)
 - [ ] Test features built on AI models, where the output changes every time · in 43% of ads · [AI in testing](../advanced-testing/ai-in-testing/index.md)
 
-### Run quality in production
+---
+
+## Run quality in production
+
+Watch a live system, and decide when a release is safe.
 
 - [ ] Run tests in the cloud and in Kubernetes · in 43% and 24% of ads · [Cloud and Kubernetes basics](../infrastructure/cloud-and-kubernetes/index.md)
 - [ ] Use logs, metrics and traces; set up synthetic checks · in 39% of ads · [Observability](../infrastructure/observability/index.md)
@@ -183,18 +189,28 @@ A senior SDET designs how a team tests, builds the framework others use, and is 
 - [ ] Lead root cause analysis and a blameless postmortem · [Regression, hotfixes and incidents](../professional-sdet/regression-hotfixes-and-incidents/index.md)
 - [ ] Test in regulated fields: health (HIPAA), payments (PCI DSS), privacy (GDPR), SOC 2 · in 20% of ads · [Security testing basics](../advanced-testing/security-testing/index.md)
 
-### Shape how the team works
+---
+
+## Work in a team
+
+Git, Agile, tickets and clear updates.
+
+- [ ] Use Git: clone, branch, commit, push, open a pull request · in 41% of ads · [Git in a team](../professional-sdet/git-in-a-team/index.md)
+- [ ] Work in Scrum or Kanban, and test against acceptance criteria · in 41% and 53% of ads · [SDET in Agile](../professional-sdet/sdet-in-agile/index.md)
+- [ ] Use Jira tickets and link tests to stories · in 25% of ads · [Jira and test management](../professional-sdet/jira-and-test-management/index.md)
+- [ ] Know the difference between smoke tests, regression tests and retesting a fix · in 56% of ads · [Regression, hotfixes and incidents](../professional-sdet/regression-hotfixes-and-incidents/index.md)
+- [ ] Give a short, clear daily status update · in 68% of ads · [Communicating your work](../professional-sdet/communicating-your-work/index.md)
+- [ ] Know what a normal working day looks like · [A day in the life](../professional-sdet/a-day-in-the-life/index.md)
+
+---
+
+## Lead quality
+
+Set the direction for testing, and help other people grow.
 
 - [ ] Write a test strategy for a whole product · in 56% of ads · [Test strategy and planning](../think-like-a-tester/test-strategy-and-planning/index.md)
 - [ ] Bring testing in early (shift-left) and push for testable designs · in 24% of ads · [SDET in Agile](../professional-sdet/sdet-in-agile/index.md)
 - [ ] Explain risk to managers in plain words · [Communicating your work](../professional-sdet/communicating-your-work/index.md)
-
----
-
-## Lead SDET (8+ years)
-
-A lead SDET sets the quality direction for one or more teams, grows other testers, and changes how people work without being their boss.
-
 - [ ] Write a quality strategy for a team or company · in 56% of ads · [Leading quality](../professional-sdet/leading-quality/index.md)
 - [ ] Record big test design choices as architecture decision records · [Leading quality](../professional-sdet/leading-quality/index.md)
 - [ ] Build shared test tools that many teams use · [Leading quality](../professional-sdet/leading-quality/index.md)
@@ -206,9 +222,11 @@ A lead SDET sets the quality direction for one or more teams, grows other tester
 
 ---
 
-## At every level: grow your career
+## Grow your career
 
-- [ ] Know what each level knows and does · [Career roadmap](../professional-sdet/career-roadmap/index.md)
+Interviews, a portfolio, and the next step in your job.
+
+- [ ] Know how an SDET career grows, and what each next step asks of you · [Career roadmap](../professional-sdet/career-roadmap/index.md)
 - [ ] Prepare for SDET interviews and coding tasks · [Interview preparation](../professional-sdet/interview-preparation/index.md)
 - [ ] Show your work on GitHub, in a resume and on LinkedIn · [Portfolio and resume](../professional-sdet/portfolio-and-resume/index.md)
 - [ ] Know which programming languages job ads ask for, and how to read a little TypeScript or Java · TypeScript or JavaScript in 46% of ads, Java in 43% · [Career roadmap](../professional-sdet/career-roadmap/index.md)
@@ -221,7 +239,7 @@ We used three sources, so the list reflects real jobs and not just our opinion.
 
 **1. Our own lesson plan.** Every topic planned for this site.
 
-**2. 58 real job ads, read in November 2026.** Junior (7), mid-level (15), senior (23) and lead (13) roles.
+**2. 58 real job ads, read in November 2026,** for testing and test automation roles of every kind.
 They came from companies in the USA, Canada, India, Pakistan, Poland, Romania, Denmark, Spain, Ukraine, Costa Rica, Hong Kong and other parts of Latin America and Europe.
 We collected open ads from the public job boards of those companies, then counted how many ads mention each skill.
 The scripts we used are in [`scripts/research/`](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/scripts/research), so anyone can repeat the count.
@@ -237,71 +255,71 @@ ISTQB (International Software Testing Qualifications Board) is the group behind 
 ??? note "The 58 job ads we read (November 2026)"
     Job ads close quickly, so many of these links will stop working. We keep them as a record of what we checked.
 
-    | Level | Company | Role | Location |
-    | --- | --- | --- | --- |
-    | Junior | BTS | [Junior QA Automation Engineer](https://djinni.co/jobs/855702-junior-qa-automation-engineer/) | Remote (Ukraine) |
-    | Junior | Affirm | [Software Engineer II, Backend (Test Infra)](https://job-boards.greenhouse.io/affirm/jobs/7727322003) | Remote, Canada |
-    | Junior | Anaplan | [Engineer II, QA](https://job-boards.greenhouse.io/anaplan/jobs/8610356002) | Gurugram, India |
-    | Junior | Caseware | [Junior Test Automation Engineer](https://jobs.lever.co/caseware/9deee899-1d79-4a8a-aa44-06ede09e8934) | Copenhagen, Denmark |
-    | Junior | Caseware | [Software Developer in Test II](https://jobs.lever.co/caseware/cf6c490e-e126-4bee-9a93-e2488d0ea8e2) | Bucharest, Romania |
-    | Junior | Duolingo | [QA Specialist I, Recent Graduate](https://careers.duolingo.com/jobs/8927565002?gh_jid=8927565002) | New York and Pittsburgh, USA |
-    | Junior | Sparksoft | [Automation Tester](https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5221704007) | Remote, USA |
-    | Mid | Capgemini | [SDET (Playwright)](https://freehire.me/jobs/sdet-playwright-capgemini-yuk66bkr) | Denver, USA |
-    | Mid | SS&C Technologies | [SDET, AI-Enabled Quality Infrastructure](https://zapply.jobs/jobs/f7db340b-8177-410d-aa99-d8e635af62c4/) | San Francisco, USA |
-    | Mid | Air Apps | [Backend QA Engineer](https://jobs.ashbyhq.com/airapps/62730403-3484-4c55-9807-43089979bf08) | Copenhagen, Denmark |
-    | Mid | Air Apps | [QA Automation Engineer](https://jobs.ashbyhq.com/airapps/5df8934c-2df5-4c6f-aa06-aca7559b9f5b) | Barcelona, Spain |
-    | Mid | Binance | [Web/App Test Engineer](https://jobs.lever.co/binance/da981b97-477a-4cd6-af88-797c6a7c0ea3) | Hong Kong |
-    | Mid | DeepIntent | [Software Engineer In Test](https://job-boards.greenhouse.io/deepintent/jobs/6241859004) | Pune, India |
-    | Mid | Discord | [QA/DevOps Engineer](https://job-boards.greenhouse.io/discord/jobs/8703614002) | San Francisco or Remote, USA |
-    | Mid | Drivetrain | [SDE (Automation & Quality Focus)](https://jobs.lever.co/drivetrain/6a56a48c-32e0-43ee-ac4b-b6638c83f81f) | India |
-    | Mid | Keeper Security | [SDET, Android](https://job-boards.greenhouse.io/keepersecurity/jobs/4426678009) | Remote, USA |
-    | Mid | Keeper Security | [SDET, iOS](https://job-boards.greenhouse.io/keepersecurity/jobs/4426649009) | Remote, USA |
-    | Mid | Keeper Security | [SDET, KSM](https://job-boards.greenhouse.io/keepersecurity/jobs/4465245009) | Remote, USA |
-    | Mid | Sparksoft | [SDET](https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5281686007) | Remote, USA |
-    | Mid | Veeam | [Performance QA Engineer](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4995581101) | Warsaw, Poland |
-    | Mid | Veeam | [SDET, Kasten](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/5035582101) | Warsaw, Poland |
-    | Mid | Zoox | [Software Development Engineer in Test](https://jobs.lever.co/zoox/d3a7605d-7e6e-4361-bc00-04db50418c1e) | Foster City, USA |
-    | Senior | Securonix | [Senior SDET](https://zapply.jobs/jobs/e62c3a44-05ba-4c10-8c7a-ff52f3d9845c/) | Bangalore, India |
-    | Senior | CodeRoad | [Senior QA Automation Engineer](https://job-boards.greenhouse.io/coderoad/jobs/4474013009) | Latin America |
-    | Senior | CodeRoad | [Senior QA Engineer, Performance Testing](https://job-boards.greenhouse.io/coderoad/jobs/4475958009) | Latin America |
-    | Senior | Coinbase | [Senior Software Engineer, Mobile QA](https://www.coinbase.com/careers/positions/8241748?gh_jid=8241748) | Remote, USA |
-    | Senior | CSC Generation | [Senior Automation QA](https://jobs.lever.co/cscgeneration-2/5a3fb9cb-6135-417c-93db-afd91b1bd7d5) | San Jose, USA |
-    | Senior | CSC Generation | [Senior QA Engineer, AI & Automation](https://jobs.lever.co/cscgeneration-2/5ca1ea56-29d0-4a7e-9012-16aa1d40c3c0) | Remote, Canada |
-    | Senior | DeepIntent | [Senior Software Engineer In Test](https://job-boards.greenhouse.io/deepintent/jobs/6240438004) | Pune, India |
-    | Senior | Drivetrain | [SDET / Senior SDET](https://jobs.lever.co/drivetrain/19a2250b-2c65-451b-b18c-e714aedacb36) | India |
-    | Senior | Flex | [Senior SDET](https://job-boards.greenhouse.io/flex/jobs/4743803005) | Remote, global |
-    | Senior | Keeper Security | [Senior SDET, PAM](https://job-boards.greenhouse.io/keepersecurity/jobs/4355051009) | Remote, USA |
-    | Senior | Keeper Security | [Senior SDET, AI & Automation](https://job-boards.greenhouse.io/keepersecurity/jobs/4438839009) | Remote, USA |
-    | Senior | Okta | [Senior Software Engineer in Test, Android](https://www.okta.com/company/careers/opportunity/8287671?gh_jid=8287671) | Toronto, Canada |
-    | Senior | Okta | [Senior Software Engineer in Test, Federal](https://www.okta.com/company/careers/opportunity/8069707?gh_jid=8069707) | Maryland and Washington DC, USA |
-    | Senior | Okta | [Senior Software Engineer in Test, UI Platform](https://www.okta.com/company/careers/opportunity/8071448?gh_jid=8071448) | Toronto, Canada |
-    | Senior | Okta | [Senior Software Engineer in Test](https://www.okta.com/company/careers/opportunity/8301847?gh_jid=8301847) | Toronto, Canada |
-    | Senior | Quanata | [Senior SDET, Back End](https://job-boards.greenhouse.io/quanata/jobs/6215677004) | Remote, USA |
-    | Senior | Quanata | [Senior SDET, Data](https://job-boards.greenhouse.io/quanata/jobs/6199415004) | Remote, USA |
-    | Senior | Robinhood | [Senior Quality Engineer](https://boards.greenhouse.io/robinhood/jobs/8329677?gh_jid=8329677) | New York, USA |
-    | Senior | Sparksoft | [Senior SDET](https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5281598007) | Remote, USA |
-    | Senior | Veeam | [Senior Software Engineer, Test](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4888368101) | Karachi, Pakistan |
-    | Senior | Veeam | [Senior Software Engineer, Test](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4857496101) | Bangalore, India |
-    | Senior | Verantos | [Senior SDET](https://job-boards.greenhouse.io/verantos/jobs/6174470004) | Pune, India |
-    | Senior | Zoox | [Senior SDET](https://jobs.lever.co/zoox/83bbaa62-c523-4972-9eb9-bfdc8a04c0f5) | Foster City, USA |
-    | Lead | Anaplan | [Engineer IV, QA (AI QA Lead)](https://job-boards.greenhouse.io/anaplan/jobs/8474339002) | Gurugram, India |
-    | Lead | Coinbase | [Staff Software Engineer, Mobile QA](https://www.coinbase.com/careers/positions/8241752?gh_jid=8241752) | Remote, USA |
-    | Lead | CSC Generation | [Lead QA Engineer](https://jobs.lever.co/cscgeneration-2/dc1c9985-49b6-444d-a431-632df72b535a) | Costa Rica |
-    | Lead | Galaxy | [Senior / Staff SDET](https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6240404004) | India |
-    | Lead | Keeper Security | [Lead QA Engineer, Enterprise Platform](https://job-boards.greenhouse.io/keepersecurity/jobs/4453341009) | Remote, USA |
-    | Lead | Okta | [Principal Software Engineer in Test](https://www.okta.com/company/careers/opportunity/8045905?gh_jid=8045905) | Bengaluru, India |
-    | Lead | Sporty Group | [Lead Hybrid QA Engineer](https://job-boards.eu.greenhouse.io/sportygroup/jobs/4951687101) | Remote, Europe |
-    | Lead | Tatari | [Staff QA Engineer](https://job-boards.greenhouse.io/tatari/jobs/8884035002) | New York, USA |
-    | Lead | Veeam | [Staff SDET (Connectors)](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4888384101) | San Jose, USA |
-    | Lead | Veeam | [Staff SDET (Graph Database)](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4977661101) | San Jose, USA |
-    | Lead | Veeam | [Staff SDET (Infrastructure)](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4888414101) | San Jose, USA |
-    | Lead | Zscaler | [Principal SDE, QA + Networking](https://job-boards.greenhouse.io/zscaler/jobs/5271592007) | Bangalore, India |
-    | Lead | Zscaler | [Senior Staff Software Engineer, Test Automation Infrastructure](https://job-boards.greenhouse.io/zscaler/jobs/5227024007) | Santa Clara, USA |
+    | Company | Role | Location |
+    | --- | --- | --- |
+    | BTS | [Junior QA Automation Engineer](https://djinni.co/jobs/855702-junior-qa-automation-engineer/) | Remote (Ukraine) |
+    | Affirm | [Software Engineer II, Backend (Test Infra)](https://job-boards.greenhouse.io/affirm/jobs/7727322003) | Remote, Canada |
+    | Anaplan | [Engineer II, QA](https://job-boards.greenhouse.io/anaplan/jobs/8610356002) | Gurugram, India |
+    | Caseware | [Junior Test Automation Engineer](https://jobs.lever.co/caseware/9deee899-1d79-4a8a-aa44-06ede09e8934) | Copenhagen, Denmark |
+    | Caseware | [Software Developer in Test II](https://jobs.lever.co/caseware/cf6c490e-e126-4bee-9a93-e2488d0ea8e2) | Bucharest, Romania |
+    | Duolingo | [QA Specialist I, Recent Graduate](https://careers.duolingo.com/jobs/8927565002?gh_jid=8927565002) | New York and Pittsburgh, USA |
+    | Sparksoft | [Automation Tester](https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5221704007) | Remote, USA |
+    | Capgemini | [SDET (Playwright)](https://freehire.me/jobs/sdet-playwright-capgemini-yuk66bkr) | Denver, USA |
+    | SS&C Technologies | [SDET, AI-Enabled Quality Infrastructure](https://zapply.jobs/jobs/f7db340b-8177-410d-aa99-d8e635af62c4/) | San Francisco, USA |
+    | Air Apps | [Backend QA Engineer](https://jobs.ashbyhq.com/airapps/62730403-3484-4c55-9807-43089979bf08) | Copenhagen, Denmark |
+    | Air Apps | [QA Automation Engineer](https://jobs.ashbyhq.com/airapps/5df8934c-2df5-4c6f-aa06-aca7559b9f5b) | Barcelona, Spain |
+    | Binance | [Web/App Test Engineer](https://jobs.lever.co/binance/da981b97-477a-4cd6-af88-797c6a7c0ea3) | Hong Kong |
+    | DeepIntent | [Software Engineer In Test](https://job-boards.greenhouse.io/deepintent/jobs/6241859004) | Pune, India |
+    | Discord | [QA/DevOps Engineer](https://job-boards.greenhouse.io/discord/jobs/8703614002) | San Francisco or Remote, USA |
+    | Drivetrain | [SDE (Automation & Quality Focus)](https://jobs.lever.co/drivetrain/6a56a48c-32e0-43ee-ac4b-b6638c83f81f) | India |
+    | Keeper Security | [SDET, Android](https://job-boards.greenhouse.io/keepersecurity/jobs/4426678009) | Remote, USA |
+    | Keeper Security | [SDET, iOS](https://job-boards.greenhouse.io/keepersecurity/jobs/4426649009) | Remote, USA |
+    | Keeper Security | [SDET, KSM](https://job-boards.greenhouse.io/keepersecurity/jobs/4465245009) | Remote, USA |
+    | Sparksoft | [SDET](https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5281686007) | Remote, USA |
+    | Veeam | [Performance QA Engineer](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4995581101) | Warsaw, Poland |
+    | Veeam | [SDET, Kasten](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/5035582101) | Warsaw, Poland |
+    | Zoox | [Software Development Engineer in Test](https://jobs.lever.co/zoox/d3a7605d-7e6e-4361-bc00-04db50418c1e) | Foster City, USA |
+    | Securonix | [Senior SDET](https://zapply.jobs/jobs/e62c3a44-05ba-4c10-8c7a-ff52f3d9845c/) | Bangalore, India |
+    | CodeRoad | [Senior QA Automation Engineer](https://job-boards.greenhouse.io/coderoad/jobs/4474013009) | Latin America |
+    | CodeRoad | [Senior QA Engineer, Performance Testing](https://job-boards.greenhouse.io/coderoad/jobs/4475958009) | Latin America |
+    | Coinbase | [Senior Software Engineer, Mobile QA](https://www.coinbase.com/careers/positions/8241748?gh_jid=8241748) | Remote, USA |
+    | CSC Generation | [Senior Automation QA](https://jobs.lever.co/cscgeneration-2/5a3fb9cb-6135-417c-93db-afd91b1bd7d5) | San Jose, USA |
+    | CSC Generation | [Senior QA Engineer, AI & Automation](https://jobs.lever.co/cscgeneration-2/5ca1ea56-29d0-4a7e-9012-16aa1d40c3c0) | Remote, Canada |
+    | DeepIntent | [Senior Software Engineer In Test](https://job-boards.greenhouse.io/deepintent/jobs/6240438004) | Pune, India |
+    | Drivetrain | [SDET / Senior SDET](https://jobs.lever.co/drivetrain/19a2250b-2c65-451b-b18c-e714aedacb36) | India |
+    | Flex | [Senior SDET](https://job-boards.greenhouse.io/flex/jobs/4743803005) | Remote, global |
+    | Keeper Security | [Senior SDET, PAM](https://job-boards.greenhouse.io/keepersecurity/jobs/4355051009) | Remote, USA |
+    | Keeper Security | [Senior SDET, AI & Automation](https://job-boards.greenhouse.io/keepersecurity/jobs/4438839009) | Remote, USA |
+    | Okta | [Senior Software Engineer in Test, Android](https://www.okta.com/company/careers/opportunity/8287671?gh_jid=8287671) | Toronto, Canada |
+    | Okta | [Senior Software Engineer in Test, Federal](https://www.okta.com/company/careers/opportunity/8069707?gh_jid=8069707) | Maryland and Washington DC, USA |
+    | Okta | [Senior Software Engineer in Test, UI Platform](https://www.okta.com/company/careers/opportunity/8071448?gh_jid=8071448) | Toronto, Canada |
+    | Okta | [Senior Software Engineer in Test](https://www.okta.com/company/careers/opportunity/8301847?gh_jid=8301847) | Toronto, Canada |
+    | Quanata | [Senior SDET, Back End](https://job-boards.greenhouse.io/quanata/jobs/6215677004) | Remote, USA |
+    | Quanata | [Senior SDET, Data](https://job-boards.greenhouse.io/quanata/jobs/6199415004) | Remote, USA |
+    | Robinhood | [Senior Quality Engineer](https://boards.greenhouse.io/robinhood/jobs/8329677?gh_jid=8329677) | New York, USA |
+    | Sparksoft | [Senior SDET](https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5281598007) | Remote, USA |
+    | Veeam | [Senior Software Engineer, Test](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4888368101) | Karachi, Pakistan |
+    | Veeam | [Senior Software Engineer, Test](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4857496101) | Bangalore, India |
+    | Verantos | [Senior SDET](https://job-boards.greenhouse.io/verantos/jobs/6174470004) | Pune, India |
+    | Zoox | [Senior SDET](https://jobs.lever.co/zoox/83bbaa62-c523-4972-9eb9-bfdc8a04c0f5) | Foster City, USA |
+    | Anaplan | [Engineer IV, QA (AI QA Lead)](https://job-boards.greenhouse.io/anaplan/jobs/8474339002) | Gurugram, India |
+    | Coinbase | [Staff Software Engineer, Mobile QA](https://www.coinbase.com/careers/positions/8241752?gh_jid=8241752) | Remote, USA |
+    | CSC Generation | [Lead QA Engineer](https://jobs.lever.co/cscgeneration-2/dc1c9985-49b6-444d-a431-632df72b535a) | Costa Rica |
+    | Galaxy | [Senior / Staff SDET](https://job-boards.greenhouse.io/galaxydigitalservices/jobs/6240404004) | India |
+    | Keeper Security | [Lead QA Engineer, Enterprise Platform](https://job-boards.greenhouse.io/keepersecurity/jobs/4453341009) | Remote, USA |
+    | Okta | [Principal Software Engineer in Test](https://www.okta.com/company/careers/opportunity/8045905?gh_jid=8045905) | Bengaluru, India |
+    | Sporty Group | [Lead Hybrid QA Engineer](https://job-boards.eu.greenhouse.io/sportygroup/jobs/4951687101) | Remote, Europe |
+    | Tatari | [Staff QA Engineer](https://job-boards.greenhouse.io/tatari/jobs/8884035002) | New York, USA |
+    | Veeam | [Staff SDET (Connectors)](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4888384101) | San Jose, USA |
+    | Veeam | [Staff SDET (Graph Database)](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4977661101) | San Jose, USA |
+    | Veeam | [Staff SDET (Infrastructure)](https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4888414101) | San Jose, USA |
+    | Zscaler | [Principal SDE, QA + Networking](https://job-boards.greenhouse.io/zscaler/jobs/5271592007) | Bangalore, India |
+    | Zscaler | [Senior Staff Software Engineer, Test Automation Infrastructure](https://job-boards.greenhouse.io/zscaler/jobs/5227024007) | Santa Clara, USA |
 
 ## References
 
 - ISTQB. [Certified Tester Foundation Level (CTFL) v4.0](https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/). Syllabus chapters used for the "Think like a tester" skills.
-- ISTQB. [Certified Tester Advanced Level Test Automation Engineering (CTAL-TAE) v2.0](https://istqb.org/certifications/certified-tester-advanced-level-test-automation-engineering-ctal-tae-v2-0/). Syllabus chapters used for the senior and lead skills.
+- ISTQB. [Certified Tester Advanced Level Test Automation Engineering (CTAL-TAE) v2.0](https://istqb.org/certifications/certified-tester-advanced-level-test-automation-engineering-ctal-tae-v2-0/). Syllabus chapters used for the framework design and leadership skills.
 - ISTQB. [Glossary of testing terms](https://glossary.istqb.org/).
 - Job ads: the 58 ads listed above, read on 15 November 2026.
 

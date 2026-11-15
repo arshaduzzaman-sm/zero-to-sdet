@@ -1,17 +1,17 @@
 ---
-title: "Leading quality (senior level)"
-description: "Leading quality (senior level): a free, step-by-step guide for SDETs, with ready-to-use templates. Coming soon."
-level: Senior
+title: "Leading quality"
+description: "Leading quality: a free, step-by-step guide for SDETs, with ready-to-use templates. Coming soon."
+level: Advanced
 status: draft
 tags:
   - Leadership
-nav_title: "Leading quality (senior level)"
+nav_title: "Leading quality"
 order: 120
-group: "Senior skills"
+group: "Building and leading"
 summary: "Design test architecture, choose tools and lead quality for a team."
 ---
 
-# Leading quality (senior level)
+# Leading quality
 
 !!! info "Coming soon"
     This topic is being written. Here is what it will teach you.

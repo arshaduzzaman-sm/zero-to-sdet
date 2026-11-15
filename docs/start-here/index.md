@@ -1,7 +1,7 @@
 ---
 title: "Start Here: How to Begin Your SDET Journey"
 description: "Start here if you are new: set up your computer, learn Python for testing, and meet the Practice App."
-updated: "2026-11-15"
+updated: "2026-11-16"
 nav_title: "Start Here"
 order: 10
 ---
@@ -86,13 +86,13 @@ word in plain English.
 
 -   [**Skills Matrix**](skills-matrix.md)
 
-    Every SDET skill from junior to lead. Tick what you know and find your next lesson.
+    Every SDET skill, grouped by area. Tick what you know and find your next lesson.
 
     <span class="zts-chip">Beginner</span>
 
 -   [**Learning Path**](../learning-path.md)
 
-    The whole journey on one map, plus step-by-step paths for your role.
+    The whole journey on one map, plus step-by-step paths for what you want to do.
 
 </div>
 

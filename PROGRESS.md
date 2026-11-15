@@ -30,8 +30,26 @@ Newest entry first. No secrets or personal data in this file.
 | Code of Conduct contact | LinkedIn for now; discussed again in Phase 9 (owner may create a project email). | 2026-11-15 |
 | Focus: lessons first | The site and its lessons are the main product; the Practice App is a helper. Finish Phase 1.5 small (starter set of about 6 planted bugs, one short tour page), then build lessons. After that the app only changes when a lesson needs it. Every lesson must teach fully from the page alone, with real output or a screenshot after every step, for readers who never run the app. | 2026-11-15 |
 | Pillar 6: AI-Powered QA | Owner added a new pillar of 11 topics (brief section 11 and Phase 7.5). Saved now, built later. The Pillar 3 topic "AI in testing" moves into it as "Testing AI features". Templates use a fake model in tests (offline, no key, no cost). AI provider for examples: decide when the phase starts. | 2026-11-15 |
+| Pages are the whole product | The app is no longer a focus (readers would have to download and run it). Lessons use real job situations and show every output on the page; the Practice App is only an optional "try it" box. Every page must help someone who has never tested, an engineer stuck on a task, and an experienced engineer. | 2026-11-16 |
+| Real templates only | Templates are the scripts, code snippets, checklists and plans people use at work, ready to adapt. No toy exercises (the skills self-assessment CSV and score script are to be removed, owner said yes). | 2026-11-16 |
+| No level talk | No "zero to mid level", "junior to mid-level", "first test to senior level" anywhere. The Skills Matrix is grouped by area. | 2026-11-16 |
+| Author's note | Home (short) and About (full): the content comes from the author's work and from what many people shared online, gathered in one place in plain words, with thanks. | 2026-11-16 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-16 · Owner direction: pages for everyone, real templates, author's note
+
+**Done**
+
+- Brief updated (sections 1, 2, 6, 7.1, 7.2, 7.3, 11): new tagline, readers without levels, the "for everyone", "real templates" and "author's note" decisions, and app examples made optional.
+- Level words removed: tagline (site, README, banner, home), home paths ("Build a whole test suite", "Design how a team tests"), Learning Path (no "you are now a junior SDET" lines), Skills Matrix (95 skills regrouped into 12 areas, job ad table without a level column; the progress tracker now groups by area), the "Leading quality" and "Career roadmap" pages, the "Senior skills" menu group (now "Building and leading"), and the new-topic script.
+- Author's note: short on Home ("Why I made this"), full on About.
+
+**Next step**
+
+Rewrite Topic 2 with real job templates (new team onboarding checklist, 30-60-90 day plan, automation readiness checklist) and remove the skills CSV and score script. Then rewrite Topic 1 the same way.
 
 ---
 
