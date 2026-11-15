@@ -101,7 +101,7 @@ Click a stage to open it.
 - [Learning a new testing area](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/learning-a-new-testing-area/): A 9-step playbook for any testing task you have never done before.
 - [The SDET role](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/the-sdet-role/): What an SDET does, how to start the job well, and the templates for your first 90 days.
 - [Test levels and the pyramid](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/test-levels-and-the-pyramid/): Unit, integration, API, UI and end-to-end tests, and how many of each to write.
-- [Test design techniques](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/test-design-techniques/): Boundary values, decision tables and more: find the tests that catch the most bugs. *(coming soon)*
+- [Test design techniques](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/test-design-techniques/): Boundary values, decision tables and more: find the tests that catch the most bugs.
 - [Static testing and reviews](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/static-testing-and-reviews/): Find bugs before any code runs, by reviewing requirements and stories. *(coming soon)*
 - [Test cases](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/test-cases/): Write clear test cases, positive and negative, linked to what they check. *(coming soon)*
 - [Bug reports](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/bug-reports/): Report a bug so a developer can fix it fast: steps, severity and priority. *(coming soon)*

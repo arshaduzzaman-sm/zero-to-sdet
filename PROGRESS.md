@@ -39,6 +39,30 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 4, part A: Test design techniques
+
+**Done**
+
+- Playbook page: Arshad has two days to test a member launch (sign-up form, delivery fees, order cancelling). He picks a technique for each kind of rule and finds a missing rule (is express free for big orders?) before writing code.
+- Four lessons, each with a "When it goes wrong" section: equivalence partitioning, boundary values, decision tables, state transitions.
+- Every lesson shows a real bug its technique catches:
+  - an off-by-one age check that group tests miss and an edge test catches;
+  - a forgotten member rule caught by row 4 of the decision table;
+  - a "cancel after shipping" move caught by the refused-move tests.
+- Real templates: three worksheets, `boundaries.py` (lists edge values), `decision_table.py` (prints the empty table). 27 topic tests check the templates, and that each lesson's bug is really caught.
+- Found while writing: a state test that copies the code's own table can't catch a wrong table. The example test keeps its own list, and the lesson teaches this. Also, `$50` inside double quotes disappears in the shell, so the commands use single quotes.
+- 4 new glossary terms, and 2 existing terms now point to their lessons.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Pages: Think like a tester, then Test design techniques.
+
+**Next step**
+
+Topic 4, part B: pairwise, error guessing, exploratory testing, checklist-based testing, and statement and branch coverage. The coverage lesson needs the `coverage` package, which is not installed yet: ask the owner first.
+
+---
+
 ## 2026-11-16 · Phase 2 · Topic 3: Test levels and the pyramid
 
 **Done**

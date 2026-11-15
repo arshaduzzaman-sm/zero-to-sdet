@@ -21,7 +21,7 @@ that teaches it.
 
 <!-- BEGIN glossary (generated from data/glossary.yml, do not edit by hand) -->
 
-<nav class="zts-az" aria-label="Jump to a letter" markdown>[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [L](#l) [M](#m) [N](#n) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v)</nav>
+<nav class="zts-az" aria-label="Jump to a letter" markdown>[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v)</nav>
 
 ## A
 
@@ -65,7 +65,7 @@ that teaches it.
 [](){ #boundary-value }**Boundary value**
 :   A value right at the edge of what is allowed, like 0, 1, 99 and 100 for "1 to 99". Bugs love edges.
 
-    Learn more: [Test design techniques](think-like-a-tester/test-design-techniques/index.md)
+    Learn more: [Boundary values](think-like-a-tester/test-design-techniques/boundary-values.md)
 
 [](){ #bug-report }**Bug report**
 :   A short note that tells a developer what went wrong, how to make it happen again, and what should have happened instead.
@@ -95,6 +95,11 @@ that teaches it.
 :   An organized store of data that an app saves to and reads from, like a set of very large tables.
 
     Learn more: [Database testing](core-automation/database-testing/index.md)
+
+[](){ #decision-table }**Decision table**
+:   A table that lists every mix of conditions, like "member" and "order over $50", with the result for each. Each row becomes a test.
+
+    Learn more: [Decision tables](think-like-a-tester/test-design-techniques/decision-tables.md)
 
 [](){ #defect-clustering }**Defect clustering**
 :   Most bugs hide in a few parts of a system. When you find one bug, look for more nearby.
@@ -131,7 +136,7 @@ that teaches it.
 [](){ #equivalence-partitioning }**Equivalence partitioning**
 :   Splitting inputs into groups that should behave the same, then testing one value from each group instead of all of them.
 
-    Learn more: [Test design techniques](think-like-a-tester/test-design-techniques/index.md)
+    Learn more: [Equivalence partitioning](think-like-a-tester/test-design-techniques/equivalence-partitioning.md)
 
 [](){ #exploratory-testing }**Exploratory testing**
 :   Testing by learning the app as you go, trying ideas and following anything that looks odd, instead of following a script.
@@ -249,12 +254,24 @@ that teaches it.
 
     Learn more: [Non-functional testing](think-like-a-tester/test-levels-and-the-pyramid/non-functional-testing.md)
 
+## O
+
+[](){ #off-by-one-bug }**Off-by-one bug**
+:   A bug where a limit is out by one step, like refusing age 18 when 18 should be allowed. Often caused by mixing up < and <=.
+
+    Learn more: [Boundary values](think-like-a-tester/test-design-techniques/boundary-values.md)
+
 ## P
 
 [](){ #page-object }**Page Object**
 :   A class that holds everything a UI test needs about one page, so tests stay short and a page change is fixed in one place.
 
     Learn more: [UI automation](core-automation/ui-automation/index.md)
+
+[](){ #parametrize }**Parametrize**
+:   A pytest feature that runs the same test many times, once for each row of values you give it.
+
+    Learn more: [Equivalence partitioning](think-like-a-tester/test-design-techniques/equivalence-partitioning.md)
 
 [](){ #percentile }**Percentile**
 :   A way to describe speed. The 95th percentile is the time that 95 out of 100 requests were as fast as, or faster than.
@@ -341,6 +358,11 @@ that teaches it.
 :   The language used to ask a database for data or change it, like SELECT * FROM orders.
 
     Learn more: [Database testing](core-automation/database-testing/index.md)
+
+[](){ #state-transition }**State transition**
+:   A move from one status to another, like an order going from paid to shipped. Testing them checks allowed moves work and the rest are refused.
+
+    Learn more: [State transitions](think-like-a-tester/test-design-techniques/state-transitions.md)
 
 [](){ #static-analysis }**Static analysis**
 :   Checking code for mistakes without running it, like a spell checker for code.

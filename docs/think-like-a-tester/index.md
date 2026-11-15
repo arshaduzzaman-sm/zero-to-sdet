@@ -36,7 +36,7 @@ Before you automate anything, you need to know what to test and why. This pillar
 
     Boundary values, decision tables and more: find the tests that catch the most bugs.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Static testing and reviews**](static-testing-and-reviews/index.md)
 

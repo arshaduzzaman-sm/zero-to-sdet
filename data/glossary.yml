@@ -40,7 +40,7 @@
 
 - term: Boundary value
   meaning: A value right at the edge of what is allowed, like 0, 1, 99 and 100 for "1 to 99". Bugs love edges.
-  page: think-like-a-tester/test-design-techniques/index.md
+  page: think-like-a-tester/test-design-techniques/boundary-values.md
 
 - term: Bug report
   meaning: A short note that tells a developer what went wrong, how to make it happen again, and what should have happened instead.
@@ -82,7 +82,7 @@
 
 - term: Equivalence partitioning
   meaning: Splitting inputs into groups that should behave the same, then testing one value from each group instead of all of them.
-  page: think-like-a-tester/test-design-techniques/index.md
+  page: think-like-a-tester/test-design-techniques/equivalence-partitioning.md
 
 - term: Exploratory testing
   meaning: Testing by learning the app as you go, trying ideas and following anything that looks odd, instead of following a script.
@@ -307,3 +307,19 @@
 - term: Percentile
   meaning: A way to describe speed. The 95th percentile is the time that 95 out of 100 requests were as fast as, or faster than.
   page: think-like-a-tester/test-levels-and-the-pyramid/non-functional-testing.md
+
+- term: Decision table
+  meaning: A table that lists every mix of conditions, like "member" and "order over $50", with the result for each. Each row becomes a test.
+  page: think-like-a-tester/test-design-techniques/decision-tables.md
+
+- term: State transition
+  meaning: A move from one status to another, like an order going from paid to shipped. Testing them checks allowed moves work and the rest are refused.
+  page: think-like-a-tester/test-design-techniques/state-transitions.md
+
+- term: Off-by-one bug
+  meaning: A bug where a limit is out by one step, like refusing age 18 when 18 should be allowed. Often caused by mixing up < and <=.
+  page: think-like-a-tester/test-design-techniques/boundary-values.md
+
+- term: Parametrize
+  meaning: A pytest feature that runs the same test many times, once for each row of values you give it.
+  page: think-like-a-tester/test-design-techniques/equivalence-partitioning.md

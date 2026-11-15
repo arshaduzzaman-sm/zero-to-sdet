@@ -1,34 +1,193 @@
 ---
-title: "Test design techniques"
-description: "Test design techniques: a free, step-by-step guide for SDETs, with ready-to-use templates. Coming soon."
+title: "Test Design Techniques: Find the Tests That Catch the Most Bugs"
+description: "Equivalence partitioning, boundary values, decision tables and state transitions, explained with one real feature launch, with worksheets, helper scripts and pytest examples you can copy."
 level: Beginner
-status: draft
 tags:
   - Test design
+  - Templates
+  - pytest
 nav_title: "Test design techniques"
 order: 40
 summary: "Boundary values, decision tables and more: find the tests that catch the most bugs."
+updated: "2026-11-16"
 ---
 
-# Test design techniques
+# Test Design Techniques: Find the Tests That Catch the Most Bugs
 
-!!! info "Coming soon"
-    This topic is being written. Here is what it will teach you.
+No one can test every possible input. A form with one number field already has millions of possible values. Test design techniques are simple, well-tried ways to pick a small set of tests that still finds most of the bugs. Every experienced tester uses them, often without naming them. This topic names them, and shows you how to use each one on a real feature.
 
-## What you will learn
+!!! info "In plain words"
+    Think of a cook tasting soup. They don't drink the whole pot to know if it needs salt. One spoon from the middle tells them about the whole pot. But they also check the bottom, where things burn, and the edges, where it cools first.
+    Test design works the same way. One test stands in for a whole group of similar inputs. Then you add extra tests at the places where bugs like to hide.
 
-- Equivalence partitioning
-- Boundary values
-- Decision tables
-- State transitions
-- Pairwise
-- Error guessing
-- Exploratory testing
-- Checklist-based testing
-- White-box testing: statement and branch coverage
+!!! example "Your task"
+    Arshad's shop launches member accounts on Friday. Three things change at once: a new sign-up form, new delivery fees for members, and members can now cancel orders. His lead says: "We have two days. We can't test everything. Which tests give us the most confidence?"
+    This page follows Arshad through that task.
 
-## Templates you will get
+## Jump to what you need
 
-- Worksheet per technique
-- Pairwise generator
-- Coverage example
+- [Equivalence partitioning](equivalence-partitioning.md): sort inputs into groups, and test one from each
+- [Boundary values](boundary-values.md): test right at the edges, where off-by-one bugs live
+- [Decision tables](decision-tables.md): when the result depends on several conditions together
+- [State transitions](state-transitions.md): for anything with a status that changes, like an order
+
+More techniques are on the way in this topic: pairwise testing, error guessing, exploratory testing, checklist-based testing, and statement and branch coverage.
+
+## 1. Understand the ask
+
+Arshad reads the three stories, then asks the questions the stories don't answer:
+
+| Arshad asks | The product owner answers |
+| --- | --- |
+| Sign-up says "age 18 to 120". Is 120 itself allowed? | Yes, both ends are allowed |
+| What can a username contain? | Letters and numbers, 3 to 20 characters |
+| Is express delivery free for big orders, like standard? | No. Express is never free. Members pay $4.99 instead of $9.99 |
+| Can a member cancel an order that has shipped? | No. Only before it ships. After paying, cancelling gives a refund |
+| What does "done" mean for testing? | Automated tests for the rules, and a short list of what was not tested |
+
+Look at the third question. The story never said express might be free. Arshad only asked because he was already thinking in combinations. That is the first gift of test design: it shows you the questions.
+
+## 2. Picture the system
+
+Three features, three shapes of problem. Each shape has a technique that fits it:
+
+```mermaid
+flowchart LR
+    S["Sign-up form<br/>one value at a time"] --> T1["Groups and edges"]
+    D["Delivery fee<br/>several conditions together"] --> T2["Decision table"]
+    O["Order status<br/>changes over time"] --> T3["State transitions"]
+```
+
+Choosing the technique starts with asking "what kind of rule is this?" A range of numbers, a mix of yes/no conditions, or a status that moves.
+
+## 3. Learn just enough
+
+Arshad doesn't read a textbook. He spends 30 minutes on:
+
+1. This topic's [equivalence partitioning](equivalence-partitioning.md) and [boundary values](boundary-values.md) lessons: they belong together, and cover most form fields.
+2. The [ISTQB Foundation syllabus](https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/), chapter 4, "Test Analysis and Design": the shared names for these techniques, so his plan uses words the whole team knows.
+
+## 4. Get something running
+
+Before he designs anything, Arshad runs the developers' existing tests and tries each feature once by hand. Sign-up works with a normal name and age. Delivery shows a fee. An order can be paid. The basics are alive, so the detailed design is worth doing now. (If the basics were broken, the right move would be to report that first, and wait.)
+
+## 5. Decide what to test
+
+Now the techniques do the real work. For each feature, Arshad fills one worksheet from the [templates](#templates):
+
+- **Sign-up age and username:** groups and edges. Age has three groups (too young, allowed, too old) and four edge values (17, 18, 120, 121). Username has five groups and four edges. That makes 16 tests instead of millions.
+- **Delivery fee:** a decision table. Three yes/no conditions give 8 rows. Each row is one test.
+- **Order status:** a state table. 6 statuses and 4 actions give 24 cells. 5 are allowed moves, and the other 19 must be refused.
+
+He sorts them by risk. Money first (delivery fee), then what stops a sale (sign-up), then cancelling.
+
+## 6. Write a one-page plan
+
+Arshad's plan, shared with the team before he writes any code:
+
+- **In scope:** sign-up rules, delivery fees, order status rules, each with the technique above.
+- **Not in scope:** what the pages look like, speed, and other browsers. Each is noted as a risk, with a reason.
+- **How:** unit tests in pytest, one row of each worksheet per test.
+- **Done when:** all worksheet rows are tests, every test passes, and the product owner has agreed the decision table.
+
+## 7. Build in small steps
+
+He writes the tests one technique at a time, and runs them after each one. The whole set runs in a blink:
+
+```bash
+python -m pytest -q
+```
+
+```text
+49 passed in 0.03s
+```
+
+Then he does something many people skip. He breaks each rule on purpose, to check the tests would notice. For age, he changes `MIN_AGE <= age` to `MIN_AGE < age`, so an 18-year-old is refused. The group tests still pass. Only the edge test catches it:
+
+```text
+FAILED tests/test_signup_edges.py::test_age_at_the_edges[18-expected1] - Asse...
+1 failed, 7 passed in 0.03s
+```
+
+That one line shows why you need both techniques. The [boundary values](boundary-values.md) lesson walks through it.
+
+## 8. Report and get feedback
+
+Arshad shows his lead the filled decision table, because it is easy for anyone to read and check. He points out the row the story didn't cover (express for big orders), and the answer the product owner gave. He also lists what he didn't test, and why. The lead can now say "yes, that is enough for Friday", or "add this".
+
+## 9. Keep learning on your own
+
+Use the worksheets on your next real story, even a small one. After a few times, you will start to see groups and edges as you read. Next, read [Test cases](../test-cases/index.md) to turn these test ideas into test cases other people can run, and [Static testing and reviews](../static-testing-and-reviews/index.md) to find missing rules before any code exists.
+
+!!! tip "How an experienced SDET thinks about this"
+    - "What kind of rule is this?" picks the technique. A range: groups and edges. A mix of conditions: a decision table. A status: a state table.
+    - A worksheet is a thinking tool first, and a test list second. The questions it raises are often worth more than the tests.
+    - Bugs love edges. When in doubt, add the value right at the limit.
+    - A test you have never seen fail might not be testing anything. Break the rule once, on purpose, and watch it fail.
+
+!!! warning "Red flags"
+    - Test ideas are only "happy path" values like age 30.
+    - Nobody asked what happens exactly at the limit.
+    - The result depends on three conditions, and there are two tests.
+    - Expected results were copied from what the app does today, not from the rules.
+    - The team can't say which combinations were left out on purpose.
+
+!!! question "Stuck? Try this"
+    - **The story has no clear rule to work from.** Write down your best guess as a table, and ask the product owner "is this right?" People correct a wrong table much faster than they answer an open question.
+    - **There are too many combinations.** Split the rule into smaller rules first. If it is still too big, pairwise testing (coming next in this topic) picks a smart small set.
+    - **You don't know which technique fits.** Ask: does one value matter at a time (groups and edges), several conditions together (decision table), or what happened before (state transitions)?
+    - **The developers say "we already tested that".** Show them your table and ask which rows their tests cover. Gaps usually appear in a minute, and nobody has to argue.
+
+## Templates
+
+Copy these into your own notes or project. Each file starts with a line that says where it came from.
+
+=== "Groups and edges worksheet"
+
+    ```markdown
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/partitions_and_boundaries_worksheet.md"
+    ```
+
+=== "boundaries.py"
+
+    ```python
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/boundaries.py"
+    ```
+
+=== "Decision table worksheet"
+
+    ```markdown
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/decision_table_worksheet.md"
+    ```
+
+=== "decision_table.py"
+
+    ```python
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/decision_table.py"
+    ```
+
+=== "State transition worksheet"
+
+    ```markdown
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/state_transition_worksheet.md"
+    ```
+
+=== "How to use them"
+
+    1. Pick the worksheet that fits the rule: one value (groups and edges), several conditions (decision table), or a changing status (state transitions).
+    2. Fill it from the story, word for word. Every blank you can't fill is a question for the team.
+    3. Use `python boundaries.py LOW HIGH` and `python decision_table.py "A" "B" "C"` to skip the busy work.
+    4. Turn each row into one test, or one row of `pytest.mark.parametrize`.
+
+## Bug Hunt
+
+!!! example "Optional: try it on the Practice App"
+    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, look at a rule with a limit, like free shipping from $50.00. Test one cent below the limit, exactly at it, and one cent above. Which one shows the bug?
+
+    Check your answer in the [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts), Bug Hunt **BH-01** (folded, so you can't see it by accident).
+
+## Official resources
+
+- [ISTQB Certified Tester Foundation Level](https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/): chapter 4 covers these techniques
+- [ISTQB Glossary](https://glossary.istqb.org/): equivalence partitioning, boundary value analysis, decision table testing, state transition testing
+- [pytest: How to parametrize tests](https://docs.pytest.org/en/stable/how-to/parametrize.html): turn a worksheet into tests
