@@ -24,15 +24,19 @@ def database_up(session_maker) -> str:
 
 @router.get("/health", summary="Is every part of the app up?")
 def health(request: Request) -> JSONResponse:
-    """200 when every part is up, 503 when any part is down. Step 1.5.5 adds Mailpit."""
+    """200 when every part is up, 503 when any part is down.
+
+    `email` is "console" when emails are only printed in the terminal (no SMTP_HOST):
+    that counts as up."""
     state = request.app.state
     services = {
         "api": "up",
         "main_database": database_up(state.sessionmaker),
         "reporting_database": database_up(state.reporting_sessionmaker),
         "reviews_database": "up" if state.reviews.is_up() else "down",
+        "email": state.outbox.is_up(),
     }
-    ok = all(state == "up" for state in services.values())
+    ok = all(state in ("up", "console") for state in services.values())
     body = {"status": "ok" if ok else "degraded", "services": services}
     return JSONResponse(body, status_code=200 if ok else 503)
 

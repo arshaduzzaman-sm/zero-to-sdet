@@ -91,6 +91,7 @@ class UserOut(BaseModel):
     role: str
     is_verified: bool
     shipping_address: str | None
+    avatar_url: str | None = None
     created_at: datetime
 
 
@@ -122,6 +123,7 @@ class ProductOut(BaseModel):
     is_active: bool
     rating_average: float | None
     rating_count: int
+    image_url: str | None = None
     created_at: datetime
 
 

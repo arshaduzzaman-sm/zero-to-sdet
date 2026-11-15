@@ -6,6 +6,7 @@
 
 <article class="product-detail" data-testid="product-detail" data-product-id="{{ product.id }}">
   <div>
+    {% if product.image_url %}<img src="/products/{{ product.id }}/image" alt="Picture of {{ product.name }}" class="product-photo" data-testid="product-image">{% endif %}
     <h1 data-testid="product-name">{{ product.name }}</h1>
     <p class="muted" data-testid="product-sku">SKU: {{ product.sku }}</p>
     {{ stars(product.rating_average, product.rating_count) }}

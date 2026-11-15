@@ -26,7 +26,12 @@ class User(Base):
     failed_logins: Mapped[int] = mapped_column(default=0)
     locked_until: Mapped[datetime | None]
     shipping_address: Mapped[str | None] = mapped_column(String(300))
+    avatar_path: Mapped[str | None] = mapped_column(String(255))
     created_at: Mapped[datetime]
+
+    @property
+    def avatar_url(self) -> str | None:
+        return f"/api/users/{self.id}/avatar" if self.avatar_path else None  # owner or admin
 
 
 class OtpCode(Base):
@@ -65,6 +70,10 @@ class Product(Base):
     created_at: Mapped[datetime]
 
     category: Mapped[Category] = relationship(lazy="joined", innerjoin=True)
+
+    @property
+    def image_url(self) -> str | None:
+        return f"/api/products/{self.id}/image" if self.image_path else None
 
 
 class Cart(Base):
@@ -161,13 +170,13 @@ class CouponUse(Base):
 
 
 class File(Base):
-    """Uploaded and generated files (used from step 1.5.5)."""
+    """A record of every uploaded picture (who, when, original name, size, checksum)."""
 
     __tablename__ = "files"
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)
-    kind: Mapped[str] = mapped_column(String(20))  # avatar, product_image, invoice
+    kind: Mapped[str] = mapped_column(String(20))  # avatar or product_image
     original_name: Mapped[str] = mapped_column(String(255))
     content_type: Mapped[str] = mapped_column(String(100))
     size_bytes: Mapped[int]

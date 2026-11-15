@@ -79,7 +79,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     else:
         app.state.reviews = SqlReviews(app.state.sessionmaker)
     app.state.clock = Clock()
-    app.state.outbox = Outbox(settings.outbox_dir)
+    app.state.outbox = Outbox(
+        settings.outbox_dir, settings.smtp_host, settings.smtp_port, settings.mail_from
+    )
     app.state.hasher = make_hasher(settings.fast_password_hashing)
     app.state.templates = make_templates()
     prepare(app)

@@ -47,6 +47,9 @@
   <ul class="product-grid" data-testid="product-list">
     {% for p in result["items"] %}
       <li class="product-card" data-testid="product-card" data-product-id="{{ p.id }}">
+        <div class="cover" aria-hidden="true">
+          {% if p.image_url %}<img src="/products/{{ p.id }}/image" alt="" loading="lazy" data-testid="product-image">{% else %}<span class="cover-letter">{{ p.name[:1] }}</span>{% endif %}
+        </div>
         <span class="category" data-testid="product-category">{{ p.category.name }}</span>
         <h2><a href="/products/{{ p.id }}" data-testid="product-link">{{ p.name }}</a></h2>
         <p class="price" data-testid="product-price">{{ p.price_cents | money }}</p>

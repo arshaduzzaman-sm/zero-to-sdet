@@ -5,13 +5,17 @@ from __future__ import annotations
 from enum import StrEnum
 from typing import Annotated
 
-from fastapi import APIRouter, Query, Response
+from fastapi import APIRouter, Query, Response, UploadFile
+from fastapi import File as FormFile
+from fastapi.responses import FileResponse
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
+from .. import files
 from ..deps import (
     AdminUser,
     AppClock,
+    AppSettings,
     CurrentUser,
     Db,
     MaybeUser,
@@ -72,6 +76,7 @@ def product_out(product: Product, stats: dict[int, tuple[float, int]]) -> Produc
         is_active=product.is_active,
         rating_average=average,
         rating_count=count,
+        image_url=product.image_url,
         created_at=product.created_at,
     )
 
@@ -246,3 +251,48 @@ def create_review(
         )
     except DuplicateReviewError:  # two requests at the same moment
         raise already from None
+
+
+@router.post(
+    "/products/{product_id}/image",
+    response_model=ProductOut,
+    summary="Upload a product image (admin)",
+)
+def upload_product_image(
+    product_id: int,
+    admin: AdminUser,
+    db: Db,
+    settings: AppSettings,
+    clock: AppClock,
+    reviews: Reviews,
+    file: Annotated[UploadFile, FormFile(description="A JPEG or PNG picture, up to 2 MB")],
+) -> ProductOut:
+    """Send the picture as multipart form data in a field named `file`.
+    The old image is replaced."""
+    product = db.get(Product, product_id)
+    if product is None:
+        raise not_found("product")
+    record = files.save_upload(
+        db, settings, admin, "product_image", file.file, file.filename, clock.now()
+    )
+    old = product.image_path
+    product.image_path = record.storage_path
+    db.commit()
+    files.remove(settings.files_dir, old)
+    return product_out(product, reviews.stats([product.id]))
+
+
+@router.get(
+    "/products/{product_id}/image",
+    response_class=FileResponse,
+    summary="Get a product image",
+    responses={200: {"content": {"image/jpeg": {}, "image/png": {}}}},
+)
+def product_image(product_id: int, db: Db, user: MaybeUser, settings: AppSettings) -> FileResponse:
+    product = visible_product(db, product_id, user)
+    if not product.image_path:
+        raise ApiError(404, "FILE_NOT_FOUND", "This product has no image.")
+    path = files.resolve(settings.files_dir, product.image_path)
+    if not path.is_file():
+        raise ApiError(404, "FILE_NOT_FOUND", "This product has no image.")
+    return FileResponse(path, media_type=files.content_type_of(product.image_path))

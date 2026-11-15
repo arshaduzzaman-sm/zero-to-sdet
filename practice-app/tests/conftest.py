@@ -12,6 +12,8 @@ Careful: each test resets those databases, so local practice data is lost.
 
 import os
 import re
+import tempfile
+from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
@@ -39,6 +41,7 @@ def test_settings(**changes) -> Settings:
         mongodb_database="bookshelf_test",
         secret_key="test-only-secret-key-that-is-long-enough",
         outbox_dir=None,
+        files_dir=Path(tempfile.mkdtemp(prefix="bookshelf-test-files-")),  # never the real folder
         fast_password_hashing=True,
         payment_timeout_seconds=0,
         reporting_sync_seconds=0,

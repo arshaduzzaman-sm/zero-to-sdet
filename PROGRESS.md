@@ -34,6 +34,30 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1.5 · Step 1.5.5: email, picture uploads, invoice PDF
+
+**Done**
+
+- **Email through Mailpit:** sign-up code, reset code and order confirmation go to Mailpit when `SMTP_HOST` is set. Read them at http://127.0.0.1:58025 or with Mailpit's API. Without it, emails are printed and saved in `data/outbox/` as before. A failed send is logged and never breaks the request. Mailpit 1.33.1 is in `docker-compose.yml`, pinned by digest, on 127.0.0.1 only (web 58025, SMTP 51025), with the update check and remote fonts turned off. `/api/health` now shows `email` (up, down, or console).
+- **Picture uploads:** profile picture (`POST/DELETE /api/users/me/avatar`, `GET /api/users/{id}/avatar`, owner or admin only) and product image (`POST /api/products/{id}/image` admin, `GET` public). JPEG or PNG only, up to 2 MB and 25 million pixels. Pillow must open the file as a real picture: a renamed text file, a fake PNG header or a GIF is refused with a clear error. A clean copy is saved, turned upright, with no hidden metadata (GPS and camera details are removed), under a random name in `data/files/`. The path is checked so it can never leave that folder. Reset deletes all uploads.
+- **Invoice PDF:** `GET /api/orders/{id}/invoice.pdf`, made on request with fpdf2 and never stored. Marked "Practice invoice ... Not a real document". Someone else's order gives 404; an unpaid order gives 409 `INVOICE_NOT_AVAILABLE`.
+- **Web pages:** profile picture box on the profile page (upload, remove, errors next to the field), an image column on the admin page, product images on cards and the product page (a letter placeholder when there is none), and a "Download invoice (PDF)" button on the order page. Upload forms carry the CSRF token too, and every new element has a `data-testid`.
+- **Older data:** if the database was made by an older app version (missing columns), the app rebuilds it from the seed on start and says so in the terminal, instead of crashing.
+- Tests never touch the real `data/files/`: each test app gets its own temporary folder.
+- Tests: 27 new (uploads, metadata removal, permissions, invoices, SMTP with a stand-in server, web forms, plus one that checks real Mailpit when `BOOKSHELF_TEST_MAILPIT` is set). All 155 app tests pass on SQLite and on Docker (PostgreSQL, MySQL, MongoDB and real Mailpit). Checked live too: a sign-up email arrived in Mailpit, an upload worked, and the invoice PDF opened correctly.
+- New packages, checked on PyPI and pinned with hashes: fpdf2 (py-pdf), pillow (already used by the site scripts), fonttools (needed by fpdf2).
+- DESIGN.md (email, files and invoice rules; ports; endpoints), README (emails, pictures and invoices) and `.env.example` (`SMTP_HOST`, `SMTP_PORT`) updated.
+
+**How to check**
+
+`cd practice-app && docker compose up -d mailpit`, then `SMTP_HOST=127.0.0.1 SMTP_PORT=51025 ../.venv/bin/python -m bookshelf`. Sign up on http://127.0.0.1:8080/signup and read the code at http://127.0.0.1:58025. Log in as `arshad`, add a profile picture on the profile page, and download the invoice of order 1.
+
+**Next step**
+
+Step 1.5.6: the app itself in docker compose (one-command start), reset script, status page, GitHub Codespaces setup with an "Open in Codespaces" button, and a guard that stops the app on a non-local address while it still uses the fake default passwords.
+
+---
+
 ## 2026-11-15 · Phase 1.5 · Step 1.5.4: web pages
 
 **Done**

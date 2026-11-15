@@ -56,8 +56,15 @@ class Settings:
     payment_timeout_seconds: float = 3.0
     # Admin clock control (POST /api/admin/clock), for lessons about time.
     clock_control: bool = True
-    # Emails are printed to the console and saved here until Mailpit (step 1.5.5).
+    # Email. With SMTP_HOST set (Mailpit), emails go there and show at http://127.0.0.1:58025.
+    # Without it, they are printed in the terminal and saved as text files here.
+    smtp_host: str = ""
+    smtp_port: int = 1025
+    mail_from: str = "Bookshelf <no-reply@bookshelf.example>"
     outbox_dir: Path | None = DATA_DIR / "outbox"
+    # Uploaded pictures (profile pictures, product images).
+    files_dir: Path = DATA_DIR / "files"
+    max_upload_bytes: int = 2 * 1024 * 1024
     # Tests only: cheaper password hashing so the test run stays fast.
     fast_password_hashing: bool = False
 
@@ -70,6 +77,8 @@ class Settings:
             "REPORTING_DATABASE_URL": "reporting_database_url",
             "MONGODB_URL": "mongodb_url",
             "MONGODB_DATABASE": "mongodb_database",
+            "SMTP_HOST": "smtp_host",
+            "MAIL_FROM": "mail_from",
             "SECRET_KEY": "secret_key",
             "HOST": "host",
             "SEED_CUSTOMER_PASSWORD": "seed_customer_password",
@@ -81,9 +90,12 @@ class Settings:
         for key, name in (
             ("REPORTING_SYNC_SECONDS", "reporting_sync_seconds"),
             ("FAKE_CUSTOMERS", "fake_customers"),
+            ("SMTP_PORT", "smtp_port"),
         ):
             if env.get(key):
                 setattr(settings, name, int(env[key]))
+        if env.get("FILES_DIR"):
+            settings.files_dir = Path(env["FILES_DIR"])
         if env.get("PORT"):
             settings.port = int(env["PORT"])
         if env.get("TOKEN_MINUTES"):

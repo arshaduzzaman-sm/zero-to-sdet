@@ -12,6 +12,7 @@ from fastapi import Depends, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel, ValidationError
+from starlette.datastructures import UploadFile
 
 from .. import __version__
 from ..deps import AppClock, AppSettings, Db
@@ -47,7 +48,12 @@ MESSAGES = {
     "status_changed": "Order status changed.",
     "reset_done": "All data is back to the start.",
     "synced": "Reporting copy refreshed.",
+    "avatar_saved": "Your profile picture is saved.",
+    "avatar_removed": "Your profile picture is removed.",
+    "image_saved": "Product image saved.",
 }
+
+CHOOSE_PICTURE = "Choose a JPEG or PNG picture first."
 
 
 def money(cents: int | None) -> str:
@@ -120,17 +126,29 @@ def need_admin(request: Request, user: User | None) -> User:
     return user
 
 
-async def form_data(request: Request) -> dict[str, str]:
-    """Read a submitted form and check its CSRF token (blocks forged form posts)."""
-    form = await request.form()
+async def form_data(request: Request) -> dict:
+    """Read a submitted form and check its CSRF token (blocks forged form posts).
+
+    Text fields come back as text; file fields (upload forms) as UploadFile."""
+    form = await request.form(max_files=1, max_fields=50)
     sent = str(form.get("csrf_token", ""))
     expected = request.cookies.get(CSRF_COOKIE, "")
     if not expected or not hmac.compare_digest(sent, expected):
         raise BadCsrf()
-    return {key: str(value) for key, value in form.items() if key != "csrf_token"}
+    return {
+        key: value if isinstance(value, UploadFile) else str(value)
+        for key, value in form.items()
+        if key != "csrf_token"
+    }
 
 
-Form = Annotated[dict[str, str], Depends(form_data)]
+def chosen_file(form: dict) -> UploadFile | None:
+    """The file in the form's `file` field, or None when no file was chosen."""
+    file = form.get("file")
+    return file if isinstance(file, UploadFile) and file.filename else None
+
+
+Form = Annotated[dict, Depends(form_data)]
 
 
 def csrf_token(request: Request) -> str:

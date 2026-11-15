@@ -8,6 +8,36 @@
     <dt>Username</dt><dd data-testid="profile-username">{{ user.username }}</dd>
     <dt>Email</dt><dd data-testid="profile-email">{{ user.email }}</dd>
   </dl>
+  {% set avatar_error = errors.get("avatar") %}
+  <section class="card avatar-box" aria-labelledby="avatar-title" data-testid="avatar-section">
+    <h2 id="avatar-title">Profile picture</h2>
+    <div class="avatar-row">
+      {% if user.avatar_path %}
+        <img src="/profile/avatar" alt="Your profile picture" class="avatar" width="72" height="72" data-testid="avatar-image">
+      {% else %}
+        <span class="avatar avatar-empty" aria-hidden="true" data-testid="avatar-placeholder">{{ user.full_name[:1] }}</span>
+      {% endif %}
+      <form action="/profile/avatar" method="post" enctype="multipart/form-data" class="avatar-form" data-testid="avatar-form">
+        {{ csrf(csrf_token) }}
+        <div class="field{% if avatar_error %} has-error{% endif %}">
+          <label for="avatar-file">Choose a picture</label>
+          <input id="avatar-file" name="file" type="file" accept="image/jpeg,image/png"
+                 aria-describedby="avatar-help{% if avatar_error %} avatar-error{% endif %}"
+                 {% if avatar_error %}aria-invalid="true"{% endif %} data-testid="avatar-input">
+          <p class="hint" id="avatar-help">JPEG or PNG, up to 2 MB. We remove hidden details such as location.</p>
+          {% if avatar_error %}<p class="error" id="avatar-error" data-testid="avatar-error">{{ avatar_error }}</p>{% endif %}
+        </div>
+        <button type="submit" data-testid="upload-avatar-button">Upload picture</button>
+      </form>
+    </div>
+    {% if user.avatar_path %}
+      <form action="/profile/avatar/delete" method="post" data-confirm="Remove your profile picture?" data-testid="remove-avatar-form">
+        {{ csrf(csrf_token) }}
+        <button type="submit" class="button-quiet button-small" data-testid="remove-avatar-button">Remove picture</button>
+      </form>
+    {% endif %}
+  </section>
+
   <form action="/profile" method="post" class="card" data-testid="profile-form" novalidate>
     {{ csrf(csrf_token) }}
     {{ form_error(errors) }}

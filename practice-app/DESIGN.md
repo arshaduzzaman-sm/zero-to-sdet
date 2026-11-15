@@ -111,7 +111,7 @@ flowchart LR
         my[("MySQL<br/>reporting copy")]
         mongo[("MongoDB<br/>reviews")]
         mail["Mailpit<br/>catches every email"]
-        files[("Files<br/>uploads, invoices")]
+        files[("Files<br/>uploaded pictures")]
         api --> pg
         api -- "sync every minute" --> my
         api --> mongo
@@ -132,8 +132,32 @@ flowchart LR
 
 Host ports avoid the usual defaults, so the app never clashes with a database
 you already run: API `8080`, Mailpit `58025`, PostgreSQL `55432`, MySQL `53306`,
-MongoDB `57017`. Everything binds to `127.0.0.1`. Images are pinned to an exact
-version and digest: PostgreSQL 17.12, MySQL 8.4.13, MongoDB 8.0.38.
+MongoDB `57017`, and SMTP `51025` (the app sends email to Mailpit there).
+Everything binds to `127.0.0.1`. Images are pinned to an exact version and
+digest: PostgreSQL 17.12, MySQL 8.4.13, MongoDB 8.0.38, Mailpit 1.33.1.
+
+### Email
+
+With `SMTP_HOST` set (Docker mode), every email goes to Mailpit. Nothing reaches
+a real inbox. Read the emails at <http://127.0.0.1:58025>, or let a test read
+them with Mailpit's API (`GET /api/v1/messages`, `GET /api/v1/search?query=to:...`).
+Mailpit keeps the emails in memory only. Without `SMTP_HOST`, every email is
+printed in the terminal and saved as a text file in `data/outbox/`. A failed
+send is logged and never breaks the request: the user can ask for a new code.
+
+### Files
+
+- **Uploads** (profile pictures and product images): JPEG or PNG only, up to
+  2 MB and 25 million pixels. The app opens each file with Pillow and refuses
+  anything that is not a real picture, whatever its name or content type says.
+  It saves a clean copy (turned upright, with no hidden metadata such as GPS
+  location) under a random name in `data/files/`. The uploaded name is stored
+  only as text. A new picture replaces the old one; reset deletes them all.
+- **Who sees what:** product images are public (hidden products: admins only).
+  A profile picture is visible to its owner and admins only.
+- **Invoices** are made on request from the order (fpdf2), never stored. Only
+  orders that were paid have one; a `pending` order answers 409
+  `INVOICE_NOT_AVAILABLE`.
 
 ## 4. Data model
 
@@ -251,7 +275,7 @@ erDiagram
     FILES {
         int id PK
         int user_id FK
-        string kind "avatar, product_image or invoice"
+        string kind "avatar or product_image"
         string original_name
         string content_type
         int size_bytes
@@ -305,8 +329,8 @@ All under `/api`. JSON in and out. Errors always look like
 | Area | Endpoints |
 | --- | --- |
 | Auth | `POST /auth/signup`, `POST /auth/verify`, `POST /auth/resend-code`, `POST /auth/login`, `POST /auth/forgot-password`, `POST /auth/reset-password`, `GET /auth/me` |
-| Users | `GET /users/me`, `PATCH /users/me`, `POST /users/me/avatar`, `GET /users` (admin) |
-| Products | `GET /products` (search, filter, sort, page), `GET /products/{id}`, `POST /products`, `PATCH /products/{id}`, `DELETE /products/{id}` (admin, soft delete), `POST /products/{id}/image` (admin) |
+| Users | `GET /users/me`, `PATCH /users/me`, `POST /users/me/avatar`, `DELETE /users/me/avatar`, `GET /users/{id}/avatar` (owner or admin), `GET /users` (admin) |
+| Products | `GET /products` (search, filter, sort, page), `GET /products/{id}`, `POST /products`, `PATCH /products/{id}`, `DELETE /products/{id}` (admin, soft delete), `POST /products/{id}/image` (admin), `GET /products/{id}/image` |
 | Categories | `GET /categories` |
 | Reviews | `GET /products/{id}/reviews`, `POST /products/{id}/reviews` |
 | Cart | `GET /cart`, `POST /cart/items`, `PATCH /cart/items/{product_id}`, `DELETE /cart/items/{product_id}`, `POST /cart/coupon`, `DELETE /cart/coupon` |

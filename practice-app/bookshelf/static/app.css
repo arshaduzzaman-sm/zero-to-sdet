@@ -109,6 +109,22 @@ legend { font-weight: 600; padding: 0 0.25rem; }
 .product-card h2 a { color: var(--ink); text-decoration: none; }
 .product-card h2 a::after { content: ""; position: absolute; inset: 0; }
 .product-card h2 a:focus-visible::after { box-shadow: var(--focus); border-radius: var(--radius); }
+.cover { aspect-ratio: 3 / 2; margin: -0.25rem -0.25rem 0.4rem; border-radius: calc(var(--radius) - 2px); background: linear-gradient(135deg, #e7eef7, #f4efe7); display: grid; place-items: center; overflow: hidden; }
+.cover img { width: 100%; height: 100%; object-fit: cover; }
+.cover-letter { font-size: 2.6rem; font-weight: 700; color: var(--brand); opacity: 0.55; }
+.product-photo { display: block; width: 100%; max-width: 26rem; height: auto; border-radius: var(--radius); border: 1px solid var(--line); margin-bottom: 1rem; }
+.thumb { width: 40px; height: 40px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
+.image-form { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.image-form input[type="file"] { max-width: 11.5rem; font-size: 0.85rem; }
+.image-form .error { flex-basis: 100%; margin: 0; }
+.avatar-box { margin-bottom: 1rem; }
+.avatar-box h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+.avatar-row { display: flex; gap: 1.25rem; align-items: flex-start; flex-wrap: wrap; }
+.avatar-form { flex: 1 1 16rem; display: grid; gap: 0.75rem; justify-items: start; }
+.avatar-form .field { width: 100%; }
+.avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); flex: none; }
+.avatar-empty { display: grid; place-items: center; background: #e7eef7; color: var(--brand); font-size: 1.8rem; font-weight: 700; }
+.avatar-box [data-testid="remove-avatar-form"] { margin-top: 0.75rem; }
 .category { font-size: 0.8rem; color: var(--muted); }
 .price { font-weight: 700; font-size: 1.1rem; margin: 0; font-variant-numeric: tabular-nums; }
 .price-large { font-size: 1.6rem; }

@@ -213,5 +213,79 @@ def test_every_interactive_element_has_a_test_id(client):
         check(path)
     post(client, "/logout")
     web_login(client, "admin", "local_only_password")
+    upload_form(client, "/admin/products/6/image", png())  # pages with an image too
     check("/admin")
+    check("/products/6")
     assert missing == {}
+
+
+def upload_form(client, path: str, data: bytes, name="me.png"):
+    return client.post(
+        path,
+        data={"csrf_token": csrf(client)},
+        files={"file": (name, data, "image/png")},
+        follow_redirects=False,
+    )
+
+
+def png() -> bytes:
+    import io
+
+    from PIL import Image
+
+    out = io.BytesIO()
+    Image.new("RGB", (20, 20), (200, 80, 40)).save(out, "PNG")
+    return out.getvalue()
+
+
+def test_upload_and_remove_a_profile_picture_on_the_web(client):
+    web_login(client)
+    assert 'data-testid="avatar-placeholder"' in client.get("/profile").text
+    saved = upload_form(client, "/profile/avatar", png())
+    assert saved.status_code == 303
+    assert saved.headers["location"] == "/profile?msg=avatar_saved"
+    page = client.get("/profile").text
+    assert 'data-testid="avatar-image"' in page
+    assert client.get("/profile/avatar").headers["content-type"] == "image/png"
+
+    assert (
+        post(client, "/profile/avatar/delete").headers["location"] == "/profile?msg=avatar_removed"
+    )
+    assert 'data-testid="avatar-placeholder"' in client.get("/profile").text
+
+
+def test_a_wrong_profile_picture_shows_an_error_next_to_the_field(client):
+    web_login(client)
+    wrong = upload_form(client, "/profile/avatar", b"not a picture", "notes.txt")
+    assert wrong.status_code == 400
+    assert 'data-testid="avatar-error">Upload a JPEG or PNG picture.<' in wrong.text
+    nothing = upload_form(client, "/profile/avatar", b"", "")
+    assert 'data-testid="avatar-error">Choose a JPEG or PNG picture first.<' in nothing.text
+
+
+def test_upload_forms_need_the_csrf_token(client):
+    web_login(client)
+    response = client.post("/profile/avatar", files={"file": ("me.png", png(), "image/png")})
+    assert response.status_code == 403
+
+
+def test_admin_adds_a_product_image_that_shows_in_the_shop(client):
+    web_login(client, "admin", "local_only_password")
+    saved = upload_form(client, "/admin/products/6/image", png())
+    assert saved.headers["location"] == "/admin?msg=image_saved"
+    assert 'data-testid="product-image"' in client.get("/").text
+    assert 'data-testid="product-image"' in client.get("/products/6").text
+    assert client.get("/products/6/image").headers["content-type"] == "image/png"
+
+    wrong = upload_form(client, "/admin/products/6/image", b"nope", "nope.png")
+    assert wrong.status_code == 400
+    assert 'data-testid="admin-image-error"' in wrong.text
+
+
+def test_download_an_invoice_on_the_web(client):
+    web_login(client)
+    page = client.get("/orders/1").text
+    assert 'href="/orders/1/invoice.pdf"' in page
+    invoice = client.get("/orders/1/invoice.pdf")
+    assert invoice.status_code == 200
+    assert invoice.content.startswith(b"%PDF-")

@@ -33,9 +33,11 @@ from ..schemas import (
     VerifyIn,
 )
 from .helpers import (
+    CHOOSE_PICTURE,
     SESSION_COOKIE,
     Form,
     WebUser,
+    chosen_file,
     go,
     need_admin,
     need_user,
@@ -146,6 +148,13 @@ def product_page(
         },
         user=user,
     )
+
+
+@router.get("/products/{product_id}/image")
+def product_image(product_id: int, db: Db, user: WebUser, settings: AppSettings) -> Response:
+    """Same as GET /api/products/{id}/image, but knows the logged-in admin (cookie),
+    so the admin page can show images of hidden products too."""
+    return products_api.product_image(product_id=product_id, db=db, user=user, settings=settings)
 
 
 @router.post("/products/{product_id}/reviews")
@@ -348,6 +357,42 @@ def save_profile(request: Request, form: Form, db: Db, user: WebUser) -> Respons
     return render(request, "profile.html", {"form": form, "errors": errors}, status=400, user=user)
 
 
+@router.get("/profile/avatar")
+def my_avatar(request: Request, user: WebUser, settings: AppSettings) -> Response:
+    user = need_user(request, user)
+    return users_api.avatar_response(settings, user)
+
+
+@router.post("/profile/avatar")
+def save_avatar(
+    request: Request, form: Form, db: Db, user: WebUser, settings: AppSettings, clock: AppClock
+) -> Response:
+    user = need_user(request, user)
+    file = chosen_file(form)
+    try:
+        if file is None:
+            raise ApiError(400, "NO_FILE", CHOOSE_PICTURE)
+        users_api.upload_avatar(user=user, db=db, settings=settings, clock=clock, file=file)
+        return go("/profile", "avatar_saved")
+    except ApiError as error:
+        db.rollback()
+        form = {"full_name": user.full_name, "shipping_address": user.shipping_address or ""}
+        errors = {"avatar": error.message}
+        return render(
+            request, "profile.html", {"form": form, "errors": errors}, status=400, user=user
+        )
+
+
+@router.post("/profile/avatar/delete")
+def remove_avatar(
+    request: Request, form: Form, db: Db, user: WebUser, settings: AppSettings
+) -> Response:
+    user = need_user(request, user)
+    if user.avatar_path:
+        users_api.delete_avatar(user=user, db=db, settings=settings)
+    return go("/profile", "avatar_removed")
+
+
 # ----- Cart and checkout -----
 
 
@@ -499,6 +544,12 @@ def order_page(order_id: int, request: Request, db: Db, user: WebUser) -> Respon
     return render(request, "order.html", {"order": order, "errors": {}}, user=user)
 
 
+@router.get("/orders/{order_id}/invoice.pdf")
+def order_invoice(order_id: int, request: Request, db: Db, user: WebUser) -> Response:
+    user = need_user(request, user)
+    return orders_api.order_invoice(order_id=order_id, user=user, db=db)
+
+
 @router.post("/orders/{order_id}/cancel")
 def cancel(
     order_id: int, request: Request, form: Form, db: Db, user: WebUser, clock: AppClock
@@ -598,6 +649,38 @@ def admin_save_product(
     return admin_page_response(
         request, db, user, reviews, {f"stock-{product_id}": errors.get("stock", "Not valid.")}, 400
     )
+
+
+@router.post("/admin/products/{product_id}/image")
+def admin_product_image(
+    product_id: int,
+    request: Request,
+    form: Form,
+    db: Db,
+    user: WebUser,
+    settings: AppSettings,
+    clock: AppClock,
+    reviews: Reviews,
+) -> Response:
+    user = need_admin(request, user)
+    file = chosen_file(form)
+    try:
+        if file is None:
+            raise ApiError(400, "NO_FILE", CHOOSE_PICTURE)
+        products_api.upload_product_image(
+            product_id=product_id,
+            admin=user,
+            db=db,
+            settings=settings,
+            clock=clock,
+            reviews=reviews,
+            file=file,
+        )
+        return go("/admin", "image_saved")
+    except ApiError as error:
+        db.rollback()
+        errors = {f"image-{product_id}": error.message}
+        return admin_page_response(request, db, user, reviews, errors, 400)
 
 
 @router.post("/admin/orders/{order_id}")

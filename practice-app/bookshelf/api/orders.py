@@ -6,7 +6,7 @@ import secrets
 import time
 from datetime import UTC, datetime
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Response
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
@@ -21,6 +21,7 @@ from ..deps import (
     page_count,
 )
 from ..errors import ApiError
+from ..invoice import build_invoice
 from ..models import CouponUse, Order, OrderItem, Payment, Product
 from ..schemas import CheckoutIn, OrderLineOut, OrderOut, Page, PaymentOut
 from .cart import cart_totals, check_coupon, find_coupon, get_cart
@@ -218,6 +219,30 @@ def list_orders(user: CurrentUser, db: Db, page: PageNumber = 1, size: PageSize 
 @router.get("/orders/{order_id}", response_model=OrderOut, summary="Get one of my orders")
 def get_order(order_id: int, user: CurrentUser, db: Db) -> OrderOut:
     return order_out(own_order(db, order_id, user.id))
+
+
+@router.get(
+    "/orders/{order_id}/invoice.pdf",
+    response_class=Response,
+    summary="Download the invoice of my order (PDF)",
+    responses={200: {"content": {"application/pdf": {}}}},
+)
+def order_invoice(order_id: int, user: CurrentUser, db: Db) -> Response:
+    """Only for orders that were paid (also after they are shipped, delivered or
+    cancelled). An unpaid (pending) order has no invoice."""
+    order = own_order(db, order_id, user.id)
+    if order.status == "pending":
+        raise ApiError(
+            409, "INVOICE_NOT_AVAILABLE", "This order was not paid, so it has no invoice."
+        )
+    return Response(
+        build_invoice(order),
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": f'attachment; filename="bookshelf-invoice-{order.id}.pdf"',
+            "Cache-Control": "private, no-store",
+        },
+    )
 
 
 @router.post("/orders/{order_id}/cancel", response_model=OrderOut, summary="Cancel my order")

@@ -36,6 +36,10 @@
   <dt class="total">Total</dt><dd class="total" data-testid="order-total">{{ order.total_cents | money }}</dd>
 </dl>
 
+{% if order.status != "pending" %}
+  <p><a class="button button-quiet" href="/orders/{{ order.id }}/invoice.pdf" download data-testid="download-invoice-link">Download invoice (PDF)</a></p>
+{% endif %}
+
 {% if order.status == "paid" %}
   <form action="/orders/{{ order.id }}/cancel" method="post" data-confirm="Cancel order {{ order.id }}? The money goes back to your card." data-testid="cancel-order-form">
     {{ csrf(csrf_token) }}

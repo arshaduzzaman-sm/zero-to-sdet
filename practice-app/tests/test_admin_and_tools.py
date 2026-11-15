@@ -93,6 +93,7 @@ def test_health_and_version(client):
         "main_database": "up",
         "reporting_database": "up",
         "reviews_database": "up",
+        "email": "console",
     }
     version = client.get("/api/version").json()
     assert version["version"] == "1.0.0"

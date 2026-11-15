@@ -1,4 +1,4 @@
-# The Practice App's databases. For practice on your own computer only.
+# The Practice App's databases and Mailpit. For practice on your own computer only.
 #
 #   docker compose up -d      start (first time: downloads the images)
 #   docker compose down       stop (your data stays)
@@ -7,7 +7,7 @@
 # Every port listens on 127.0.0.1 only, so other computers cannot reach it.
 # Passwords come from .env (copy .env.example); the defaults are fake.
 # Images are pinned to an exact version and digest, so they never change by surprise.
-# Step 1.5.6 adds the app itself and Mailpit to this file.
+# Step 1.5.6 adds the app itself to this file.
 
 name: bookshelf
 
@@ -58,6 +58,24 @@ services:
       test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
       interval: 3s
       timeout: 5s
+      retries: 20
+
+  # Catches every email the app sends; nothing reaches a real inbox.
+  # Read them at http://127.0.0.1:58025 (or with its API: /api/v1/messages).
+  # Emails live in memory only: they are gone after a restart.
+  mailpit:
+    image: axllent/mailpit:v1.33.1@sha256:aef2aacc11f075ec0fb6874275ee4a421e688e11a96ebb296134d1735c7761ce
+    environment:
+      MP_MAX_MESSAGES: 500
+      MP_DISABLE_VERSION_CHECK: "true"
+      MP_BLOCK_REMOTE_CSS_AND_FONTS: "true"
+    ports:
+      - "127.0.0.1:58025:8025" # web page and API
+      - "127.0.0.1:51025:1025" # SMTP: the app sends emails here
+    healthcheck:
+      test: ["CMD", "/mailpit", "readyz"]
+      interval: 3s
+      timeout: 3s
       retries: 20
 
 volumes:

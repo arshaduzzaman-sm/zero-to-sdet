@@ -8,7 +8,7 @@
   <h2 id="products-title">Products</h2>
   <div class="table-scroll">
   <table class="table" data-testid="admin-products-table">
-    <thead><tr><th scope="col">SKU</th><th scope="col">Name</th><th scope="col" class="num">Price</th><th scope="col">Stock and visibility</th></tr></thead>
+    <thead><tr><th scope="col">SKU</th><th scope="col">Name</th><th scope="col" class="num">Price</th><th scope="col">Stock and visibility</th><th scope="col">Image</th></tr></thead>
     <tbody>
       {% for p in products["items"] %}
         {% set error = errors.get("stock-" ~ p.id) %}
@@ -26,13 +26,26 @@
               {% if error %}<p class="error" data-testid="admin-stock-error">{{ error }}</p>{% endif %}
             </form>
           </td>
+          <td>
+            {% set image_error = errors.get("image-" ~ p.id) %}
+            <form action="/admin/products/{{ p.id }}/image" method="post" enctype="multipart/form-data" class="image-form" data-testid="admin-image-form">
+              {{ csrf(csrf_token) }}
+              {% if p.image_url %}<img src="/products/{{ p.id }}/image" alt="" class="thumb" width="40" height="40" data-testid="admin-product-image">{% endif %}
+              <label class="visually-hidden" for="image-{{ p.id }}">Image of {{ p.name }} (JPEG or PNG, up to 2 MB)</label>
+              <input id="image-{{ p.id }}" name="file" type="file" accept="image/jpeg,image/png"
+                     {% if image_error %}aria-invalid="true" aria-describedby="image-{{ p.id }}-error"{% endif %}
+                     data-testid="admin-image-input">
+              <button type="submit" class="button-small button-quiet" data-testid="admin-upload-image-button">Upload</button>
+              {% if image_error %}<p class="error" id="image-{{ p.id }}-error" data-testid="admin-image-error">{{ image_error }}</p>{% endif %}
+            </form>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
   </div>
 
-  <details class="card" {% if errors %}open{% endif %} data-testid="new-product">
+  <details class="card" {% if form %}open{% endif %} data-testid="new-product">
     <summary>Add a product</summary>
     <form action="/admin/products" method="post" class="grid-form" data-testid="new-product-form" novalidate>
       {{ csrf(csrf_token) }}
