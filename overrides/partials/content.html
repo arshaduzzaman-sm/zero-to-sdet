@@ -6,6 +6,7 @@
   - Finished lessons (pages with a level, not drafts) get a "Mark as done"
     button. It stays hidden until progress.js shows it, and saves only in the
     reader's own browser. Turn it off for a page with `hide: [progress]`.
+  - Share buttons (partials/share.html), off with `hide: [share]`.
 -#}
 {% include "partials/actions.html" %}
 {% if "<h1" not in page.content %}
@@ -23,6 +24,7 @@
     <p class="zts-done__note" data-zts-done-note role="status"></p>
   </div>
 {% endif %}
+{% include "partials/share.html" %}
 <div class="zts-page-end">
   {% include "partials/feedback.html" %}
   {% include "partials/source-file.html" %}

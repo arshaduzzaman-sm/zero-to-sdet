@@ -1,0 +1,35 @@
+{#-
+  Zero to SDET: share buttons at the end of a page.
+  Plain links only: no scripts from LinkedIn, X or WhatsApp are loaded, so
+  nothing is sent to them unless the reader clicks. "Copy link" and the phone
+  "Share" button need JavaScript (share.js) and stay hidden without it.
+  Hidden on drafts and with `hide: [share]`.
+-#}
+{% if page.canonical_url and page.meta.status != "draft"
+      and "share" not in (page.meta.hide or []) %}
+  {% set share_url = page.canonical_url %}
+  {% set share_title = (page.meta.title if page.meta.title else page.title) | d(config.site_name, true) %}
+  <nav class="zts-share" aria-label="Share this page">
+    <span class="zts-share__label">Share this page</span>
+    <a class="zts-share__btn" href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url | urlencode }}"
+       target="_blank" rel="noopener noreferrer" title="Share on LinkedIn" aria-label="Share on LinkedIn">
+      {% include ".icons/fontawesome/brands/linkedin.svg" %}
+    </a>
+    <a class="zts-share__btn" href="https://x.com/intent/post?text={{ share_title | urlencode }}&amp;url={{ share_url | urlencode }}"
+       target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
+      {% include ".icons/fontawesome/brands/x-twitter.svg" %}
+    </a>
+    <a class="zts-share__btn" href="https://wa.me/?text={{ (share_title ~ ' ' ~ share_url) | urlencode }}"
+       target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+      {% include ".icons/fontawesome/brands/whatsapp.svg" %}
+    </a>
+    <button type="button" class="zts-share__btn zts-share__btn--wide" data-zts-copy="{{ share_url }}" hidden>
+      {% include ".icons/lucide/link.svg" %}
+      <span data-zts-copy-label>Copy link</span>
+    </button>
+    <button type="button" class="zts-share__btn" data-zts-native-share="{{ share_url }}"
+            data-title="{{ share_title | e }}" title="More ways to share" aria-label="More ways to share" hidden>
+      {% include ".icons/lucide/share-2.svg" %}
+    </button>
+  </nav>
+{% endif %}

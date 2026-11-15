@@ -86,6 +86,8 @@ Each playbook also has a **"How an experienced SDET thinks about this"** box, a 
 - Format and lint with `ruff`. Use type hints and short comments that explain **why**, not what.
 - Use Python 3.12+ and pytest as the base for all templates. Exceptions, where the tool has its own runner: behave (BDD), Robot Framework, Locust, k6 and JMeter. Their templates still have a check that `scripts/check.sh` runs.
 - Every template file starts with one credit comment line: `# Template from Zero to SDET: <site URL>`.
+  Other file types use their own comment style (`//` in JavaScript, `--` in SQL, `<!-- -->` in XML).
+  `scripts/check_credit_lines.py` checks every file in a `templates/` folder, and `--fix` adds the line.
 
 ### 7.8 Example names and data
 

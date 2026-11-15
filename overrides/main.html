@@ -1,11 +1,33 @@
 {#-
   Zero to SDET: extra tags in the page head.
-  `updated:` (YYYY-MM-DD, set by scripts/update_page_dates.py) is given to
-  search engines only. It is not shown to readers.
+  - `updated:` (YYYY-MM-DD, set by scripts/update_page_dates.py) is given to
+    search engines only. It is not shown to readers.
+  - Share tags (Open Graph and X): title, description and the share image made
+    by scripts/build_share_images.py at the same address
+    (assets/images/social/<page address>.png, "index.png" for the home page).
 -#}
 {% extends "base.html" %}
 {% block extrahead %}
   {% if page.meta and page.meta.updated %}
     <meta property="article:modified_time" content="{{ page.meta.updated }}">
   {% endif %}
+  {% set share_title = (page.meta.title if page.meta and page.meta.title else page.title) | d(config.site_name, true) %}
+  {% set share_text = (page.meta.description if page.meta and page.meta.description else config.site_description) %}
+  {% set share_image = config.site_url ~ "assets/images/social/" ~ ((page.url | trim("/")) or "index") ~ ".png" %}
+  <meta property="og:type" content="{{ 'article' if page.url else 'website' }}">
+  <meta property="og:site_name" content="{{ config.site_name | e }}">
+  <meta property="og:title" content="{{ share_title | e }}">
+  <meta property="og:description" content="{{ share_text | e }}">
+  {% if page.canonical_url %}
+    <meta property="og:url" content="{{ page.canonical_url }}">
+  {% endif %}
+  <meta property="og:image" content="{{ share_image }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ share_title | e }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ share_title | e }}">
+  <meta name="twitter:description" content="{{ share_text | e }}">
+  <meta name="twitter:image" content="{{ share_image }}">
 {% endblock %}

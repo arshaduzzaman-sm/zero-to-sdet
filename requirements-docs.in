@@ -1,3 +1,6 @@
 # Website dependencies (top level). Pinned, hashed lock file: requirements-docs.txt
 # Update with: uv pip compile requirements-docs.in --generate-hashes --python-version 3.13 -o requirements-docs.txt
 zensical==0.1.1
+# Share images (one 1200x630 PNG per page, made at build time by scripts/build_share_images.py).
+# Zensical cannot make them yet; remove this when it can.
+pillow

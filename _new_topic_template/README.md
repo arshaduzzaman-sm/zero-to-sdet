@@ -44,3 +44,19 @@ Remove `status: draft` from the front matter when the topic is finished, then ru
 `.venv/bin/python scripts/build_nav.py`.
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md) for the full checklist.
+
+## The credit line
+
+Every file in a `templates/` folder starts with one comment line that says where
+it came from, so teammates who find a copied template can find the lesson too:
+
+```python
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+```
+
+Other file types use their own comment style (`//` in JavaScript, `--` in SQL,
+`<!-- -->` in XML). The commit stops if a template is missing it; add it with:
+
+```bash
+.venv/bin/python scripts/check_credit_lines.py --fix
+```

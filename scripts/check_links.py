@@ -1,8 +1,9 @@
 """Check every link on the built website (the site/ folder).
 
 Internal links (always): the target page or file must exist, and so must the
-#anchor if there is one. External links (with --external): each address must
-answer. Run `zensical build` first.
+#anchor if there is one. Share images (og:image) count as links too.
+External links (with --external): each address must answer.
+Run `zensical build` and scripts/build_share_images.py first.
 
 README.md is checked too: links to the website must point to a real page in
 site/, and links to repository files must point to a file that exists.
@@ -32,10 +33,17 @@ README_LINK = re.compile(r'\]\(([^)\s]+)\)|(?:href|src|srcset)="([^"]+)"')
 SITE_PREFIX = "/zero-to-sdet/"  # the path part of site_url in zensical.toml
 # Links to the site's own public address are checked against site/ (works before launch too).
 SITE_URL = "https://arshaduzzaman-sm.github.io/zero-to-sdet/"
+SHARE_IMAGE_TAGS = ("og:image", "twitter:image")  # made by scripts/build_share_images.py
 SKIP_SCHEMES = ("mailto:", "tel:", "javascript:", "data:")
 # Our own repository is private until Phase 9, so GitHub answers 404 to visitors.
-# Remove this entry when the repository is public.
-SKIP_EXTERNAL_PREFIXES = ("https://github.com/arshaduzzaman-sm/zero-to-sdet",)
+# Remove that first entry when the repository is public.
+SKIP_EXTERNAL_PREFIXES = (
+    "https://github.com/arshaduzzaman-sm/zero-to-sdet",
+    # Share buttons: one address per page, and these services refuse robots.
+    "https://www.linkedin.com/sharing/",
+    "https://x.com/intent/",
+    "https://wa.me/",
+)
 # Sites that refuse automated visitors; a failure here is "could not verify".
 BLOCKS_ROBOTS = ("linkedin.com",)
 USER_AGENT = "Mozilla/5.0 (compatible; zero-to-sdet-link-check)"
@@ -51,6 +59,9 @@ class LinkParser(HTMLParser):
         self.ids: set[str] = set()
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = dict(attrs)
+        if tag == "meta" and values.get("property", values.get("name")) in SHARE_IMAGE_TAGS:
+            self.links.append(values.get("content") or "")  # must exist, like any image
         for name, value in attrs:
             if value is None:
                 continue

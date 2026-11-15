@@ -39,6 +39,12 @@ repos:
         language: system
         pass_filenames: false
         files: ^(docs/.*\.md|data/.*\.yml|includes/.*|scripts/build_(nav|reference)\.py)$
+      - id: credit-lines
+        name: every template starts with the credit line
+        entry: .venv/bin/python scripts/check_credit_lines.py
+        language: system
+        pass_filenames: false
+        files: (^|/)templates/|^scripts/check_credit_lines\.py$
       # Python lint and format. Uses the ruff pinned (with hashes) in requirements.txt,
       # so pre-commit and scripts/check.sh always run the same version.
       - id: ruff-check

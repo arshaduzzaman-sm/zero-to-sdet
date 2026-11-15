@@ -51,6 +51,7 @@ Zero to SDET puts that road in one place:
 
 This site uses no cookies and no ads. Fonts and styles load from this site itself, not from other companies.
 When you tick a skill or mark a lesson as done, it is saved only in your own browser. It is never sent anywhere, and clearing your browser's data for this site removes it.
+The share buttons are plain links. Nothing is sent to LinkedIn, X or WhatsApp unless you click one.
 If visitor counting is added later, it will be a privacy-friendly counter that stores no personal data, and this section will say so.
 
 ## Help make it better

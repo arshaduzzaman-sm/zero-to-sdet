@@ -10,6 +10,8 @@
  * - Learning Path: "X of Y lessons done" under each path ([data-zts-path]).
  * - Skills Matrix: the boxes can be ticked; a summary shows each level and the
  *   next skill to learn ([data-zts-matrix]).
+ * - Section overviews: "X of Y topics done", and when every topic is done, a
+ *   short message the reader can edit and share (no pop-ups).
  *
  * Without JavaScript the pages still work; the buttons simply stay hidden.
  */
@@ -244,6 +246,84 @@
     return div.innerHTML;
   }
 
+  // ------------------------------------------- section overview: share it
+
+  var REPO = "https://github.com/arshaduzzaman-sm/zero-to-sdet";
+
+  function setupSection(data) {
+    var cards = document.querySelectorAll(".zts-topics > ul > li > p:first-child a[href]");
+    if (!cards.length) return;
+    var old = document.querySelector("[data-zts-section-progress]");
+    if (old) old.remove();
+    var done = Array.prototype.filter.call(cards, function (a) {
+      return Boolean(data.lessons[sitePath(a.getAttribute("href"))]);
+    }).length;
+    if (done === 0) return;
+
+    var heading = document.querySelector(".md-content__inner h1");
+    var section = heading ? heading.textContent.replace("¶", "").trim() : "this section";
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var url = canonical ? canonical.href : window.location.href;
+    var box = document.createElement("div");
+    box.setAttribute("data-zts-section-progress", "");
+    var meter =
+      '<span class="zts-meter" aria-hidden="true"><span style="inline-size:' +
+      Math.round((done / cards.length) * 100) + '%"></span></span>';
+
+    if (done < cards.length) {
+      box.className = "zts-section-progress";
+      box.innerHTML = "<p>" + meter + " You have finished <strong>" + done + " of " +
+        cards.length + "</strong> topics in " + escapeHtml(section) + ".</p>";
+    } else {
+      box.className = "zts-section-progress zts-section-progress--complete";
+      var message = "I just finished the " + section + " section of Zero to SDET, " +
+        "a free course for becoming an SDET. " + url;
+      box.innerHTML =
+        "<p><strong>You finished every topic in " + escapeHtml(section) + ". Well done!</strong></p>" +
+        '<label for="zts-share-message">Want to share it? Change the message if you like:</label>' +
+        '<textarea id="zts-share-message" rows="3"></textarea>' +
+        '<p class="zts-section-progress__actions">' +
+        '<button type="button" class="md-button" data-act="copy">Copy message</button>' +
+        '<a class="md-button" data-act="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
+        '<a class="md-button" data-act="x" target="_blank" rel="noopener noreferrer">X</a>' +
+        '<a class="md-button" data-act="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>' +
+        "</p>" +
+        '<p class="zts-section-progress__star">If this site helped you, a star on ' +
+        '<a href="' + REPO + '" target="_blank" rel="noopener">GitHub</a> helps other testers find it.</p>' +
+        '<p class="md-visually-hidden" role="status" data-zts-live></p>';
+      var text = box.querySelector("textarea");
+      text.value = message;
+      var links = function () {
+        var value = encodeURIComponent(text.value);
+        box.querySelector('[data-act="linkedin"]').href =
+          "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(url);
+        box.querySelector('[data-act="x"]').href = "https://x.com/intent/post?text=" + value;
+        box.querySelector('[data-act="whatsapp"]').href = "https://wa.me/?text=" + value;
+      };
+      text.addEventListener("input", links);
+      links();
+      // LinkedIn only takes the address, so copy the message for pasting.
+      box.querySelector('[data-act="linkedin"]').addEventListener("click", function () {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text.value).then(function () {
+            announce(box, "Message copied. Paste it into your LinkedIn post.");
+          });
+        }
+      });
+      box.querySelector('[data-act="copy"]').addEventListener("click", function () {
+        if (!navigator.clipboard) return announce(box, "Select the text and copy it.");
+        navigator.clipboard.writeText(text.value).then(function () {
+          announce(box, "Message copied. Paste it into your post.");
+        });
+      });
+    }
+    var first = document.querySelector(".md-content__inner .zts-topics");
+    var anchor = first && first.previousElementSibling && first.previousElementSibling.tagName === "H2"
+      ? first.previousElementSibling
+      : first;
+    anchor.insertAdjacentElement("beforebegin", box);
+  }
+
   // ------------------------------------------------------------------- start
 
   function run() {
@@ -251,6 +331,7 @@
     setupDoneButton(data);
     setupMatrix(data);
     markLinks(data);
+    setupSection(data);
   }
 
   // The site swaps pages without a full reload (instant navigation), so run on

@@ -1049,3 +1049,102 @@
 .md-typeset .zts-matrix__levels a {
   text-decoration: none;
 }
+
+/* ---------------------------------------------------------------------------
+   Share buttons and "Share your progress" (step 1.17)
+   --------------------------------------------------------------------------- */
+.md-typeset .zts-share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0 0;
+}
+.md-typeset .zts-share__label {
+  margin-inline-end: 0.25rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.md-typeset .zts-share__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-inline-size: 2.4rem;
+  block-size: 2.4rem;
+  padding: 0 0.6rem;
+  border: 1px solid var(--zts-border);
+  border-radius: 999px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color--light);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 140ms, color 140ms, background-color 140ms,
+    transform 140ms var(--zts-ease);
+}
+.md-typeset .zts-share__btn[hidden] { display: none; }
+.md-typeset .zts-share__btn svg {
+  inline-size: 1.05rem;
+  block-size: 1.05rem;
+  fill: currentColor;
+}
+.md-typeset .zts-share__btn:hover,
+.md-typeset .zts-share__btn:focus-visible {
+  border-color: var(--md-primary-fg-color--light);
+  background: var(--zts-surface);
+  color: var(--md-typeset-a-color);
+  transform: translateY(-1px);
+}
+.md-typeset .zts-share__btn--done {
+  border-color: var(--zts-pass);
+  color: var(--zts-pass);
+}
+
+/* Section overview: progress line and the "you finished it" box. */
+.md-typeset .zts-section-progress {
+  margin: 1rem 0 1.5rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .zts-section-progress--complete {
+  padding: 1rem 1.2rem;
+  border: 1px solid color-mix(in srgb, var(--zts-pass) 55%, var(--zts-border));
+  border-radius: var(--zts-radius);
+  background: var(--zts-surface);
+  color: var(--md-default-fg-color);
+}
+.md-typeset .zts-section-progress textarea {
+  display: block;
+  inline-size: 100%;
+  margin: 0.4rem 0;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--zts-border);
+  border-radius: var(--zts-radius-small);
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-size: 0.75rem;
+  resize: vertical;
+}
+.md-typeset .zts-section-progress__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.md-typeset .zts-section-progress__actions .md-button {
+  margin: 0;
+  padding: 0.35em 1em;
+  font-size: 0.72rem;
+}
+.md-typeset .zts-section-progress__star {
+  font-size: 0.72rem;
+  color: var(--md-default-fg-color--light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .zts-share__btn:hover,
+  .md-typeset .zts-share__btn:focus-visible { transform: none; }
+}

@@ -25,10 +25,35 @@ Newest entry first. No secrets or personal data in this file.
 | Page dates | No visible "last updated" date; hidden meta tag only. Lessons show "Tested with" versions instead. | 2026-11-15 |
 | Navigation | Seven fixed tabs; menu and section overviews generated from page front matter by `scripts/build_nav.py`. | 2026-11-15 |
 | Readability tool | pyphen + own Flesch-Kincaid formula instead of textstat (textstat pulls in nltk and 7 more packages; fewer dependencies is safer). | 2026-11-15 |
+| Share images | Own script with Pillow (owner approved): made at build time into site/, cached, never committed. Zensical cannot make them yet. | 2026-11-15 |
 | Code of Conduct contact | LinkedIn for now; discussed again in Phase 9 (owner may create a project email). | 2026-11-15 |
 | Pillar 6: AI-Powered QA | Owner added a new pillar of 11 topics (brief section 11 and Phase 7.5). Saved now, built later. The Pillar 3 topic "AI in testing" moves into it as "Testing AI features". Templates use a fake model in tests (offline, no key, no cost). AI provider for examples: decide when the phase starts. | 2026-11-15 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-15 · Phase 1 · Step 1.17: share images, share buttons, credit line
+
+**Done**
+
+- **Share images:** `scripts/build_share_images.py` draws a 1200 x 630 PNG for every page (section, title, description for short titles, level, site name; site blue and the site's own font). Zensical 0.1.1 cannot make them yet. Owner approved adding **Pillow 13.0.0** (pinned with hashes in `requirements-docs.txt`). Images go into `site/` at build time and are cached in `.cache/share-images/` (git-ignored): nothing is committed, so the repo stays small at any size. 77 images in about 4 s; a rebuild uses the cache.
+- **Share tags:** `overrides/main.html` adds Open Graph and X card tags (title, description, address, image, image size and alt) to every page.
+- **Share buttons** (`overrides/partials/share.html`, `share.js`): LinkedIn, X, WhatsApp, "Copy link", and the phone share sheet where the browser has one. Plain links: nothing loads from those sites and nothing is sent unless the reader clicks. Hidden on drafts and with `hide: [share]`.
+- **Share your progress:** section overviews show "You have finished X of Y topics", and when all are done a box with an editable message, Copy / LinkedIn / X / WhatsApp, and a gentle GitHub star request (no pop-ups). LinkedIn only takes the address, so clicking it also copies the message.
+- **Credit line rule:** `scripts/check_credit_lines.py` checks that every file in a `templates/` folder starts with `Template from Zero to SDET: <site URL>`, in that file type's comment style (`#`, `//`, `--`, `<!-- -->`; after a `#!` or `<?xml` line if there is one; JSON and CSV skipped). `--fix` adds it. In `check.sh` and pre-commit; documented in the Style guide and `_new_topic_template/README.md`. 7 tests.
+- `scripts/check_links.py` now also checks that every page's share image exists (caught all 158 when missing), and skips the per-page share addresses in `--external`.
+- Fix found on the way: `docs/assets/images/IMAGES_NEEDED.md` (the owner's screenshot to-do list) was being published as a page. Now left out of the site with `exclude_docs`.
+- About page privacy section mentions the share buttons.
+- Checked in headless Chrome: share bar, partial progress (4 of 9, dark mode) and the "finished" box; external links: 209 addresses, none broken.
+
+**How to check**
+
+`scripts/check.sh` (12 checks, 20 tests). Share images: after `zensical build` and `scripts/build_share_images.py`, open `site/assets/images/social/`.
+
+**Next step**
+
+Phase 1 gate: the site runs locally and looks finished with placeholders, and a new topic can be added in under 10 minutes.
 
 ---
 

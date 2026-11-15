@@ -57,8 +57,10 @@ run "Menu and overview pages up to date" must "$PY" scripts/build_nav.py --check
 run "Glossary, tags and hover explanations up to date" must "$PY" scripts/build_reference.py --check
 run "Hidden page dates up to date" warn "$PY" scripts/update_page_dates.py --check
 run "Website builds with no warnings" must .venv/bin/zensical build --strict
+run "Share images for every page" must "$PY" scripts/build_share_images.py
 run "Links" must "$PY" scripts/check_links.py $EXTERNAL
 run "Tests (pytest)" must .venv/bin/pytest -q
+run "Credit line in every template" must "$PY" scripts/check_credit_lines.py
 run "Readability (grade 8 or lower)" warn "$PY" scripts/check_readability.py --strict
 
 printf '\n================ Summary ================\n'
