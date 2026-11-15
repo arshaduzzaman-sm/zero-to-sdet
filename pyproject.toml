@@ -2,7 +2,7 @@
 # Tools are pinned in requirements.txt (with hashes).
 
 [tool.pytest.ini_options]
-testpaths = ["modules", "_new_topic_template/modules"]
+testpaths = ["modules", "_new_topic_template/modules", "scripts/tests"]
 addopts = ["--import-mode=importlib", "-ra", "--strict-markers"]
 
 [tool.ruff]

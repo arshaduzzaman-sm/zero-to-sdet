@@ -31,6 +31,25 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Step 1.16: readability check
+
+**Done**
+
+- The check itself was added to `scripts/check.sh` in step 1.12 (Flesch-Kincaid grade, prose only, target grade 8 or lower, drafts skipped). This step checked it against brief section 8A: grade 6 to 8, code skipped, too-hard pages listed. All requirements met.
+- New: for a page that is too hard, the checker lists its longest sentences (over 25 words), so the writer knows what to split.
+- New: `scripts/tests/test_check_readability.py`, 11 tests that prove the checker measures only what readers read (front matter, code, code in tabs, headings, tables, HTML, comments and link addresses are skipped; wrapped lines, list items and box titles are counted correctly) and that easy and hard text score as expected. `pyproject.toml` runs `scripts/tests` with the other tests.
+- Tested on a deliberately hard page in a scratch copy: grade 38.1, the long sentences listed, `--strict` exits 1. In `check.sh` it stays advice only (warning), as the brief asks for a list, not a block.
+
+**How to check**
+
+`scripts/check.sh` (13 tests pass; every finished page is grade 6.0 or lower).
+
+**Next step**
+
+Step 1.17: share image for every page, share buttons, and the credit-line rule in `_new_topic_template/`.
+
+---
+
 ## 2026-11-15 · Phase 1 · Step 1.15: progress tracker and the Skills Matrix
 
 **Done**

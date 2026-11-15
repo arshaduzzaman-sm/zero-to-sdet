@@ -15,6 +15,8 @@ Usage (from the repository root):
 
 A score is a hint, not a verdict: short technical words like "pytest" or
 "PostgreSQL" can push it up. Read flagged pages aloud and simplify where it helps.
+For each page that is too hard, the longest sentences are listed, because
+splitting long sentences is the quickest way to lower the grade.
 """
 
 from __future__ import annotations
@@ -28,6 +30,8 @@ import pyphen
 DOCS = Path("docs")
 MAX_GRADE = 8.0
 MIN_WORDS = 80  # shorter pages give unreliable scores
+HINTS = 3  # longest sentences shown for a page that is too hard
+LONG_SENTENCE = 25  # words; anything longer is worth splitting
 FRONT_MATTER = re.compile(r"\A---\n(.*?)\n---\n", re.DOTALL)
 WORD = re.compile(r"[A-Za-z][A-Za-z'’-]*")
 SENTENCE_END = re.compile(r"[.!?]+(?:\s|$)")
@@ -86,6 +90,13 @@ def grade(text: str) -> tuple[float, int]:
     return round(score, 1), len(words)
 
 
+def longest_sentences(text: str, count: int = HINTS) -> list[tuple[int, str]]:
+    """The longest sentences (word count, sentence), longest first."""
+    sentences = [part.strip() for part in SENTENCE_END.split(text) if part.strip()]
+    sized = [(len(WORD.findall(sentence)), sentence) for sentence in sentences]
+    return sorted((s for s in sized if s[0] > LONG_SENTENCE), reverse=True)[:count]
+
+
 def main() -> int:
     strict = "--strict" in sys.argv[1:]
     results = []
@@ -93,15 +104,20 @@ def main() -> int:
         markdown = page.read_text(encoding="utf-8")
         if re.search(r"^status:\s*draft\s*$", markdown, re.MULTILINE):
             continue
-        score, words = grade(prose(markdown))
+        text = prose(markdown)
+        score, words = grade(text)
         if words >= MIN_WORDS:
-            results.append((score, words, page))
+            results.append((score, words, page, text))
     too_hard = [r for r in results if r[0] > MAX_GRADE]
     target = f"target: grade {MAX_GRADE:g} or lower"
     print(f"check_readability: {len(results)} finished pages measured ({target})")
-    for score, words, page in sorted(results, reverse=True):
+    for score, words, page, text in sorted(results, key=lambda r: r[0], reverse=True):
         mark = "TOO HARD" if score > MAX_GRADE else "ok      "
         print(f"  {mark}  grade {score:>4}  {words:>5} words  {page}")
+        if score > MAX_GRADE:
+            for size, sentence in longest_sentences(text):
+                short = sentence if len(sentence) <= 100 else sentence[:97] + "..."
+                print(f"            {size} words: {short}")
     if too_hard:
         print(
             f"check_readability: {len(too_hard)} page(s) above grade {MAX_GRADE:g}. "
