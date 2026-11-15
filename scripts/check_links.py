@@ -4,6 +4,9 @@ Internal links (always): the target page or file must exist, and so must the
 #anchor if there is one. External links (with --external): each address must
 answer. Run `zensical build` first.
 
+README.md is checked too: links to the website must point to a real page in
+site/, and links to repository files must point to a file that exists.
+
 Usage (from the repository root):
     .venv/bin/python scripts/check_links.py              # internal links only (fast)
     .venv/bin/python scripts/check_links.py --external   # also visit external sites
@@ -14,6 +17,7 @@ LinkedIn) are listed as "could not verify", not as broken.
 
 from __future__ import annotations
 
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -23,6 +27,8 @@ from pathlib import Path
 from urllib.parse import unquote, urldefrag, urlsplit
 
 SITE = Path("site")
+README = Path("README.md")
+README_LINK = re.compile(r'\]\(([^)\s]+)\)|(?:href|src|srcset)="([^"]+)"')
 SITE_PREFIX = "/zero-to-sdet/"  # the path part of site_url in zensical.toml
 # Links to the site's own public address are checked against site/ (works before launch too).
 SITE_URL = "https://arshaduzzaman-sm.github.io/zero-to-sdet/"
@@ -100,6 +106,28 @@ def check_internal(pages: list[Path]) -> tuple[list[str], set[str]]:
     return problems, external
 
 
+def check_readme() -> tuple[list[str], set[str]]:
+    """Links in README.md: website pages, repository files and external addresses."""
+    problems: list[str] = []
+    external: set[str] = set()
+    if not README.exists():
+        return problems, external
+    for match in README_LINK.finditer(README.read_text(encoding="utf-8")):
+        link = match.group(1) or match.group(2)
+        target, anchor = urldefrag(link)
+        if link.startswith(SITE_URL):
+            file = resolve(SITE / "index.html", SITE_PREFIX + target[len(SITE_URL) :])
+            if not file.exists():
+                problems.append(f"README.md: no such website page -> {link}")
+            elif anchor and unquote(anchor) not in parse(file).ids:
+                problems.append(f"README.md: missing #{anchor} in {file.name} -> {link}")
+        elif urlsplit(link).scheme in ("http", "https"):
+            external.add(target)
+        elif not link.startswith(SKIP_SCHEMES) and target and not Path(target).exists():
+            problems.append(f"README.md: no such file in the repository -> {link}")
+    return problems, external
+
+
 def visit(url: str) -> tuple[str, str | None]:
     """Return (url, None) if it answers, else (url, reason)."""
     if not url.startswith(("https://", "http://")):
@@ -140,7 +168,10 @@ def main() -> int:
         return 1
     pages = sorted(SITE.rglob("*.html"))
     problems, external = check_internal(pages)
-    print(f"check_links: {len(pages)} pages, {len(external)} external addresses")
+    readme_problems, readme_external = check_readme()
+    problems += readme_problems
+    external |= readme_external
+    print(f"check_links: {len(pages)} pages and README.md, {len(external)} external addresses")
     for problem in problems:
         print(f"  BROKEN  {problem}")
     if "--external" in sys.argv[1:]:

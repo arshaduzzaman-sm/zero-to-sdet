@@ -32,7 +32,7 @@ repos:
         entry: .venv/bin/python scripts/build_nav.py --check
         language: system
         pass_filenames: false
-        files: ^(docs/.*\.md|zensical\.toml|scripts/build_nav\.py)$
+        files: ^(docs/.*\.md|zensical\.toml|README\.md|scripts/build_nav\.py)$
       # Python lint and format. Uses the ruff pinned (with hashes) in requirements.txt,
       # so pre-commit and scripts/check.sh always run the same version.
       - id: ruff-check

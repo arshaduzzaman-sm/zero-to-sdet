@@ -31,6 +31,26 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Step 1.13: README
+
+**Done**
+
+- `README.md`: banner, one-line promise, badges (website, MIT, CC BY 4.0, Python 3.13, pytest and Playwright, contributions welcome), quick links, "What is this?", a "lessons are being written" note, home page screenshot (light and dark), "I need to…" table, topic map, how to use it, what is in the repository, how to help, license, author.
+- `.github/readme/`: `banner.svg` (hand-made, system fonts, no external requests) and `site-light.png` / `site-dark.png` (about 140 KB each, taken from the local build).
+- The topic map is **generated** by `scripts/build_nav.py` from page front matter: one folded block per stage, topics in menu order and groups, summaries, and "coming soon" for drafts. The README stays short at any number of topics and never goes stale. The pre-commit menu hook now also watches `README.md`.
+- `scripts/check_links.py` now checks README links too: website links must match a real page in `site/`, repository links a real file. Tested: a wrong page and a wrong file name are both caught.
+- Badges are static shields.io images (GitHub proxies them, so readers are not tracked). The live star count badge waits for Phase 9, because a private repository shows an error badge.
+
+**How to check**
+
+`scripts/check.sh`. After the push, open the repository on GitHub to see the README; switch GitHub to dark mode to see the dark screenshot.
+
+**Next step**
+
+Step 1.14: Glossary, Tags and Start Here pages.
+
+---
+
 ## 2026-11-15 · Phase 1 · Step 1.12: scripts/check.sh and ruff
 
 **Done**
