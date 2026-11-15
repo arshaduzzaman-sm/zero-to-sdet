@@ -41,6 +41,29 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 6: Test cases
+
+**Done**
+
+- Playbook: write test cases for the reviewed refund story (REF-1 to REF-7), automate the rules, keep manual cases for emails and the support queue, and prove every criterion is covered.
+- Three lessons, written straight to the reader, each with "When it goes wrong": anatomy of a test case, positive and negative cases, traceability.
+- Real outputs:
+  - the pytest `covers` report shows REF-3 with no automated test (it is about time and email, so it is tested by hand);
+  - `traceability.py` on the manual CSV finds REF-5 missing (its tests are automated but were never listed) and TC-16 pointing to REF-8, a requirement that was never written down;
+  - a typo `covers("REF2")` is reported as "not in --requirements (typo?)".
+- Templates: test case (Markdown), test cases (CSV), `traceability.py`, and a `covers` pytest plugin (save as conftest.py). The example requirement list is named `refund_requirements.txt`, so tools don't mistake it for a Python package list.
+- 20 topic tests. 5 new glossary terms.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Pages: Think like a tester, then Test cases.
+
+**Next step**
+
+Topic 7: Bug reports.
+
+---
+
 ## 2026-11-16 · Phase 2 · Topic 5: Static testing and reviews
 
 **Done**

@@ -204,7 +204,7 @@
 
 - term: Test case
   meaning: One check written down step by step, with the expected result, so anyone can run it the same way.
-  page: think-like-a-tester/test-cases/index.md
+  page: think-like-a-tester/test-cases/anatomy-of-a-test-case.md
 
 - term: Test data
   meaning: The users, products, orders and other data a test needs to run.
@@ -383,3 +383,23 @@
 - term: pre-commit
   meaning: A tool that runs checks automatically every time you commit, and stops the commit if something is wrong.
   page: think-like-a-tester/static-testing-and-reviews/static-analysis-tools.md
+
+- term: Positive test
+  meaning: A test that checks something works when it should, like a refund within 30 days going through.
+  page: think-like-a-tester/test-cases/positive-and-negative-cases.md
+
+- term: Precondition
+  meaning: The state the system must be in before a test starts, like "a customer with one delivered item".
+  page: think-like-a-tester/test-cases/anatomy-of-a-test-case.md
+
+- term: Expected result
+  meaning: Exactly what should happen when you run a test, and what must not. The most important line of a test case.
+  page: think-like-a-tester/test-cases/anatomy-of-a-test-case.md
+
+- term: Traceability
+  meaning: The link between each requirement and the tests that check it, so you can see what has no test.
+  page: think-like-a-tester/test-cases/traceability.md
+
+- term: Traceability matrix
+  meaning: A table with one row per requirement and the test cases that cover it. Empty rows are gaps.
+  page: think-like-a-tester/test-cases/traceability.md

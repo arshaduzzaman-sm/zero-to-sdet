@@ -48,7 +48,7 @@ Before you automate anything, you need to know what to test and why. This pillar
 
     Write clear test cases, positive and negative, linked to what they check.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Bug reports**](bug-reports/index.md)
 

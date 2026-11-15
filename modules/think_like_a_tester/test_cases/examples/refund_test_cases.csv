@@ -1,0 +1,13 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+ID,Title,Covers,Type,Priority,Preconditions,Steps,Expected result,Automated
+TC-01,Refund within 30 days is allowed,REF-1,positive,high,Customer with an item delivered 15 days ago,1. Open My orders; 2. Choose Refund on the item; 3. Pick a reason; 4. Send,"Request is saved, status ""Requested""",test_tc01_refund_is_allowed_within_30_days
+TC-02,Refund on day 30 is allowed,REF-1,positive,high,Item delivered exactly 30 days ago,Same as TC-01,"Request is saved, status ""Requested""",test_tc02_refund_is_allowed_on_day_30
+TC-03,A faulty sale item can be refunded,REF-4,positive,medium,Sale item delivered 5 days ago,Same as TC-01 with reason Faulty,"Request is saved, status ""Requested""",test_tc03_a_faulty_sale_item_can_be_refunded
+TC-06,Refund on day 31 is refused,REF-1,negative,high,Item delivered 31 days ago,Same as TC-01,"Message ""Refunds are possible up to 30 days after delivery""; no request saved",test_tc06_refund_is_refused_on_day_31
+TC-07,An item cannot be refunded twice,REF-2,negative,high,Item already refunded,Same as TC-01,"Message ""This item was already refunded""",test_tc07_an_item_cannot_be_refunded_twice
+TC-11,Approval email is sent,REF-3,positive,high,A refund request in status Requested,1. Support approves the request; 2. Open the customer's email,"Email ""Your refund is approved"" within 1 minute, with the amount",no
+TC-12,Refusal email has the reason,REF-3,negative,high,A refund request in status Requested,1. Support refuses with reason Used item; 2. Open the customer's email,"Email ""Your refund was refused"" with the reason ""Used item""",no
+TC-13,Requests older than 2 working days are flagged,REF-3,negative,medium,A request made 3 working days ago and not decided,1. Open the support queue,The request is shown as late,no
+TC-14,Expired card refund email,REF-6,negative,medium,"Paid by card, card expired since",1. Support approves the request; 2. Open the customer's email,"Email says the money was added as store credit",no
+TC-15,Not delivered order shows Cancel order,REF-7,negative,medium,Order paid but not delivered,1. Open My orders,"No Refund button; a ""Cancel order"" link is shown",test_tc10_an_order_not_delivered_yet_is_refused
+TC-16,Refund page loads in Bengali,REF-8,positive,low,Site language set to Bengali,1. Open My orders,All refund texts are in Bengali,no

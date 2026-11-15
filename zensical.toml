@@ -83,7 +83,12 @@ nav = [
       { "Review types" = "think-like-a-tester/static-testing-and-reviews/review-types.md" },
       { "Static analysis tools" = "think-like-a-tester/static-testing-and-reviews/static-analysis-tools.md" },
     ] },
-    { "Test cases" = "think-like-a-tester/test-cases/index.md" },
+    { "Test cases" = [
+      "think-like-a-tester/test-cases/index.md",
+      { "Anatomy of a test case" = "think-like-a-tester/test-cases/anatomy-of-a-test-case.md" },
+      { "Positive and negative cases" = "think-like-a-tester/test-cases/positive-and-negative-cases.md" },
+      { "Traceability" = "think-like-a-tester/test-cases/traceability.md" },
+    ] },
     { "Bug reports" = "think-like-a-tester/bug-reports/index.md" },
     { "Test strategy and planning" = "think-like-a-tester/test-strategy-and-planning/index.md" },
   ] },

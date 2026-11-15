@@ -1,0 +1,8 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+REF-1: Refund each item up to 30 days after delivery, from "My orders"
+REF-2: Each item can be refunded once
+REF-3: Approved or refused within 2 working days, with an email either way
+REF-4: Sale items can be refunded only if faulty
+REF-5: Card and PayPal back to the same account; gift card becomes store credit
+REF-6: Expired or closed card: store credit, and an email saying so
+REF-7: Orders not delivered yet are not refunded here; link to "Cancel order"

@@ -163,6 +163,11 @@ that teaches it.
 
     Learn more: [Error guessing](think-like-a-tester/test-design-techniques/error-guessing.md)
 
+[](){ #expected-result }**Expected result**
+:   Exactly what should happen when you run a test, and what must not. The most important line of a test case.
+
+    Learn more: [Anatomy of a test case](think-like-a-tester/test-cases/anatomy-of-a-test-case.md)
+
 [](){ #exploratory-testing }**Exploratory testing**
 :   Testing by learning the app as you go, trying ideas and following anything that looks odd, instead of following a script.
 
@@ -338,6 +343,11 @@ that teaches it.
 
     Learn more: [UI automation](core-automation/ui-automation/index.md)
 
+[](){ #positive-test }**Positive test**
+:   A test that checks something works when it should, like a refund within 30 days going through.
+
+    Learn more: [Positive and negative cases](think-like-a-tester/test-cases/positive-and-negative-cases.md)
+
 [](){ #practice-app }**Practice App**
 :   The small online shop built for this site. It runs on your own computer and has bugs planted on purpose for you to find.
 
@@ -347,6 +357,11 @@ that teaches it.
 :   A tool that runs checks automatically every time you commit, and stops the commit if something is wrong.
 
     Learn more: [Static analysis tools](think-like-a-tester/static-testing-and-reviews/static-analysis-tools.md)
+
+[](){ #precondition }**Precondition**
+:   The state the system must be in before a test starts, like "a customer with one delivered item".
+
+    Learn more: [Anatomy of a test case](think-like-a-tester/test-cases/anatomy-of-a-test-case.md)
 
 [](){ #pull-request }**Pull request**
 :   A request to add your code changes to the team's main code. Others review it first.
@@ -439,7 +454,7 @@ that teaches it.
 [](){ #test-case }**Test case**
 :   One check written down step by step, with the expected result, so anyone can run it the same way.
 
-    Learn more: [Test cases](think-like-a-tester/test-cases/index.md)
+    Learn more: [Anatomy of a test case](think-like-a-tester/test-cases/anatomy-of-a-test-case.md)
 
 [](){ #test-charter }**Test charter**
 :   One sentence that sets the goal of an exploratory testing session. Explore something, with some idea, to find out something.
@@ -480,6 +495,16 @@ that teaches it.
 :   Everything testing produces, such as plans, test cases, test data, scripts, results and reports.
 
     Learn more: [The test process and testware](think-like-a-tester/the-sdet-role/test-process-and-testware.md)
+
+[](){ #traceability }**Traceability**
+:   The link between each requirement and the tests that check it, so you can see what has no test.
+
+    Learn more: [Traceability](think-like-a-tester/test-cases/traceability.md)
+
+[](){ #traceability-matrix }**Traceability matrix**
+:   A table with one row per requirement and the test cases that cover it. Empty rows are gaps.
+
+    Learn more: [Traceability](think-like-a-tester/test-cases/traceability.md)
 
 ## U
 
