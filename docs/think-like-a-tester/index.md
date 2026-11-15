@@ -1,6 +1,7 @@
 ---
 title: "Think Like a Tester: Test Design, Test Cases and Bug Reports"
 description: "Learn how testers think: test design techniques, test cases, bug reports, test plans and how to learn any new testing area."
+updated: "15 November 2026"
 ---
 
 # Think Like a Tester

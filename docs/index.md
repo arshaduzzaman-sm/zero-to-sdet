@@ -5,6 +5,8 @@ hide:
   - navigation
   - toc
   - footer
+  - author
+updated: "15 November 2026"
 ---
 
 <div class="zts-hero" markdown>

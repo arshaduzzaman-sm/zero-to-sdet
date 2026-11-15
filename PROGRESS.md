@@ -27,6 +27,29 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Step 1.7: About page and author line
+
+**Done**
+
+- New About page: what the site is, why it exists, licences (MIT code, CC BY 4.0 text), privacy (no cookies, self-hosted fonts), how to help.
+- Author card with GitHub and LinkedIn links. Photo and short bio are left as marked comments in `docs/about.md` until the owner provides them (nothing invented).
+- Every page now ends with "Written by Arshaduzzaman SM." (links to About) and "Last updated <date>." via `overrides/partials/source-file.html`. Home hides it with `hide: [author]`.
+- `scripts/update_page_dates.py` fills the `updated:` date from git history for finished pages (draft placeholders are skipped).
+
+**How to check**
+
+Open http://127.0.0.1:8001/zero-to-sdet/about/ and scroll to the bottom of any finished page (for example the Learning Path). `zensical build --strict` passes.
+
+**Open questions**
+
+- Owner photo (optional, square, metadata removed) and a 2–3 line bio for the About page.
+
+**Next step**
+
+Step 1.8: "Was this page helpful?" widget and the Giscus comments template (switched on in Phase 9).
+
+---
+
 ## 2026-11-15 · Phase 1 · Design pass (owner request: more attractive, beautiful diagrams, perfect text, click animations)
 
 **Design system**

@@ -117,6 +117,7 @@ nav = [
 
 [project.theme]
 language = "en"
+custom_dir = "overrides"
 # No external font requests. Fonts are self-hosted in docs/assets/fonts (see extra.css).
 font = false
 features = [

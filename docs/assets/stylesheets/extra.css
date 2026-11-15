@@ -476,3 +476,40 @@
     transition: none;
   }
 }
+
+/* ---------- Byline at the end of every page ------------------------------- */
+.md-source-file.zts-byline {
+  margin-top: 2.4rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--zts-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.4rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-source-file.zts-byline a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- About page: author block -------------------------------------- */
+.zts-author {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 1.2rem 1.4rem;
+  border-radius: var(--zts-radius);
+  background: var(--zts-surface);
+}
+.zts-author p {
+  margin: 0 0 0.6rem;
+}
+.md-typeset .zts-author__photo {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.zts-author .md-button {
+  margin: 0.2rem 0.4rem 0.2rem 0;
+}

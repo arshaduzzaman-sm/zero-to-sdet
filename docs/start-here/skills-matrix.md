@@ -6,6 +6,7 @@ tags:
   - career
   - sdet-roadmap
   - skills
+updated: "15 November 2026"
 ---
 
 # SDET Skills Matrix: Every Skill from Junior to Lead
