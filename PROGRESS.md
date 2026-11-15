@@ -41,7 +41,8 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 ```bash
 cd ~/Documents/"Claude code"/zero-to-sdet
 .venv/bin/zensical serve
-# open http://localhost:8000/zero-to-sdet/
+# open http://127.0.0.1:8001/zero-to-sdet/
+# (port 8001 is set in zensical.toml; port 8000 is used by another local project)
 ```
 
 **Files changed**

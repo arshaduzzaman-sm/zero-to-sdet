@@ -1,6 +1,7 @@
 # Zero to SDET: site configuration for Zensical.
 # Docs: https://zensical.org/docs/setup/basics/
-# Preview locally:  .venv/bin/zensical serve   (then open http://localhost:8000)
+# Preview locally:  .venv/bin/zensical serve   (then open http://127.0.0.1:8001/zero-to-sdet/)
+# Port 8001, so it never clashes with other projects on 8000. 127.0.0.1 = this computer only.
 # The site URL lives only here, so moving to a custom domain later is one edit.
 
 [project]
@@ -10,6 +11,7 @@ site_description = "Everything you need to become a professional SDET. From your
 site_author = "Arshaduzzaman SM"
 copyright = "&copy; 2026 Arshaduzzaman SM &middot; Code MIT &middot; Text CC BY 4.0"
 docs_dir = "docs"
+dev_addr = "127.0.0.1:8001"
 
 repo_url = "https://github.com/arshaduzzaman-sm/zero-to-sdet"
 repo_name = "arshaduzzaman-sm/zero-to-sdet"
