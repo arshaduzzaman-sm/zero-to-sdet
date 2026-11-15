@@ -4,7 +4,8 @@ description: "Flaky tests and speed: a free, step-by-step guide for SDETs, with 
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - Flaky tests
+  - Debugging
 nav_title: "Flaky tests and speed"
 order: 120
 group: "Data and reliability"

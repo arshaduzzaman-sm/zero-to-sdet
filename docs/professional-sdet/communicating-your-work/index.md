@@ -4,7 +4,8 @@ description: "Communicating your work: a free, step-by-step guide for SDETs, wit
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Teamwork
+  - Reporting
 nav_title: "Communicating your work"
 order: 70
 group: "Working in a team"

@@ -4,7 +4,8 @@ description: "gRPC and WebSocket testing: a free, step-by-step guide for SDETs, 
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - API
+  - Microservices
 nav_title: "gRPC and WebSocket testing"
 order: 50
 group: "Services and integrations"

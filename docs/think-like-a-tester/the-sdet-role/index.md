@@ -4,7 +4,8 @@ description: "The SDET role: a free, step-by-step guide for SDETs, with ready-to
 level: Beginner
 status: draft
 tags:
-  - think-like-a-tester
+  - Career
+  - Getting started
 nav_title: "The SDET role"
 order: 20
 summary: "What an SDET does, how it differs from QA, and the seven testing principles."

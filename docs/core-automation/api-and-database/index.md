@@ -4,7 +4,8 @@ description: "API + database: a free, step-by-step guide for SDETs, with ready-t
 level: Intermediate
 status: draft
 tags:
-  - core-automation
+  - API
+  - Database
 nav_title: "API + database"
 order: 50
 group: "API and databases"

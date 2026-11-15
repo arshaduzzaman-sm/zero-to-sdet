@@ -4,7 +4,7 @@ description: "CI/CD (teaching topic): a free, step-by-step guide for SDETs, with
 level: Intermediate
 status: draft
 tags:
-  - infrastructure
+  - "CI/CD"
 nav_title: "CI/CD (teaching topic)"
 order: 50
 group: "Pipelines and environments"

@@ -2,7 +2,8 @@
 title: "SDET Learning Path: From Manual Tester to Senior SDET"
 description: "The full SDET learning path on one map: what to learn first, what comes next, and four step-by-step paths for your role."
 tags:
-  - sdet-roadmap
+  - Getting started
+  - Career
 updated: "2026-11-15"
 nav_title: "Learning Path"
 order: 60

@@ -4,7 +4,7 @@ description: "Linux and shell: a free, step-by-step guide for SDETs, with ready-
 level: Intermediate
 status: draft
 tags:
-  - infrastructure
+  - Linux
 nav_title: "Linux and shell"
 order: 10
 group: "Your toolkit"

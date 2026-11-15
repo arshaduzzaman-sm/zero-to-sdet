@@ -4,7 +4,8 @@ description: "Cloud and Kubernetes basics: a free, step-by-step guide for SDETs,
 level: Intermediate
 status: draft
 tags:
-  - infrastructure
+  - Cloud
+  - Docker
 nav_title: "Cloud and Kubernetes basics"
 order: 70
 group: "Pipelines and environments"

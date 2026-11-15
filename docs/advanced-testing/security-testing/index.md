@@ -4,7 +4,7 @@ description: "Security testing basics: a free, step-by-step guide for SDETs, wit
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - Security
 nav_title: "Security testing basics"
 order: 80
 group: "Beyond functional testing"

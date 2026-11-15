@@ -4,7 +4,8 @@ description: "Mobile testing: a free, step-by-step guide for SDETs, with ready-t
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - Mobile
+  - UI
 nav_title: "Mobile testing"
 order: 130
 group: "More platforms"

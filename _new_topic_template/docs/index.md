@@ -2,8 +2,8 @@
 title: "TOPIC TITLE"
 description: "One or two sentences for search engines and link previews."
 level: Beginner
-tags:
-  - SECTION-NAME
+tags:                     # 1 to 3, only from data/tags.yml
+  - API
 nav_title: "TOPIC TITLE"
 order: 10
 summary: "One plain sentence for the card on the section overview."

@@ -4,7 +4,7 @@ description: "Release sign-off: a free, step-by-step guide for SDETs, with ready
 level: Advanced
 status: draft
 tags:
-  - professional-sdet
+  - Releases
 nav_title: "Release sign-off"
 order: 100
 group: "Releases and quality"

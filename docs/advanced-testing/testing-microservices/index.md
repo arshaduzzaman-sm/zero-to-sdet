@@ -4,7 +4,8 @@ description: "Testing microservices: a free, step-by-step guide for SDETs, with 
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - Microservices
+  - API
 nav_title: "Testing microservices"
 order: 30
 group: "Services and integrations"

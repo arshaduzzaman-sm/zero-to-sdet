@@ -1,0 +1,94 @@
+# The only tags a page may use. One list keeps tags tidy at any size:
+# no "api" next to "API testing" next to "APIs".
+#
+# Add a tag here first, then use it in a page's front matter:
+#   tags:
+#     - API
+# Each page has 1 to 3 tags. Run: .venv/bin/python scripts/build_reference.py
+#
+# name: what readers see.  about: one plain sentence for the Tags page.
+
+- name: Accessibility
+  about: Making sure everyone can use the app, including people who use a screen reader or keyboard.
+- name: Agile
+  about: Testing inside short sprints with the rest of the team.
+- name: AI
+  about: Using AI tools to help with testing, and testing apps that use AI.
+- name: API
+  about: Testing the requests and answers that apps send to each other.
+- name: BDD
+  about: Writing tests as plain English examples that everyone can read.
+- name: Bug reports
+  about: Writing bug reports that developers can act on fast.
+- name: Career
+  about: Growing as an SDET, from your first job to senior level.
+- name: CI/CD
+  about: Running tests automatically every time code changes.
+- name: Clean code
+  about: Test code that is easy to read, change and trust.
+- name: Cloud
+  about: Testing apps that run on cloud servers and Kubernetes.
+- name: Database
+  about: Checking that the right data is saved, changed and deleted.
+- name: Debugging
+  about: Finding out why something failed, step by step.
+- name: Docker
+  about: Running apps and tests in containers, the same way on every computer.
+- name: Flaky tests
+  about: Tests that pass one day and fail the next, and how to fix them.
+- name: Getting started
+  about: The first pages to read if you are new.
+- name: Git
+  about: Saving and sharing code changes with your team.
+- name: Interviews
+  about: Getting ready for SDET job interviews.
+- name: Leadership
+  about: Leading quality for a team or a whole company.
+- name: Linux
+  about: Using the terminal and the shell on Linux servers.
+- name: Microservices
+  about: Testing systems made of many small services that talk to each other.
+- name: Mobile
+  about: Testing apps on phones and tablets.
+- name: Mocking
+  about: Replacing real services with fakes so tests run fast and stay stable.
+- name: Networking
+  about: How data travels between computers, and what can go wrong.
+- name: Observability
+  about: Logs, metrics and traces that show what an app is doing.
+- name: Performance
+  about: Checking that the app stays fast when many people use it.
+- name: Playwright
+  about: Automating web pages with Playwright.
+- name: Practice App
+  about: The small online shop you test in every lesson.
+- name: pytest
+  about: The Python test tool used across this site.
+- name: Python
+  about: The programming language used for every example on this site.
+- name: Quality metrics
+  about: Numbers that show how good the product and the testing are.
+- name: Quick reference
+  about: Short pages to look things up fast.
+- name: Releases
+  about: Getting a new version out safely, and handling problems after it ships.
+- name: Reporting
+  about: Test reports and logs that people understand.
+- name: Reviews
+  about: Finding problems by reading requirements, designs and code, before running anything.
+- name: Security
+  about: Finding common security holes before attackers do.
+- name: Teamwork
+  about: Working well with developers, product owners and other testers.
+- name: Templates
+  about: Ready code and documents you can copy into your own work.
+- name: Test data
+  about: Creating and managing the data your tests need.
+- name: Test design
+  about: Choosing what to test so you find the most bugs with the fewest tests.
+- name: Test planning
+  about: Deciding what to test, when, and how much is enough.
+- name: Tools
+  about: Everyday tools that make testing faster.
+- name: UI
+  about: Testing what people see and click in the app.

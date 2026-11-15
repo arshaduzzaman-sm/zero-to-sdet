@@ -4,7 +4,8 @@ description: "Data-driven testing: a free, step-by-step guide for SDETs, with re
 level: Intermediate
 status: draft
 tags:
-  - core-automation
+  - pytest
+  - Test data
 nav_title: "Data-driven testing"
 order: 60
 group: "API and databases"

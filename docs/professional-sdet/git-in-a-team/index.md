@@ -4,7 +4,8 @@ description: "Git in a team: a free, step-by-step guide for SDETs, with ready-to
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Git
+  - Teamwork
 nav_title: "Git in a team"
 order: 40
 group: "Working in a team"

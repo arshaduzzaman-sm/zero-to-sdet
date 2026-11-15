@@ -4,7 +4,7 @@ description: "Docker for testers: a free, step-by-step guide for SDETs, with rea
 level: Intermediate
 status: draft
 tags:
-  - infrastructure
+  - Docker
 nav_title: "Docker for testers"
 order: 60
 group: "Pipelines and environments"

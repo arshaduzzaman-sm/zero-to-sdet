@@ -4,7 +4,8 @@ description: "Your first weeks in a new job: a free, step-by-step guide for SDET
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Career
+  - Teamwork
 nav_title: "Your first weeks in a new job"
 order: 20
 group: "Working in a team"

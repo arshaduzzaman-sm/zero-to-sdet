@@ -3,9 +3,8 @@ title: "SDET Skills Matrix: Every Skill from Junior to Lead (Checklist)"
 description: "A checklist of every skill an SDET needs, from junior to lead, built from 58 real job ads. Tick what you know and see what to learn next."
 level: Beginner
 tags:
-  - career
-  - sdet-roadmap
-  - skills
+  - Career
+  - Getting started
 updated: "2026-11-15"
 nav_title: "Skills Matrix"
 order: 50

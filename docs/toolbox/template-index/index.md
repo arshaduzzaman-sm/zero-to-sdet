@@ -4,7 +4,7 @@ description: "Template index: a free, step-by-step guide for SDETs, with ready-t
 level: Beginner
 status: draft
 tags:
-  - toolbox
+  - Templates
 nav_title: "Template index"
 order: 30
 summary: "Every template on the site, in one place."

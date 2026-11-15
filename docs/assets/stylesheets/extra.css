@@ -761,3 +761,118 @@
   .md-typeset .grid.cards.zts-topics > ul > li:focus-within,
   .md-typeset .grid.cards.zts-topics > ul > li:active { transform: none; }
 }
+
+/* ---------------------------------------------------------------------------
+   Glossary and Tags (step 1.14)
+   --------------------------------------------------------------------------- */
+
+/* Short forms like API: a quiet dotted line says "hover me" without shouting. */
+.md-typeset abbr[title] {
+  text-decoration: underline dotted;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  text-underline-offset: 0.2em;
+  cursor: help;
+  border-bottom: none;
+}
+.md-typeset h1 abbr[title],
+.md-typeset h2 abbr[title],
+.md-typeset .zts-hero abbr[title] {
+  text-decoration: none; /* headings stay clean */
+}
+
+/* Glossary: A to Z jump bar. Stays at the top while you scroll the list. */
+.md-typeset .zts-az {
+  position: sticky;
+  top: 2.6rem;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 1rem 0 1.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--zts-border);
+  border-radius: var(--zts-radius);
+  background: var(--md-default-bg-color);
+}
+.md-typeset .zts-az p {
+  display: contents; /* the letters sit straight in the bar */
+}
+.md-typeset .zts-az a,
+.md-typeset .zts-tag {
+  text-decoration: none;
+}
+.md-typeset .zts-az a {
+  display: inline-grid;
+  place-items: center;
+  min-inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: var(--zts-radius-small);
+  font-weight: 700;
+  color: var(--md-typeset-a-color);
+  transition: background-color 140ms, color 140ms;
+}
+.md-typeset .zts-az a:hover,
+.md-typeset .zts-az a:focus-visible {
+  background: var(--zts-surface);
+}
+/* Each term: room to breathe, and a highlight when you arrive from a link. */
+.md-typeset dl dt {
+  margin-top: 1.4em;
+  scroll-margin-top: 7rem;
+}
+.md-typeset h2:target,
+.md-typeset dt:has(a:target),
+.md-typeset dt:target {
+  animation: zts-flash 1.6s var(--zts-ease);
+}
+@keyframes zts-flash {
+  0% { background: var(--md-accent-fg-color--transparent); }
+  100% { background: transparent; }
+}
+
+/* Tags page: every tag as a chip with its page count. */
+.md-typeset .zts-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.2rem 0 2rem;
+}
+.md-typeset .zts-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-block-size: 2rem;
+  padding: 0.2rem 0.75rem;
+  border: 1px solid var(--zts-border);
+  border-radius: 999px;
+  background: var(--zts-surface);
+  color: var(--md-default-fg-color);
+  font-size: 0.72rem;
+  font-weight: 600;
+  transition: border-color 140ms, color 140ms, transform 140ms var(--zts-ease);
+}
+.md-typeset .zts-tag:hover,
+.md-typeset .zts-tag:focus-visible {
+  border-color: var(--md-primary-fg-color--light);
+  color: var(--md-typeset-a-color);
+  transform: translateY(-1px);
+}
+.md-typeset .zts-tag__count {
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.62rem;
+  font-variant-numeric: tabular-nums;
+}
+.md-typeset [id^="tag:"] {
+  scroll-margin-top: 4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset h2:target,
+  .md-typeset dt:has(a:target),
+  .md-typeset dt:target { animation: none; }
+  .md-typeset .zts-tag:hover,
+  .md-typeset .zts-tag:focus-visible { transform: none; }
+}

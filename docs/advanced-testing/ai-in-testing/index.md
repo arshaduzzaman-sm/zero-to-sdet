@@ -4,7 +4,7 @@ description: "AI in testing: a free, step-by-step guide for SDETs, with ready-to
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - AI
 nav_title: "AI in testing"
 order: 140
 group: "More platforms"

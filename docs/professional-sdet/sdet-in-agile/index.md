@@ -4,7 +4,8 @@ description: "SDET in Agile: a free, step-by-step guide for SDETs, with ready-to
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Agile
+  - Teamwork
 nav_title: "SDET in Agile"
 order: 30
 group: "Working in a team"

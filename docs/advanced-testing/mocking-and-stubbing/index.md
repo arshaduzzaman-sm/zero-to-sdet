@@ -4,7 +4,8 @@ description: "Mocking and stubbing: a free, step-by-step guide for SDETs, with r
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - Mocking
+  - API
 nav_title: "Mocking and stubbing"
 order: 10
 group: "Services and integrations"

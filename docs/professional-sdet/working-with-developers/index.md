@@ -4,7 +4,7 @@ description: "Working with developers: a free, step-by-step guide for SDETs, wit
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Teamwork
 nav_title: "Working with developers"
 order: 60
 group: "Working in a team"

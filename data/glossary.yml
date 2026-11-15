@@ -1,0 +1,232 @@
+# Every testing word used on the site, in plain English.
+#
+# One entry per term. scripts/build_reference.py turns this file into
+# docs/glossary.md (A to Z) and, for short forms like API, into a hover
+# explanation on every page of the site.
+#
+#   term:    the word as readers see it
+#   stands_for: (short forms only) what the letters mean; this turns on the
+#            hover explanation everywhere the short form appears
+#   meaning: one or two short sentences a 10-year-old could follow
+#   page:    the page that teaches it, as a path inside docs/
+#
+# Keep the list in any order; the page is sorted A to Z for you.
+
+- term: Acceptance criteria
+  meaning: The list of things a feature must do before the team calls it finished. Testers turn each one into tests.
+  page: think-like-a-tester/test-cases/index.md
+
+- term: Accessibility
+  meaning: How easy the app is to use for everyone, including people who use a screen reader, a keyboard only, or large text.
+  page: advanced-testing/accessibility-testing/index.md
+
+- term: API
+  stands_for: Application Programming Interface
+  meaning: A way for one program to ask another program for data or to do something. Like a waiter who takes your order to the kitchen and brings back your food.
+  page: core-automation/api-testing/index.md
+
+- term: Assertion
+  meaning: The line in a test that checks the result. If the check is false, the test fails.
+  page: core-automation/pytest-framework/index.md
+
+- term: Automation
+  meaning: Letting a program do a check that a person would otherwise do by hand, so it can run again and again in seconds.
+  page: think-like-a-tester/the-sdet-role/index.md
+
+- term: BDD
+  stands_for: Behavior-Driven Development
+  meaning: A way of writing tests as plain English examples, like "Given I am logged in, When I add a book, Then my cart has 1 item".
+  page: core-automation/bdd-testing/index.md
+
+- term: Boundary value
+  meaning: A value right at the edge of what is allowed, like 0, 1, 99 and 100 for "1 to 99". Bugs love edges.
+  page: think-like-a-tester/test-design-techniques/index.md
+
+- term: Bug report
+  meaning: A short note that tells a developer what went wrong, how to make it happen again, and what should have happened instead.
+  page: think-like-a-tester/bug-reports/index.md
+
+- term: CI/CD
+  stands_for: Continuous Integration and Continuous Delivery
+  meaning: A setup that builds the app and runs the tests every time someone changes the code, then helps ship it.
+  page: infrastructure/ci-cd/index.md
+
+- term: Container
+  meaning: A small, sealed box that holds an app and everything it needs, so it runs the same way on every computer.
+  page: infrastructure/docker-for-testers/index.md
+
+- term: Contract testing
+  meaning: Checking that two services still agree on the shape of the messages they send each other.
+  page: advanced-testing/contract-testing/index.md
+
+- term: Database
+  meaning: An organized store of data that an app saves to and reads from, like a set of very large tables.
+  page: core-automation/database-testing/index.md
+
+- term: Docker
+  meaning: The most common tool for building and running containers.
+  page: infrastructure/docker-for-testers/index.md
+
+- term: E2E
+  stands_for: End-to-end
+  meaning: A test that goes through the whole app the way a real user would, from the web page down to the database and back.
+  page: think-like-a-tester/test-levels-and-the-pyramid/index.md
+
+- term: Endpoint
+  meaning: One address of an API that you can send a request to, like /products or /orders/42.
+  page: core-automation/api-testing/index.md
+
+- term: Environment
+  meaning: One full copy of the app for a purpose, like your own computer, a shared test copy, or the live site.
+  page: infrastructure/ci-cd/index.md
+
+- term: Equivalence partitioning
+  meaning: Splitting inputs into groups that should behave the same, then testing one value from each group instead of all of them.
+  page: think-like-a-tester/test-design-techniques/index.md
+
+- term: Exploratory testing
+  meaning: Testing by learning the app as you go, trying ideas and following anything that looks odd, instead of following a script.
+  page: think-like-a-tester/test-design-techniques/index.md
+
+- term: Fixture
+  meaning: In pytest, a small helper that gets something ready for a test, like a logged-in user, and cleans it up afterwards.
+  page: core-automation/pytest-framework/index.md
+
+- term: Flaky test
+  meaning: A test that sometimes passes and sometimes fails without any change to the code.
+  page: advanced-testing/flaky-tests-and-speed/index.md
+
+- term: Framework
+  meaning: The shared structure of a test project, such as folders, settings and helpers, so every test is written the same way.
+  page: core-automation/pytest-framework/index.md
+
+- term: Gherkin
+  meaning: The plain-English format BDD tests are written in, using the words Given, When and Then.
+  page: core-automation/bdd-testing/index.md
+
+- term: Git
+  meaning: A tool that saves every change to your code, so you can go back in time and work with others safely.
+  page: professional-sdet/git-in-a-team/index.md
+
+- term: HTTP
+  stands_for: Hypertext Transfer Protocol
+  meaning: The set of rules web browsers and APIs use to send requests and answers.
+  page: infrastructure/networking-for-testers/index.md
+
+- term: Integration test
+  meaning: A test that checks two or more parts of the app work together, like the API and the database.
+  page: think-like-a-tester/test-levels-and-the-pyramid/index.md
+
+- term: JSON
+  stands_for: JavaScript Object Notation
+  meaning: A simple text format for data, made of names and values in curly brackets. Most APIs send and receive JSON.
+  page: core-automation/api-testing/index.md
+
+- term: Load testing
+  meaning: Checking how the app behaves when many people use it at the same time.
+  page: advanced-testing/performance-testing/index.md
+
+- term: Locator
+  meaning: The instruction that tells a UI test which button, box or link on the page to use.
+  page: core-automation/ui-automation/index.md
+
+- term: Manual testing
+  meaning: Testing by using the app yourself, by hand, and checking what happens.
+  page: think-like-a-tester/the-sdet-role/index.md
+
+- term: Microservice
+  meaning: One small service that does one job. A big app can be made of many microservices talking to each other.
+  page: advanced-testing/testing-microservices/index.md
+
+- term: Mock
+  meaning: A fake version of a real service, used in a test so you control exactly what it answers.
+  page: advanced-testing/mocking-and-stubbing/index.md
+
+- term: Page Object
+  meaning: A class that holds everything a UI test needs about one page, so tests stay short and a page change is fixed in one place.
+  page: core-automation/ui-automation/index.md
+
+- term: Performance testing
+  meaning: Measuring how fast the app is and how much it can handle before it slows down or breaks.
+  page: advanced-testing/performance-testing/index.md
+
+- term: Playwright
+  meaning: A tool that controls a real web browser from code, so a test can click, type and check a page.
+  page: core-automation/ui-automation/index.md
+
+- term: Practice App
+  meaning: The small online shop built for this site. It runs on your own computer and has bugs planted on purpose for you to find.
+  page: start-here/practice-app-tour/index.md
+
+- term: Pull request
+  meaning: A request to add your code changes to the team's main code. Others review it first.
+  page: professional-sdet/git-in-a-team/index.md
+
+- term: pytest
+  meaning: The most popular tool for writing and running tests in Python.
+  page: core-automation/pytest-framework/index.md
+
+- term: QA
+  stands_for: Quality Assurance
+  meaning: All the work a team does to make sure the product is good, including testing.
+  page: think-like-a-tester/the-sdet-role/index.md
+
+- term: Regression testing
+  meaning: Running tests again after a change, to make sure things that worked before still work.
+  page: professional-sdet/regression-hotfixes-and-incidents/index.md
+
+- term: REST
+  stands_for: Representational State Transfer
+  meaning: The most common style of web API. You use web addresses for things and HTTP methods like GET and POST for actions.
+  page: core-automation/api-testing/index.md
+
+- term: SDET
+  stands_for: Software Development Engineer in Test
+  meaning: A tester who writes code to test software.
+  page: think-like-a-tester/the-sdet-role/index.md
+
+- term: Smoke test
+  meaning: A few quick tests that check the most important things work, before you spend time on deeper testing.
+  page: think-like-a-tester/test-levels-and-the-pyramid/index.md
+
+- term: SQL
+  stands_for: Structured Query Language
+  meaning: The language used to ask a database for data or change it, like SELECT * FROM orders.
+  page: core-automation/database-testing/index.md
+
+- term: Status code
+  meaning: The number an API sends back to say how a request went, like 200 for OK or 404 for not found.
+  page: core-automation/api-testing/index.md
+
+- term: Stub
+  meaning: A very simple fake that always gives the same ready answer, so a test does not need the real thing.
+  page: advanced-testing/mocking-and-stubbing/index.md
+
+- term: Test case
+  meaning: One check written down step by step, with the expected result, so anyone can run it the same way.
+  page: think-like-a-tester/test-cases/index.md
+
+- term: Test data
+  meaning: The users, products, orders and other data a test needs to run.
+  page: core-automation/data-driven-testing/index.md
+
+- term: Test plan
+  meaning: A short document that says what will be tested, how, by whom and when.
+  page: think-like-a-tester/test-strategy-and-planning/index.md
+
+- term: Test pyramid
+  meaning: A picture of a healthy test mix. Many small, fast unit tests at the bottom, fewer integration tests, and only a few slow end-to-end tests at the top.
+  page: think-like-a-tester/test-levels-and-the-pyramid/index.md
+
+- term: UI
+  stands_for: User Interface
+  meaning: The part of an app people see and use, like pages, buttons and forms.
+  page: core-automation/ui-automation/index.md
+
+- term: Unit test
+  meaning: A small, fast test that checks one piece of code on its own.
+  page: think-like-a-tester/test-levels-and-the-pyramid/index.md
+
+- term: Virtual environment
+  meaning: A private folder of Python packages for one project, so projects do not mix up each other's versions.
+  page: start-here/environment-setup/index.md

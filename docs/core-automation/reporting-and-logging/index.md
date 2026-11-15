@@ -4,7 +4,7 @@ description: "Reporting and logging: a free, step-by-step guide for SDETs, with 
 level: Intermediate
 status: draft
 tags:
-  - core-automation
+  - Reporting
 nav_title: "Reporting and logging"
 order: 90
 group: "Reports"

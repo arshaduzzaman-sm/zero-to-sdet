@@ -4,7 +4,7 @@ description: "Debugging toolkit: a free, step-by-step guide for SDETs, with read
 level: Intermediate
 status: draft
 tags:
-  - infrastructure
+  - Debugging
 nav_title: "Debugging toolkit"
 order: 30
 group: "Your toolkit"

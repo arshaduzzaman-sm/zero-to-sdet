@@ -4,7 +4,8 @@ description: "Regression, hotfixes and incidents: a free, step-by-step guide for
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Releases
+  - Debugging
 nav_title: "Regression, hotfixes and incidents"
 order: 80
 group: "Releases and quality"

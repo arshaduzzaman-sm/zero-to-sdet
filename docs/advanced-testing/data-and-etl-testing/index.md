@@ -4,7 +4,8 @@ description: "Data and ETL testing: a free, step-by-step guide for SDETs, with r
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - Database
+  - Test data
 nav_title: "Data and ETL testing"
 order: 110
 group: "Data and reliability"

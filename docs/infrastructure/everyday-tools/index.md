@@ -4,7 +4,7 @@ description: "Everyday tools: a free, step-by-step guide for SDETs, with ready-t
 level: Intermediate
 status: draft
 tags:
-  - infrastructure
+  - Tools
 nav_title: "Everyday tools"
 order: 40
 group: "Your toolkit"

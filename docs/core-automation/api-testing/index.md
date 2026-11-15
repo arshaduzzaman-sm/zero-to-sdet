@@ -4,7 +4,8 @@ description: "API testing: a free, step-by-step guide for SDETs, with ready-to-u
 level: Intermediate
 status: draft
 tags:
-  - core-automation
+  - API
+  - Python
 nav_title: "API testing"
 order: 20
 group: "API and databases"

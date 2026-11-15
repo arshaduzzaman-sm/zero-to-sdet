@@ -4,7 +4,7 @@ description: "Bug reports: a free, step-by-step guide for SDETs, with ready-to-u
 level: Beginner
 status: draft
 tags:
-  - think-like-a-tester
+  - Bug reports
 nav_title: "Bug reports"
 order: 70
 summary: "Report a bug so a developer can fix it fast: steps, severity and priority."

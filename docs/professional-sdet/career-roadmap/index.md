@@ -4,7 +4,7 @@ description: "Career roadmap: a free, step-by-step guide for SDETs, with ready-t
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Career
 nav_title: "Career roadmap"
 order: 140
 group: "Your career"

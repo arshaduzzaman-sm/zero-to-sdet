@@ -4,7 +4,8 @@ description: "Observability: a free, step-by-step guide for SDETs, with ready-to
 level: Intermediate
 status: draft
 tags:
-  - infrastructure
+  - Observability
+  - Debugging
 nav_title: "Observability"
 order: 80
 group: "Pipelines and environments"

@@ -4,7 +4,7 @@ description: "Multi-database testing: a free, step-by-step guide for SDETs, with
 level: Intermediate
 status: draft
 tags:
-  - core-automation
+  - Database
 nav_title: "Multi-database testing"
 order: 40
 group: "API and databases"

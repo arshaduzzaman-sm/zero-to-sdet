@@ -4,7 +4,7 @@ description: "How to use this site: a free, step-by-step guide for SDETs, with r
 level: Beginner
 status: draft
 tags:
-  - start-here
+  - Getting started
 nav_title: "How to use this site"
 order: 10
 summary: "How the site is organized, which path fits you, and where to ask for help."

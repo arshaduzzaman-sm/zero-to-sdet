@@ -4,7 +4,7 @@ description: "Database testing: a free, step-by-step guide for SDETs, with ready
 level: Intermediate
 status: draft
 tags:
-  - core-automation
+  - Database
 nav_title: "Database testing"
 order: 30
 group: "API and databases"

@@ -47,7 +47,8 @@ and the menu entry. It checks the section, group and name for you.
 ```bash
 .venv/bin/python scripts/new_topic.py --section core-automation --slug api-testing \
   --title "API testing" --level Intermediate --group "API and databases" \
-  --after pytest-framework --summary "Send requests from Python and check the answers."
+  --after pytest-framework --tags API Python \
+  --summary "Send requests from Python and check the answers."
 ```
 
 When you start writing the real pages, copy them from
@@ -65,8 +66,9 @@ When you start writing the real pages, copy them from
     description: "One or two sentences for search engines and link previews."
     level: Intermediate                 # Beginner, Intermediate, Advanced or Senior
     status: draft                       # remove when the topic is finished
-    tags:
-      - core-automation
+    tags:                               # 1 to 3, only from data/tags.yml
+      - API
+      - Python
     nav_title: "API testing"            # short label in the menu
     order: 25                           # between the topics at 20 and 30
     group: "API and databases"          # only if the section uses groups
@@ -90,6 +92,10 @@ When you start writing the real pages, copy them from
 
 If you forget step 4, the commit stops with "menu and overview pages are up to
 date ... Failed" and tells you the command to run.
+
+**New words** go in `data/glossary.yml` and **new tags** in `data/tags.yml`, then
+run `.venv/bin/python scripts/build_reference.py`. See the
+[Style guide](STYLE_GUIDE.md#tags) for the rules.
 
 **Lessons** inside a topic are more `.md` files in the topic folder, each with
 `nav_title` and `order`. They appear under the topic in the menu automatically.

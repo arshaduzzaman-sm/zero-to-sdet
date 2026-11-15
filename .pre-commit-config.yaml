@@ -33,6 +33,12 @@ repos:
         language: system
         pass_filenames: false
         files: ^(docs/.*\.md|zensical\.toml|README\.md|scripts/build_nav\.py)$
+      - id: build-reference
+        name: glossary, tags and hover explanations are up to date
+        entry: .venv/bin/python scripts/build_reference.py --check
+        language: system
+        pass_filenames: false
+        files: ^(docs/.*\.md|data/.*\.yml|includes/.*|scripts/build_(nav|reference)\.py)$
       # Python lint and format. Uses the ruff pinned (with hashes) in requirements.txt,
       # so pre-commit and scripts/check.sh always run the same version.
       - id: ruff-check

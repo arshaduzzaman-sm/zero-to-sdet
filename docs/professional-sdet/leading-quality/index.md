@@ -4,7 +4,7 @@ description: "Leading quality (senior level): a free, step-by-step guide for SDE
 level: Senior
 status: draft
 tags:
-  - professional-sdet
+  - Leadership
 nav_title: "Leading quality (senior level)"
 order: 120
 group: "Senior skills"

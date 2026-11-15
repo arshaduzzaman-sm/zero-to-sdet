@@ -4,7 +4,8 @@ description: "Quality metrics: a free, step-by-step guide for SDETs, with ready-
 level: Advanced
 status: draft
 tags:
-  - professional-sdet
+  - Quality metrics
+  - Leadership
 nav_title: "Quality metrics"
 order: 90
 group: "Releases and quality"

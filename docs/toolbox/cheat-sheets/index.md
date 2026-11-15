@@ -4,7 +4,7 @@ description: "Cheat sheets: a free, step-by-step guide for SDETs, with ready-to-
 level: Beginner
 status: draft
 tags:
-  - toolbox
+  - Quick reference
 nav_title: "Cheat sheets"
 order: 10
 summary: "One-page reminders: SQL, pytest, HTTP, Git, Linux, Docker and more."

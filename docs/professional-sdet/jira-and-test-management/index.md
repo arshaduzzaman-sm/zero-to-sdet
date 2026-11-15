@@ -4,7 +4,8 @@ description: "Jira and test management: a free, step-by-step guide for SDETs, wi
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Test planning
+  - Teamwork
 nav_title: "Jira and test management"
 order: 50
 group: "Working in a team"

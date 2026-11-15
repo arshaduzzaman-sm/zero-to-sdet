@@ -4,7 +4,8 @@ description: "Test idea banks: a free, step-by-step guide for SDETs, with ready-
 level: Beginner
 status: draft
 tags:
-  - toolbox
+  - Test design
+  - Quick reference
 nav_title: "Test idea banks"
 order: 20
 summary: "Ready lists of test ideas for login, search, checkout and more."

@@ -4,7 +4,8 @@ description: "Contract testing: a free, step-by-step guide for SDETs, with ready
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - API
+  - Microservices
 nav_title: "Contract testing"
 order: 20
 group: "Services and integrations"

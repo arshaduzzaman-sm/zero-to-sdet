@@ -4,7 +4,7 @@ description: "GraphQL testing: a free, step-by-step guide for SDETs, with ready-
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - API
 nav_title: "GraphQL testing"
 order: 40
 group: "Services and integrations"

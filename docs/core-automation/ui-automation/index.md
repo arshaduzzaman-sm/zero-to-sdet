@@ -4,7 +4,8 @@ description: "UI automation: a free, step-by-step guide for SDETs, with ready-to
 level: Intermediate
 status: draft
 tags:
-  - core-automation
+  - UI
+  - Playwright
 nav_title: "UI automation"
 order: 80
 group: "BDD and UI"

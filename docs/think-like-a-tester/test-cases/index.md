@@ -4,7 +4,7 @@ description: "Test cases: a free, step-by-step guide for SDETs, with ready-to-us
 level: Beginner
 status: draft
 tags:
-  - think-like-a-tester
+  - Test design
 nav_title: "Test cases"
 order: 60
 summary: "Write clear test cases, positive and negative, linked to what they check."

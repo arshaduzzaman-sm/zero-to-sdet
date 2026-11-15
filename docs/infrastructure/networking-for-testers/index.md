@@ -4,7 +4,8 @@ description: "Networking for testers: a free, step-by-step guide for SDETs, with
 level: Intermediate
 status: draft
 tags:
-  - infrastructure
+  - Networking
+  - Debugging
 nav_title: "Networking for testers"
 order: 20
 group: "Your toolkit"

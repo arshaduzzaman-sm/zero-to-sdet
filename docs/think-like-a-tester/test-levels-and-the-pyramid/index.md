@@ -4,7 +4,8 @@ description: "Test levels and the pyramid: a free, step-by-step guide for SDETs,
 level: Beginner
 status: draft
 tags:
-  - think-like-a-tester
+  - Test design
+  - Test planning
 nav_title: "Test levels and the pyramid"
 order: 30
 summary: "Unit, integration, API, UI and end-to-end tests, and how many of each to write."

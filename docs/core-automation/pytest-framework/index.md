@@ -4,7 +4,8 @@ description: "pytest framework: a free, step-by-step guide for SDETs, with ready
 level: Beginner
 status: draft
 tags:
-  - core-automation
+  - pytest
+  - Python
 nav_title: "pytest framework"
 order: 10
 group: "Foundations"

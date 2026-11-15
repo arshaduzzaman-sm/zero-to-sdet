@@ -269,6 +269,8 @@ pymdownx.smartsymbols = {}
 # Code shown on the site is pulled from the real files in modules/ (brief, section 5, rule 3).
 pymdownx.snippets.base_path = ["."]
 pymdownx.snippets.check_paths = true
+# Hover explanations for short forms (API, BDD...), built from data/glossary.yml.
+pymdownx.snippets.auto_append = ["includes/abbreviations.md"]
 pymdownx.superfences.custom_fences = [
   { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
 ]

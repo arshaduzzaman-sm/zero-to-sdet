@@ -4,7 +4,7 @@ description: "Performance testing: a free, step-by-step guide for SDETs, with re
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - Performance
 nav_title: "Performance testing"
 order: 70
 group: "Beyond functional testing"

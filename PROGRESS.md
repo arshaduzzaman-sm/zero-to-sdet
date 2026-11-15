@@ -31,6 +31,29 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Step 1.14: Glossary, Tags and Start Here
+
+**Done**
+
+- **Tags:** `data/tags.yml` is the one list of allowed tags (42 subject tags, each with one plain sentence). Tags now say what a page is about (API, Database, Debugging), not which section it is in; every page was re-tagged (1 to 3 tags each).
+- **Glossary:** `data/glossary.yml` holds 52 terms, each with a plain meaning and a link to the page that teaches it. The Glossary page is built from it: A to Z jump bar (stays at the top while scrolling), one anchor per term (`glossary.md#fixture`), and a highlight when you arrive from a link.
+- **Hover explanations:** short forms (API, BDD, CI/CD, SQL, SDET...) show their meaning on hover on every page, from `includes/abbreviations.md` (generated, added to every page with `pymdownx.snippets.auto_append`). Headings stay clean (no dotted line).
+- **Tags page:** a "jump to a tag" list of chips with page counts, above the full listing.
+- **Start Here page:** what you need, four steps in order, "Already know some of this?" box, link to the Glossary.
+- `scripts/build_reference.py` (with `--check`) builds the three files and checks: unknown tags, 0 or more than 3 tags on a menu page, duplicate terms, glossary links to pages that do not exist. Added to `scripts/check.sh` and pre-commit. Tested: each of those mistakes is caught.
+- `scripts/new_topic.py` now needs `--tags` and rejects tags not in the list (tested). Templates, `CONTRIBUTING.md` and `STYLE_GUIDE.md` (new Tags and Glossary sections) updated.
+- Checked in light, dark and narrow width. Note: headless Chrome cannot go narrower than 500 px, so narrow screenshots use 500 px.
+
+**How to check**
+
+`scripts/check.sh`. Preview: Toolbox → Glossary (click a letter; hover "API" in the tip box), Toolbox → Tags, and the Start Here tab.
+
+**Next step**
+
+Step 1.15: progress tracker (saved only in the reader's browser) and the skills matrix page.
+
+---
+
 ## 2026-11-15 · Phase 1 · Step 1.13: README
 
 **Done**

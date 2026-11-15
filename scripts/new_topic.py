@@ -5,6 +5,7 @@ Example (from the repository root):
     .venv/bin/python scripts/new_topic.py \\
         --section core-automation --slug api-testing --title "API testing" \\
         --level Intermediate --group "API and databases" --after pytest-framework \\
+        --tags API Python \\
         --summary "Send requests from Python and check status codes, JSON, headers and auth."
 
 Creates
@@ -25,6 +26,7 @@ import sys
 from pathlib import Path
 
 import build_nav  # same folder; shares the rules for sections, groups and order
+import build_reference  # same folder; the list of allowed tags
 
 DOCS = build_nav.DOCS
 MODULES = Path("modules")
@@ -38,8 +40,7 @@ description: {description}
 level: {level}
 status: draft
 tags:
-  - {section}
-nav_title: {title}
+{tag_lines}nav_title: {title}
 order: {order}
 {group_line}summary: {summary}
 ---
@@ -100,7 +101,21 @@ def main() -> None:
         "--new-group", action="store_true", help="allow a group name that does not exist yet"
     )
     parser.add_argument("--after", help="put the topic right after this topic (its folder name)")
+    parser.add_argument(
+        "--tags",
+        nargs="+",
+        required=True,
+        metavar="TAG",
+        help=f"1 to {build_reference.MAX_TAGS} tags from data/tags.yml, e.g. --tags API Python",
+    )
     args = parser.parse_args()
+
+    allowed = [t["name"] for t in build_reference.load_list(build_reference.TAGS_DATA, ("name",))]
+    unknown = [t for t in args.tags if t not in allowed]
+    if unknown:
+        fail(f"--tags {unknown}: not in data/tags.yml. Tags: {', '.join(allowed)}")
+    if len(args.tags) > build_reference.MAX_TAGS:
+        fail(f"--tags: use at most {build_reference.MAX_TAGS} tags.")
 
     if not SLUG.match(args.slug):
         fail(
@@ -147,7 +162,7 @@ def main() -> None:
         plain_title=args.title,
         description=q(description),
         level=args.level,
-        section=args.section,
+        tag_lines="".join(f"  - {q(tag)}\n" for tag in args.tags),
         order=order,
         group_line=f"group: {q(args.group)}\n" if args.group else "",
         summary=q(args.summary),
@@ -162,7 +177,7 @@ def main() -> None:
     print(f"created {page_dir / 'index.md'} (order {order})")
     print(f"created {code_dir}/ with {', '.join(CODE_FOLDERS)}")
     sys.argv = [sys.argv[0]]
-    if build_nav.main() != 0:
+    if build_nav.main() != 0 or build_reference.main() != 0:
         fail("the page was created, but the menu could not be built (see the message above).")
     print(
         "Next: fill in 'What you will learn' and 'Templates you will get', "

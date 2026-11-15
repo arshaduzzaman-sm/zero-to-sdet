@@ -2,8 +2,8 @@
 title: "LESSON TITLE"
 description: "One or two sentences for search engines and link previews."
 level: Beginner
-tags:
-  - SECTION-NAME
+tags:                     # 1 to 3, only from data/tags.yml
+  - API
 nav_title: "LESSON TITLE"
 order: 10
 summary: "One plain sentence: what this lesson teaches."

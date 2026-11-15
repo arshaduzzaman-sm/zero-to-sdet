@@ -136,8 +136,9 @@ title: "API testing"                   # page title (also the browser tab and se
 description: "One or two sentences."   # search engines and link previews
 level: Intermediate                    # Beginner, Intermediate, Advanced or Senior
 status: draft                          # remove when the page is finished
-tags:
-  - core-automation
+tags:                                  # 1 to 3, only from data/tags.yml
+  - API
+  - Python
 nav_title: "API testing"               # short label in the menu
 order: 20                              # position in its section (10, 20, 30 ... leave gaps)
 group: "API and databases"             # only in sections that use groups
@@ -147,6 +148,26 @@ summary: "One plain sentence for the card on the section overview."
 
 The menu and the section overview cards are built from these fields by
 `scripts/build_nav.py`. Never edit the `nav` block in `zensical.toml` by hand.
+
+### Tags
+
+Tags say what a page is **about** (API, Database, Debugging), not where it sits
+in the menu. Every page in the menu has 1 to 3 tags, and only tags listed in
+`data/tags.yml` are allowed, so the Tags page never ends up with "API", "api"
+and "APIs" side by side. Need a new tag? Add it to `data/tags.yml` with one
+plain sentence, in the same pull request.
+
+### Glossary
+
+Every testing word lives in `data/glossary.yml`: the term, a plain meaning, and
+the page that teaches it. `scripts/build_reference.py` builds the A to Z
+[Glossary](docs/glossary.md) from it. For short forms (API, BDD, CI/CD) add
+`stands_for:` and the meaning appears on hover everywhere the short form is
+used on the site, with nothing to add to the page.
+
+Link a word to the Glossary the first time it appears on a page:
+`[fixture](../../glossary.md#fixture)`. The anchor is the term in lowercase with
+spaces as `-`.
 
 ### Boxes (admonitions)
 

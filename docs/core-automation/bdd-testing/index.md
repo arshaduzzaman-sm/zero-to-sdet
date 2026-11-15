@@ -4,7 +4,7 @@ description: "BDD testing: a free, step-by-step guide for SDETs, with ready-to-u
 level: Intermediate
 status: draft
 tags:
-  - core-automation
+  - BDD
 nav_title: "BDD testing"
 order: 70
 group: "BDD and UI"

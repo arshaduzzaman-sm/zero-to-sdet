@@ -4,7 +4,7 @@ description: "Visual regression: a free, step-by-step guide for SDETs, with read
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - UI
 nav_title: "Visual regression"
 order: 100
 group: "Beyond functional testing"

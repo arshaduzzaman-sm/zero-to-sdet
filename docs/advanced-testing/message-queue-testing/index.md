@@ -4,7 +4,7 @@ description: "Message queue testing: a free, step-by-step guide for SDETs, with 
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - Microservices
 nav_title: "Message queue testing"
 order: 60
 group: "Services and integrations"

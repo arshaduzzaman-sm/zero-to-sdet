@@ -4,7 +4,8 @@ description: "Tricky real-world cases: a free, step-by-step guide for SDETs, wit
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - Test design
+  - Debugging
 nav_title: "Tricky real-world cases"
 order: 150
 group: "More platforms"

@@ -4,7 +4,8 @@ description: "Python for testers: a free, step-by-step guide for SDETs, with rea
 level: Beginner
 status: draft
 tags:
-  - start-here
+  - Python
+  - Getting started
 nav_title: "Python for testers"
 order: 30
 summary: "Just enough Python to write real tests: data, loops, functions, classes and files."

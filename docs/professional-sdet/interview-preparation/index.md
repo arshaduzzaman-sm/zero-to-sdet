@@ -4,7 +4,8 @@ description: "Interview preparation: a free, step-by-step guide for SDETs, with 
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Interviews
+  - Career
 nav_title: "Interview preparation"
 order: 150
 group: "Your career"

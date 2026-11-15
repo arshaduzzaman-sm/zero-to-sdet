@@ -4,7 +4,8 @@ description: "Clean test code: a free, step-by-step guide for SDETs, with ready-
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Clean code
+  - Python
 nav_title: "Clean test code"
 order: 110
 group: "Senior skills"

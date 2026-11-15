@@ -4,7 +4,8 @@ description: "Practice App tour: a free, step-by-step guide for SDETs, with read
 level: Beginner
 status: draft
 tags:
-  - start-here
+  - Practice App
+  - Getting started
 nav_title: "Practice App tour"
 order: 40
 summary: "Meet the small online shop you will test in every lesson."

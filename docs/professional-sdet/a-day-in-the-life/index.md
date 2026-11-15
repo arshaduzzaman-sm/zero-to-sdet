@@ -4,7 +4,8 @@ description: "A day in the life: a free, step-by-step guide for SDETs, with read
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Career
+  - Teamwork
 nav_title: "A day in the life"
 order: 10
 group: "Working in a team"

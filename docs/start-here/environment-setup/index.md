@@ -4,7 +4,9 @@ description: "Environment setup: a free, step-by-step guide for SDETs, with read
 level: Beginner
 status: draft
 tags:
-  - start-here
+  - Getting started
+  - Python
+  - Docker
 nav_title: "Environment setup"
 order: 20
 summary: "Install Python, VS Code and Docker, and make your first virtual environment."

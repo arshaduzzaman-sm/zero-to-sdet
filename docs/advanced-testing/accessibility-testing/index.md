@@ -4,7 +4,8 @@ description: "Accessibility testing: a free, step-by-step guide for SDETs, with 
 level: Advanced
 status: draft
 tags:
-  - advanced-testing
+  - Accessibility
+  - UI
 nav_title: "Accessibility testing"
 order: 90
 group: "Beyond functional testing"

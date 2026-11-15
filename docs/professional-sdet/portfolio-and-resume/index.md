@@ -4,7 +4,7 @@ description: "Portfolio and resume: a free, step-by-step guide for SDETs, with r
 level: Intermediate
 status: draft
 tags:
-  - professional-sdet
+  - Career
 nav_title: "Portfolio and resume"
 order: 160
 group: "Your career"

@@ -4,7 +4,8 @@ description: "Capstone project: a free, step-by-step guide for SDETs, with ready
 level: Advanced
 status: draft
 tags:
-  - professional-sdet
+  - Career
+  - Practice App
 nav_title: "Capstone project"
 order: 130
 group: "Senior skills"
