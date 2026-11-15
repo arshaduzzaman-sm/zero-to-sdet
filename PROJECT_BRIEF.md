@@ -504,9 +504,10 @@ People share things that make them look good or genuinely help someone else. Nev
 
 ---
 
-## 11. Full topic and lesson catalog (64 topics: 60 learning topics + 4 Toolbox pages)
+## 11. Full topic and lesson catalog (74 topics: 70 learning topics + 4 Toolbox pages)
 
 Topics and lessons added on 2026-11-15 from the skills matrix gap check (step 0.6) are marked *(added 0.6)*.
+Pillar 6, AI-Powered QA, was added by the owner on 2026-11-15 (11 topics; the old Pillar 3 topic "AI in testing" moved into it).
 
 Each row is one topic folder. Its lessons become pages; its templates become files in `modules/`. Every topic uses the Practice App where possible.
 
@@ -563,7 +564,6 @@ Each row is one topic folder. Its lessons become pages; its templates become fil
 | gRPC and WebSocket testing | How they differ from REST; testing streams and messages | Example tests |
 | Message queue testing | Kafka and RabbitMQ basics; producing and consuming test messages; async checks | Kafka test with Docker |
 | Mobile testing | Appium basics; emulators and real devices; mobile Page Objects | Appium starter |
-| AI in testing | Testing features built on AI models; checking non-deterministic output; using AI tools to write and review tests safely | AI output evaluation template |
 | Tricky real-world cases | Email and OTP with Mailpit; file upload and download; PDF content; payment sandboxes; time zones and dates; localization; how teams handle CAPTCHA in tests | Email reader helper; file and PDF checks; date test data |
 
 ### Pillar 4 — Infrastructure
@@ -578,6 +578,30 @@ Each row is one topic folder. Its lessons become pages; its templates become fil
 | Everyday tools | Exploring APIs with Postman or Bruno; turning a manual request into a pytest test; VS Code for testers (debugger, breakpoints, extensions); searching large logs | Postman/Bruno collection for the Practice App; VS Code debug config |
 | Cloud and Kubernetes basics | Cloud test environments; Kubernetes in plain words; running tests in a cluster | Example Kubernetes job |
 | Observability | Logs, metrics, traces; Grafana basics; testing in production; synthetic monitoring | Synthetic check script |
+
+### Pillar 6 — AI-Powered QA *(added by the owner, 2026-11-15; built later, see Phase 7.5)*
+
+Every topic uses the Practice App. Rules for the whole pillar:
+
+- **Never send company code or data to an AI tool your company has not approved.** Every topic repeats this where it matters.
+- AI output is a draft. Every topic shows how a person reviews it before it is used.
+- Templates call the AI model through one small client class. Each template's tests use a **fake model** that returns fixed answers, so tests run offline, cost nothing, need no API key and always give the same result.
+- API keys live only in `.env` (never committed); `.env.example` shows the variable names.
+- Which AI provider the examples use is an open decision for when the pillar is built (provider-neutral where possible).
+
+| Topic | Lessons | Templates |
+| --- | --- | --- |
+| AI basics for testers | What an LLM is, in plain words; prompts and context; tokens and cost; limits; why AI sometimes makes things up (hallucination) and how to catch it | Prompt checklist |
+| Using AI coding tools safely | Using Claude Code and Copilot to write test code; giving them the right context; reviewing every line they write; common mistakes they make; what never to paste in | Review checklist for AI-written code; safe-use rules |
+| Prompting for QA | Test ideas from a feature; test cases from requirements; bug report drafts; edge cases you missed; prompt patterns that work | Prompt library for QA tasks |
+| AI test generation | Tests from an OpenAPI spec; tests from a user story; checking generated tests (do they run, do they test the right thing, do they fail when they should) | Spec-to-tests generator with a review step |
+| Building your first QA agent | What an agent is; a small Python agent that runs pytest, reads the failures and writes a summary; tools, loops and stopping safely | Minimal QA agent with tests (fake model) |
+| Orchestrating agents | A generate → run → triage → report pipeline; passing results between steps; a person approving the key steps; logging what every agent did | Agent pipeline with human approval gates |
+| AI for bug detection and triage | Reading logs; grouping similar failures; spotting duplicate bugs and flaky tests; when to trust it and when not to | Failure clustering and duplicate finder |
+| Smarter regression and self-healing locators | AI-assisted choice of which tests to run for a change; "self-healing" locators; their risks (hiding real bugs, silent changes) and safe limits | Regression selector; locator healing with an audit log |
+| AI-written reports and release summaries | Test summary reports; release notes; making them accurate (facts from data, not guesses); a person signs off | Report generator from pytest results |
+| Testing AI features | Testing features built on AI models; evals; checking unpredictable output; safety and harmful output; prompt injection; regression for model changes *(moved from Pillar 3)* | AI output evaluation template; eval suite starter |
+| Measuring AI's impact, and the rules | Measuring time saved and quality honestly; cost; privacy and data rules; company approval; never sending company code to unapproved tools; writing a team AI policy | Impact measurement sheet; team AI usage policy |
 
 ### Pillar 5 — The Professional SDET
 
@@ -694,13 +718,22 @@ Gate: the first pillars are complete and reviewed.
 
 ### Phase 6 — Pillar 3: Advanced Testing
 
-Mocking → Contract → Testing microservices → Data and ETL testing → Flaky tests and speed → Performance → Security → Accessibility → Visual regression → GraphQL → gRPC and WebSocket → Message queues → Mobile → AI in testing → Tricky real-world cases.
+Mocking → Contract → Testing microservices → Data and ETL testing → Flaky tests and speed → Performance → Security → Accessibility → Visual regression → GraphQL → gRPC and WebSocket → Message queues → Mobile → Tricky real-world cases. ("AI in testing" moved to Pillar 6.)
 
 Gate: every topic meets the definition of done.
 
 ### Phase 7 — Cloud, observability and the capstone
 
 Cloud and Kubernetes basics → Observability → Quality metrics → Release sign-off → Clean test code → Jira and test management → Capstone project.
+
+### Phase 7.5 — Pillar 6: AI-Powered QA *(added 2026-11-15)*
+
+Built after the core skills it uses (pytest, API, CI, reports) and before the career phase.
+AI basics for testers → Using AI coding tools safely → Prompting for QA → AI test generation → Building your first QA agent → Orchestrating agents → AI for bug detection and triage → Smarter regression and self-healing locators → AI-written reports and release summaries → Testing AI features → Measuring AI's impact, and the rules.
+
+First step of the phase: decide the AI provider for the examples, add the new section and its "Coming soon" pages, add its skills to the skills matrix, and add its terms (LLM, prompt, hallucination, agent, eval...) to the Glossary.
+
+Gate: every topic meets the definition of done; every template test passes offline with the fake model.
 
 ### Phase 8 — Career and senior level
 

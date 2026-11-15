@@ -26,8 +26,24 @@ Newest entry first. No secrets or personal data in this file.
 | Navigation | Seven fixed tabs; menu and section overviews generated from page front matter by `scripts/build_nav.py`. | 2026-11-15 |
 | Readability tool | pyphen + own Flesch-Kincaid formula instead of textstat (textstat pulls in nltk and 7 more packages; fewer dependencies is safer). | 2026-11-15 |
 | Code of Conduct contact | LinkedIn for now; discussed again in Phase 9 (owner may create a project email). | 2026-11-15 |
+| Pillar 6: AI-Powered QA | Owner added a new pillar of 11 topics (brief section 11 and Phase 7.5). Saved now, built later. The Pillar 3 topic "AI in testing" moves into it as "Testing AI features". Templates use a fake model in tests (offline, no key, no cost). AI provider for examples: decide when the phase starts. | 2026-11-15 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-15 · Owner request: new Pillar 6, AI-Powered QA (saved, built later)
+
+**Done**
+
+- `PROJECT_BRIEF.md` section 11: new "Pillar 6 — AI-Powered QA" with 11 topics (lessons and templates for each) and rules for the whole pillar: never send company code to unapproved AI tools; AI output is always reviewed by a person; template tests use a fake model so they run offline with no API key and no cost; keys only in `.env`.
+- The old Pillar 3 topic "AI in testing" is merged into the new "Testing AI features" topic (no duplicate). Catalog is now 74 topics (70 learning + 4 Toolbox).
+- Section 12: new **Phase 7.5** (after cloud and the capstone, before career). Its first step: choose the AI provider, add the section and its "Coming soon" pages, move the `advanced-testing/ai-in-testing` draft page into it (not published yet, so no redirect needed), add AI skills to the skills matrix and AI words to the Glossary.
+- No site pages created yet, as the owner asked.
+
+**Next step**
+
+Unchanged: step 1.17.
 
 ---
 
