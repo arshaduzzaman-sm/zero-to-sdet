@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "macros.html" import field, form_error, csrf %}
+{% block title %}Checkout{% endblock %}
+{% block content %}
+<h1 data-testid="page-title">Checkout</h1>
+<div class="cart-layout">
+  <form action="/checkout" method="post" class="card" data-testid="checkout-form" novalidate>
+    {{ csrf(csrf_token) }}
+    {{ form_error(errors) }}
+    {% set error = errors.get("shipping_address") %}
+    <div class="field{% if error %} has-error{% endif %}">
+      <label for="shipping_address">Shipping address <span class="required" aria-hidden="true">*</span></label>
+      <textarea id="shipping_address" name="shipping_address" rows="3" maxlength="300" autocomplete="street-address"
+                {% if error %}aria-invalid="true" aria-describedby="shipping_address-error"{% endif %}
+                data-testid="shipping-address-input">{{ form.get("shipping_address", "") }}</textarea>
+      {% if error %}<p class="error" id="shipping_address-error" data-testid="shipping-address-error">{{ error }}</p>{% endif %}
+    </div>
+    <fieldset>
+      <legend>Payment (sandbox only)</legend>
+      {{ field("card_number", "Card number", form, errors, required=True, autocomplete="off", hint="Use 4242 4242 4242 4242. Never type a real card here.", extra='inputmode="numeric"') }}
+      <div class="row">
+        {{ field("expiry", "Expiry (MM/YY)", form, errors, required=True, autocomplete="off", extra='placeholder="12/30"') }}
+        {{ field("cvc", "CVC", form, errors, required=True, autocomplete="off", extra='inputmode="numeric" maxlength="3"') }}
+      </div>
+    </fieldset>
+    <button type="submit" class="button-wide" data-testid="place-order-button">Pay {{ cart.total_cents | money }} and place order</button>
+  </form>
+
+  <aside class="summary card" data-testid="checkout-summary">
+    <h2>Your order</h2>
+    <ul class="plain-list">
+      {% for line in cart["items"] %}
+        <li data-testid="checkout-line">{{ line.quantity }} × {{ line.name }} <span class="num">{{ line.line_total_cents | money }}</span></li>
+      {% endfor %}
+    </ul>
+    <dl class="totals">
+      <dt>Subtotal</dt><dd>{{ cart.subtotal_cents | money }}</dd>
+      {% if cart.discount_cents %}<dt>Discount ({{ cart.coupon_code }})</dt><dd>−{{ cart.discount_cents | money }}</dd>{% endif %}
+      <dt>Tax</dt><dd>{{ cart.tax_cents | money }}</dd>
+      <dt>Shipping</dt><dd>{{ "Free" if cart.shipping_cents == 0 else (cart.shipping_cents | money) }}</dd>
+      <dt class="total">Total</dt><dd class="total" data-testid="checkout-total">{{ cart.total_cents | money }}</dd>
+    </dl>
+  </aside>
+</div>
+{% endblock %}

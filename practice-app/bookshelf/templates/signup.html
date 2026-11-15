@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% from "macros.html" import field, form_error, csrf %}
+{% block title %}Sign up{% endblock %}
+{% block content %}
+<div class="narrow">
+  <h1 data-testid="page-title">Create an account</h1>
+  <form action="/signup" method="post" class="card" data-testid="signup-form" novalidate>
+    {{ csrf(csrf_token) }}
+    {{ form_error(errors) }}
+    {{ field("email", "Email", form, errors, type="email", required=True, autocomplete="email") }}
+    {{ field("username", "Username", form, errors, required=True, autocomplete="username", hint="3 to 20 letters, digits or _") }}
+    {{ field("full_name", "Full name", form, errors, required=True, autocomplete="name") }}
+    {{ field("password", "Password", form, errors, type="password", required=True, autocomplete="new-password", hint="At least 8 characters, with a letter and a digit") }}
+    <button type="submit" class="button-wide" data-testid="signup-button">Create account</button>
+    <p class="form-links"><a href="/login" data-testid="login-link">I already have an account</a></p>
+  </form>
+</div>
+{% endblock %}

@@ -8,7 +8,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, Request
-from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
 
 from . import __version__, errors
 from .api import admin, auth, cart, orders, products, tools, users
@@ -20,14 +20,24 @@ from .mailer import Outbox
 from .reporting import SyncLoop
 from .reviews import MongoReviews, SqlReviews
 from .security import make_hasher
+from .web import errors as web_errors
+from .web import routes as web_routes
+from .web.helpers import make_templates
 
 SAFE_REQUEST_ID = re.compile(r"^[A-Za-z0-9._-]{1,64}$")
+STATIC = Path(__file__).resolve().parent / "static"
+CSP = (
+    "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; "
+    "form-action 'self'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'"
+)
 
 DESCRIPTION = """
 **Bookshelf** is the Practice App for [Zero to SDET](https://arshaduzzaman-sm.github.io/zero-to-sdet/):
 a small online shop for books and study gadgets.
 
 > For practice on your own computer only. Never deploy it to the internet.
+
+The shop's web pages are at [/](/). This page lists the API.
 
 **Try it:** `POST /api/auth/login` with `{"username": "arshad", "password": "Test@1234"}`,
 copy the `access_token`, press **Authorize** and paste it.
@@ -71,9 +81,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.clock = Clock()
     app.state.outbox = Outbox(settings.outbox_dir)
     app.state.hasher = make_hasher(settings.fast_password_hashing)
+    app.state.templates = make_templates()
     prepare(app)
 
     errors.install(app)
+    web_errors.install(app)
 
     @app.middleware("http")
     async def request_id(request: Request, call_next):
@@ -82,13 +94,16 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         response = await call_next(request)
         response.headers["X-Request-ID"] = request.state.request_id
         response.headers.setdefault("X-Content-Type-Options", "nosniff")
+        if web_errors.is_web(request):
+            # Web pages load only this app's own files: no inline or outside scripts.
+            response.headers.setdefault("Content-Security-Policy", CSP)
+            response.headers.setdefault("X-Frame-Options", "DENY")
+            response.headers.setdefault("Referrer-Policy", "same-origin")
         return response
 
     for module in (auth, users, products, cart, orders, admin, tools):
         app.include_router(module.router, prefix="/api")
-
-    @app.get("/", include_in_schema=False)
-    def home() -> RedirectResponse:
-        return RedirectResponse("/docs")  # the web pages come in step 1.5.4
+    app.include_router(web_routes.router)
+    app.mount("/static", StaticFiles(directory=STATIC), name="static")
 
     return app

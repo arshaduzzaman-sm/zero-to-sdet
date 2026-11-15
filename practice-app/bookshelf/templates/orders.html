@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from "macros.html" import when, status_badge %}
+{% block title %}My orders{% endblock %}
+{% block content %}
+<h1 data-testid="page-title">My orders</h1>
+{% if orders["items"] %}
+  <div class="table-scroll">
+  <table class="table" data-testid="orders-table">
+    <thead><tr><th scope="col">Order</th><th scope="col">Date</th><th scope="col">Status</th><th scope="col" class="num">Total</th></tr></thead>
+    <tbody>
+      {% for o in orders["items"] %}
+        <tr data-testid="order-row" data-order-id="{{ o.id }}">
+          <td><a href="/orders/{{ o.id }}" data-testid="order-link">Order {{ o.id }}</a></td>
+          <td>{{ when(o.created_at) }}</td>
+          <td>{{ status_badge(o.status) }}</td>
+          <td class="num" data-testid="order-total">{{ o.total_cents | money }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+{% else %}
+  <div class="empty" data-testid="no-orders"><p>You have no orders yet.</p>
+    <a class="button" href="/" data-testid="continue-shopping">Start shopping</a></div>
+{% endif %}
+{% endblock %}

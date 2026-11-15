@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Bookshelf{% endblock %} · Bookshelf Practice App</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-testid="skip-link">Skip to content</a>
+  <div class="practice-banner" role="note" data-testid="practice-banner">
+    Practice shop for learning to test. Nothing here is real: no real books, payments or emails.
+  </div>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="/" data-testid="nav-home">
+        <span class="brand-mark" aria-hidden="true">B</span> Bookshelf
+      </a>
+      <form class="header-search" action="/" method="get" role="search" data-testid="header-search-form">
+        <label class="visually-hidden" for="header-q">Search products</label>
+        <input id="header-q" name="q" type="search" placeholder="Search books and gadgets"
+               value="{{ request.query_params.get('q', '') }}" data-testid="header-search-input">
+        <button type="submit" data-testid="header-search-button">Search</button>
+      </form>
+      <nav class="main-nav" aria-label="Main" data-testid="main-nav">
+        {% if user %}
+          <a href="/cart" data-testid="nav-cart">Cart <span class="badge" data-testid="nav-cart-count">{{ cart_count }}</span></a>
+          <a href="/orders" data-testid="nav-orders">My orders</a>
+          <a href="/profile" data-testid="nav-profile">{{ user.username }}</a>
+          {% if user.role == "admin" %}<a href="/admin" data-testid="nav-admin">Admin</a>{% endif %}
+          <form action="/logout" method="post" class="inline-form" data-testid="logout-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <button type="submit" class="link-button" data-testid="logout-button">Log out</button>
+          </form>
+        {% else %}
+          <a href="/login" data-testid="nav-login">Log in</a>
+          <a href="/signup" class="button button-small" data-testid="nav-signup">Sign up</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    {% if message %}
+      <div class="flash" role="status" data-testid="flash-message">{{ message }}</div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <span data-testid="footer-version">Bookshelf v{{ app_version }}</span>
+      <a href="/docs" data-testid="footer-api-docs">API docs</a>
+      <a href="/api/health" data-testid="footer-health">Health</a>
+      <span>For practice on your own computer only.</span>
+    </div>
+  </footer>
+</body>
+</html>

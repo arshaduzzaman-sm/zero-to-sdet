@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% from "macros.html" import field, form_error, csrf %}
+{% block title %}Log in{% endblock %}
+{% block content %}
+<div class="narrow">
+  <h1 data-testid="page-title">Log in</h1>
+  <form action="/login" method="post" class="card" data-testid="login-form" novalidate>
+    {{ csrf(csrf_token) }}
+    <input type="hidden" name="next" value="{{ next }}">
+    {{ form_error(errors) }}
+    {{ field("username", "Username or email", form, errors, required=True, autocomplete="username") }}
+    {{ field("password", "Password", form, errors, type="password", required=True, autocomplete="current-password") }}
+    <button type="submit" class="button-wide" data-testid="login-button">Log in</button>
+    <p class="form-links">
+      <a href="/forgot-password" data-testid="forgot-password-link">Forgot password?</a>
+      <a href="/signup" data-testid="signup-link">Create an account</a>
+    </p>
+  </form>
+  <details class="hint-box" data-testid="test-logins">
+    <summary>Logins for practice</summary>
+    <p><code>arshad</code> / <code>Test@1234</code> (customer) · <code>admin</code> / <code>local_only_password</code> (admin)</p>
+  </details>
+</div>
+{% endblock %}

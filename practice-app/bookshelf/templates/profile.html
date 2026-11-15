@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% from "macros.html" import field, form_error, csrf %}
+{% block title %}My profile{% endblock %}
+{% block content %}
+<div class="narrow">
+  <h1 data-testid="page-title">My profile</h1>
+  <dl class="facts" data-testid="profile-facts">
+    <dt>Username</dt><dd data-testid="profile-username">{{ user.username }}</dd>
+    <dt>Email</dt><dd data-testid="profile-email">{{ user.email }}</dd>
+  </dl>
+  <form action="/profile" method="post" class="card" data-testid="profile-form" novalidate>
+    {{ csrf(csrf_token) }}
+    {{ form_error(errors) }}
+    {{ field("full_name", "Full name", form, errors, required=True, autocomplete="name") }}
+    {% set error = errors.get("shipping_address") %}
+    <div class="field{% if error %} has-error{% endif %}">
+      <label for="shipping_address">Shipping address</label>
+      <textarea id="shipping_address" name="shipping_address" rows="3" maxlength="300" autocomplete="street-address"
+                data-testid="shipping-address-input">{{ form.get("shipping_address", "") }}</textarea>
+      {% if error %}<p class="error" data-testid="shipping-address-error">{{ error }}</p>{% endif %}
+    </div>
+    <button type="submit" data-testid="save-profile-button">Save</button>
+  </form>
+</div>
+{% endblock %}

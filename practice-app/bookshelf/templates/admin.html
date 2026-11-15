@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% from "macros.html" import csrf, when, status_badge %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+<h1 data-testid="page-title">Admin</h1>
+
+<section aria-labelledby="products-title" class="admin-section" data-testid="admin-products">
+  <h2 id="products-title">Products</h2>
+  <div class="table-scroll">
+  <table class="table" data-testid="admin-products-table">
+    <thead><tr><th scope="col">SKU</th><th scope="col">Name</th><th scope="col" class="num">Price</th><th scope="col">Stock and visibility</th></tr></thead>
+    <tbody>
+      {% for p in products["items"] %}
+        {% set error = errors.get("stock-" ~ p.id) %}
+        <tr data-testid="admin-product-row" data-product-id="{{ p.id }}">
+          <td>{{ p.sku }}</td>
+          <td><a href="/products/{{ p.id }}" data-testid="admin-product-link">{{ p.name }}</a></td>
+          <td class="num">{{ p.price_cents | money }}</td>
+          <td>
+            <form action="/admin/products/{{ p.id }}" method="post" class="qty-form" data-testid="admin-product-form">
+              {{ csrf(csrf_token) }}
+              <label class="visually-hidden" for="stock-{{ p.id }}">Stock of {{ p.name }}</label>
+              <input id="stock-{{ p.id }}" name="stock" type="number" min="0" value="{{ p.stock }}" data-testid="admin-stock-input">
+              <label class="check"><input type="checkbox" name="is_active" {% if p.is_active %}checked{% endif %} data-testid="admin-active-checkbox"> Visible</label>
+              <button type="submit" class="button-small button-quiet" data-testid="admin-save-product-button">Save</button>
+              {% if error %}<p class="error" data-testid="admin-stock-error">{{ error }}</p>{% endif %}
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+
+  <details class="card" {% if errors %}open{% endif %} data-testid="new-product">
+    <summary>Add a product</summary>
+    <form action="/admin/products" method="post" class="grid-form" data-testid="new-product-form" novalidate>
+      {{ csrf(csrf_token) }}
+      {% for name, label in [("sku", "SKU"), ("name", "Name"), ("price", "Price ($)"), ("stock", "Stock")] %}
+        <div class="field{% if errors.get(name) %} has-error{% endif %}">
+          <label for="new-{{ name }}">{{ label }}</label>
+          <input id="new-{{ name }}" name="{{ name }}" value="{{ form.get(name, '') }}" data-testid="new-product-{{ name }}-input">
+          {% if errors.get(name) %}<p class="error" data-testid="new-product-{{ name }}-error">{{ errors.get(name) }}</p>{% endif %}
+        </div>
+      {% endfor %}
+      <div class="field">
+        <label for="new-category">Category</label>
+        <select id="new-category" name="category_id" data-testid="new-product-category-select">
+          {% for c in categories %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="field field-full">
+        <label for="new-description">Description</label>
+        <textarea id="new-description" name="description" rows="2" data-testid="new-product-description-input">{{ form.get('description', '') }}</textarea>
+      </div>
+      <button type="submit" data-testid="new-product-button">Add product</button>
+    </form>
+  </details>
+</section>
+
+<section aria-labelledby="orders-title" class="admin-section" data-testid="admin-orders">
+  <h2 id="orders-title">Latest orders</h2>
+  <div class="table-scroll">
+  <table class="table" data-testid="admin-orders-table">
+    <thead><tr><th scope="col">Order</th><th scope="col">Customer</th><th scope="col">Date</th><th scope="col">Status</th><th scope="col" class="num">Total</th><th scope="col">Action</th></tr></thead>
+    <tbody>
+      {% for o in orders["items"] %}
+        <tr data-testid="admin-order-row" data-order-id="{{ o.id }}">
+          <td>{{ o.id }}</td>
+          <td>{{ o.user_id }}</td>
+          <td>{{ when(o.created_at) }}</td>
+          <td>{{ status_badge(o.status) }}</td>
+          <td class="num">{{ o.total_cents | money }}</td>
+          <td>
+            {% set next = next_status.get(o.status) %}
+            {% if next %}
+              <form action="/admin/orders/{{ o.id }}" method="post" data-testid="admin-order-form">
+                {{ csrf(csrf_token) }}
+                <button type="submit" name="status" value="{{ next }}" class="button-small button-quiet" data-testid="admin-order-{{ next }}-button">Mark {{ next }}</button>
+              </form>
+            {% endif %}
+            {% if errors.get("order-" ~ o.id) %}<p class="error" data-testid="admin-order-error">{{ errors.get("order-" ~ o.id) }}</p>{% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section aria-labelledby="tools-title" class="admin-section" data-testid="admin-tools">
+  <h2 id="tools-title">Tools</h2>
+  <div class="tool-row">
+    <form action="/admin/reporting-sync" method="post" data-testid="sync-form">
+      {{ csrf(csrf_token) }}
+      <button type="submit" class="button-quiet" data-testid="sync-button">Refresh reporting copy now</button>
+    </form>
+    <form action="/admin/reset" method="post" data-confirm="Delete all changes and put every database back to the start?" data-testid="reset-form">
+      {{ csrf(csrf_token) }}
+      <button type="submit" class="button-danger" data-testid="reset-button">Reset all data</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

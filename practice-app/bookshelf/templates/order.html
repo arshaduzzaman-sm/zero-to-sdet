@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "macros.html" import when, status_badge, csrf, form_error %}
+{% block title %}Order {{ order.id }}{% endblock %}
+{% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/orders" data-testid="back-to-orders">My orders</a> / <span>Order {{ order.id }}</span></nav>
+<h1 data-testid="page-title">Order {{ order.id }}</h1>
+{{ form_error(errors) }}
+<dl class="facts" data-testid="order-facts">
+  <dt>Status</dt><dd>{{ status_badge(order.status) }}</dd>
+  <dt>Placed</dt><dd>{{ when(order.created_at) }}</dd>
+  <dt>Ship to</dt><dd data-testid="order-address">{{ order.shipping_address }}</dd>
+  {% if order.payments %}{% set pay = order.payments[-1] %}
+  <dt>Payment</dt><dd data-testid="order-payment">{{ pay.status }} · card ending {{ pay.card_last4 }}</dd>{% endif %}
+</dl>
+
+<div class="table-scroll">
+<table class="table" data-testid="order-lines">
+  <thead><tr><th scope="col">Product</th><th scope="col">Price</th><th scope="col">Quantity</th><th scope="col" class="num">Total</th></tr></thead>
+  <tbody>
+    {% for line in order["items"] %}
+      <tr data-testid="order-line" data-product-id="{{ line.product_id }}">
+        <td><a href="/products/{{ line.product_id }}" data-testid="order-line-name">{{ line.name }}</a></td>
+        <td>{{ line.unit_price_cents | money }}</td>
+        <td data-testid="order-line-quantity">{{ line.quantity }}</td>
+        <td class="num">{{ line.line_total_cents | money }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+<dl class="totals totals-wide" data-testid="order-totals">
+  <dt>Subtotal</dt><dd data-testid="order-subtotal">{{ order.subtotal_cents | money }}</dd>
+  {% if order.discount_cents %}<dt>Discount ({{ order.coupon_code }})</dt><dd data-testid="order-discount">−{{ order.discount_cents | money }}</dd>{% endif %}
+  <dt>Tax</dt><dd data-testid="order-tax">{{ order.tax_cents | money }}</dd>
+  <dt>Shipping</dt><dd data-testid="order-shipping">{{ "Free" if order.shipping_cents == 0 else (order.shipping_cents | money) }}</dd>
+  <dt class="total">Total</dt><dd class="total" data-testid="order-total">{{ order.total_cents | money }}</dd>
+</dl>
+
+{% if order.status == "paid" %}
+  <form action="/orders/{{ order.id }}/cancel" method="post" data-confirm="Cancel order {{ order.id }}? The money goes back to your card." data-testid="cancel-order-form">
+    {{ csrf(csrf_token) }}
+    <button type="submit" class="button-danger" data-testid="cancel-order-button">Cancel order</button>
+  </form>
+{% endif %}
+{% endblock %}

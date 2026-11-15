@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% from "macros.html" import csrf %}
+{% block title %}Your cart{% endblock %}
+{% block content %}
+<h1 data-testid="page-title">Your cart</h1>
+
+{% if not cart["items"] %}
+  <div class="empty" data-testid="cart-empty">
+    <p>Your cart is empty.</p>
+    <a class="button" href="/" data-testid="continue-shopping">Find something to read</a>
+  </div>
+{% else %}
+<div class="cart-layout">
+  <div class="table-scroll">
+  <table class="table" data-testid="cart-table">
+    <thead><tr><th scope="col">Product</th><th scope="col">Price</th><th scope="col">Quantity</th><th scope="col" class="num">Total</th><th scope="col"><span class="visually-hidden">Remove</span></th></tr></thead>
+    <tbody>
+    {% for line in cart["items"] %}
+      {% set error = errors.get("quantity-" ~ line.product_id) %}
+      <tr data-testid="cart-line" data-product-id="{{ line.product_id }}">
+        <td><a href="/products/{{ line.product_id }}" data-testid="cart-line-name">{{ line.name }}</a>
+            {% if not line.available %}<p class="error" data-testid="cart-line-unavailable">Not available in this quantity.</p>{% endif %}</td>
+        <td data-testid="cart-line-price">{{ line.unit_price_cents | money }}</td>
+        <td>
+          <form action="/cart/items/{{ line.product_id }}" method="post" class="qty-form" data-testid="cart-quantity-form">
+            {{ csrf(csrf_token) }}
+            <label class="visually-hidden" for="qty-{{ line.product_id }}">Quantity of {{ line.name }}</label>
+            <input id="qty-{{ line.product_id }}" name="quantity" type="number" min="1" max="10" value="{{ line.quantity }}"
+                   {% if error %}aria-invalid="true" aria-describedby="qty-{{ line.product_id }}-error"{% endif %}
+                   data-testid="cart-quantity-input">
+            <button type="submit" name="action" value="update" class="button-small button-quiet" data-testid="cart-update-button">Update</button>
+            {% if error %}<p class="error" id="qty-{{ line.product_id }}-error" data-testid="cart-quantity-error">{{ error }}</p>{% endif %}
+          </form>
+        </td>
+        <td class="num" data-testid="cart-line-total">{{ line.line_total_cents | money }}</td>
+        <td>
+          <form action="/cart/items/{{ line.product_id }}" method="post" data-testid="cart-remove-form">
+            {{ csrf(csrf_token) }}
+            <button type="submit" name="action" value="remove" class="link-button" data-testid="cart-remove-button">Remove</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+
+  <aside class="summary card" data-testid="cart-summary">
+    <h2>Summary</h2>
+    <form action="/cart/coupon" method="post" class="coupon-form" data-testid="coupon-form">
+      {{ csrf(csrf_token) }}
+      {% if cart.coupon_code %}
+        <p>Coupon <strong data-testid="applied-coupon">{{ cart.coupon_code }}</strong></p>
+        <button type="submit" name="action" value="remove" class="link-button" data-testid="remove-coupon-button">Remove coupon</button>
+      {% else %}
+        <div class="field{% if errors.get('code') %} has-error{% endif %}">
+          <label for="code">Coupon code</label>
+          <div class="input-row">
+            <input id="code" name="code" value="{{ form.get('code', '') }}" autocomplete="off"
+                   {% if errors.get('code') %}aria-invalid="true" aria-describedby="code-error"{% endif %}
+                   data-testid="coupon-input">
+            <button type="submit" name="action" value="apply" class="button-quiet" data-testid="apply-coupon-button">Apply</button>
+          </div>
+          {% if errors.get('code') %}<p class="error" id="code-error" data-testid="coupon-error">{{ errors.get('code') }}</p>{% endif %}
+        </div>
+      {% endif %}
+    </form>
+    <dl class="totals" data-testid="cart-totals">
+      <dt>Subtotal</dt><dd data-testid="cart-subtotal">{{ cart.subtotal_cents | money }}</dd>
+      {% if cart.discount_cents %}<dt>Discount</dt><dd data-testid="cart-discount">−{{ cart.discount_cents | money }}</dd>{% endif %}
+      <dt>Tax (10%)</dt><dd data-testid="cart-tax">{{ cart.tax_cents | money }}</dd>
+      <dt>Shipping</dt><dd data-testid="cart-shipping">{{ "Free" if cart.shipping_cents == 0 else (cart.shipping_cents | money) }}</dd>
+      <dt class="total">Total</dt><dd class="total" data-testid="cart-total">{{ cart.total_cents | money }}</dd>
+    </dl>
+    <p class="hint">Free shipping from $50.00.</p>
+    <a class="button button-wide" href="/checkout" data-testid="checkout-link">Go to checkout</a>
+  </aside>
+</div>
+{% endif %}
+{% endblock %}

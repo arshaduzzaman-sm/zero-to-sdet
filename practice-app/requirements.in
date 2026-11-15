@@ -1,7 +1,7 @@
 # Practice App dependencies (top level). Pinned, hashed lock file: requirements.txt
 # Update with (from the repository root):
 #   uv pip compile practice-app/requirements.in --generate-hashes --python-version 3.13 -o practice-app/requirements.txt
-# Web pages (Jinja2) are added in step 1.5.4, email, uploads and invoice PDF in 1.5.5.
+# Email, uploads and invoice PDF are added in step 1.5.5.
 fastapi          # the API, its checks (Pydantic) and the /docs page
 uvicorn          # runs the API
 sqlalchemy       # talks to the database
@@ -11,3 +11,5 @@ psycopg[binary]  # PostgreSQL driver (the main database)
 pymysql          # MySQL driver (the reporting copy)
 pymongo          # MongoDB driver (reviews)
 faker            # fake customers, orders and reviews for the seed data (fixed random seed)
+jinja2           # the web pages (HTML templates, safe escaping on by default)
+python-multipart # reads the web page forms

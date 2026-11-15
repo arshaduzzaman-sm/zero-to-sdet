@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "macros.html" import field, form_error, csrf %}
+{% block title %}Verify your email{% endblock %}
+{% block content %}
+<div class="narrow">
+  <h1 data-testid="page-title">Verify your email</h1>
+  <p>Enter the 6-digit code we emailed you. It works once and expires in 10 minutes.</p>
+  <form action="/verify" method="post" class="card" data-testid="verify-form" novalidate>
+    {{ csrf(csrf_token) }}
+    {{ form_error(errors) }}
+    {{ field("email", "Email", form, errors, type="email", required=True, autocomplete="email") }}
+    {{ field("code", "Code", form, errors, required=True, autocomplete="one-time-code", extra='inputmode="numeric" maxlength="6"') }}
+    <button type="submit" name="action" value="verify" class="button-wide" data-testid="verify-button">Verify</button>
+    <button type="submit" name="action" value="resend" class="button-quiet button-wide" data-testid="resend-code-button">Send a new code</button>
+  </form>
+</div>
+{% endblock %}

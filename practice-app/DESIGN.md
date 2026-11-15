@@ -328,6 +328,22 @@ All under `/api`. JSON in and out. Errors always look like
 | Admin | `/admin` | Products, stock, orders, reset |
 | Status | `/status` | Every service up or down, app version |
 
+### How the web pages work
+
+- Server-made HTML pages with plain forms, built on the same functions as the
+  API, so both always follow the same rules. Prices are shown in dollars (`$12.99`).
+- Logging in on the web sets a cookie (`bookshelf_session`): HttpOnly,
+  SameSite=Lax, Secure on https. It lasts as long as an API token (30 minutes).
+- Every form carries a CSRF token, so another site cannot post forms as you.
+- Strict security headers: Content-Security-Policy (only the app's own files),
+  no framing, no outside scripts or fonts (works offline).
+- Errors show next to the field they belong to; card numbers and passwords are
+  never shown back.
+- **Test IDs:** every link, button, field, form and message has a `data-testid`
+  in kebab-case: `<thing>-input`, `<thing>-button`, `<thing>-error`, `product-card`,
+  `cart-line`, `flash-message`, `page-title`. Lists also carry the record id
+  (`data-product-id`, `data-order-id`). A test fails if any element misses one.
+
 ## 7. Planted bugs
 
 About 30 bugs are planted on purpose across the API, database, web page,
@@ -370,7 +386,7 @@ practice-app/
 ├── docker-compose.yml
 ├── .env.example
 ├── requirements.in/.txt   # the app's Python packages (pinned with hashes)
-├── bookshelf/             # the FastAPI app: api/ (one file per area), models, seed...
+├── bookshelf/             # the FastAPI app: api/ (one file per area), web/, templates/, static/, models, seed...
 ├── seed/                  # Faker seed data (fixed random seed, same data every time)
 ├── scripts/               # reset, wait-for-services
 └── tests/                 # the app's own tests (separate from lesson templates)

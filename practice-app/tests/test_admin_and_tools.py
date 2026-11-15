@@ -124,4 +124,4 @@ def test_api_docs_are_served(client):
     assert client.get("/docs").status_code == 200
     spec = client.get("/openapi.json").json()
     assert "/api/checkout" in spec["paths"]
-    assert client.get("/", follow_redirects=False).headers["location"] == "/docs"
+    assert client.get("/").headers["content-type"].startswith("text/html")  # the shop

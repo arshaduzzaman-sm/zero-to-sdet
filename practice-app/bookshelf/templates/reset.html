@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "macros.html" import field, form_error, csrf %}
+{% block title %}Set a new password{% endblock %}
+{% block content %}
+<div class="narrow">
+  <h1 data-testid="page-title">Set a new password</h1>
+  <form action="/reset-password" method="post" class="card" data-testid="reset-form" novalidate>
+    {{ csrf(csrf_token) }}
+    {{ form_error(errors) }}
+    {{ field("email", "Email", form, errors, type="email", required=True, autocomplete="email") }}
+    {{ field("code", "Code from the email", form, errors, required=True, autocomplete="one-time-code", extra='inputmode="numeric" maxlength="6"') }}
+    {{ field("new_password", "New password", form, errors, type="password", required=True, autocomplete="new-password", hint="At least 8 characters, with a letter and a digit") }}
+    <button type="submit" class="button-wide" data-testid="reset-password-button">Change password</button>
+  </form>
+</div>
+{% endblock %}

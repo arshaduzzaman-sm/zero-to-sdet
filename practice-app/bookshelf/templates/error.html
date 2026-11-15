@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="narrow empty" data-testid="error-page">
+  <p class="error-code" data-testid="error-status">{{ status }}</p>
+  <h1 data-testid="page-title">{{ title }}</h1>
+  <p data-testid="error-message">{{ text }}</p>
+  {% if request_id %}<p class="muted">Request ID: <code data-testid="error-request-id">{{ request_id }}</code></p>{% endif %}
+  <a class="button" href="/" data-testid="error-home-link">Back to the shop</a>
+</div>
+{% endblock %}

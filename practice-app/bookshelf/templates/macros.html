@@ -1,0 +1,38 @@
+{# Form field with a label, an optional hint and its error right under it.
+   `extra` is fixed attribute text written in the templates (never user input), so it is marked safe. #}
+{% macro field(name, label, form, errors, type="text", hint=None, required=False, autocomplete=None, extra="") %}
+  {% set error = errors.get(name) %}
+  <div class="field{% if error %} has-error{% endif %}">
+    <label for="{{ name }}">{{ label }}{% if required %} <span class="required" aria-hidden="true">*</span>{% endif %}</label>
+    <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ form.get(name, '') if type != 'password' else '' }}"
+           {% if required %}required{% endif %} {% if autocomplete %}autocomplete="{{ autocomplete }}"{% endif %}
+           {% if error or hint %}aria-describedby="{% if hint %}{{ name }}-hint{% endif %}{% if error %} {{ name }}-error{% endif %}"{% endif %}
+           {% if error %}aria-invalid="true"{% endif %} {{ extra | safe }}
+           data-testid="{{ name | replace('_', '-') }}-input">
+    {% if hint %}<p class="hint" id="{{ name }}-hint" data-testid="{{ name | replace('_', '-') }}-hint">{{ hint }}</p>{% endif %}
+    {% if error %}<p class="error" id="{{ name }}-error" data-testid="{{ name | replace('_', '-') }}-error">{{ error }}</p>{% endif %}
+  </div>
+{% endmacro %}
+
+{% macro form_error(errors) %}
+  {% if errors.get("form") %}
+    <div class="alert" role="alert" data-testid="form-error">{{ errors.get("form") }}</div>
+  {% endif %}
+{% endmacro %}
+
+{% macro csrf(token) %}<input type="hidden" name="csrf_token" value="{{ token }}">{% endmacro %}
+
+{% macro stars(average, count) %}
+  {% if count %}
+    <span class="stars" data-testid="rating" aria-label="Rated {{ average }} out of 5 by {{ count }} {{ 'person' if count == 1 else 'people' }}">
+      <span aria-hidden="true">{% for i in range(5) %}{{ '★' if i < (average | round(0, 'common')) else '☆' }}{% endfor %}</span>
+      <span class="muted">{{ average }} ({{ count }})</span>
+    </span>
+  {% else %}
+    <span class="muted" data-testid="rating-none">No reviews yet</span>
+  {% endif %}
+{% endmacro %}
+
+{% macro when(value) %}<time datetime="{{ value.isoformat() }}" data-testid="time">{{ value.strftime('%Y-%m-%d %H:%M') }} UTC</time>{% endmacro %}
+
+{% macro status_badge(status) %}<span class="status status-{{ status }}" data-testid="order-status">{{ status }}</span>{% endmacro %}

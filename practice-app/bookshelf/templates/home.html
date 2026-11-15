@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% from "macros.html" import stars %}
+{% block title %}Shop{% endblock %}
+{% block content %}
+<h1 data-testid="page-title">Books and study gadgets</h1>
+
+<form class="filters" action="/" method="get" data-testid="filter-form">
+  <div class="field">
+    <label for="q">Search</label>
+    <input id="q" name="q" type="search" value="{{ form.get('q', '') }}" data-testid="search-input">
+  </div>
+  <div class="field">
+    <label for="category">Category</label>
+    <select id="category" name="category" data-testid="category-select">
+      <option value="">All categories</option>
+      {% for c in categories %}
+        <option value="{{ c.slug }}" {% if form.get('category') == c.slug %}selected{% endif %}>{{ c.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% for name, label in [("min_price", "Min price ($)"), ("max_price", "Max price ($)")] %}
+    <div class="field field-narrow{% if errors.get(name) %} has-error{% endif %}">
+      <label for="{{ name }}">{{ label }}</label>
+      <input id="{{ name }}" name="{{ name }}" inputmode="decimal" value="{{ form.get(name, '') }}"
+             {% if errors.get(name) %}aria-invalid="true" aria-describedby="{{ name }}-error"{% endif %}
+             data-testid="{{ name | replace('_', '-') }}-input">
+      {% if errors.get(name) %}<p class="error" id="{{ name }}-error" data-testid="{{ name | replace('_', '-') }}-error">{{ errors.get(name) }}</p>{% endif %}
+    </div>
+  {% endfor %}
+  <div class="field">
+    <label for="sort">Sort by</label>
+    <select id="sort" name="sort" data-testid="sort-select">
+      {% for value, label in sorts %}
+        <option value="{{ value }}" {% if form.get('sort') == value %}selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="field field-actions">
+    <button type="submit" data-testid="filter-button">Show results</button>
+    <a href="/" class="button button-quiet" data-testid="clear-filters">Clear</a>
+  </div>
+</form>
+
+<p class="muted" data-testid="result-count">{{ result.total }} product{{ '' if result.total == 1 else 's' }} found</p>
+
+{% if result["items"] %}
+  <ul class="product-grid" data-testid="product-list">
+    {% for p in result["items"] %}
+      <li class="product-card" data-testid="product-card" data-product-id="{{ p.id }}">
+        <span class="category" data-testid="product-category">{{ p.category.name }}</span>
+        <h2><a href="/products/{{ p.id }}" data-testid="product-link">{{ p.name }}</a></h2>
+        <p class="price" data-testid="product-price">{{ p.price_cents | money }}</p>
+        {{ stars(p.rating_average, p.rating_count) }}
+        {% if p.stock == 0 %}
+          <span class="stock stock-out" data-testid="product-stock">Sold out</span>
+        {% elif p.stock <= 5 %}
+          <span class="stock stock-low" data-testid="product-stock">Only {{ p.stock }} left</span>
+        {% else %}
+          <span class="stock" data-testid="product-stock">In stock</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <div class="empty" data-testid="no-results">
+    <p>No products match. Try fewer words or clear the filters.</p>
+  </div>
+{% endif %}
+
+{% if result.pages > 1 %}
+  <nav class="pagination" aria-label="Pages" data-testid="pagination">
+    {% for n, link in page_links %}
+      {% if n == result.page %}
+        <span class="current" aria-current="page" data-testid="page-current">{{ n }}</span>
+      {% else %}
+        <a href="{{ link }}" data-testid="page-link-{{ n }}">{{ n }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}
+{% endblock %}

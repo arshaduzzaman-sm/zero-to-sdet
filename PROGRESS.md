@@ -34,6 +34,30 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1.5 · Step 1.5.4: web pages
+
+**Done**
+
+- The shop's web pages (`practice-app/bookshelf/web/`, `templates/`, `static/`): product list with search, category, price filters, sorting and pages; product page with add to cart and reviews; sign up, verify code, log in, log out, forgot and reset password; profile; cart with quantities, remove and coupons; checkout with the sandbox cards; my orders, order details and cancel; admin (stock, visibility, add product, ship and deliver orders, reporting sync, reset); friendly error pages. `/docs` stays the API page.
+- Built on the same functions as the API, so web and API follow the same rules (and later the same planted bugs).
+- Test hooks: a `data-testid` on every link, button, field, form and message (kebab-case), plus record ids on list rows. A test parses every page and fails if any element misses one.
+- Security: login cookie HttpOnly + SameSite=Lax (+ Secure on https); a CSRF token on every form; "next" after login only goes to pages of this site; strict Content-Security-Policy, no framing; values escaped (a `<script>` review shows as text); card numbers and passwords never shown back.
+- Beginner friendly and accessible: labels on every field, errors next to the field (`aria-describedby`), skip link, visible focus, 44 px touch targets, works at phone width, times in the reader's own time zone, confirm before cancel and reset. Plain CSS, no outside files (works offline).
+- Found and fixed while checking screenshots: extra field settings (placeholder, maxlength) were escaped into the wrong text.
+- Tests: 19 new web tests; all 128 app tests pass on SQLite and on the Docker databases; 148 tests in the repo.
+- New packages, checked on PyPI and pinned with hashes: jinja2 (Pallets), python-multipart.
+- DESIGN.md ("How the web pages work", test ID rules) and README updated.
+
+**How to check**
+
+`cd practice-app && ../.venv/bin/python -m bookshelf`, open http://127.0.0.1:8080, log in as `arshad` / `Test@1234`, add a book to the cart and pay with `4242 4242 4242 4242`. Log in as `admin` / `local_only_password` for the admin page.
+
+**Next step**
+
+Step 1.5.5: email through Mailpit (sign-up code, reset code, order confirmation), profile picture and product image upload, invoice PDF download.
+
+---
+
 ## 2026-11-15 · Phase 1.5 · Step 1.5.3: databases and Faker seed data
 
 **Done**

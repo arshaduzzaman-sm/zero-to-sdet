@@ -7,8 +7,8 @@ A small online shop with bugs planted on purpose. Every lesson on
 > For practice on your own computer only. Every service listens on `localhost`.
 > Never deploy it to the internet.
 
-**Status:** being built in Phase 1.5. The API and the databases work now. Web
-pages, email (Mailpit), file uploads and a one-command start come in the next
+**Status:** being built in Phase 1.5. The web shop, the API and the databases
+work now. Email (Mailpit), file uploads and a one-command start come in the next
 steps. The plan, features
 and data model are in [DESIGN.md](DESIGN.md).
 
@@ -22,8 +22,8 @@ cd practice-app
 ../.venv/bin/python -m bookshelf
 ```
 
-Open <http://127.0.0.1:8080/docs>. Every endpoint is there, and you can try
-each one in the browser. Press `Ctrl+C` to stop the app.
+Open <http://127.0.0.1:8080> for the shop, or <http://127.0.0.1:8080/docs> for
+the API (you can try every endpoint in the browser). Press `Ctrl+C` to stop the app.
 
 The data lives in `practice-app/data/bookshelf.db` (a SQLite file, never
 committed). Delete that file, or call `POST /api/admin/reset`, to start fresh.

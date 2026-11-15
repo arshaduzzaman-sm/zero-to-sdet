@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% from "macros.html" import stars, csrf, when %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/" data-testid="back-to-shop">Shop</a> / <span>{{ product.category.name }}</span></nav>
+
+<article class="product-detail" data-testid="product-detail" data-product-id="{{ product.id }}">
+  <div>
+    <h1 data-testid="product-name">{{ product.name }}</h1>
+    <p class="muted" data-testid="product-sku">SKU: {{ product.sku }}</p>
+    {{ stars(product.rating_average, product.rating_count) }}
+    <p data-testid="product-description">{{ product.description }}</p>
+  </div>
+
+  <aside class="buy-box" data-testid="buy-box">
+    <p class="price price-large" data-testid="product-price">{{ product.price_cents | money }}</p>
+    {% if product.stock == 0 %}
+      <p class="stock stock-out" data-testid="product-stock">Sold out</p>
+    {% else %}
+      <p class="stock{% if product.stock <= 5 %} stock-low{% endif %}" data-testid="product-stock">{{ product.stock }} in stock</p>
+    {% endif %}
+
+    {% if not product.is_active %}
+      <p class="alert" data-testid="product-inactive">Hidden from customers.</p>
+    {% elif user and product.stock > 0 %}
+      <form action="/cart/items" method="post" data-testid="add-to-cart-form">
+        {{ csrf(csrf_token) }}
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        <div class="field field-narrow{% if errors.get('quantity') %} has-error{% endif %}">
+          <label for="quantity">Quantity</label>
+          <input id="quantity" name="quantity" type="number" min="1" max="10" value="{{ form.get('quantity', 1) }}"
+                 {% if errors.get('quantity') %}aria-invalid="true" aria-describedby="quantity-error"{% endif %}
+                 data-testid="quantity-input">
+          {% if errors.get('quantity') %}<p class="error" id="quantity-error" data-testid="quantity-error">{{ errors.get('quantity') }}</p>{% endif %}
+        </div>
+        <button type="submit" data-testid="add-to-cart-button">Add to cart</button>
+      </form>
+    {% elif not user %}
+      <a class="button" href="/login?next=/products/{{ product.id }}" data-testid="login-to-buy">Log in to buy</a>
+    {% endif %}
+  </aside>
+</article>
+
+<section class="reviews" aria-labelledby="reviews-title" data-testid="reviews">
+  <h2 id="reviews-title">Reviews</h2>
+  {% if reviews %}
+    <ul class="review-list" data-testid="review-list">
+      {% for r in reviews %}
+        <li class="review" data-testid="review" data-review-id="{{ r.id }}">
+          <p><strong data-testid="review-rating" aria-label="{{ r.rating }} out of 5">{{ '★' * r.rating }}{{ '☆' * (5 - r.rating) }}</strong>
+             <span data-testid="review-author">{{ r.username }}</span> · {{ when(r.created_at) }}</p>
+          <p data-testid="review-text">{{ r.text }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="muted" data-testid="no-reviews">No reviews yet.</p>
+  {% endif %}
+
+  {% if user %}
+    <form class="review-form" action="/products/{{ product.id }}/reviews" method="post" data-testid="review-form">
+      {{ csrf(csrf_token) }}
+      <h3>Write a review</h3>
+      <p class="hint">Only people who bought this product can review it, once.</p>
+      {% if errors.get('form') %}<div class="alert" role="alert" data-testid="review-form-error">{{ errors.get('form') }}</div>{% endif %}
+      <div class="field{% if errors.get('rating') %} has-error{% endif %}">
+        <label for="rating">Rating</label>
+        <select id="rating" name="rating" data-testid="review-rating-select">
+          {% for n in [5, 4, 3, 2, 1] %}<option value="{{ n }}" {% if form.get('rating') == n|string %}selected{% endif %}>{{ n }} star{{ '' if n == 1 else 's' }}</option>{% endfor %}
+        </select>
+        {% if errors.get('rating') %}<p class="error" data-testid="review-rating-error">{{ errors.get('rating') }}</p>{% endif %}
+      </div>
+      <div class="field{% if errors.get('text') %} has-error{% endif %}">
+        <label for="text">Your review</label>
+        <textarea id="text" name="text" rows="3" maxlength="500" aria-describedby="text-hint{% if errors.get('text') %} text-error{% endif %}"
+                  data-testid="review-text-input">{{ form.get('text', '') }}</textarea>
+        <p class="hint" id="text-hint">Up to 500 characters.</p>
+        {% if errors.get('text') %}<p class="error" id="text-error" data-testid="review-text-error">{{ errors.get('text') }}</p>{% endif %}
+      </div>
+      <button type="submit" data-testid="review-submit-button">Post review</button>
+    </form>
+  {% endif %}
+</section>
+{% endblock %}
