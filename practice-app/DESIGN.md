@@ -1,0 +1,357 @@
+# Practice App: design
+
+The Practice App is **Bookshelf**, a small online shop that sells books and a few
+study gadgets. Every lesson on Zero to SDET tests this same app, so the lessons
+connect: the API lesson creates an order, the database lesson checks it was saved,
+the BDD lesson describes checkout in Gherkin, the performance lesson puts it under
+load.
+
+This page is the plan for building it (Phase 1.5). It is written for contributors.
+Readers meet the app on the website, in **Start Here → Practice App tour**.
+
+> [!IMPORTANT]
+> The app is for practice on your own computer only. It has bugs **on purpose**.
+> Every service listens on `localhost` only. Never deploy it to the internet.
+
+## 1. Who uses it
+
+| Role | Example user | Can do |
+| --- | --- | --- |
+| Visitor | (not logged in) | Browse and search products, read reviews, sign up |
+| Customer | `arshad` (Arshad), plus Faker customers such as Maria and Kenji | Everything a visitor can, plus cart, checkout, own orders, own profile, reviews, files |
+| Admin | `admin` | Manage products and stock, see all orders, change order status, run the reporting sync, reset data |
+
+Seeded logins (clearly fake, local only, also listed in `.env.example`):
+
+| Username | Email | Password | Role |
+| --- | --- | --- | --- |
+| `arshad` | `arshad@example.com` | `Test@1234` | customer |
+| `maria` | `maria@example.com` | `Test@1234` | customer |
+| `admin` | `admin@example.com` | `local_only_password` | admin |
+
+## 2. Features (v1.0)
+
+Written as user stories with acceptance criteria, because later lessons use them
+as real requirements to design tests from.
+
+### Accounts
+
+- **Sign up.** As a visitor I can create an account with email, username, full
+  name and password.
+  - Email must be unique and valid; username 3 to 20 letters, digits or `_`.
+  - Password at least 8 characters with a letter and a digit.
+  - A 6-digit **OTP** is emailed (Mailpit). The account is unverified until the
+    code is entered. A code lasts 10 minutes and works once.
+- **Log in.** I get a **bearer token** (JWT, 30 minutes) for the API, or a
+  session cookie on the web page. Five wrong passwords in a row lock the account
+  for 15 minutes.
+- **Forgot password.** An OTP by email lets me set a new password.
+- **Profile.** I can see and change my name and shipping address, and upload
+  a profile picture (JPEG or PNG, up to 2 MB).
+
+### Catalog
+
+- **Products.** Each has a SKU, name, description, category, price, stock and
+  an active flag. Inactive products are hidden from customers.
+- **Search and filter.** Search by text in name and description; filter by
+  category and price range; sort by price, name or newest; paginate
+  (`page`, `size`, at most 50 per page).
+- **Reviews.** A customer who bought a product can rate it 1 to 5 and write up
+  to 500 characters. One review per product per customer.
+
+### Shopping
+
+- **Cart.** Add, change quantity, remove. Quantity 1 to 10 per line. You
+  cannot add more than the stock. The cart total is shown with tax (10%) and
+  shipping (free over 50.00, otherwise 4.99).
+- **Coupons.** `WELCOME10` gives 10% off once per customer; `FREESHIP` removes
+  the shipping cost. Coupons have an end date.
+- **Checkout.** Needs a shipping address and a payment. Payment is a **fake
+  sandbox**: card `4242 4242 4242 4242` succeeds, `4000 0000 0000 0002` is
+  declined, `4000 0000 0000 9995` times out. Stock goes down only when payment
+  succeeds. A confirmation email is sent.
+- **Orders.** I see my own orders, newest first, with status `pending`, `paid`,
+  `shipped`, `delivered` or `cancelled`. I can cancel while `paid` and not yet
+  shipped. I can download an **invoice PDF**.
+
+### Admin
+
+- Create, edit and deactivate products; change stock; upload a product image.
+- See every order; move an order to `shipped` or `delivered`.
+- **Reporting sync:** copy orders into the MySQL reporting database (also runs
+  by itself every minute).
+- **Reset:** put every database back to the original seed data.
+
+### For testers (built in on purpose)
+
+- **API docs** at `/docs` (Swagger UI) and `/openapi.json`.
+- **Health page** at `/status` (and `/api/health` as JSON): API, PostgreSQL,
+  MySQL, MongoDB and Mailpit each show up or down.
+- **Version** at `/api/version` and in the page footer. Each lesson names the
+  app version it was written for.
+- **Stable test hooks:** every button, field and message on the web page has a
+  `data-testid`, so UI tests do not depend on layout.
+- **Clock control** (admin, local only): set a fake "now", for lessons on time
+  zones, OTP expiry and coupon end dates.
+- **Request IDs** in every response header (`X-Request-ID`) and in the logs.
+
+## 3. Architecture
+
+```mermaid
+flowchart LR
+    browser["Browser<br/>(web pages)"] --> api
+    tests["Your tests<br/>(pytest, Playwright, k6...)"] --> api
+    subgraph app["Practice App (docker compose, localhost only)"]
+        api["API + web pages<br/>FastAPI"]
+        pg[("PostgreSQL<br/>main database")]
+        my[("MySQL<br/>reporting copy")]
+        mongo[("MongoDB<br/>reviews")]
+        mail["Mailpit<br/>catches every email"]
+        files[("Files<br/>uploads, invoices")]
+        api --> pg
+        api -- "sync every minute" --> my
+        api --> mongo
+        api -- "SMTP" --> mail
+        api --> files
+    end
+```
+
+| Part | Choice | Why |
+| --- | --- | --- |
+| API and web pages | Python 3.13, FastAPI, Pydantic, SQLAlchemy, Jinja2 templates | One language for the whole site; automatic API docs; plain HTML pages that are easy to automate |
+| Main database | PostgreSQL 17 | The most common choice in job ads |
+| Reporting copy | MySQL 8.4 | Multi-database lessons: compare the same order in two databases |
+| Reviews | MongoDB 8 | Multi-database lessons: a document database next to SQL ones |
+| No-Docker mode | SQLite | Beginners can start the API with one Python command before they learn Docker |
+| Email | Mailpit | Catches every email; has its own API, so tests can read the OTP |
+| Start | `docker compose up` | One command on macOS, Windows and Linux |
+
+Host ports avoid the usual defaults, so the app never clashes with a database
+you already run: API `8080`, Mailpit `8025`, PostgreSQL `55432`, MySQL `53306`,
+MongoDB `57017`. Everything binds to `127.0.0.1`.
+
+## 4. Data model
+
+### PostgreSQL (main) and SQLite (no-Docker mode)
+
+```mermaid
+erDiagram
+    USERS ||--o{ OTP_CODES : "receives"
+    USERS ||--o| CARTS : "has"
+    USERS ||--o{ ORDERS : "places"
+    USERS ||--o{ FILES : "uploads"
+    USERS ||--o{ COUPON_USES : "uses"
+    CATEGORIES ||--o{ PRODUCTS : "groups"
+    CARTS ||--o{ CART_ITEMS : "holds"
+    PRODUCTS ||--o{ CART_ITEMS : "in"
+    ORDERS ||--|{ ORDER_ITEMS : "contains"
+    PRODUCTS ||--o{ ORDER_ITEMS : "sold as"
+    ORDERS ||--o{ PAYMENTS : "paid by"
+    COUPONS ||--o{ COUPON_USES : "used in"
+    ORDERS ||--o| COUPON_USES : "applies"
+
+    USERS {
+        int id PK
+        string username UK
+        string email UK
+        string full_name
+        string password_hash
+        string role "customer or admin"
+        bool is_verified
+        int failed_logins
+        datetime locked_until
+        string shipping_address
+        datetime created_at
+    }
+    OTP_CODES {
+        int id PK
+        int user_id FK
+        string code_hash
+        string purpose "verify or reset"
+        datetime expires_at
+        datetime used_at
+    }
+    CATEGORIES {
+        int id PK
+        string name UK
+        string slug UK
+    }
+    PRODUCTS {
+        int id PK
+        string sku UK
+        string name
+        text description
+        int category_id FK
+        int price_cents
+        int stock
+        bool is_active
+        string image_path
+        datetime created_at
+    }
+    CARTS {
+        int id PK
+        int user_id FK, UK
+        datetime updated_at
+    }
+    CART_ITEMS {
+        int cart_id PK, FK
+        int product_id PK, FK
+        int quantity
+    }
+    ORDERS {
+        int id PK
+        int user_id FK
+        string status
+        int subtotal_cents
+        int discount_cents
+        int tax_cents
+        int shipping_cents
+        int total_cents
+        string shipping_address
+        datetime created_at
+        datetime updated_at
+    }
+    ORDER_ITEMS {
+        int order_id PK, FK
+        int product_id PK, FK
+        int quantity
+        int unit_price_cents
+    }
+    PAYMENTS {
+        int id PK
+        int order_id FK
+        string card_last4
+        string status "succeeded, declined or timeout"
+        int amount_cents
+        string sandbox_ref
+        datetime created_at
+    }
+    COUPONS {
+        int id PK
+        string code UK
+        string kind "percent or free_shipping"
+        int value
+        datetime ends_at
+        bool once_per_customer
+    }
+    COUPON_USES {
+        int id PK
+        int coupon_id FK
+        int user_id FK
+        int order_id FK
+    }
+    FILES {
+        int id PK
+        int user_id FK
+        string kind "avatar, product_image or invoice"
+        string original_name
+        string content_type
+        int size_bytes
+        string storage_path
+        string sha256
+        datetime created_at
+    }
+```
+
+Money is stored as whole **cents** (`price_cents = 1299` means 12.99), so sums
+never have rounding errors. Times are stored in **UTC** and shown in the
+browser's time zone.
+
+### MySQL (reporting copy)
+
+| Table | Columns | Filled by |
+| --- | --- | --- |
+| `order_facts` | `order_id`, `customer_email`, `status`, `item_count`, `total_cents`, `created_at`, `synced_at` | Reporting sync (every minute, or on demand) |
+| `daily_sales` | `sales_date`, `orders_count`, `revenue_cents` | Reporting sync |
+
+### MongoDB (reviews)
+
+```json
+{
+  "_id": "ObjectId",
+  "product_id": 12,
+  "user_id": 1,
+  "username": "arshad",
+  "rating": 5,
+  "text": "Clear examples, easy to follow.",
+  "created_at": "2026-11-15T10:00:00Z"
+}
+```
+
+## 5. API (v1.0)
+
+All under `/api`. JSON in and out. Errors always look like
+`{"error": {"code": "OUT_OF_STOCK", "message": "...", "request_id": "..."}}`.
+
+| Area | Endpoints |
+| --- | --- |
+| Auth | `POST /auth/signup`, `POST /auth/verify`, `POST /auth/login`, `POST /auth/forgot-password`, `POST /auth/reset-password`, `GET /auth/me` |
+| Users | `GET /users/me`, `PATCH /users/me`, `POST /users/me/avatar`, `GET /users` (admin) |
+| Products | `GET /products` (search, filter, sort, page), `GET /products/{id}`, `POST /products`, `PATCH /products/{id}`, `DELETE /products/{id}` (admin, soft delete), `POST /products/{id}/image` (admin) |
+| Categories | `GET /categories` |
+| Reviews | `GET /products/{id}/reviews`, `POST /products/{id}/reviews` |
+| Cart | `GET /cart`, `POST /cart/items`, `PATCH /cart/items/{product_id}`, `DELETE /cart/items/{product_id}`, `POST /cart/coupon` |
+| Checkout and orders | `POST /checkout`, `GET /orders`, `GET /orders/{id}`, `POST /orders/{id}/cancel`, `GET /orders/{id}/invoice.pdf` |
+| Admin | `GET /admin/orders`, `PATCH /admin/orders/{id}`, `POST /admin/reporting/sync`, `POST /admin/reset`, `POST /admin/clock` |
+| Tester tools | `GET /health`, `GET /version` |
+
+## 6. Web pages (v1.0)
+
+| Page | Address | What it shows |
+| --- | --- | --- |
+| Home and product list | `/` | Search box, filters, product cards, pagination |
+| Product | `/products/{id}` | Details, stock, add to cart, reviews |
+| Sign up, verify, log in | `/signup`, `/verify`, `/login` | Forms with clear error messages |
+| Cart | `/cart` | Lines, quantities, coupon, totals |
+| Checkout | `/checkout` | Address, card, place order |
+| My orders | `/orders`, `/orders/{id}` | Status, cancel, invoice download |
+| Profile | `/profile` | Name, address, profile picture |
+| Admin | `/admin` | Products, stock, orders, reset |
+| Status | `/status` | Every service up or down, app version |
+
+## 7. Planted bugs
+
+About 30 bugs are planted on purpose across the API, database, web page,
+security and performance (step 1.5.7). They are **not** listed here or anywhere
+in the app's code comments, so Bug Hunts stay fair. The answers live in one
+place, `practice-app/BUG_HUNT_ANSWERS.md`, and on a website page that is folded
+by default. A switch, `PRACTICE_APP_BUGS=off`, turns every planted bug off, so
+lessons can show what correct behavior looks like.
+
+## 8. Safety rules
+
+- Fake data only: Faker names, `@example.com` emails, sandbox cards.
+- Passwords and secrets come from `.env` (never committed); `.env.example` has
+  clearly fake values like `local_only_password`.
+- Every service binds to `127.0.0.1`; nothing is reachable from other computers.
+- Security lessons attack only this app on your own computer.
+- Images are pinned to exact versions; Python packages are pinned with hashes.
+
+## 9. Versions: what each later lesson adds
+
+Lessons name the app version they use, so adding features never breaks an older
+lesson. Version 1.0 is built in Phase 1.5; later versions are added in the
+phase that first needs them.
+
+| Version | Adds | Needed by |
+| --- | --- | --- |
+| 1.0 | Everything above | Phases 2 to 5 |
+| 1.1 | Structured JSON logs, `/metrics`, slow and flaky endpoints you can switch on | Observability, flaky tests, performance |
+| 1.2 | GraphQL endpoint (`/graphql`) for products and orders | GraphQL testing |
+| 1.3 | WebSocket for live order status; a small gRPC stock service | gRPC and WebSocket testing |
+| 1.4 | Order events on a message queue; a separate notification service | Message queues, testing microservices, contract testing |
+| 1.5 | AI helpers for Pillar 6 (with a fake model by default) | AI-Powered QA |
+
+## 10. Folder layout (planned)
+
+```text
+practice-app/
+├── README.md              # how to start, reset and stop it
+├── DESIGN.md              # this page
+├── docker-compose.yml
+├── .env.example
+├── app/                   # FastAPI app: api/, web/, models/, services/
+├── seed/                  # Faker seed data (fixed random seed, same data every time)
+├── scripts/               # reset, wait-for-services
+└── tests/                 # the app's own tests (separate from lesson templates)
+```

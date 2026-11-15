@@ -33,7 +33,27 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
-## 2026-11-15 · Phase 1 · Gate check (waiting for owner approval)
+## 2026-11-15 · Phase 1.5 · Step 1.5.1: Practice App feature list and data model
+
+**Done**
+
+- `practice-app/DESIGN.md`: the plan for **Bookshelf**, the Practice App (a small book shop). Roles and seeded logins (Arshad, Maria, admin; clearly fake); v1.0 features written as user stories with acceptance criteria (sign up with email OTP, login lockout, profile picture upload, search and filters, reviews, cart limits, coupons, sandbox payment cards that succeed, fail or time out, orders, cancel, invoice PDF, admin, reporting sync, reset); built-in tester tools (API docs, `/status` health page, version, `data-testid` on every element, clock control for time lessons, request IDs).
+- Architecture diagram and the full data model as a Mermaid ER diagram (13 tables), plus the MySQL reporting tables and the MongoDB review document. Money in cents, times in UTC.
+- API endpoint list, web page list, safety rules, a planted-bug policy (no spoilers in code; answers in one file; `PRACTICE_APP_BUGS=off` shows correct behavior), and a version plan (1.1 to 1.5) for what later topics need: metrics and flaky endpoints, GraphQL, WebSocket and gRPC, message queue and a second service, AI helpers with a fake model.
+- Choices inside the brief: FastAPI, PostgreSQL 17, MySQL 8.4, Mailpit, Docker Compose. Added from the decided multi-database set (MySQL, PostgreSQL, SQLite, MongoDB): MongoDB for reviews, and SQLite for a no-Docker mode so beginners can start before the Docker lesson. Host ports avoid common defaults (API 8080, PostgreSQL 55432, MySQL 53306, MongoDB 57017, Mailpit 8025); all bind to 127.0.0.1.
+- `practice-app/README.md` placeholder. Both diagrams checked: they render with no errors.
+
+**How to check**
+
+Open `practice-app/DESIGN.md` on GitHub (diagrams render there).
+
+**Next step**
+
+Step 1.5.2: the API (auth, users, products, search, cart, checkout, orders, admin) with its own tests.
+
+---
+
+## 2026-11-15 · Phase 1 · Gate check (approved)
 
 Gate: "the site runs locally, looks finished with placeholders, and a new topic can be added in under 10 minutes."
 
@@ -45,9 +65,7 @@ Gate: "the site runs locally, looks finished with placeholders, and a new topic 
 
 Phase 1 steps: 1.1 to 1.8 and 1.10 to 1.17 done. 1.9 (GitHub Discussions) moved to Phase 9 by decision, because Discussions and Giscus need the public repo. Optional owner inputs still open: About photo and a 2 to 3 line bio.
 
-**Next step**
-
-Owner approves the gate, then Phase 1.5: the Practice App (1.5.1 feature list and data model diagram).
+**Owner decision:** approved; move on and "complete the whole project first". The About photo and bio, GitHub Discussions (1.9) and the Code of Conduct contact are all handled in the last phase (Phase 9), not before.
 
 ---
 
