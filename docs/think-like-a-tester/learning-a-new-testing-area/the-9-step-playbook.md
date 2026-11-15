@@ -7,12 +7,12 @@ tags:
 nav_title: "The 9-step playbook"
 order: 20
 summary: "The nine steps every topic on this site follows, and why they come in that order."
-updated: "2026-11-15"
+updated: "2026-11-16"
 ---
 
 # The 9-Step Playbook for Testing Something New
 
-This lesson explains the nine steps you can use for any testing task, and why they come in this order.
+When a task is new, there are two easy ways to waste a week. One is to jump straight into writing tests before you understand anything. The other is to read and read and never start. This lesson gives you nine steps that steer between the two, and explains why they come in this order.
 
 !!! note "Before you start"
     Read [How to approach a task you have never done](how-to-approach-a-new-task.md) first. It covers the first hour.
@@ -21,18 +21,18 @@ This lesson explains the nine steps you can use for any testing task, and why th
 ## What you will learn
 
 - The nine steps, in order
-- What you should have at the end of each step
+- What you should have in your hands at the end of each step
 - Why the order matters
-- How much time each step usually takes
+- Roughly how long each step takes
 
 ## Why this matters at work
 
-When a task is new, it is easy to jump straight into writing tests, or to read for days without starting. Both waste time. A fixed list of steps keeps you moving, and it makes your work easy for your lead to follow. Every topic on this site uses these nine steps, so you will see them again and again.
+A fixed set of steps does two things for you. It keeps you moving when you feel lost, because there is always a "next step". And it makes your work easy for your lead to follow: they can see where you are, and help at the right moment. Every topic on this site uses these nine steps, so you will see them again and again.
 
 ## The idea in plain words
 
 !!! info "In plain words"
-    Think of cooking a new recipe. You read what the dish is, check what is in the fridge, read the recipe once, and taste as you go.
+    Think of cooking a recipe you have never made. You read what the dish is, check what is in the fridge, read the recipe once, and taste as you go.
     You don't cook the whole meal and only taste it at the end. Testing works the same way: small steps, checked as you go.
 
 ```mermaid
@@ -44,7 +44,7 @@ flowchart LR
 
 ## Step by step
 
-Each step ends with something you can show. If you can't show it, the step is not finished.
+Here is a simple rule that makes the steps work: **each step ends with something you can show.** If you can't show it, the step isn't finished yet.
 
 | Step | What you do | What you have at the end | Usual time |
 | --- | --- | --- | --- |
@@ -58,61 +58,72 @@ Each step ends with something you can show. If you can't show it, the step is no
 | 8. Report and get feedback | Share results, bugs and open risks | A short summary | 30 minutes |
 | 9. Keep learning | Write a learning log entry, pick what to read next | A log | 5 minutes a day |
 
-The times are a starting guide, not a rule. A big task takes longer; a small one may finish steps 1 to 6 in one morning.
+Treat the times as a rough guide, not a rule. A big task takes longer. A small one might finish steps 1 to 6 in one morning.
 
 ### Why this order?
 
+Each step makes the next one cheaper:
+
 - **Ask before you read.** The answers tell you what to read, so you read less.
-- **Draw before you test.** The diagram shows where things can break.
-- **Try before you plan.** One real result makes your plan realistic.
+- **Draw before you test.** The drawing shows you where things can break.
+- **Try before you plan.** One real result keeps your plan honest. Plans written without ever touching the feature are often wrong.
 - **Plan before you build.** Your lead can fix a wrong idea in five minutes. A wrong test suite takes days to fix.
 - **Small steps before big ones.** If the smoke test fails, there is no point running 50 other tests.
 
-### Step 7 in more detail
+### Step 7, a little closer
 
-These four words come up in every topic:
+Four words come up in every topic. They are worth learning now:
 
-- **Smoke test:** the quickest check that the feature works at all. Example: asking for a reset code gives 202.
-- **Happy path:** the normal way a user uses the feature, with good data. Example: ask for a code, use it, log in with the new password.
-- **Negative test:** a test with bad input that should be refused. Example: a wrong code gives `INVALID_CODE`.
-- **Edge case:** a test at the limit. Example: a code used at exactly 10 minutes.
+- **Smoke test:** the quickest check that the feature works at all. For password reset: asking for a code gives 202.
+- **Happy path:** the normal way a user uses the feature, with good data. Ask for a code, use it, log in with the new password.
+- **Negative test:** a test with bad input that should be refused. A wrong code gives `INVALID_CODE`.
+- **Edge case:** a test right at a limit. A code used at exactly 10 minutes.
 
 !!! success "Check: you should now be able to"
     Name the nine steps in order, and say what you have at the end of each one.
 
+## When it goes wrong
+
+Real tasks don't always follow the plan. Here is what to do when a step stalls:
+
+- **Step 1 stalls: your lead is too busy to answer.** Write your best guess of each answer, send it, and say "I'll go with this unless you tell me otherwise by Wednesday." Most leads reply fast to that.
+- **Step 4 stalls: you can't get the feature working.** Don't skip ahead to planning. A plan for something you have never seen work is a guess. Ask for help (see [When to ask for help](when-to-ask-for-help.md)).
+- **Step 7 stalls: the tests keep failing for strange reasons.** Go back to the smoke test. If even that fails, the problem is the environment, not your tests.
+- **The ask changes halfway.** It happens. Go back to step 1 for the changed part only, update your plan, and tell your lead what moved.
+
 ## Common mistakes
 
 !!! warning "Common mistakes"
-    - **Skipping step 6 because the task is small.** Even a five-line plan, shared in a chat message, counts.
+    - **Skipping step 6 because the task is small.** Even a five-line plan in a chat message counts.
     - **Doing step 7 all at once.** Run each test as soon as you write it. Ten tests written blind fail in ten confusing ways.
-    - **Treating step 9 as optional.** A five-minute log entry is how a new area becomes your strength.
+    - **Treating step 9 as optional.** A five-minute log entry is how a new area slowly becomes your strength.
 
 !!! failure "If you see this error"
     **`{"error": {"code": "VALIDATION_ERROR", ... "field": "new_password", "message": "String should have at least 8 characters"}}`**
-    This is the shop refusing a weak password: it is a negative test that passed, not a problem with your setup. Write it down as a result.
+    The shop refused a weak password. If you were testing that on purpose, this is a negative test that passed: write it down as a result. It is not a problem with your setup.
 
 ## Try it yourself
 
-Pick one step from the table. For the task "test product reviews in the Practice App", write what you would have at the end of that step.
+Pick one step from the table. For the task "test product reviews in the shop", write what you would have at the end of that step.
 
 ??? success "Solution"
     Example for step 2, "Picture the system":
 
     ```mermaid
     flowchart LR
-        U["User"] --> A["Bookshelf API"]
-        A --> M[("MongoDB<br/>reviews")]
-        A --> P[("PostgreSQL<br/>orders")]
+        U["User"] --> A["Shop API"]
+        A --> M[("Reviews<br/>database")]
+        A --> P[("Orders<br/>database")]
     ```
 
-    The diagram shows a question worth asking: does the shop check in the orders database that you bought the product before you can review it? (It does: only buyers can review.)
+    The drawing makes a good question pop out: does the shop check the orders database, so only people who bought the product can review it? You would not think to ask that without the second database in the picture.
 
 ## Quick check
 
-1. Why do you try the feature by hand (step 4) before writing the plan (step 6)?
+1. Why try the feature by hand (step 4) before writing the plan (step 6)?
 
     ??? question "Answer"
-        One real result makes the plan realistic. You find out how the feature really works before you decide what to test.
+        One real result keeps the plan honest. You find out how the feature really works before you decide what to test.
 
 2. What is the difference between a happy path and a negative test?
 
@@ -127,6 +138,6 @@ Pick one step from the table. For the task "test product reviews in the Practice
 ## References
 
 - [ISTQB Glossary](https://glossary.istqb.org/): smoke test, negative testing and other terms
-- [OWASP Forgot Password Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html)
+- [OWASP Forgot Password Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html): the security rules behind the password reset examples
 
-Written for Bookshelf 1.0.0. Links checked: November 2026.
+Links checked: November 2026.

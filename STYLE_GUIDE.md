@@ -34,6 +34,7 @@ Each playbook also has a **"How an experienced SDET thinks about this"** box, a 
 5. **"Why this matters at work":** a real situation.
 6. The concept in plain words, starting with an everyday comparison and a diagram.
 7. Step-by-step walkthrough: exactly what to type, and a screenshot or expected output after each step.
+7a. **"When it goes wrong"** (added 2026-11-16): the common ways this step fails at work, and what to do about each one.
 8. The template: code tabs (code · how to run · expected output), pulled from `modules/`.
 9. **"Common mistakes"** box.
 10. **"If you see this error"** box: the real error text and the fix.
@@ -114,6 +115,19 @@ Write like an experienced human teacher sitting next to one learner.
 - Every command shows what you type **and** what you should see.
 - **Banned phrases:** "In today's fast-paced world", "Let's dive in", "dive deep", "It's not X, it's Y", "Moreover", "Furthermore", "In conclusion", "Unlock", "Seamless", "Robust", "Leverage", "Game-changer", "Delve". No emoji spam.
 - Read each page aloud once. If it sounds like a robot or a sales page, rewrite it.
+
+### 8B. Sound like a real teacher (owner decision, 2026-11-16)
+
+Every page should read as if a real person wrote it from their own work and research. It should not sound like a machine wrote it.
+
+- Talk the way a good teacher talks: "Here is the trick", "This part trips most people up", "Don't worry if this feels slow at first".
+- Explain how to **think**, not only what to type: what you notice first, what you ask, what you try when the first idea fails.
+- Every topic answers "What do I do when this goes wrong at work?" with concrete steps, not general advice.
+- Prefer one worked example, told like a story, over a list of abstract points.
+- Use plain, everyday English. No stiff or showy words such as "utilize", "facilitate", "comprehensive", "crucial", "landscape", "ensure that", "it is important to note". Say "use", "help", "full", "important", "make sure".
+- Don't open every section the same way, or end every paragraph with a neat summary line. Real writing varies.
+- Point to real resources (official docs, well-known articles, tools) where they help, and say what each one is good for.
+- Still never invent personal stories, fake experience, fake statistics or fake quotes (section 8).
 
 ### 8A. The 10-year-old test
 

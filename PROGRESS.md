@@ -39,6 +39,23 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 1 rewritten in a teacher's voice
+
+**Done**
+
+- Owner asked for pages that read like a real teacher explaining with examples, in plain English (not stiff or "AI-sounding"), covering how to think and what to do when something goes wrong. This is saved as style guide and brief section 8B, and the lesson template gains a "When it goes wrong" section (7a).
+- All seven Topic 1 pages are rewritten in that voice. Every lesson has a new "When it goes wrong" section, and the playbook gains "Stuck? Try this".
+- Examples are now framed as Arshad's real work. The shop runs on his computer; on your team, it is your test environment. The Practice App appears only in the optional Bug Hunt box.
+- The real outputs are kept.
+- Arshad's example plan no longer depends on the app.
+- New references: curl docs, Atlassian's definition of done, VS Code search, Docker compose. All links were checked.
+
+**Next step**
+
+Add "When it goes wrong" to the five Topic 2 lessons, then Topic 3: Test levels and the pyramid.
+
+---
+
 ## 2026-11-16 · Phase 2 · Topic 2 rewritten: real job templates, no app needed
 
 **Done**

@@ -8,16 +8,16 @@ tags:
 nav_title: "Learning from code and examples"
 order: 50
 summary: "Read the tests that already exist, and spot what is not tested yet."
-updated: "2026-11-15"
+updated: "2026-11-16"
 ---
 
 # Learning from Code and Examples: Read the Tests That Already Exist
 
-This lesson shows you how to learn from the code and tests your team already has, even if you are new to reading code.
+Here is something many new testers don't realise: the best documentation on your team is often the test folder. This lesson shows you how to read existing tests, even if you have never read code before, and how to use them to find what nobody is checking yet.
 
 !!! note "Before you start"
-    Read [Reading official docs fast](reading-official-docs-fast.md) first. You don't need to write Python yet; you only read it here.
-    A **test file** is a file of small programs that each check one thing the app should do.
+    Read [Reading official docs fast](reading-official-docs-fast.md) first. You don't need to write Python for this lesson. You only read it.
+    A **test file** is a file of small programs. Each one checks one thing the app should do.
 
 ## What you will learn
 
@@ -28,7 +28,7 @@ This lesson shows you how to learn from the code and tests your team already has
 
 ## Why this matters at work
 
-Existing tests are the most honest documentation a team has. Docs say what should happen; tests prove what does happen, every time they run. They also show you how the team likes to write tests, so your work fits in. And the gaps between tests are often where bugs live.
+Docs say what *should* happen. Tests prove what *does* happen, every time they run. That makes them the most honest description of the app your team has. Reading them also shows you how your team likes to write tests, so your own work fits in. And the gaps between the tests? That is often exactly where bugs live.
 
 ## The idea in plain words
 
@@ -36,7 +36,7 @@ Existing tests are the most honest documentation a team has. Docs say what shoul
     When you join a new football team, you watch a few practice games before you play. You learn the moves they already use.
     Reading the existing tests is watching practice. You learn the team's moves, and you notice the moves nobody practises.
 
-Most tests follow the same three parts. Once you see them, any test is easier to read:
+Most tests follow the same three parts. Once you see them, any test gets easier to read:
 
 ```mermaid
 flowchart LR
@@ -45,9 +45,9 @@ flowchart LR
 
 ## Step by step
 
-1. **Find the tests.** They usually sit in a folder called `tests`, with file names that start with `test_`. In this project, the Practice App's login tests are in `practice-app/tests/test_auth.py`.
+1. **Find the tests.** They usually sit in a folder called `tests`, in files whose names start with `test_`. If you can't find them, ask: "Where do the tests for login live?" It is a perfectly normal question on a new team. Arshad finds his team's login tests in a file called `test_auth.py`.
 
-2. **Read the test names first.** Good names read like sentences. In `test_auth.py` you find:
+2. **Read the test names first.** Good test names read like sentences. Arshad scrolls through `test_auth.py` and finds:
 
     ```text
     test_a_code_expires_after_10_minutes
@@ -56,9 +56,9 @@ flowchart LR
     test_reset_password_with_the_code
     ```
 
-    Already you know four things the team cares about, without reading any code.
+    Without reading a single line of code, he already knows four things the team cares about. Names are cheap to read and full of information.
 
-3. **Read one test like a story.** Here is the real reset test from the Practice App:
+3. **Read one test like a story.** Here is the start of the team's reset test:
 
     ```python
     def test_reset_password_with_the_code(client, outbox):
@@ -69,43 +69,49 @@ flowchart LR
         assert error_code(client.post("/api/auth/reset-password", json=body)) == "INVALID_CODE"
     ```
 
-    In plain words:
+    Don't try to understand every symbol. Tell it as a story instead:
 
-    - **Setup:** ask for a reset code for Arshad, and read it from the email.
+    - **Setup:** ask for a reset code for Arshad, and read the code from the email.
     - **Action:** send the code with a new password.
-    - **Check:** the first try works (200). The second try with the same code fails (`INVALID_CODE`), so a code works only once.
+    - **Check:** the first try works (200). The second try with the same code fails (`INVALID_CODE`). So a code works only once.
 
-    `assert` means "this must be true, or the test fails".
+    `assert` means "this must be true, or the test fails". That is the most important word in any test.
 
 4. **Make a "tested" list.** Write one line per test, in plain words:
 
     | What is tested | Test |
     | --- | --- |
     | A sign-up code stops working after 10 minutes | `test_a_code_expires_after_10_minutes` |
-    | A reset code works once | `test_reset_password_with_the_code` |
+    | A reset code works only once | `test_reset_password_with_the_code` |
     | Known and unknown emails get the same answer | `test_forgot_password_gives_the_same_answer_for_unknown_emails` |
 
-5. **Look for the gaps.** Put your risk list next to the "tested" list. Arshad's first high risk was "a reset code older than 10 minutes must not work". In `test_auth.py` there is a test for the **sign-up** code expiring, but none for the **reset** code. That gap is the first thing he tests by hand.
+5. **Look for the gaps.** Now put your risk list next to the "tested" list. Arshad's first high risk was "a reset code older than 10 minutes must not work". He looks again. There is a test for the **sign-up** code expiring. There is no test for the **reset** code expiring. That gap goes straight to the top of his list: it is the first thing he tests by hand.
 
-6. **Search the whole folder before you call it a gap.** Tests are not always where you expect. Search every test file for a word from your risk, like `invoice` or `expire`. In VS Code, use **Search in files** (Ctrl+Shift+F, or Cmd+Shift+F on a Mac).
+6. **Search the whole folder before you call it a gap.** Tests aren't always where you expect them. Search every test file for a word from your risk, like `expire` or `invoice`. In VS Code, that is **Search in files** (Ctrl+Shift+F, or Cmd+Shift+F on a Mac).
 
     !!! success "Check: you should now have"
         A list of what is tested, in plain words, and at least one risk that no test covers yet.
 
+## When it goes wrong
+
+- **The test names mean nothing**, like `test_1`, `test_case_7`. Then read the check lines (`assert ...`) only. They tell you what is being proved, even when the name doesn't.
+- **The code is too hard to follow.** Ask a developer for 15 minutes to walk you through one test. Bring the test name and your story version of it. They will usually be happy to help someone who has clearly tried first.
+- **There are no tests at all.** Then you have found the biggest gap there is. Note it in your plan, and start with a smoke test.
+
 ## Common mistakes
 
 !!! warning "Common mistakes"
-    - **Trying to understand every line.** Read names first, then one test as setup, action, check. That is enough to start.
+    - **Trying to understand every line.** Read the names first, then one test as setup, action, check. That is enough to start.
     - **Thinking "there are tests, so it works".** Tests only prove what they check. A gap is a place nobody is looking.
     - **Copying a test without knowing what it checks.** Say what it checks in one sentence before you reuse it.
 
 !!! failure "If you see this error"
     **`zsh: command not found: pytest`** (or `'pytest' is not recognized` on Windows)
-    pytest is installed inside the project's virtual environment, not for the whole computer. Run it from the repository folder with its full path: `.venv/bin/pytest practice-app/tests` (on Windows: `.venv\Scripts\pytest practice-app\tests`).
+    pytest is installed inside the project's virtual environment, not for the whole computer. Turn the environment on first (`source .venv/bin/activate`, or `.venv\Scripts\activate` on Windows), or run `python -m pytest` from the project folder.
 
 ## Try it yourself
 
-Open `practice-app/tests/test_cart_and_orders.py` (or read the names below). Which risk is tested, and which one is not?
+Here are three test names from the team's order tests. Which risks are tested? Which important one seems to be missing?
 
 ```text
 test_my_orders_newest_first_and_only_mine
@@ -114,9 +120,9 @@ test_a_delivered_order_cannot_be_cancelled
 ```
 
 ??? success "Solution"
-    Tested: you only see your own orders; a paid order can be cancelled; a delivered order cannot.
+    Tested: you only see your own orders; a paid order can be cancelled; a delivered order can't.
 
-    Not in this list: can you get **someone else's invoice**? It looks like a gap. But search the folder for `invoice` first: `test_files_and_email.py` has `test_no_invoice_for_someone_elses_order`. A gap in one file is not always a gap. Search before you decide.
+    Seems missing: can someone download **another person's invoice**? It looks like a gap. But before you say so, search the whole test folder for `invoice`. In this team's tests, another file has `test_no_invoice_for_someone_elses_order`. A gap in one file isn't always a gap. Search before you decide, and you will save yourself an awkward conversation.
 
 ## Quick check
 
@@ -139,5 +145,6 @@ test_a_delivered_order_cannot_be_cancelled
 
 - [pytest: Anatomy of a test](https://docs.pytest.org/en/stable/explanation/anatomy.html): arrange, act, assert
 - [pytest: Get started](https://docs.pytest.org/en/stable/getting-started.html)
+- [VS Code: Search across files](https://code.visualstudio.com/docs/editor/codebasics#_search-across-files)
 
-Written for Bookshelf 1.0.0 and pytest 9. Links checked: November 2026.
+Written for pytest 9. Links checked: November 2026.
