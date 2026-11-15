@@ -71,15 +71,19 @@ def pick_order(topics: list[build_nav.Page], after: str | None) -> int:
         return (orders[-1] if orders else 0) + 10
     by_slug = {t.path.parent.name if t.path.name == "index.md" else t.path.stem: t for t in topics}
     if after not in by_slug:
-        fail(f"--after {after}: no such topic in this section. Topics: {', '.join(sorted(by_slug))}")
+        fail(
+            f"--after {after}: no such topic in this section. Topics: {', '.join(sorted(by_slug))}"
+        )
     start = int(by_slug[after].meta["order"])
     bigger = [o for o in orders if o > start]
     if not bigger:
         return start + 10
     gap = bigger[0] - start
     if gap < 2:
-        fail(f"no room between order {start} and {bigger[0]}. Renumber the section's "
-             "`order:` values with bigger gaps (10, 20, 30 ...) and try again.")
+        fail(
+            f"no room between order {start} and {bigger[0]}. Renumber the section's "
+            "`order:` values with bigger gaps (10, 20, 30 ...) and try again."
+        )
     return start + gap // 2
 
 
@@ -92,13 +96,17 @@ def main() -> None:
     parser.add_argument("--summary", required=True, help="one plain sentence for the overview card")
     parser.add_argument("--description", help="for search engines (default: built from the title)")
     parser.add_argument("--group", help="menu group (required in sections that use groups)")
-    parser.add_argument("--new-group", action="store_true", help="allow a group name that does not exist yet")
+    parser.add_argument(
+        "--new-group", action="store_true", help="allow a group name that does not exist yet"
+    )
     parser.add_argument("--after", help="put the topic right after this topic (its folder name)")
     args = parser.parse_args()
 
     if not SLUG.match(args.slug):
-        fail(f"--slug {args.slug!r}: use lowercase words joined by '-', starting with a letter "
-             "(no numbers in front: the order lives in the front matter).")
+        fail(
+            f"--slug {args.slug!r}: use lowercase words joined by '-', starting with a letter "
+            "(no numbers in front: the order lives in the front matter)."
+        )
 
     sections = {s.path.parent.name: (s, topics) for s, topics in build_nav.load_sections()}
     if args.section not in sections:
@@ -109,10 +117,15 @@ def main() -> None:
     if groups and not args.group:
         fail(f"this section uses groups, add --group. Groups: {', '.join(groups)}")
     if args.group and not groups:
-        fail("this section has no groups yet; leave out --group (or add groups to every topic first).")
+        fail(
+            "this section has no groups yet; leave out --group "
+            "(or add groups to every topic first)."
+        )
     if args.group and args.group not in groups and not args.new_group:
-        fail(f"--group {args.group!r} does not exist. Groups: {', '.join(groups)}. "
-             "Add --new-group to start a new one.")
+        fail(
+            f"--group {args.group!r} does not exist. Groups: {', '.join(groups)}. "
+            "Add --new-group to start a new one."
+        )
 
     page_dir = DOCS / args.section / args.slug
     code_dir = MODULES / args.section.replace("-", "_") / args.slug.replace("-", "_")
@@ -121,9 +134,13 @@ def main() -> None:
             fail(f"{path} already exists. Nothing was changed.")
 
     order = pick_order(topics, args.after)
-    q = lambda text: json.dumps(text, ensure_ascii=False)  # noqa: E731  (a YAML-safe quoted string)
+
+    def q(text: str) -> str:
+        return json.dumps(text, ensure_ascii=False)  # a quoted string that is valid YAML
+
     description = args.description or (
-        f"{args.title}: a free, step-by-step guide for SDETs, with ready-to-use templates. Coming soon."
+        f"{args.title}: a free, step-by-step guide for SDETs, "
+        "with ready-to-use templates. Coming soon."
     )
     page = PAGE.format(
         title=q(args.title),
@@ -147,8 +164,10 @@ def main() -> None:
     sys.argv = [sys.argv[0]]
     if build_nav.main() != 0:
         fail("the page was created, but the menu could not be built (see the message above).")
-    print("Next: fill in 'What you will learn' and 'Templates you will get', "
-          "then run .venv/bin/zensical build --strict")
+    print(
+        "Next: fill in 'What you will learn' and 'Templates you will get', "
+        "then run .venv/bin/zensical build --strict"
+    )
 
 
 if __name__ == "__main__":

@@ -62,7 +62,7 @@ class NavError(Exception):
 
 @dataclass
 class Page:
-    path: Path                      # file inside docs/
+    path: Path  # file inside docs/
     meta: dict
     children: list[Page] = field(default_factory=list)
 
@@ -141,6 +141,7 @@ def grouped(section: Page, topics: list[Page]) -> list[tuple[str | None, list[Pa
 
 # ---------------------------------------------------------------- menu (TOML)
 
+
 def toml_str(text: str) -> str:
     return json.dumps(text, ensure_ascii=False)  # JSON strings are valid TOML strings
 
@@ -201,6 +202,7 @@ def build_groups_block(sections) -> str:
 
 # ------------------------------------------------- section overview (cards)
 
+
 def card(topic: Page, section: Page) -> str:
     summary = topic.meta.get("summary")
     if not summary:
@@ -240,6 +242,7 @@ def build_cards(section: Page, topics: list[Page]) -> str:
 
 # ------------------------------------------------------------------- main
 
+
 def replace_block(text: str, begin: str, end: str, block: str, where: Path) -> str:
     pattern = re.compile(re.escape(begin) + r".*?" + re.escape(end), re.DOTALL)
     if not pattern.search(text):
@@ -254,7 +257,9 @@ def main() -> int:
         updates: dict[Path, str] = {}
         config = CONFIG.read_text(encoding="utf-8")
         config = replace_block(config, NAV_BEGIN, NAV_END, build_nav_block(sections), CONFIG)
-        config = replace_block(config, GROUPS_BEGIN, GROUPS_END, build_groups_block(sections), CONFIG)
+        config = replace_block(
+            config, GROUPS_BEGIN, GROUPS_END, build_groups_block(sections), CONFIG
+        )
         updates[CONFIG] = config
         for section, topics in sections:
             text = section.path.read_text(encoding="utf-8")
@@ -268,7 +273,10 @@ def main() -> int:
     stale = [p for p, new in updates.items() if p.read_text(encoding="utf-8") != new]
     if check:
         if stale:
-            print("build_nav: out of date, run: .venv/bin/python scripts/build_nav.py", file=sys.stderr)
+            print(
+                "build_nav: out of date, run: .venv/bin/python scripts/build_nav.py",
+                file=sys.stderr,
+            )
             for p in stale:
                 print(f"  {p}", file=sys.stderr)
             return 1
@@ -277,7 +285,8 @@ def main() -> int:
     for p in stale:
         p.write_text(updates[p], encoding="utf-8")
         print(f"updated {p}")
-    print(f"{len(stale)} file(s) changed, {sum(len(t) for _, t in sections)} topics in {len(sections)} sections")
+    topic_count = sum(len(t) for _, t in sections)
+    print(f"{len(stale)} file(s) changed, {topic_count} topics in {len(sections)} sections")
     return 0
 
 

@@ -25,7 +25,7 @@ cd zero-to-sdet
 
 uv python install 3.13
 uv venv --python 3.13
-uv pip sync --require-hashes requirements-docs.txt
+uv pip sync --require-hashes requirements-docs.txt requirements.txt
 
 uv tool install pre-commit
 pre-commit install            # runs gitleaks and the other checks before every commit
@@ -95,6 +95,16 @@ date ... Failed" and tells you the command to run.
 `nav_title` and `order`. They appear under the topic in the menu automatically.
 
 **Published addresses never change.** If a page must move, add a redirect.
+
+## Check everything before you push
+
+One command runs every check (secrets, Python lint and format, menu, site build,
+links, tests, readability) and prints a summary:
+
+```bash
+scripts/check.sh              # about 10 seconds
+scripts/check.sh --external   # also visits every external link
+```
 
 ## Before you open a pull request
 

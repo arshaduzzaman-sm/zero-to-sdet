@@ -22,8 +22,36 @@ Newest entry first. No secrets or personal data in this file.
 | Way of working | Owner asked for best practice and security first, handled end to end ("complete the project"). Assistant installs tools, commits and pushes to the private repo after the pre-push checklist passes, and keeps going step by step, logging each step here. | 2026-11-15 |
 | Dependencies | Pinned with SHA-256 hashes (`uv pip compile --generate-hashes`), installed with `--require-hashes`. | 2026-11-15 |
 | Fonts | No external fonts (`font = false`): system fonts, no Google requests. | 2026-11-15 |
+| Page dates | No visible "last updated" date; hidden meta tag only. Lessons show "Tested with" versions instead. | 2026-11-15 |
+| Navigation | Seven fixed tabs; menu and section overviews generated from page front matter by `scripts/build_nav.py`. | 2026-11-15 |
+| Readability tool | pyphen + own Flesch-Kincaid formula instead of textstat (textstat pulls in nltk and 7 more packages; fewer dependencies is safer). | 2026-11-15 |
+| Code of Conduct contact | LinkedIn for now; discussed again in Phase 9 (owner may create a project email). | 2026-11-15 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-15 · Phase 1 · Step 1.12: scripts/check.sh and ruff
+
+**Done**
+
+- `requirements.in` / `requirements.txt` (hashed): pytest 9.2.0, ruff 0.17.5, pyphen 0.18.1. Install: `uv pip sync --require-hashes requirements-docs.txt requirements.txt`.
+- `pyproject.toml`: pytest (tests in `modules/` and the template) and ruff (style, bugs, naming, Bandit security rules; Markdown excluded so snippet lines are not broken).
+- `scripts/check.sh`: one command, nine checks, summary at the end. Must pass: gitleaks (history, staged, unstaged), ruff check, ruff format, menu up to date, strict build, links, pytest. Advice only: hidden page dates, readability.
+- `scripts/check_links.py` (standard library only): internal pages and #anchors always; `--external` visits every outside address. Own site URLs are checked against `site/`; LinkedIn counts as "could not verify"; own private repo skipped until Phase 9.
+- `scripts/check_readability.py`: Flesch-Kincaid grade of each finished page's prose (code, tables, HTML, headings removed; wrapped lines joined). All 10 finished pages are grade 6.0 or lower.
+- `scripts/update_page_dates.py --check`.
+- Pre-commit: ruff check and ruff format hooks, using the hashed ruff in `.venv`.
+- All existing Python cleaned to pass ruff (research script: https-only URL check, context manager, clearer names).
+- Tested: two planted broken links caught; failing test makes `check.sh` exit 1 with a FAILED summary; external run: 159 links fine, LinkedIn unverifiable.
+
+**How to check**
+
+`scripts/check.sh` (about 2 seconds), or `scripts/check.sh --external`.
+
+**Next step**
+
+Step 1.13: README.
 
 ---
 

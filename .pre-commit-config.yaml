@@ -33,3 +33,15 @@ repos:
         language: system
         pass_filenames: false
         files: ^(docs/.*\.md|zensical\.toml|scripts/build_nav\.py)$
+      # Python lint and format. Uses the ruff pinned (with hashes) in requirements.txt,
+      # so pre-commit and scripts/check.sh always run the same version.
+      - id: ruff-check
+        name: ruff check (Python lint and security rules)
+        entry: .venv/bin/ruff check --force-exclude --fix
+        language: system
+        types_or: [python, pyi]
+      - id: ruff-format
+        name: ruff format (Python formatting)
+        entry: .venv/bin/ruff format --force-exclude
+        language: system
+        types_or: [python, pyi]

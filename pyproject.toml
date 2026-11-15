@@ -1,0 +1,32 @@
+# Settings for the code tools. Not a Python package: there is nothing to install from here.
+# Tools are pinned in requirements.txt (with hashes).
+
+[tool.pytest.ini_options]
+testpaths = ["modules", "_new_topic_template/modules"]
+addopts = ["--import-mode=importlib", "-ra", "--strict-markers"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+# Markdown is not formatted: it would break snippet lines such as --8<-- "file.py".
+extend-exclude = ["*.md"]
+
+[tool.ruff.lint]
+select = [
+  "E", "W",  # pycodestyle: layout
+  "F",       # pyflakes: real bugs (unused names, undefined names)
+  "I",       # import order
+  "B",       # bugbear: likely mistakes
+  "UP",      # modern Python syntax
+  "SIM",     # simpler code
+  "N",       # naming
+  "S",       # bandit: security problems
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests use plain assert on purpose (that is how pytest works).
+"**/tests/**" = ["S101"]
+# Scripts call git with fixed arguments, never with user input.
+"scripts/**" = ["S603", "S607"]
+# One-off research scripts: long lines are regex patterns and data, easier to read unwrapped.
+"scripts/research/**" = ["E501"]

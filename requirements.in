@@ -1,0 +1,6 @@
+# Code and test tools for modules/, scripts/ and the templates.
+# Compile with hashes:  uv pip compile --generate-hashes requirements.in -o requirements.txt
+# Install:              uv pip sync --require-hashes requirements-docs.txt requirements.txt
+pytest
+ruff
+pyphen
