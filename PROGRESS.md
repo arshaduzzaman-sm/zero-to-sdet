@@ -33,8 +33,9 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 - New About page: what the site is, why it exists, licences (MIT code, CC BY 4.0 text), privacy (no cookies, self-hosted fonts), how to help.
 - Author card with GitHub and LinkedIn links. Photo and short bio are left as marked comments in `docs/about.md` until the owner provides them (nothing invented).
-- Every page now ends with "Written by Arshaduzzaman SM." (links to About) and "Last updated <date>." via `overrides/partials/source-file.html`. Home hides it with `hide: [author]`.
-- `scripts/update_page_dates.py` fills the `updated:` date from git history for finished pages (draft placeholders are skipped).
+- Every page now ends with "Written by Arshaduzzaman SM." (links to About) via `overrides/partials/source-file.html`. Home hides it with `hide: [author]`.
+- Owner decision: no visible "Last updated" date (an old date makes a correct lesson look abandoned). The date (`updated: YYYY-MM-DD`, filled from git history by `scripts/update_page_dates.py`, drafts skipped) goes only into a hidden `article:modified_time` meta tag via `overrides/main.html`.
+- Planned instead: a "Tested with" line (tool versions) on every real lesson, from Phase 2. New items go in the Changelog.
 
 **How to check**
 

@@ -1,0 +1,11 @@
+{#-
+  Zero to SDET: extra tags in the page head.
+  `updated:` (YYYY-MM-DD, set by scripts/update_page_dates.py) is given to
+  search engines only. It is not shown to readers.
+-#}
+{% extends "base.html" %}
+{% block extrahead %}
+  {% if page.meta and page.meta.updated %}
+    <meta property="article:modified_time" content="{{ page.meta.updated }}">
+  {% endif %}
+{% endblock %}

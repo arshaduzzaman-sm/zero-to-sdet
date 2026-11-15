@@ -1,7 +1,7 @@
 ---
 title: "Start Here: How to Begin Your SDET Journey"
 description: "Start here if you are new: set up your computer, learn Python for testing, and meet the Practice App."
-updated: "15 November 2026"
+updated: "2026-11-15"
 ---
 
 # Start Here

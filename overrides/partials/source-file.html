@@ -1,11 +1,9 @@
 {#-
-  Zero to SDET: author and "last updated" line at the end of every page.
-  The date comes from the page's `updated:` front matter, which
-  scripts/update_page_dates.py fills in from git history.
-  Based on the theme's partials/source-file.html; extra facts kept below.
+  Zero to SDET: author line at the end of every page.
+  The "last updated" date is not shown here on purpose (an old date makes a
+  correct lesson look abandoned). It goes into a hidden meta tag instead,
+  see overrides/main.html. Hide this line on a page with `hide: [author]`.
 -#}
-{% set author = config.site_author %}
-{% set updated = page.meta.updated if page.meta and page.meta.updated else none %}
 {% if page.meta and page.meta.hide and "author" in page.meta.hide %}
 {% else %}
   <aside class="md-source-file zts-byline">
@@ -13,15 +11,7 @@
       <span class="md-icon" aria-hidden="true">
         {% include ".icons/lucide/pen-line.svg" %}
       </span>
-      <span>Written by <a href="{{ 'about/' | url }}">{{ author }}</a>.</span>
+      <span>Written by <a href="{{ 'about/' | url }}">{{ config.site_author }}</a>.</span>
     </span>
-    {% if updated %}
-      <span class="md-source-file__fact">
-        <span class="md-icon" aria-hidden="true">
-          {% include ".icons/lucide/calendar-check.svg" %}
-        </span>
-        <span>Last updated {{ updated }}.</span>
-      </span>
-    {% endif %}
   </aside>
 {% endif %}

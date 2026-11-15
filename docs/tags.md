@@ -1,7 +1,7 @@
 ---
 title: "Browse SDET Lessons by Tag"
 description: "Find every Zero to SDET lesson by tag: API, database, BDD, debugging, performance and more."
-updated: "15 November 2026"
+updated: "2026-11-15"
 ---
 
 # Tags

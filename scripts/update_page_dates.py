@@ -1,11 +1,12 @@
-"""Set the "Last updated" date on every finished page, from git history.
+"""Set the last-updated date on every finished page, from git history.
 
-Each page in docs/ gets `updated: "15 November 2026"` in its front matter:
+Each page in docs/ gets `updated: "2026-11-15"` in its front matter:
 - the date of the last commit that changed the file, or
 - today, if the file has changes that are not committed yet.
 
 Draft pages (`status: draft`) are skipped: they have no real content yet.
-The date is shown at the end of the page by overrides/partials/source-file.html.
+The date is not shown to readers. overrides/main.html puts it in a meta tag
+for search engines.
 
 Usage (from the repository root):
     .venv/bin/python scripts/update_page_dates.py
@@ -37,11 +38,6 @@ def last_changed(path: Path) -> dt.date:
     return dt.date.fromisoformat(out) if out else dt.date.today()
 
 
-def human(day: dt.date) -> str:
-    # "15 November 2026": no leading zero, month in words, readable everywhere.
-    return f"{day.day} {day:%B %Y}"
-
-
 def main() -> None:
     changed = 0
     for page in sorted(DOCS.rglob("*.md")):
@@ -52,7 +48,7 @@ def main() -> None:
         meta = match.group(1)
         if re.search(r"^status:\s*draft\s*$", meta, re.MULTILINE):
             continue
-        line = f'updated: "{human(last_changed(page))}"'
+        line = f'updated: "{last_changed(page).isoformat()}"'
         if re.search(r"^updated:.*$", meta, re.MULTILINE):
             new_meta = re.sub(r"^updated:.*$", line, meta, flags=re.MULTILINE)
         else:

@@ -1,7 +1,7 @@
 ---
 title: "Infrastructure for Testers: CI/CD, Docker, Linux and Debugging"
 description: "Learn the tools around your tests: CI/CD pipelines, Docker, Linux, networking, debugging, cloud and observability."
-updated: "15 November 2026"
+updated: "2026-11-15"
 ---
 
 # Infrastructure

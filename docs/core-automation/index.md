@@ -1,7 +1,7 @@
 ---
 title: "Core Test Automation with Python: pytest, API, Database, BDD and UI"
 description: "Learn core test automation with Python: pytest, API testing, database testing, BDD and Playwright UI tests, with templates."
-updated: "15 November 2026"
+updated: "2026-11-15"
 ---
 
 # Core Automation

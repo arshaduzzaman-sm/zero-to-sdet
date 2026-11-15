@@ -1,7 +1,7 @@
 ---
 title: "Advanced Software Testing: Performance, Security, Contracts and More"
 description: "Go beyond the basics: mocking, contract, performance, security, accessibility, mobile, AI and microservices testing."
-updated: "15 November 2026"
+updated: "2026-11-15"
 ---
 
 # Advanced Testing
