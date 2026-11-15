@@ -513,3 +513,54 @@
 .zts-author .md-button {
   margin: 0.2rem 0.4rem 0.2rem 0;
 }
+
+/* ---------- "Was this page helpful?" ------------------------------------- */
+.md-feedback.zts-feedback {
+  margin: 2rem 0 0;
+  padding: 1rem 1.2rem;
+  border-radius: var(--zts-radius);
+  background: var(--zts-surface);
+}
+.zts-feedback .md-feedback__title {
+  font-weight: 700;
+}
+.zts-feedback .md-feedback__icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--zts-border);
+  background: var(--md-default-bg-color);
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.zts-feedback .md-feedback__icon:not(:disabled):hover {
+  color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+}
+.zts-feedback .md-feedback__icon:not(:disabled):active {
+  transform: scale(0.9);
+}
+.zts-feedback .md-feedback__note > div:not([hidden]) {
+  animation: zts-note-in 0.3s ease-out both;
+}
+.md-typeset .zts-feedback .md-feedback__note > *,
+.zts-feedback .md-feedback__note > * {
+  max-width: 30rem;
+}
+.zts-feedback .md-feedback__icon.zts-feedback__chosen {
+  color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+}
+.zts-feedback .md-feedback__note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@keyframes zts-note-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zts-feedback .md-feedback__icon { transition: none; }
+  .zts-feedback .md-feedback__note > div:not([hidden]) { animation: none; }
+}

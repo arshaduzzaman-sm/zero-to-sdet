@@ -1,0 +1,60 @@
+{#-
+  Zero to SDET: comments under each lesson, powered by Giscus (GitHub Discussions).
+
+  OFF until Phase 9: Giscus needs a public repository with Discussions on.
+  To switch on: in zensical.toml set [project.extra.giscus] enabled = true and
+  fill repo_id and category_id (copy them from https://giscus.app).
+  Then update the privacy section on the About page: Giscus loads from giscus.app.
+
+  Not shown on draft pages, or on pages with `hide: [comments]`.
+-#}
+{% set giscus = config.extra.giscus %}
+{% set show = giscus and giscus.enabled %}
+{% if page.meta and page.meta.hide and "comments" in page.meta.hide %}
+  {% set show = false %}
+{% endif %}
+{% if page.meta and page.meta.status == "draft" %}
+  {% set show = false %}
+{% endif %}
+{% if show %}
+  <h2 id="__comments">Questions and comments</h2>
+  <p class="zts-comments__intro">Stuck on a step, or found something unclear? Ask here. You need a free GitHub account.</p>
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ giscus.repo }}"
+    data-repo-id="{{ giscus.repo_id }}"
+    data-category="{{ giscus.category }}"
+    data-category-id="{{ giscus.category_id }}"
+    data-mapping="pathname"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <script>
+    // Match the comments to the site's light or dark mode, now and when the reader switches.
+    var giscus = document.querySelector("script[src*=giscus]")
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      var ref = document.querySelector("[data-md-component=palette]")
+      if (!ref) return
+      ref.addEventListener("change", function () {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+          var frame = document.querySelector(".giscus-frame")
+          if (frame) frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } }, "https://giscus.app")
+        }
+      })
+    })
+  </script>
+{% endif %}

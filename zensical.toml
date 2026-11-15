@@ -182,6 +182,36 @@ name = "Arshaduzzaman SM on LinkedIn"
 [project.extra.status]
 draft = "Coming soon"
 
+# "Was this page helpful?" at the end of every finished page.
+# provider = "goatcounter" is our own file (overrides/partials/integrations/
+# analytics/goatcounter.html). Until Phase 9 it sends nothing anywhere.
+[project.extra.analytics]
+provider = "goatcounter"
+
+[project.extra.analytics.feedback]
+title = "Was this page helpful?"
+
+[[project.extra.analytics.feedback.ratings]]
+icon = "lucide/thumbs-up"
+name = "Yes, this page helped me"
+data = 1
+note = "Thanks! Glad it helped. A star on <a href=\"https://github.com/arshaduzzaman-sm/zero-to-sdet\" target=\"_blank\" rel=\"noopener\">GitHub</a> helps other testers find this site."
+
+[[project.extra.analytics.feedback.ratings]]
+icon = "lucide/thumbs-down"
+name = "No, this page needs work"
+data = 0
+note = "Thanks for telling us. <a href=\"https://github.com/arshaduzzaman-sm/zero-to-sdet/issues/new?title=Feedback%3A%20{title}&body=Page%3A%20{url}%0A%0AWhat%20was%20unclear%20or%20missing%3F%0A\" target=\"_blank\" rel=\"noopener\">Tell us what was unclear</a> and we will fix it."
+
+# Comments under each lesson (Giscus = GitHub Discussions). OFF until Phase 9:
+# it needs a public repo. Fill repo_id and category_id from https://giscus.app.
+[project.extra.giscus]
+enabled = false
+repo = "arshaduzzaman-sm/zero-to-sdet"
+repo_id = ""
+category = "Lessons"
+category_id = ""
+
 [project.plugins.tags]
 
 [project.markdown_extensions]

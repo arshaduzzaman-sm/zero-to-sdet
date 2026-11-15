@@ -6,6 +6,7 @@ hide:
   - toc
   - footer
   - author
+  - feedback
 updated: "2026-11-15"
 ---
 

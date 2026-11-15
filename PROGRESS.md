@@ -27,6 +27,31 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Step 1.8: "Was this page helpful?" and comments template
+
+**Done**
+
+- "Was this page helpful?" with 👍/👎 at the end of every finished page (not on drafts or the home page). A click locks the buttons, keeps the chosen one blue, and shows a thank-you note. 👎 links to a new GitHub issue with the page title and address filled in.
+- Own analytics provider `overrides/partials/integrations/analytics/goatcounter.html`: today it loads nothing from other sites and sends nothing. In Phase 9, once GoatCounter's script is added (pinned, with integrity hash), clicks are also counted as events.
+- `overrides/partials/feedback.html`: theme partial plus draft hiding and a screen-reader status note.
+- Giscus comments template `overrides/partials/comments.html`, switched off (`[project.extra.giscus] enabled = false`). Needs a public repo; follows the light/dark switch.
+- Bug found and fixed in testing: the click script ran before the theme's script loaded; now it waits for the page to load.
+
+**How to check**
+
+Open http://127.0.0.1:8001/zero-to-sdet/learning-path/, scroll to the bottom, click 👍 or 👎. Draft pages (for example API testing) show no widget.
+
+**Phase 9 to-do**
+
+- Add GoatCounter count.js (pinned version, integrity hash) and update the About privacy section.
+- Turn on Discussions, get `repo_id` and `category_id` from giscus.app, set `enabled = true`, mention giscus.app in the privacy section.
+
+**Next step**
+
+Step 1.10: repository documents (STYLE_GUIDE, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT, LICENSE, issue and PR templates). Step 1.9 (Discussions) waits for the public repo.
+
+---
+
 ## 2026-11-15 · Phase 1 · Step 1.7: About page and author line
 
 **Done**

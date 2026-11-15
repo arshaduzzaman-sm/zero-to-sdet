@@ -1,0 +1,53 @@
+{#-
+  Zero to SDET: "Was this page helpful?" at the end of every finished page.
+  Based on the theme's partials/feedback.html. Changes:
+  - not shown on draft ("Coming soon") pages, or with `hide: [feedback]`
+  - the thank-you note is announced to screen readers (role="status")
+  Settings live in zensical.toml under [project.extra.analytics.feedback].
+  Clicks are handled by partials/integrations/analytics/goatcounter.html.
+-#}
+{% if config.extra.analytics %}
+  {% set feedback = config.extra.analytics.feedback %}
+{% endif %}
+{% if page.meta and page.meta.hide and "feedback" in page.meta.hide %}
+  {% set feedback = none %}
+{% endif %}
+{% if page.meta and page.meta.status == "draft" %}
+  {% set feedback = none %}
+{% endif %}
+{% if feedback %}
+  <form class="md-feedback zts-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        {{ feedback.title }}
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          {% for rating in feedback.ratings %}
+            <button class="md-feedback__icon md-icon" type="submit" title="{{ rating.name }}" aria-label="{{ rating.name }}" data-md-value="{{ rating.data }}">
+              {% include ".icons/" ~ rating.icon ~ ".svg" %}
+            </button>
+          {% endfor %}
+        </div>
+        <div class="md-feedback__note" role="status">
+          {% for rating in feedback.ratings %}
+            <div data-md-value="{{ rating.data }}" hidden>
+              {% set url = "/" ~ page.url %}
+              {% if page.meta and page.meta.title %}
+                {% set title = page.meta.title | urlencode %}
+              {% else %}
+                {% set title = page.title | urlencode %}
+              {% endif %}
+              {% set note = rating.note %}
+              {% if note %}
+                {% set note = note | replace("{url}", url) %}
+                {% set note = note | replace("{title}", title) %}
+              {% endif %}
+              {{ note }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </fieldset>
+  </form>
+{% endif %}
