@@ -273,6 +273,7 @@ A small online shop built for testing, in `practice-app/`. **Every topic tests t
 - **Features:** sign up and log in (token auth), users, products, search, cart, checkout, orders, an admin role, email and OTP messages, file upload and download.
 - **Parts:** REST API (FastAPI) with auto-generated API docs, a simple web page, PostgreSQL as the main database, MySQL as a reporting copy (for multi-database lessons), Mailpit to catch emails, and later a message queue.
 - **Start:** `docker compose up`. A reset script restores the original data. A health check page shows everything is running.
+- **Running it online:** GitHub Codespaces only (owner decision, 2026-11-15). A "Open in Codespaces" button gives each learner their own private copy of the whole app in the cloud, with nothing to install. The app is never hosted on a shared public server, and GitHub Pages hosts only the lesson site (it cannot run the app).
 - **Data:** fake only, seeded with Faker. Passwords are clearly fake (for example `local_only_password`), loaded from `.env`. Every service binds to `localhost` only.
 - **Planted bugs:** about 30 deliberate bugs across API, database, UI, security and performance. Each topic ends with a **"Bug Hunt"**: the reader finds the bugs and writes bug reports. Answers sit on a separate solutions page, folded by default.
 - **Versioned:** each lesson names the app version it uses, so updates never break old pages.
@@ -679,7 +680,7 @@ Gate: the site runs locally, looks finished with placeholders, and a new topic c
 - 1.5.3 PostgreSQL + MySQL reporting copy, Faker seed data.
 - 1.5.4 Simple web page: log in, product list, cart, checkout.
 - 1.5.5 Email and OTP through Mailpit; file upload and download.
-- 1.5.6 `docker compose up`, reset script, health check page.
+- 1.5.6 `docker compose up`, reset script, health check page, GitHub Codespaces setup (`.devcontainer/`) with an "Open in Codespaces" button, and a guard that stops the app from starting on a non-local address while it still has the fake default passwords.
 - 1.5.7 Plant the bugs; write the hidden answers page.
 - 1.5.8 Practice App tour pages.
 

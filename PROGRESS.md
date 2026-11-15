@@ -11,6 +11,7 @@ Newest entry first. No secrets or personal data in this file.
 | Old repositories | Not touched. All work happens only in `zero-to-sdet`. Step 0.2 is skipped by the owner's choice. | 2026-11-15 |
 | Commit authorship | Every commit and push is under the owner's name only (`Arshaduzzaman SM`, GitHub no-reply email). No AI names or co-author lines anywhere. | 2026-11-15 |
 | UI automation tool | Playwright only. No Selenium. | 2026-11-15 |
+| Practice App online | GitHub Codespaces only: each learner gets a private copy of the whole app (added in step 1.5.6). No shared public hosting; no browser-only demo on GitHub Pages. Pages hosts only the lesson site. | 2026-11-15 |
 | Python version | 3.13 (managed with uv) | 2026-11-15 |
 | Main color | Calm blue | 2026-11-15 |
 | BDD tool | Both behave and pytest-bdd, equal depth. No main track. | 2026-11-15 |
