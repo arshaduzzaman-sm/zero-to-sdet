@@ -123,3 +123,7 @@ Desktop.ini
 
 # ===== Node (in case a tool needs it) =====
 node_modules/
+
+# ===== Practice App =====
+# Its local database file and saved emails (made when it runs, different on every computer).
+practice-app/data/

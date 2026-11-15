@@ -1,0 +1,79 @@
+"""Settings, read from environment variables.
+
+`practice-app/.env` is read too when it exists (copy `.env.example` to start).
+Real environment variables win over the file. Nothing here is a real secret:
+the app runs on your own computer only.
+"""
+
+from __future__ import annotations
+
+import os
+import secrets
+from dataclasses import dataclass, field
+from pathlib import Path
+
+APP_DIR = Path(__file__).resolve().parent.parent  # practice-app/
+DATA_DIR = APP_DIR / "data"  # local database file and emails (ignored by git)
+
+
+def read_env_file(path: Path) -> dict[str, str]:
+    """KEY=VALUE lines; blank lines and # comments are skipped."""
+    values: dict[str, str] = {}
+    if not path.exists():
+        return values
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        values[key.strip()] = value.strip().strip("'\"")
+    return values
+
+
+@dataclass
+class Settings:
+    database_url: str = f"sqlite:///{DATA_DIR / 'bookshelf.db'}"
+    # Signs login tokens and OTP codes. Random on every start unless set in .env.
+    secret_key: str = field(default_factory=lambda: secrets.token_urlsafe(32))
+    token_minutes: int = 30
+    host: str = "127.0.0.1"
+    port: int = 8080
+    # Fake passwords for the seeded users (DESIGN.md section 1).
+    seed_customer_password: str = "Test@1234"  # noqa: S105  (fake, local only)
+    seed_admin_password: str = "local_only_password"  # noqa: S105  (fake, local only)
+    # How long the "timeout" sandbox card waits before it gives up.
+    payment_timeout_seconds: float = 3.0
+    # Admin clock control (POST /api/admin/clock), for lessons about time.
+    clock_control: bool = True
+    # Emails are printed to the console and saved here until Mailpit (step 1.5.5).
+    outbox_dir: Path | None = DATA_DIR / "outbox"
+    # Tests only: cheaper password hashing so the test run stays fast.
+    fast_password_hashing: bool = False
+
+    @classmethod
+    def from_env(cls) -> Settings:
+        env = {**read_env_file(APP_DIR / ".env"), **os.environ}
+        settings = cls()
+        text = {
+            "DATABASE_URL": "database_url",
+            "SECRET_KEY": "secret_key",
+            "HOST": "host",
+            "SEED_CUSTOMER_PASSWORD": "seed_customer_password",
+            "SEED_ADMIN_PASSWORD": "seed_admin_password",
+        }
+        for key, name in text.items():
+            if env.get(key):
+                setattr(settings, name, env[key])
+        if env.get("PORT"):
+            settings.port = int(env["PORT"])
+        if env.get("TOKEN_MINUTES"):
+            settings.token_minutes = int(env["TOKEN_MINUTES"])
+        if env.get("PAYMENT_TIMEOUT_SECONDS"):
+            settings.payment_timeout_seconds = float(env["PAYMENT_TIMEOUT_SECONDS"])
+        if env.get("CLOCK_CONTROL"):
+            settings.clock_control = env["CLOCK_CONTROL"].lower() in ("1", "on", "true", "yes")
+        return settings
+
+    @property
+    def database_kind(self) -> str:
+        return self.database_url.split(":", 1)[0].split("+", 1)[0]

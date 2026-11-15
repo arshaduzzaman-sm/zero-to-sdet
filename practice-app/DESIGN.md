@@ -41,7 +41,8 @@ as real requirements to design tests from.
   - Email must be unique and valid; username 3 to 20 letters, digits or `_`.
   - Password at least 8 characters with a letter and a digit.
   - A 6-digit **OTP** is emailed (Mailpit). The account is unverified until the
-    code is entered. A code lasts 10 minutes and works once.
+    code is entered. A code lasts 10 minutes and works once. Five wrong tries
+    burn it. A new code (`resend-code`) replaces the old one.
 - **Log in.** I get a **bearer token** (JWT, 30 minutes) for the API, or a
   session cookie on the web page. Five wrong passwords in a row lock the account
   for 15 minutes.
@@ -63,13 +64,16 @@ as real requirements to design tests from.
 
 - **Cart.** Add, change quantity, remove. Quantity 1 to 10 per line. You
   cannot add more than the stock. The cart total is shown with tax (10%) and
-  shipping (free over 50.00, otherwise 4.99).
+  shipping (free when the total after discount is 50.00 or more, otherwise 4.99).
+  Percentages round half up to the nearest cent.
 - **Coupons.** `WELCOME10` gives 10% off once per customer; `FREESHIP` removes
-  the shipping cost. Coupons have an end date.
+  the shipping cost. `SPRING25` has already ended (for expiry tests). Coupons
+  have an end date. One coupon per cart.
 - **Checkout.** Needs a shipping address and a payment. Payment is a **fake
   sandbox**: card `4242 4242 4242 4242` succeeds, `4000 0000 0000 0002` is
   declined, `4000 0000 0000 9995` times out. Stock goes down only when payment
-  succeeds. A confirmation email is sent.
+  succeeds. A confirmation email is sent. A declined or timed-out payment leaves
+  the order `pending` and the cart and stock unchanged.
 - **Orders.** I see my own orders, newest first, with status `pending`, `paid`,
   `shipped`, `delivered` or `cancelled`. I can cancel while `paid` and not yet
   shipped. I can download an **invoice PDF**.
@@ -168,6 +172,7 @@ erDiagram
         int user_id FK
         string code_hash
         string purpose "verify or reset"
+        int attempts
         datetime expires_at
         datetime used_at
     }
@@ -191,6 +196,7 @@ erDiagram
     CARTS {
         int id PK
         int user_id FK, UK
+        string coupon_code
         datetime updated_at
     }
     CART_ITEMS {
@@ -207,6 +213,7 @@ erDiagram
         int tax_cents
         int shipping_cents
         int total_cents
+        string coupon_code
         string shipping_address
         datetime created_at
         datetime updated_at
@@ -221,7 +228,7 @@ erDiagram
         int id PK
         int order_id FK
         string card_last4
-        string status "succeeded, declined or timeout"
+        string status "succeeded, declined, timeout or refunded"
         int amount_cents
         string sandbox_ref
         datetime created_at
@@ -252,6 +259,8 @@ erDiagram
         datetime created_at
     }
 ```
+
+In SQLite mode (no Docker) the reviews live in a `reviews` table instead of MongoDB.
 
 Money is stored as whole **cents** (`price_cents = 1299` means 12.99), so sums
 never have rounding errors. Times are stored in **UTC** and shown in the
@@ -285,14 +294,14 @@ All under `/api`. JSON in and out. Errors always look like
 
 | Area | Endpoints |
 | --- | --- |
-| Auth | `POST /auth/signup`, `POST /auth/verify`, `POST /auth/login`, `POST /auth/forgot-password`, `POST /auth/reset-password`, `GET /auth/me` |
+| Auth | `POST /auth/signup`, `POST /auth/verify`, `POST /auth/resend-code`, `POST /auth/login`, `POST /auth/forgot-password`, `POST /auth/reset-password`, `GET /auth/me` |
 | Users | `GET /users/me`, `PATCH /users/me`, `POST /users/me/avatar`, `GET /users` (admin) |
 | Products | `GET /products` (search, filter, sort, page), `GET /products/{id}`, `POST /products`, `PATCH /products/{id}`, `DELETE /products/{id}` (admin, soft delete), `POST /products/{id}/image` (admin) |
 | Categories | `GET /categories` |
 | Reviews | `GET /products/{id}/reviews`, `POST /products/{id}/reviews` |
-| Cart | `GET /cart`, `POST /cart/items`, `PATCH /cart/items/{product_id}`, `DELETE /cart/items/{product_id}`, `POST /cart/coupon` |
+| Cart | `GET /cart`, `POST /cart/items`, `PATCH /cart/items/{product_id}`, `DELETE /cart/items/{product_id}`, `POST /cart/coupon`, `DELETE /cart/coupon` |
 | Checkout and orders | `POST /checkout`, `GET /orders`, `GET /orders/{id}`, `POST /orders/{id}/cancel`, `GET /orders/{id}/invoice.pdf` |
-| Admin | `GET /admin/orders`, `PATCH /admin/orders/{id}`, `POST /admin/reporting/sync`, `POST /admin/reset`, `POST /admin/clock` |
+| Admin | `GET /admin/orders`, `PATCH /admin/orders/{id}`, `POST /admin/reporting/sync`, `POST /admin/reset`, `GET /admin/clock`, `POST /admin/clock` |
 | Tester tools | `GET /health`, `GET /version` |
 
 ## 6. Web pages (v1.0)
@@ -350,7 +359,8 @@ practice-app/
 ├── DESIGN.md              # this page
 ├── docker-compose.yml
 ├── .env.example
-├── app/                   # FastAPI app: api/, web/, models/, services/
+├── requirements.in/.txt   # the app's Python packages (pinned with hashes)
+├── bookshelf/             # the FastAPI app: api/ (one file per area), models, seed...
 ├── seed/                  # Faker seed data (fixed random seed, same data every time)
 ├── scripts/               # reset, wait-for-services
 └── tests/                 # the app's own tests (separate from lesson templates)

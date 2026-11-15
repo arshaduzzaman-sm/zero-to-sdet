@@ -25,7 +25,7 @@ cd zero-to-sdet
 
 uv python install 3.13
 uv venv --python 3.13
-uv pip sync --require-hashes requirements-docs.txt requirements.txt
+uv pip sync --require-hashes requirements-docs.txt requirements.txt practice-app/requirements.txt
 
 uv tool install pre-commit
 pre-commit install            # runs gitleaks and the other checks before every commit

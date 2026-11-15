@@ -17,7 +17,7 @@ EXTERNAL=""
 
 if [ ! -x "$PY" ]; then
   echo "No .venv found. Set up first (see CONTRIBUTING.md):"
-  echo "  uv venv --python 3.13 && uv pip sync --require-hashes requirements-docs.txt requirements.txt"
+  echo "  uv venv --python 3.13 && uv pip sync --require-hashes requirements-docs.txt requirements.txt practice-app/requirements.txt"
   exit 1
 fi
 

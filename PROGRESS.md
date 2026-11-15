@@ -33,6 +33,29 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1.5 · Step 1.5.2: Practice App API
+
+**Done**
+
+- `practice-app/bookshelf/`: the Bookshelf API in FastAPI, 35 endpoints under `/api`. Covers sign up with a 6-digit email code (10 minutes, single use, burned after 5 wrong tries), resend code, login with a JWT bearer token (30 minutes), lockout after 5 wrong passwords (15 minutes), forgot and reset password, profile, products with search, category, price and stock filters, sorting and pages (at most 50), admin product changes (soft delete), reviews (buyers only, once), cart (1 to 10 per line, never above the stock), coupons (`WELCOME10` once per customer, `FREESHIP`, `SPRING25` already ended), checkout with the three sandbox cards, my orders, cancel (stock back, payment refunded), admin orders (paid to shipped to delivered), reset, a clock that admins can move, health and version.
+- Built in for testers: one error shape everywhere (`{"error": {"code", "message", "request_id"}}`), an `X-Request-ID` header on every response, the `/docs` page with a "Try it" guide.
+- Security: Argon2 password hashes; login tokens signed with `SECRET_KEY` and checked against the app clock; one-time codes stored as HMACs; the same answer for unknown users on login and forgot password (and the same check time); other customers' orders look "not found"; passwords never echoed in errors; binds to 127.0.0.1 by default.
+- Runs without Docker for now: SQLite file in `practice-app/data/` (ignored by git); emails print in the terminal and are saved in `data/outbox/` until Mailpit (step 1.5.5). Fixed seed data (3 users, 3 categories, 13 products, 3 coupons, 2 delivered orders with reviews); Faker data comes in 1.5.3.
+- `practice-app/tests/`: 101 tests for the app's own rules (121 tests in the repo now, about 2 seconds).
+- New packages (owner approved), pinned with hashes in `practice-app/requirements.txt`: fastapi, uvicorn, sqlalchemy, pyjwt, argon2-cffi. Test client: `httpx2` in `requirements.txt` (the httpx successor that Starlette now asks for; same author, pydantic organisation) instead of `httpx`. The packages for later steps (database drivers, Jinja2, uploads, PDF, Faker) are added in those steps.
+- `practice-app/.env.example` (fake values), `practice-app/README.md` (how to start it, logins, sandbox cards), DESIGN.md brought in line with what was built (resend code, remove coupon, read clock, OTP attempts, coupon code on carts and orders, refunded payments, reviews table in SQLite mode, the shipping and rounding rule spelled out). pytest and ruff settings and the setup command now include the app.
+- Checked by running it: start, login, search, cart, checkout, error shape, `/docs` page and the emailed code in the terminal all work.
+
+**How to check**
+
+`cd practice-app && ../.venv/bin/python -m bookshelf`, then open http://127.0.0.1:8080/docs and log in as `arshad` / `Test@1234`. Or run `.venv/bin/pytest practice-app/tests`.
+
+**Next step**
+
+Step 1.5.3: PostgreSQL as the main database, the MySQL reporting copy (with the sync), MongoDB for reviews, and Faker seed data.
+
+---
+
 ## 2026-11-15 · Phase 1.5 · Step 1.5.1: Practice App feature list and data model
 
 **Done**
