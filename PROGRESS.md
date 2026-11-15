@@ -35,6 +35,35 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1.5 · Step 1.5.6: one-command start, reset, status page, Codespaces, safety guard
+
+**Done**
+
+- **One command:** `cd practice-app && docker compose up -d` starts the shop, PostgreSQL, MySQL, MongoDB and Mailpit, in order and with health checks. Checked on macOS: all five healthy in 27 seconds after the first build, and email, uploads, invoices and reset all worked inside Docker. No `.env` is needed.
+- **App image** (`practice-app/Dockerfile`): Python 3.13.18 slim, pinned by digest; packages installed with `--require-hashes`; runs as a normal user (uid 10001), never root. `.dockerignore` keeps `.env`, `data/` and tests out of the image. Data (uploads, outbox) lives in a named volume.
+- **Reset:** `python -m bookshelf reset` (or `docker compose exec app python -m bookshelf reset`) puts every database back to the seed data and deletes uploaded pictures. Admin page and API reset still work.
+- **Status page** `/status`: each part (shop and API, the three databases, email) with up, down or "in the terminal". It answers 503 when a part is down, like `/api/health`. The footer links to it.
+- **Safety guard:** the app refuses to start on any address other than `127.0.0.1`, `localhost` or `::1` while it still uses fake values from `.env.example`, and says which ones. Inside Docker it must listen on `0.0.0.0`; that is allowed only with `CONTAINER_PORT_IS_LOCAL_ONLY=yes`, set in `docker-compose.yml` next to the `127.0.0.1` port.
+- **GitHub Codespaces** (`.devcontainer/`): Python 3.13 dev image and the docker-in-docker feature 2.17.0, both pinned by digest. Packages are installed with hash checks; the app starts by itself; ports 8080 and 58025 are labelled and stay private. The "Open in GitHub Codespaces" button is in both READMEs. The setup script was tested on Linux in a clean Python 3.13 Debian container: everything installed and all app tests passed there.
+- `.gitattributes`: shell scripts, the Dockerfile and `.devcontainer/` keep Unix line endings, even when cloned on Windows.
+- Tests: 12 new (guard, reset command, status page). 166 app tests pass.
+- Docs: Practice App README rewritten around the one-command start (Codespaces, without Docker, reset, safety); DESIGN.md (start, online, safety, folder layout); root README (Codespaces button, folder table).
+
+**Not tested yet (needs the owner or later phases)**
+
+- A real Codespace: the button only opens once someone with access clicks it, and it uses the owner's free Codespace hours. Worth one try by the owner; a Linux container check stood in for it.
+- Windows: no Windows machine here. Docker Desktop runs the same Linux containers, so the risk is low; the Phase 1.5 gate needs one run on Windows.
+
+**How to check**
+
+`cd practice-app && docker compose up -d`, then open http://127.0.0.1:8080/status: every part should say Up. Try `HOST=0.0.0.0 ../.venv/bin/python -m bookshelf`: it refuses to start and says why.
+
+**Next step**
+
+Step 1.5.7: a starter set of about 6 planted bugs, the switch that turns them off, and the folded answers page.
+
+---
+
 ## 2026-11-15 · Phase 1.5 · Step 1.5.5: email, picture uploads, invoice PDF
 
 **Done**

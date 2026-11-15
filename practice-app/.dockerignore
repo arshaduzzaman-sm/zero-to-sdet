@@ -1,0 +1,7 @@
+# Only the app code and requirements.txt go into the image.
+# Never .env (your own settings) or data/ (your local practice data).
+.env
+data/
+tests/
+**/__pycache__/
+*.md

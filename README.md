@@ -36,7 +36,8 @@ Development Engineer in Test): a tester who writes code to test software.
 - **Templates that run.** Every code sample is a tested template you can copy into your
   own project.
 - **A safe place to practise.** All lessons use the **Practice App**, a small online
-  shop with planted bugs that runs on your own computer.
+  shop with planted bugs that runs on your own computer or in your own Codespace.
+  Every lesson also shows what you would see, so you can learn from the page alone.
 
 > [!NOTE]
 > The site structure is ready and lessons are being written now. Topics marked
@@ -252,6 +253,12 @@ helps you set up your computer.
 [Template index](https://arshaduzzaman-sm.github.io/zero-to-sdet/toolbox/template-index/),
 copy it, and keep the first comment line that says where it came from.
 
+**To practise with the Practice App:** run `docker compose up -d` in the
+[`practice-app`](practice-app/README.md) folder, or open it in the cloud with
+nothing to install:
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/arshaduzzaman-sm/zero-to-sdet?quickstart=1)
+
 **To run the website on your own computer** (for contributors), see
 [Set up your computer](CONTRIBUTING.md#set-up-your-computer).
 
@@ -261,6 +268,8 @@ copy it, and keep the first comment line that says where it came from.
 | --- | --- |
 | [`docs/`](docs/) | The website: every lesson as a Markdown page |
 | [`modules/`](modules/) | The templates, examples, exercises and solutions, each with tests |
+| [`practice-app/`](practice-app/README.md) | Bookshelf, the small shop every lesson tests |
+| [`.devcontainer/`](.devcontainer/devcontainer.json) | GitHub Codespaces setup |
 | [`_new_topic_template/`](_new_topic_template/README.md) | The starting point for every new topic |
 | [`scripts/`](scripts/) | Helpers: build the menu, add a topic, run every check |
 | [`overrides/`](overrides/) | Small changes to the website theme |

@@ -195,7 +195,7 @@ def test_log_out(client):
 
 def test_every_interactive_element_has_a_test_id(client):
     pages = ["/login", "/signup", "/verify", "/forgot-password", "/reset-password", "/",
-             "/?page=1&q=a", "/products/1", "/no-such-page"]  # fmt: skip
+             "/?page=1&q=a", "/products/1", "/no-such-page", "/status"]  # fmt: skip
     signed_in = ["/", "/products/8", "/cart", "/checkout", "/orders", "/orders/1", "/profile"]
     missing: dict[str, list[str]] = {}
 

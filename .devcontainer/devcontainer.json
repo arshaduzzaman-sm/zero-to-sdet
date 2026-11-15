@@ -1,0 +1,32 @@
+// GitHub Codespaces: your own private copy of this repository and the Practice App,
+// in the cloud, with nothing to install. Open it with the "Open in GitHub Codespaces"
+// button in the README. Ports stay private (only you can open them): never make one public.
+{
+  "name": "Zero to SDET",
+  // Python 3.13 on Debian, pinned by digest so it never changes by surprise.
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.13-bookworm@sha256:0aa711e570b306c02946cdda67587ce8c65978dbb65691341cbcfd4854dfcfff",
+  "features": {
+    // Docker inside the Codespace, to run the Practice App with docker compose.
+    "ghcr.io/devcontainers/features/docker-in-docker:2.17.0@sha256:25b9f05705ffba7dbe503230ac76081419306f8c8bc88e0ce78c4ecd99a0c78c": {}
+  },
+  // The app, three databases and Mailpit need about 2 GB of memory.
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb"
+  },
+  // Once, when the Codespace is made: install the Python packages (checked by hash).
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  // Every time the Codespace starts: start the Practice App.
+  "postStartCommand": "cd practice-app && docker compose up -d",
+  "forwardPorts": [8080, 58025],
+  "portsAttributes": {
+    "8080": { "label": "Bookshelf shop and API", "onAutoForward": "notify" },
+    "58025": { "label": "Mailpit (emails)", "onAutoForward": "silent" }
+  },
+  "otherPortsAttributes": { "onAutoForward": "silent" },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "charliermarsh.ruff"]
+    }
+  }
+}

@@ -174,6 +174,11 @@ legend { font-weight: 600; padding: 0 0.25rem; }
 .status-delivered { background: #edf8f1; color: #155c35; }
 .status-cancelled, .status-pending { background: #f3f3f3; color: #555; }
 
+.status-bad { background: #fdecec; color: #8a1c1c; }
+.status-banner { padding: 0.75rem 1rem; border-radius: var(--radius); font-weight: 600; }
+.status-banner-ok { background: #edf8f1; color: #155c35; border: 1px solid #b9e2c8; }
+.status-banner-bad { background: #fdecec; color: #8a1c1c; border: 1px solid #f1b9b9; }
+
 /* Admin */
 .admin-section { margin-bottom: 2rem; }
 .admin-section details { margin-top: 1rem; }

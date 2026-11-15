@@ -13,6 +13,7 @@ from ..api import auth as auth_api
 from ..api import cart as cart_api
 from ..api import orders as orders_api
 from ..api import products as products_api
+from ..api import tools as tools_api
 from ..api import users as users_api
 from ..deps import AppClock, AppOutbox, AppSettings, Db, Hasher, Reviews
 from ..errors import ApiError
@@ -567,6 +568,36 @@ def cancel(
             status=409,
             user=user,
         )
+
+
+# ----- Status -----
+
+
+@router.get("/status", response_class=HTMLResponse)
+def status_page(request: Request, user: WebUser, settings: AppSettings) -> Response:
+    report = tools_api.health_report(request.app)
+    kinds = settings.database_kinds
+    email = "Email (Mailpit)" if settings.smtp_host else "Email"
+    email_job = (
+        "Catches every email: sign-up codes, reset codes, order confirmations"
+        if settings.smtp_host
+        else "Emails are printed in the terminal and saved in data/outbox/"
+    )
+    parts = [
+        ("api", "Web shop and API", "The pages you see and the REST API"),
+        ("main_database", f"Main database ({kinds['main']})", "Users, products, carts, orders"),
+        (
+            "reporting_database",
+            f"Reporting copy ({kinds['reporting']})",
+            "Order totals for reports",
+        ),
+        ("reviews_database", f"Reviews ({kinds['reviews']})", "Product reviews"),
+        ("email", email, email_job),
+    ]
+    status = 200 if report["status"] == "ok" else 503
+    return render(
+        request, "status.html", {"report": report, "parts": parts}, status=status, user=user
+    )
 
 
 # ----- Admin -----

@@ -4,13 +4,51 @@ A small online shop with bugs planted on purpose. Every lesson on
 [Zero to SDET](https://arshaduzzaman-sm.github.io/zero-to-sdet/) tests this app.
 
 > [!WARNING]
-> For practice on your own computer only. Every service listens on `localhost`.
-> Never deploy it to the internet.
+> For practice on your own computer (or your own private Codespace) only. Every
+> port listens on `127.0.0.1`. Never deploy it to the internet.
 
-**Status:** being built in Phase 1.5. The web shop, the API, the databases,
-email (Mailpit), picture uploads and invoice PDFs work now. A one-command start
-comes in the next step. The plan, features and data model are in
-[DESIGN.md](DESIGN.md).
+**Status:** being built in Phase 1.5. Everything works: the web shop, the API,
+three databases, email (Mailpit), picture uploads and invoice PDFs. The planted
+bugs come next. The plan, features and data model are in [DESIGN.md](DESIGN.md).
+
+## Start it with one command (Docker)
+
+You need [Docker Desktop](https://docs.docker.com/get-started/get-docker/)
+(macOS, Windows or Linux). From the repository folder:
+
+```bash
+cd practice-app
+docker compose up -d
+```
+
+The first start downloads and builds everything (a few minutes). Later starts
+take about half a minute. Then open:
+
+| What | Address |
+| --- | --- |
+| The shop | <http://127.0.0.1:8080> |
+| API docs (try every endpoint in the browser) | <http://127.0.0.1:8080/docs> |
+| Status: is every part running? | <http://127.0.0.1:8080/status> |
+| Mailpit: every email the app sends | <http://127.0.0.1:58025> |
+
+`docker compose down` stops it (your data stays). `docker compose down -v` also
+deletes the data. You do not need a `.env` file; copy `.env.example` to `.env`
+only if you want to change a setting.
+
+## Start it in the cloud (GitHub Codespaces)
+
+No Docker on your computer? Open the repository in a Codespace: your own
+private copy, in the browser, with nothing to install.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/arshaduzzaman-sm/zero-to-sdet?quickstart=1)
+
+1. Click the button, then **Create codespace**. The first start takes a few minutes.
+2. The Practice App starts by itself. Open the **Ports** tab and click the globe
+   icon next to port **8080** for the shop, or **58025** for Mailpit.
+3. Ports are private: only you can open them. Never change a port to **Public**.
+
+GitHub gives every personal account some free Codespace hours each month.
+Stop the Codespace when you finish (it also stops by itself after 30 idle minutes).
 
 ## Start it without Docker
 
@@ -22,38 +60,35 @@ cd practice-app
 ../.venv/bin/python -m bookshelf
 ```
 
-Open <http://127.0.0.1:8080> for the shop, or <http://127.0.0.1:8080/docs> for
-the API (you can try every endpoint in the browser). Press `Ctrl+C` to stop the app.
+The shop and API are at the same addresses. Instead of three databases, the
+app uses SQLite files in `practice-app/data/` (never committed), and every email
+is printed in the terminal. Press `Ctrl+C` to stop. If the Docker app is running
+too, stop it first (`docker compose stop app`): both use port 8080.
 
-The data lives in `practice-app/data/bookshelf.db` (a SQLite file, never
-committed). Delete that file, or call `POST /api/admin/reset`, to start fresh.
-When a new version of the app changes the tables, it rebuilds this practice data
+When a new version of the app changes the tables, it rebuilds the practice data
 from the seed on its next start (the terminal says so).
 
-## Start it with Docker (the real databases)
+## Reset the data
 
-With Docker, the app uses three databases, as many real projects do:
-PostgreSQL (main), MySQL (a reporting copy, refreshed every minute) and MongoDB
-(reviews), plus Mailpit for email. You need
-[Docker Desktop](https://docs.docker.com/get-started/get-docker/).
+Put every database back to the seed data and delete uploaded pictures:
 
-```bash
-cd practice-app
-cp .env.example .env          # then remove the # in front of the *_URL and SMTP_* lines
-docker compose up -d          # start the databases and Mailpit (the first time downloads them)
-../.venv/bin/python -m bookshelf
-```
+| How you started it | Command |
+| --- | --- |
+| Docker or Codespaces | `docker compose exec app python -m bookshelf reset` |
+| Without Docker | `../.venv/bin/python -m bookshelf reset` |
 
-Connect to the databases with any client, from your own computer only:
+Or log in as `admin` and use **Reset all data** on the admin page
+(`POST /api/admin/reset` in the API).
+
+## Connect to the databases (Docker)
+
+Use any database client, from your own computer only:
 
 | Database | Address | User | Password | Database name |
 | --- | --- | --- | --- | --- |
 | PostgreSQL | `127.0.0.1:55432` | `bookshelf` | `local_only_password` | `bookshelf` |
 | MySQL | `127.0.0.1:53306` | `bookshelf` | `local_only_password` | `reporting` |
 | MongoDB | `127.0.0.1:57017` | `bookshelf` | `local_only_password` | `bookshelf` (auth database: `admin`) |
-
-`docker compose down` stops them (your data stays). `docker compose down -v`
-also deletes the data.
 
 ## Logins to try
 
@@ -71,9 +106,10 @@ of this, copy `.env.example` to `.env` and edit it.
 
 The app sends a sign-up code, a password reset code and an order confirmation.
 
-- **With Docker:** open Mailpit at <http://127.0.0.1:58025> to read every email.
-  Nothing reaches a real inbox. Tests can read them with Mailpit's API, for
-  example `http://127.0.0.1:58025/api/v1/search?query=to:you@example.com`.
+- **With Docker:** open Mailpit at <http://127.0.0.1:58025> to read every email
+  (in a Codespace: port 58025 in the **Ports** tab). Nothing reaches a real inbox.
+  Tests can read them with Mailpit's API, for example
+  `http://127.0.0.1:58025/api/v1/search?query=to:you@example.com`.
 - **Without Docker:** every email is printed in the terminal where the app runs,
   and saved as a text file in `practice-app/data/outbox/`.
 
@@ -95,6 +131,15 @@ The app sends a sign-up code, a password reset code and an order confirmation.
 | `4000 0000 0000 9995` | Times out (504, after 3 seconds) |
 
 Any expiry date in the future (`12/30`) and any 3-digit CVC (`123`).
+
+## Safety
+
+- Every port is published on `127.0.0.1`, so other computers cannot reach it.
+- The app refuses to start on any other address (for example `HOST=0.0.0.0`)
+  while it still uses the fake passwords from `.env.example`. Inside Docker it
+  listens on `0.0.0.0`, but only because `docker-compose.yml` publishes its port
+  on `127.0.0.1`; keep those two lines as they are.
+- The app runs as a normal user inside its container, never as root.
 
 ## The app's own tests
 

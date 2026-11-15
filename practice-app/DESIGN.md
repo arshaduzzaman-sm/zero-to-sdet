@@ -84,7 +84,8 @@ as real requirements to design tests from.
 - See every order; move an order to `shipped` or `delivered`.
 - **Reporting sync:** copy orders into the MySQL reporting database (also runs
   by itself every minute).
-- **Reset:** put every database back to the original seed data.
+- **Reset:** put every database back to the original seed data (admin page,
+  `POST /api/admin/reset`, or the command `python -m bookshelf reset`).
 
 ### For testers (built in on purpose)
 
@@ -128,7 +129,8 @@ flowchart LR
 | Reviews | MongoDB 8 | Multi-database lessons: a document database next to SQL ones |
 | No-Docker mode | SQLite | Beginners can start the API with one Python command before they learn Docker |
 | Email | Mailpit | Catches every email; has its own API, so tests can read the OTP |
-| Start | `docker compose up` | One command on macOS, Windows and Linux |
+| Start | `docker compose up -d` | One command on macOS, Windows and Linux. The app image runs as a normal user, never root |
+| Online | GitHub Codespaces (`.devcontainer/`) | Each learner gets a private copy; nothing to install. Never shared public hosting |
 
 Host ports avoid the usual defaults, so the app never clashes with a database
 you already run: API `8080`, Mailpit `58025`, PostgreSQL `55432`, MySQL `53306`,
@@ -371,7 +373,8 @@ All under `/api`. JSON in and out. Errors always look like
 ## 7. Planted bugs
 
 About 30 bugs are planted on purpose across the API, database, web page,
-security and performance (step 1.5.7). They are **not** listed here or anywhere
+security and performance: a starter set in step 1.5.7, the rest added with the
+topics that use them (lessons come first, see the brief section 6). They are **not** listed here or anywhere
 in the app's code comments, so Bug Hunts stay fair. The answers live in one
 place, `practice-app/BUG_HUNT_ANSWERS.md`, and on a website page that is folded
 by default. A switch, `PRACTICE_APP_BUGS=off`, turns every planted bug off, so
@@ -383,6 +386,13 @@ lessons can show what correct behavior looks like.
 - Passwords and secrets come from `.env` (never committed); `.env.example` has
   clearly fake values like `local_only_password`.
 - Every service binds to `127.0.0.1`; nothing is reachable from other computers.
+- The app refuses to start on any other address while it still uses the fake
+  values from `.env.example`. In Docker it listens on `0.0.0.0` inside its
+  container, but its port is published on `127.0.0.1` only
+  (`CONTAINER_PORT_IS_LOCAL_ONLY=yes` says so).
+- The app's container runs as a normal user, never root. `.env` and `data/` never
+  go into the image (`.dockerignore`).
+- Codespaces ports are private by default; learners are told never to make them public.
 - Security lessons attack only this app on your own computer.
 - Images are pinned to exact versions; Python packages are pinned with hashes.
 
@@ -401,17 +411,17 @@ phase that first needs them.
 | 1.4 | Order events on a message queue; a separate notification service | Message queues, testing microservices, contract testing |
 | 1.5 | AI helpers for Pillar 6 (with a fake model by default) | AI-Powered QA |
 
-## 10. Folder layout (planned)
+## 10. Folder layout
 
 ```text
 practice-app/
 ├── README.md              # how to start, reset and stop it
 ├── DESIGN.md              # this page
-├── docker-compose.yml
+├── docker-compose.yml     # the app, three databases and Mailpit
+├── Dockerfile             # the app's image (pinned base, packages checked by hash)
 ├── .env.example
 ├── requirements.in/.txt   # the app's Python packages (pinned with hashes)
-├── bookshelf/             # the FastAPI app: api/ (one file per area), web/, templates/, static/, models, seed...
-├── seed/                  # Faker seed data (fixed random seed, same data every time)
-├── scripts/               # reset, wait-for-services
+├── bookshelf/             # the FastAPI app: api/ (one file per area), web/, templates/, static/,
+│                          # models, seed (Faker), guard, `python -m bookshelf [reset]`
 └── tests/                 # the app's own tests (separate from lesson templates)
 ```

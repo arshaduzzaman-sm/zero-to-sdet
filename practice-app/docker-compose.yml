@@ -1,17 +1,59 @@
-# The Practice App's databases and Mailpit. For practice on your own computer only.
+# The whole Practice App: the shop, its three databases and Mailpit.
+# For practice on your own computer (or your own GitHub Codespace) only.
 #
-#   docker compose up -d      start (first time: downloads the images)
+#   docker compose up -d      start everything, then open http://127.0.0.1:8080
+#                             (the first start downloads and builds, a few minutes)
 #   docker compose down       stop (your data stays)
 #   docker compose down -v    stop and delete all data
+#   docker compose exec app python -m bookshelf reset    back to the seed data
 #
 # Every port listens on 127.0.0.1 only, so other computers cannot reach it.
 # Passwords come from .env (copy .env.example); the defaults are fake.
 # Images are pinned to an exact version and digest, so they never change by surprise.
-# Step 1.5.6 adds the app itself to this file.
 
 name: bookshelf
 
 services:
+  app:
+    build: .
+    image: bookshelf-app:1.0.0
+    environment:
+      # Inside the container the app must listen on 0.0.0.0. That is safe only
+      # because the port below is published on 127.0.0.1. Keep both as they are.
+      HOST: 0.0.0.0
+      CONTAINER_PORT_IS_LOCAL_ONLY: "yes"
+      DATABASE_URL: postgresql+psycopg://bookshelf:${POSTGRES_PASSWORD:-local_only_password}@postgres:5432/bookshelf
+      REPORTING_DATABASE_URL: mysql+pymysql://bookshelf:${MYSQL_PASSWORD:-local_only_password}@mysql:3306/reporting
+      MONGODB_URL: mongodb://bookshelf:${MONGO_PASSWORD:-local_only_password}@mongo:27017/?authSource=admin
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      SECRET_KEY: ${SECRET_KEY:-}
+      TOKEN_MINUTES: ${TOKEN_MINUTES:-30}
+      SEED_CUSTOMER_PASSWORD: ${SEED_CUSTOMER_PASSWORD:-Test@1234}
+      SEED_ADMIN_PASSWORD: ${SEED_ADMIN_PASSWORD:-local_only_password}
+      FAKE_CUSTOMERS: ${FAKE_CUSTOMERS:-40}
+      REPORTING_SYNC_SECONDS: ${REPORTING_SYNC_SECONDS:-60}
+      PAYMENT_TIMEOUT_SECONDS: ${PAYMENT_TIMEOUT_SECONDS:-3}
+      CLOCK_CONTROL: ${CLOCK_CONTROL:-on}
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - app-data:/app/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+      mailpit:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/api/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
   postgres:
     image: postgres:17.12@sha256:0d938e975177bef9f1f61f3f9dbcf2e0aa0a139568f66d3415ed8892eb97f6ac
     environment:
@@ -79,6 +121,7 @@ services:
       retries: 20
 
 volumes:
+  app-data:
   postgres-data:
   mysql-data:
   mongo-data:

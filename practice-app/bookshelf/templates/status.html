@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Status{% endblock %}
+{% block content %}
+<div class="narrow">
+  <h1 data-testid="page-title">Status</h1>
+  {% if report.status == "ok" %}
+    <p class="status-banner status-banner-ok" role="status" data-testid="status-summary">Every part of the app is working.</p>
+  {% else %}
+    <p class="status-banner status-banner-bad" role="alert" data-testid="status-summary">Some parts are down. Check that Docker is running, then reload this page.</p>
+  {% endif %}
+
+  <div class="table-scroll">
+  <table class="table" data-testid="status-table">
+    <thead><tr><th scope="col">Part</th><th scope="col">What it does</th><th scope="col">State</th></tr></thead>
+    <tbody>
+      {% for key, name, job in parts %}
+        {% set state = report.services[key] %}
+        <tr data-testid="status-row" data-service="{{ key }}">
+          <td>{{ name }}</td>
+          <td class="muted">{{ job }}</td>
+          <td>
+            {% if state == "up" %}<span class="status status-delivered" data-testid="service-state">Up</span>
+            {% elif state == "console" %}<span class="status status-paid" data-testid="service-state">In the terminal</span>
+            {% else %}<span class="status status-bad" data-testid="service-state">Down</span>{% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+
+  <dl class="facts" data-testid="status-facts">
+    <dt>Version</dt><dd data-testid="status-version">{{ app_version }}</dd>
+    <dt>For machines</dt><dd><a href="/api/health" data-testid="status-health-link">/api/health</a> (JSON, 503 when a part is down)</dd>
+    <dt>API docs</dt><dd><a href="/docs" data-testid="status-docs-link">/docs</a></dd>
+  </dl>
+</div>
+{% endblock %}

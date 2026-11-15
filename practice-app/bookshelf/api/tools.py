@@ -22,13 +22,9 @@ def database_up(session_maker) -> str:
         return "down"
 
 
-@router.get("/health", summary="Is every part of the app up?")
-def health(request: Request) -> JSONResponse:
-    """200 when every part is up, 503 when any part is down.
-
-    `email` is "console" when emails are only printed in the terminal (no SMTP_HOST):
-    that counts as up."""
-    state = request.app.state
+def health_report(app) -> dict:
+    """Every part of the app and whether it is up. Used by /api/health and /status."""
+    state = app.state
     services = {
         "api": "up",
         "main_database": database_up(state.sessionmaker),
@@ -36,9 +32,18 @@ def health(request: Request) -> JSONResponse:
         "reviews_database": "up" if state.reviews.is_up() else "down",
         "email": state.outbox.is_up(),
     }
-    ok = all(state in ("up", "console") for state in services.values())
-    body = {"status": "ok" if ok else "degraded", "services": services}
-    return JSONResponse(body, status_code=200 if ok else 503)
+    ok = all(value in ("up", "console") for value in services.values())
+    return {"status": "ok" if ok else "degraded", "services": services}
+
+
+@router.get("/health", summary="Is every part of the app up?")
+def health(request: Request) -> JSONResponse:
+    """200 when every part is up, 503 when any part is down.
+
+    `email` is "console" when emails are only printed in the terminal (no SMTP_HOST):
+    that counts as up."""
+    body = health_report(request.app)
+    return JSONResponse(body, status_code=200 if body["status"] == "ok" else 503)
 
 
 @router.get("/version", summary="Which version of the app is this?")

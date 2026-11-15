@@ -1,0 +1,5 @@
+# Keep Unix line endings in files that run on Linux (Docker, Codespaces),
+# even when the repository is cloned on Windows.
+*.sh text eol=lf
+Dockerfile text eol=lf
+.devcontainer/* text eol=lf
