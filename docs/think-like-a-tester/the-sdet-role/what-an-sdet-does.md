@@ -108,6 +108,12 @@ flowchart LR
     !!! success "Check: you should now be able to"
         Say what SDET stands for, name the five kinds of work, and explain what the failed test name means.
 
+## When it goes wrong
+
+- **A test fails and you don't know why.** Read the bottom of the output first: the `FAILED` line names the test and the values. Then read the `E` lines just above it. They show what the code gave and what the test expected. Most failures make sense after that.
+- **A test passes, but you think there is still a bug.** Trust your doubt. Try the case by hand. If it is wrong, the test is missing that case, so add it. A test that never fails may be checking the wrong thing.
+- **Someone says "just make the test pass".** Don't change the expected value to match the code without asking why. First check the user story. If the story says $50.00 ships free, the code is wrong, not the test.
+
 ## Common mistakes
 
 !!! warning "Common mistakes"

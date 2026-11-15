@@ -39,6 +39,18 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 2 lessons: "When it goes wrong"
+
+**Done**
+
+- Each of the five Topic 2 lessons now has a "When it goes wrong" section, matching Topic 1 and lesson template step 7a. Examples: a test fails and you don't know why; "it works on my machine"; every skill looks like a gap; "is it bug-free?" before a release; the test environment is broken on execution day.
+
+**Next step**
+
+Topic 3: Test levels and the pyramid.
+
+---
+
 ## 2026-11-16 · Phase 2 · Topic 1 rewritten in a teacher's voice
 
 **Done**

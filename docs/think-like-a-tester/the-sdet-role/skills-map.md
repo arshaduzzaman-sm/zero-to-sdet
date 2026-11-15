@@ -81,6 +81,12 @@ flowchart LR
     !!! success "Check: you should now have"
         Three gaps tied to a real task, each written as a goal with proof you can show.
 
+## When it goes wrong
+
+- **Every skill looks like a gap.** That feeling is normal when you start. Ignore the list for a moment and look only at your next task. Which one or two skills does it really need? Start there.
+- **You picked a skill but have no time to learn it.** Ask your lead for a real task that uses it. Learning on real work counts as work, and it sticks better than a weekend course.
+- **Three months pass and nothing changed.** Your goals were probably too big. Cut each one in half, and give it a proof you can finish in two weeks.
+
 ## The template
 
 The goals go into the 30-60-90 day plan from the [topic page](index.md#templates):

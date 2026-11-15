@@ -105,6 +105,12 @@ flowchart LR
     !!! success "Check: you should now be able to"
         Name the seven principles, and explain why "4 passed" did not prove the shipping code was bug-free.
 
+## When it goes wrong
+
+- **Someone asks "Is it bug-free?" before a release.** Don't say yes. Say what you tested, what you didn't, and what you think the biggest remaining risk is. That answer is honest, and it lets them make the decision.
+- **There is not enough time to test.** That is principle 2 in real life. List your tests by risk, run the top ones first, and tell your lead in writing what will not be tested.
+- **Bugs keep appearing in the same area.** That is principle 4. Ask for more test time there, and ask a developer what makes that code hard to change. The answer often points to the next bug.
+
 ## Common mistakes
 
 !!! warning "Common mistakes"

@@ -98,6 +98,12 @@ We use Arshad's task from the last topic: test password reset in the shop.
     !!! success "Check: you should now be able to"
         Name the seven activities in order, and give one piece of testware for each.
 
+## When it goes wrong
+
+- **There is no time for planning or analysis.** Do a small version, not none: a five-line plan in the ticket, and a list of test conditions on a sticky note. Skipping them completely is how important cases get missed.
+- **The test environment is broken on execution day.** Tell your lead straight away, in writing, with the error. Then work on what you can: design more cases, or review the story. Don't wait silently.
+- **Results are messy and hard to report.** Group them into three lists: passed, failed (with bug links), and not run (with the reason). Even a busy manager can read that in one minute.
+
 ## Common mistakes
 
 !!! warning "Common mistakes"

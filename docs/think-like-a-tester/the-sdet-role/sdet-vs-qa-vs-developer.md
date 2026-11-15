@@ -107,6 +107,12 @@ We follow one real kind of bug through a team. The user story says: "Orders of $
     !!! success "Check: you should now be able to"
         Say what each role does with the same bug, and spot from the tasks in a job ad which role it is.
 
+## When it goes wrong
+
+- **The developer says "it works on my machine".** Share the exact steps, the environment and the data you used. Then try it together on one screen for five minutes. Most "works for me" arguments end the moment both people see the same thing.
+- **Nobody owns the automated tests.** Failures pile up and everyone ignores them. Raise it with your lead: every test suite needs a named owner, and someone who looks at failures every day.
+- **You are asked to do all three jobs at once.** Write down what you can do this sprint, and what will wait. Show it to your lead and let them choose. Saying "yes" to everything usually means doing everything badly.
+
 ## Common mistakes
 
 !!! warning "Common mistakes"
