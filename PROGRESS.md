@@ -37,6 +37,7 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 - Sidebar: unfinished topics show a small "Soon" text label instead of an icon.
 - Top of page: only the Edit button (the "view source" button removed).
 - End of page: feedback and author share one row (`overrides/partials/content.html`), wraps on phones.
+- Top tabs restyled (owner request): soft rounded hover background, active tab in brand blue with a bar that grows from the centre, keyboard focus outline, no motion with reduced-motion.
 - Checked in light, dark and narrow screenshots.
 
 **Next step**

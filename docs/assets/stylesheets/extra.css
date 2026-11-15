@@ -623,3 +623,65 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* ---------- Top tabs: hover pill + active bar that grows from the centre ----
+   One clear "you are here" signal (blue text + bar), a soft hover so the tabs
+   feel clickable, and one small motion when the section changes. */
+.md-tabs__item {
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+.md-tabs__item--active {
+  border-bottom: 0;
+}
+.md-tabs__link {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.4rem;
+  opacity: 1;
+  color: var(--md-default-fg-color--light);
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1),
+    opacity 0.25s;
+}
+.md-tabs__link:hover,
+.md-tabs__link:focus-visible {
+  color: var(--md-default-fg-color);
+  background-color: var(--zts-surface);
+}
+.md-tabs__link:active {
+  background-color: var(--zts-border);
+}
+.md-tabs__link:focus-visible {
+  outline: 2px solid var(--md-typeset-a-color);
+  outline-offset: 0;
+}
+.md-tabs__item--active .md-tabs__link {
+  color: var(--md-typeset-a-color);
+  font-weight: 700;
+}
+.md-tabs__item--active::after {
+  content: "";
+  position: absolute;
+  left: 0.8rem;
+  right: 0.8rem;
+  bottom: 0;
+  height: 0.12rem;
+  border-radius: 0.12rem 0.12rem 0 0;
+  background-color: var(--md-typeset-a-color);
+  transform-origin: center;
+  animation: zts-tab-bar-in 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.md-tabs[hidden] .md-tabs__item--active::after {
+  opacity: 0;
+}
+@keyframes zts-tab-bar-in {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .md-tabs__item--active::after { animation: none; }
+  .md-tabs__link { transition: none; }
+}
