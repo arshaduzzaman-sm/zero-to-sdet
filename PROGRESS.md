@@ -33,6 +33,24 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Gate check (waiting for owner approval)
+
+Gate: "the site runs locally, looks finished with placeholders, and a new topic can be added in under 10 minutes."
+
+| Gate item | Result |
+| --- | --- |
+| Runs locally | Pass. `zensical serve` answers (HTTP 200); `zensical build --strict` has no warnings; `scripts/check.sh`: all 12 checks pass. |
+| Looks finished with placeholders | Pass. All 78 built pages scanned: each has a title and a real description, none is empty, no visible TODO / template braces. Home and all 7 tabs reviewed in light and dark mode. Draft topics show "Coming soon" clearly. |
+| New topic in under 10 minutes | Pass. Timed in a scratch copy (the real repo was not touched): one `new_topic.py` command plus two lines of text, then all 12 checks passed in **6 seconds** of machine time (about 2 to 3 minutes for a person). Menu, overview card, README map, Tags page and code folders updated by themselves. |
+
+Phase 1 steps: 1.1 to 1.8 and 1.10 to 1.17 done. 1.9 (GitHub Discussions) moved to Phase 9 by decision, because Discussions and Giscus need the public repo. Optional owner inputs still open: About photo and a 2 to 3 line bio.
+
+**Next step**
+
+Owner approves the gate, then Phase 1.5: the Practice App (1.5.1 feature list and data model diagram).
+
+---
+
 ## 2026-11-15 · Phase 1 · Step 1.17: share images, share buttons, credit line
 
 **Done**
