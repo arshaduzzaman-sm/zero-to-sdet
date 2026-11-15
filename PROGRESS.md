@@ -35,6 +35,31 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 2: The SDET role
+
+**Done**
+
+- Playbook page: Arshad, a manual tester, is asked to be the team's first SDET and plans his first 90 days through all nine steps. It has real outputs (the app's 177 tests, his skills score), "How an experienced SDET thinks", "Red flags", templates, a Bug Hunt (BH-05, the cart badge) and official resources.
+- Five lessons on the lesson template:
+  - what an SDET does (a real test catching the free shipping bug);
+  - SDET vs QA vs developer (one bug, three roles, how to read a job ad);
+  - skills map (the seven skill areas and the scoring script);
+  - the seven testing principles (ISTQB CTFL v4.0, with real runs: the login tests pass while a reset bug exists, and the full suite catches only 3 of 6 planted bugs);
+  - the test process and testware (the seven ISTQB activities, matched to the 9-step playbook).
+- Template in `modules/think_like_a_tester/the_sdet_role/`: a skills self-assessment CSV, a scoring script (area scores, overall score, three skills to learn next), and Arshad's example. 11 tests.
+- Practice App test fix: the app's tests now switch the planted bugs off for every test. Before, `test_money.py` failed when run on its own, because it never built the app. New setting `BOOKSHELF_TEST_BUGS=on` runs the app's tests with the bugs on, so readers can repeat the principles lesson. Documented in the app README and `conftest.py`.
+- Glossary: 5 new terms (ISTQB, pesticide paradox, defect clustering, test condition, testware). Readability: grade 2.1 to 3.9.
+
+**Open (definition of done)**
+
+- Cheat sheet image per topic, and "read aloud once": same as Topic 1.
+
+**Next step**
+
+Topic 3: Test levels and the pyramid.
+
+---
+
 ## 2026-11-15 · Phase 2 · Topic 1: Learning a new testing area
 
 **Done**

@@ -1,7 +1,7 @@
 ---
 title: "Think Like a Tester: Test Design, Test Cases and Bug Reports"
 description: "Learn how testers think: test design techniques, test cases, bug reports, test plans and how to learn any new testing area."
-updated: "2026-11-15"
+updated: "2026-11-16"
 nav_title: "Think Like a Tester"
 order: 20
 ---
@@ -24,7 +24,7 @@ Before you automate anything, you need to know what to test and why. This pillar
 
     What an SDET does, how it differs from QA, and the seven testing principles.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Test levels and the pyramid**](test-levels-and-the-pyramid/index.md)
 

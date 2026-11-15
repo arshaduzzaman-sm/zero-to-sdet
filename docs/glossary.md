@@ -3,7 +3,7 @@ title: "Software Testing Glossary: Every SDET Term in Plain English"
 description: "Plain-English meanings of every testing and automation term used on Zero to SDET, each linked to the lesson that teaches it."
 tags:
   - Quick reference
-updated: "2026-11-15"
+updated: "2026-11-16"
 nav_title: "Glossary"
 order: 40
 nav_section: "toolbox"
@@ -91,6 +91,11 @@ that teaches it.
 
     Learn more: [Database testing](core-automation/database-testing/index.md)
 
+[](){ #defect-clustering }**Defect clustering**
+:   Most bugs hide in a few parts of a system. When you find one bug, look for more nearby.
+
+    Learn more: [The seven testing principles](think-like-a-tester/the-sdet-role/seven-testing-principles.md)
+
 [](){ #docker }**Docker**
 :   The most common tool for building and running containers.
 
@@ -176,6 +181,11 @@ that teaches it.
 
     Learn more: [Test levels and the pyramid](think-like-a-tester/test-levels-and-the-pyramid/index.md)
 
+[](){ #istqb }**ISTQB (International Software Testing Qualifications Board)**
+:   A group that writes testing exams and a shared list of testing words, used in many countries.
+
+    Learn more: [The seven testing principles](think-like-a-tester/the-sdet-role/seven-testing-principles.md)
+
 ## J
 
 [](){ #json }**JSON (JavaScript Object Notation)**
@@ -230,6 +240,11 @@ that teaches it.
 :   Measuring how fast the app is and how much it can handle before it slows down or breaks.
 
     Learn more: [Performance testing](advanced-testing/performance-testing/index.md)
+
+[](){ #pesticide-paradox }**Pesticide paradox**
+:   Running the same tests again and again finds fewer new bugs over time. New tests and new data find new bugs.
+
+    Learn more: [The seven testing principles](think-like-a-tester/the-sdet-role/seven-testing-principles.md)
 
 [](){ #playbook }**Playbook**
 :   A list of steps a team follows every time for the same kind of job, so nobody has to invent the plan again.
@@ -319,6 +334,11 @@ that teaches it.
 
     Learn more: [Test cases](think-like-a-tester/test-cases/index.md)
 
+[](){ #test-condition }**Test condition**
+:   One thing worth testing, found by reading the story. For example, "a code older than 10 minutes must not work".
+
+    Learn more: [The test process and testware](think-like-a-tester/the-sdet-role/test-process-and-testware.md)
+
 [](){ #test-data }**Test data**
 :   The users, products, orders and other data a test needs to run.
 
@@ -333,6 +353,11 @@ that teaches it.
 :   A picture of a healthy test mix. Many small, fast unit tests at the bottom, fewer integration tests, and only a few slow end-to-end tests at the top.
 
     Learn more: [Test levels and the pyramid](think-like-a-tester/test-levels-and-the-pyramid/index.md)
+
+[](){ #testware }**Testware**
+:   Everything testing produces, such as plans, test cases, test data, scripts, results and reports.
+
+    Learn more: [The test process and testware](think-like-a-tester/the-sdet-role/test-process-and-testware.md)
 
 ## U
 

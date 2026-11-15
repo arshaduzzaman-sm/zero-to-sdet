@@ -162,3 +162,7 @@ databases, set `BOOKSHELF_TEST_DATABASE_URL`, `BOOKSHELF_TEST_REPORTING_URL` and
 `BOOKSHELF_TEST_MONGODB_URL` (see `tests/conftest.py`). Careful: this resets
 the data in those databases. To also check real Mailpit, set
 `BOOKSHELF_TEST_MAILPIT=127.0.0.1:51025:58025`.
+
+The tests check the correct behavior, so the planted Bug Hunt bugs are off
+while they run. To see which planted bugs they would catch, set
+`BOOKSHELF_TEST_BUGS=on`. Today they catch 3 of the 6 planted bugs.

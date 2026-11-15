@@ -6,6 +6,7 @@
 *[CI/CD]: Continuous Integration and Continuous Delivery. A setup that builds the app and runs the tests every time someone changes the code, then helps ship it.
 *[E2E]: End-to-end. A test that goes through the whole app the way a real user would, from the web page down to the database and back.
 *[HTTP]: Hypertext Transfer Protocol. The set of rules web browsers and APIs use to send requests and answers.
+*[ISTQB]: International Software Testing Qualifications Board. A group that writes testing exams and a shared list of testing words, used in many countries.
 *[JSON]: JavaScript Object Notation. A simple text format for data, made of names and values in curly brackets.
 *[QA]: Quality Assurance. All the work a team does to make sure the product is good, including testing.
 *[REST]: Representational State Transfer. The most common style of web API.

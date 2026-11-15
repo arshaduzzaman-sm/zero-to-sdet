@@ -3,7 +3,7 @@ title: "Browse SDET Lessons by Tag"
 description: "Find every Zero to SDET lesson by tag: API, database, BDD, debugging, performance and more."
 tags:
   - Quick reference
-updated: "2026-11-15"
+updated: "2026-11-16"
 nav_title: "Tags"
 order: 50
 nav_section: "toolbox"
@@ -23,7 +23,7 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:api" title="Testing the requests and answers that apps send to each other.">API <span class="zts-tag__count">7</span></a>
 <a class="zts-tag" href="#tag:bdd" title="Writing tests as plain English examples that everyone can read.">BDD <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:bug-reports" title="Writing bug reports that developers can act on fast.">Bug reports <span class="zts-tag__count">1</span></a>
-<a class="zts-tag" href="#tag:career" title="Growing as an SDET, from your first job to senior level.">Career <span class="zts-tag__count">12</span></a>
+<a class="zts-tag" href="#tag:career" title="Growing as an SDET, from your first job to senior level.">Career <span class="zts-tag__count">16</span></a>
 <a class="zts-tag" href="#tag:cicd" title="Running tests automatically every time code changes.">CI/CD <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:clean-code" title="Test code that is easy to read, change and trust.">Clean code <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:cloud" title="Testing apps that run on cloud servers and Kubernetes.">Cloud <span class="zts-tag__count">1</span></a>
@@ -31,7 +31,7 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:debugging" title="Finding out why something failed, step by step.">Debugging <span class="zts-tag__count">6</span></a>
 <a class="zts-tag" href="#tag:docker" title="Running apps and tests in containers, the same way on every computer.">Docker <span class="zts-tag__count">3</span></a>
 <a class="zts-tag" href="#tag:flaky-tests" title="Tests that pass one day and fail the next, and how to fix them.">Flaky tests <span class="zts-tag__count">1</span></a>
-<a class="zts-tag" href="#tag:getting-started" title="The first pages to read if you are new.">Getting started <span class="zts-tag__count">7</span></a>
+<a class="zts-tag" href="#tag:getting-started" title="The first pages to read if you are new.">Getting started <span class="zts-tag__count">8</span></a>
 <a class="zts-tag" href="#tag:git" title="Saving and sharing code changes with your team.">Git <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:interviews" title="Getting ready for SDET job interviews.">Interviews <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:leadership" title="Leading quality for a team or a whole company.">Leadership <span class="zts-tag__count">2</span></a>
@@ -52,11 +52,11 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:reporting" title="Test reports and logs that people understand.">Reporting <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:reviews" title="Finding problems by reading requirements, designs and code, before running anything.">Reviews <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:security" title="Finding common security holes before attackers do.">Security <span class="zts-tag__count">1</span></a>
-<a class="zts-tag" href="#tag:teamwork" title="Working well with developers, product owners and other testers.">Teamwork <span class="zts-tag__count">9</span></a>
-<a class="zts-tag" href="#tag:templates" title="Ready code and documents you can copy into your own work.">Templates <span class="zts-tag__count">4</span></a>
+<a class="zts-tag" href="#tag:teamwork" title="Working well with developers, product owners and other testers.">Teamwork <span class="zts-tag__count">10</span></a>
+<a class="zts-tag" href="#tag:templates" title="Ready code and documents you can copy into your own work.">Templates <span class="zts-tag__count">6</span></a>
 <a class="zts-tag" href="#tag:test-data" title="Creating and managing the data your tests need.">Test data <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:test-design" title="Choosing what to test so you find the most bugs with the fewest tests.">Test design <span class="zts-tag__count">5</span></a>
-<a class="zts-tag" href="#tag:test-planning" title="Deciding what to test, when, and how much is enough.">Test planning <span class="zts-tag__count">9</span></a>
+<a class="zts-tag" href="#tag:test-planning" title="Deciding what to test, when, and how much is enough.">Test planning <span class="zts-tag__count">11</span></a>
 <a class="zts-tag" href="#tag:tools" title="Everyday tools that make testing faster.">Tools <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:ui" title="Testing what people see and click in the app.">UI <span class="zts-tag__count">4</span></a>
 </nav>

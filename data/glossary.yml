@@ -254,3 +254,24 @@
 - term: Playbook
   meaning: A list of steps a team follows every time for the same kind of job, so nobody has to invent the plan again.
   page: think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md
+
+- term: ISTQB
+  stands_for: International Software Testing Qualifications Board
+  meaning: A group that writes testing exams and a shared list of testing words, used in many countries.
+  page: think-like-a-tester/the-sdet-role/seven-testing-principles.md
+
+- term: Pesticide paradox
+  meaning: Running the same tests again and again finds fewer new bugs over time. New tests and new data find new bugs.
+  page: think-like-a-tester/the-sdet-role/seven-testing-principles.md
+
+- term: Defect clustering
+  meaning: Most bugs hide in a few parts of a system. When you find one bug, look for more nearby.
+  page: think-like-a-tester/the-sdet-role/seven-testing-principles.md
+
+- term: Test condition
+  meaning: One thing worth testing, found by reading the story. For example, "a code older than 10 minutes must not work".
+  page: think-like-a-tester/the-sdet-role/test-process-and-testware.md
+
+- term: Testware
+  meaning: Everything testing produces, such as plans, test cases, test data, scripts, results and reports.
+  page: think-like-a-tester/the-sdet-role/test-process-and-testware.md

@@ -1,0 +1,18 @@
+area,skill,level
+Testing basics,Write clear test cases,0
+Testing basics,Use test design techniques (boundary values and more),0
+Testing basics,Write a bug report a developer can act on,0
+Python,Write functions and loops,0
+Python,Read other people's code,0
+Python,Use pytest to write and run tests,0
+API testing,Send requests and check status codes and JSON,0
+API testing,Test login tokens and permissions,0
+UI automation,Find elements with stable locators,0
+UI automation,Write a Playwright test,0
+Databases,Write SELECT queries with JOIN,0
+Databases,Check that the app saved the right data,0
+Tools,Use Git branches and pull requests,0
+Tools,Run tests in a CI pipeline,0
+Tools,Run an app with Docker,0
+Teamwork,Ask good questions and share a test plan,0
+Teamwork,Explain a risk to a developer or manager,0

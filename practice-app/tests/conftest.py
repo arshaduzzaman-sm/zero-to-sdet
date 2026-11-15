@@ -8,6 +8,11 @@ To run the same tests against the Docker databases (docker compose up -d), set:
     BOOKSHELF_TEST_MONGODB_URL      e.g. mongodb://bookshelf:...@127.0.0.1:57017/?authSource=admin
 
 Careful: each test resets those databases, so local practice data is lost.
+
+The tests check the correct behavior, so the planted Bug Hunt bugs are off.
+To see which planted bugs these tests would catch, run them with the bugs on:
+
+    BOOKSHELF_TEST_BUGS=on python -m pytest tests -q
 """
 
 import os
@@ -18,6 +23,7 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
+from bookshelf import bugs
 from bookshelf.config import Settings
 from bookshelf.database import reset_data
 from bookshelf.main import create_app
@@ -25,6 +31,7 @@ from bookshelf.main import create_app
 DATABASE_URL = os.environ.get("BOOKSHELF_TEST_DATABASE_URL", "")
 REPORTING_URL = os.environ.get("BOOKSHELF_TEST_REPORTING_URL", "")
 MONGODB_URL = os.environ.get("BOOKSHELF_TEST_MONGODB_URL", "")
+BUGS_ON = os.environ.get("BOOKSHELF_TEST_BUGS", "off") == "on"
 
 PASSWORD = "Test@1234"
 ADMIN_PASSWORD = "local_only_password"
@@ -45,7 +52,7 @@ def test_settings(**changes) -> Settings:
         fast_password_hashing=True,
         payment_timeout_seconds=0,
         reporting_sync_seconds=0,
-        planted_bugs=False,  # the app's own tests check the correct behavior
+        planted_bugs=BUGS_ON,  # off: the app's own tests check the correct behavior
         fake_customers=0,  # tests use only the fixed seed data, so numbers stay small
     )
     for name, value in changes.items():
@@ -58,6 +65,14 @@ def make_app(**changes):
     if DATABASE_URL or REPORTING_URL or MONGODB_URL:
         reset_data(app)  # shared databases: start every test from the seed data
     return app
+
+
+@pytest.fixture(autouse=True)
+def planted_bugs_off():
+    """Set the bug switch for every test, even a test that never builds the app."""
+    bugs.switch(BUGS_ON)
+    yield
+    bugs.switch(BUGS_ON)
 
 
 @pytest.fixture
