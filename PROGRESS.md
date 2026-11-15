@@ -35,6 +35,28 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1.5 · Step 1.5.8: Practice App tour page, and the Phase 1.5 gate
+
+**Done**
+
+- The first finished page with real content: [Practice App tour](docs/start-here/practice-app-tour/index.md). It follows the lesson template: before you start, what you will learn, why it matters at work, an everyday comparison, a diagram of the parts, then seven steps (start, open the shop, status, API docs, emails, reset, stop), each with a screenshot or the real output. After that come the Bug Hunt hints with the six answers folded, common mistakes, "if you see this error", an exercise with a solution, a quick check, and references.
+- Built for "learn from the page alone": a reader who installs nothing still sees every screen and every output.
+- Four screenshots (shop, status, API docs, Mailpit), 14 to 47 KB each, without metadata, showing only fake data. The Mailpit screenshot is filtered to one `@example.com` address, so no other test email shows.
+- gitleaks flagged two harmless example values on the page (a random request id and the start of a token). Both are now shortened, so the scan stays clean.
+- The page passes the readability check (grade 8 or lower). The menu and README no longer mark it "coming soon".
+
+**Phase 1.5 gate: one-command start on macOS, Windows and Linux**
+
+- macOS: passed (`docker compose up -d`, all five parts healthy).
+- Linux: the setup and all app tests pass in a clean Debian container; Codespaces itself runs on Linux.
+- Windows and a real Codespace: not checked yet, because they need the owner's machine or account. Open items for the owner, at any time. Phase 2 starts now, as the owner asked ("lessons first").
+
+**Next step**
+
+Phase 2: Pillar 1, Think Like a Tester, starting with "Learning a new testing area".
+
+---
+
 ## 2026-11-15 · Phase 1.5 · Step 1.5.7: starter set of planted bugs
 
 **Done**

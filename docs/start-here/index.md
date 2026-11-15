@@ -82,7 +82,7 @@ word in plain English.
 
     Meet the small online shop you will test in every lesson.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Skills Matrix**](skills-matrix.md)
 
