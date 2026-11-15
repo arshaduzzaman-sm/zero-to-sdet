@@ -275,7 +275,8 @@ A small online shop built for testing, in `practice-app/`. **Every topic tests t
 - **Start:** `docker compose up`. A reset script restores the original data. A health check page shows everything is running.
 - **Running it online:** GitHub Codespaces only (owner decision, 2026-11-15). A "Open in Codespaces" button gives each learner their own private copy of the whole app in the cloud, with nothing to install. The app is never hosted on a shared public server, and GitHub Pages hosts only the lesson site (it cannot run the app).
 - **Data:** fake only, seeded with Faker. Passwords are clearly fake (for example `local_only_password`), loaded from `.env`. Every service binds to `localhost` only.
-- **Planted bugs:** about 30 deliberate bugs across API, database, UI, security and performance. Each topic ends with a **"Bug Hunt"**: the reader finds the bugs and writes bug reports. Answers sit on a separate solutions page, folded by default.
+- **Planted bugs:** about 30 deliberate bugs across API, database, UI, security and performance, added over time: a starter set in Phase 1.5, the rest when the topic that needs them is written. Each topic ends with a **"Bug Hunt"**: the reader finds the bugs and writes bug reports. Answers sit on a separate solutions page, folded by default.
+- **The lessons come first (owner decision, 2026-11-15).** The site is the main product; the app is a helper. After Phase 1.5 the app only changes when a lesson needs it. Many readers will never run the app, so every lesson must teach fully from the page alone (section 7.3).
 - **Versioned:** each lesson names the app version it uses, so updates never break old pages.
 
 ---
@@ -322,6 +323,7 @@ Each playbook also has a **"How an experienced SDET thinks about this"** box, a 
 - One new idea at a time. If a page needs three new ideas, it becomes three pages.
 - After every few steps, a **"Check: you should now see…"** line with a screenshot.
 - When something can go wrong, show the real error and the fix.
+- **Learn from the page alone (owner decision, 2026-11-15).** A reader who never installs or runs anything must still learn everything: every command, request and click is followed by its real output or a screenshot on the page, and every exercise solution shows the result too. Running the Practice App is the best way to practise, never a requirement to understand.
 
 ### 7.4 Install and setup steps (every tool)
 
@@ -681,8 +683,8 @@ Gate: the site runs locally, looks finished with placeholders, and a new topic c
 - 1.5.4 Simple web page: log in, product list, cart, checkout.
 - 1.5.5 Email and OTP through Mailpit; file upload and download.
 - 1.5.6 `docker compose up`, reset script, health check page, GitHub Codespaces setup (`.devcontainer/`) with an "Open in Codespaces" button, and a guard that stops the app from starting on a non-local address while it still has the fake default passwords.
-- 1.5.7 Plant the bugs; write the hidden answers page.
-- 1.5.8 Practice App tour pages.
+- 1.5.7 Plant a starter set of bugs (about 6); write the hidden answers page. The other bugs come with the topics that use them.
+- 1.5.8 One short Practice App tour page.
 
 Gate: the app starts with one command on a clean macOS, Windows and Linux machine.
 
@@ -766,6 +768,7 @@ Gate: v1.0 is public, secure and announced. Every new topic after this follows t
 **A lesson is done when:**
 
 - [ ] It follows the lesson template (7.2), including the "Before you start" box, so it makes sense on its own
+- [ ] A reader who runs nothing can still learn everything from the page: every step shows its real output or a screenshot (7.3)
 - [ ] It follows the writing style (section 8) and was read aloud once
 - [ ] It has at least one diagram, and a screenshot or output block for every step (or a listed placeholder)
 - [ ] Every code sample runs, comes from `modules/`, and has a passing test

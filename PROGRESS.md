@@ -28,6 +28,7 @@ Newest entry first. No secrets or personal data in this file.
 | Readability tool | pyphen + own Flesch-Kincaid formula instead of textstat (textstat pulls in nltk and 7 more packages; fewer dependencies is safer). | 2026-11-15 |
 | Share images | Own script with Pillow (owner approved): made at build time into site/, cached, never committed. Zensical cannot make them yet. | 2026-11-15 |
 | Code of Conduct contact | LinkedIn for now; discussed again in Phase 9 (owner may create a project email). | 2026-11-15 |
+| Focus: lessons first | The site and its lessons are the main product; the Practice App is a helper. Finish Phase 1.5 small (starter set of about 6 planted bugs, one short tour page), then build lessons. After that the app only changes when a lesson needs it. Every lesson must teach fully from the page alone, with real output or a screenshot after every step, for readers who never run the app. | 2026-11-15 |
 | Pillar 6: AI-Powered QA | Owner added a new pillar of 11 topics (brief section 11 and Phase 7.5). Saved now, built later. The Pillar 3 topic "AI in testing" moves into it as "Testing AI features". Templates use a fake model in tests (offline, no key, no cost). AI provider for examples: decide when the phase starts. | 2026-11-15 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
