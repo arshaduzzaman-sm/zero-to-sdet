@@ -339,3 +339,15 @@
 - term: Checklist-based testing
   meaning: Testing with a short list of things that must be true for every feature of one kind, like every web form.
   page: think-like-a-tester/test-design-techniques/checklist-based-testing.md
+
+- term: Statement coverage
+  meaning: The share of code lines that ran at least once during the tests. 100% means every line ran, not that every line was checked.
+  page: think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md
+
+- term: Branch coverage
+  meaning: The share of ways through each if (yes and no) that the tests took. It finds paths that line coverage misses.
+  page: think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md
+
+- term: White-box testing
+  meaning: Testing with a view of the code inside, for example to see which lines and branches the tests run.
+  page: think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md

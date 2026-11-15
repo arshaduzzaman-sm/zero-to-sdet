@@ -1,0 +1,19 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# Settings for coverage.py. Put this file in your project's main folder, then run:
+#   python -m coverage run -m pytest
+#   python -m coverage report
+[run]
+# Measure branches (each way through an if), not only lines.
+branch = True
+source = .
+omit =
+    tests/*
+    test_*.py
+
+[report]
+# List the line numbers that never ran.
+show_missing = True
+# Fail if coverage drops below this. Agree the number with your team; it is an example.
+fail_under = 80
+exclude_also =
+    if __name__ == .__main__.:

@@ -34,8 +34,7 @@ No one can test every possible input. A form with one number field already has m
 - [Error guessing](error-guessing.md): try the inputs and actions that break software again and again
 - [Exploratory testing](exploratory-testing.md): focused, time-boxed sessions that find what scripts miss
 - [Checklist-based testing](checklist-based-testing.md): short checklists for web forms and APIs, so the basics are never skipped
-
-One more lesson is on the way: statement and branch coverage, which shows which lines of code your tests really run.
+- [Statement and branch coverage](statement-and-branch-coverage.md): see which lines and branches your tests really run
 
 ## 1. Understand the ask
 
@@ -212,6 +211,12 @@ Copy these into your own notes or project. Each file starts with a line that say
     --8<-- "modules/think_like_a_tester/test_design_techniques/templates/api_endpoint_checklist.md"
     ```
 
+=== ".coveragerc"
+
+    ```ini
+    --8<-- "modules/think_like_a_tester/test_design_techniques/templates/.coveragerc"
+    ```
+
 === "How to use them"
 
     1. Pick the worksheet that fits the rule: one value (groups and edges), several conditions (decision table), or a changing status (state transitions).
@@ -220,6 +225,7 @@ Copy these into your own notes or project. Each file starts with a line that say
     4. Turn each row into one test, or one row of `pytest.mark.parametrize`.
     5. For settings like browsers and devices, run `python pairwise.py NAME=a,b NAME=c,d` to get a small set that covers every pair.
     6. Keep the error guessing and the two checklists next to every test plan, and add your team's own bugs to them.
+    7. Put `.coveragerc` in your project's main folder, then run `python -m coverage run -m pytest` and `python -m coverage report` to find code no test runs.
 
 ## Bug Hunt
 
@@ -233,3 +239,4 @@ Copy these into your own notes or project. Each file starts with a line that say
 - [ISTQB Certified Tester Foundation Level](https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/): chapter 4 covers these techniques
 - [ISTQB Glossary](https://glossary.istqb.org/): equivalence partitioning, boundary value analysis, decision table testing, state transition testing
 - [pytest: How to parametrize tests](https://docs.pytest.org/en/stable/how-to/parametrize.html): turn a worksheet into tests
+- [coverage.py](https://coverage.readthedocs.io/): measure which lines and branches your tests run

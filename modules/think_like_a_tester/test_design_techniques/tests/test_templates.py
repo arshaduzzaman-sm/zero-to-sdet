@@ -208,3 +208,72 @@ def test_the_guesses_probe_shows_the_two_open_questions():
     assert lines["a Bengali name"] == "Username can only use letters and numbers"
     assert lines["wide letters (look like admin)"] == "accepted"
     assert lines["emoji"] == "Username can only use letters and numbers"
+
+
+DEMO = EXAMPLES / "coverage_demo"
+NOT_A_MEMBER_TEST = """
+
+
+def test_a_customer_who_is_not_a_member():
+    assert points_for(3000, member=False, first_order=False) == 30
+"""
+
+
+def coverage_report(folder, *run_options, report_options=()):
+    run(
+        "-m",
+        "coverage",
+        "run",
+        *run_options,
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        cwd=folder,
+    )
+    return run("-m", "coverage", "report", "-m", "--include=points.py", *report_options, cwd=folder)
+
+
+def copy_demo(tmp_path):
+    demo = tmp_path / "demo"
+    shutil.copytree(DEMO, demo, ignore=shutil.ignore_patterns("__pycache__", ".coverage"))
+    return demo
+
+
+def test_the_coverage_template_turns_on_branches():
+    text = (TEMPLATES / ".coveragerc").read_text()
+    assert text.splitlines()[0] == f"# {CREDIT}"
+    assert "branch = True" in text
+    assert "show_missing = True" in text
+
+
+def test_coverage_lesson_lines_say_100_but_branches_find_the_gap(tmp_path):
+    demo = copy_demo(tmp_path)
+    assert "points.py       6      0   100%" in coverage_report(demo).stdout
+
+    branches = coverage_report(demo, "--branch")
+    assert branches.returncode == 0, branches.stdout
+    assert "points.py       6      0      4      2    80%   10->12, 12->14" in branches.stdout
+
+    strict = coverage_report(demo, "--branch", report_options=["--fail-under=90"])
+    assert strict.returncode == 2
+    assert "Coverage failure: total of 80 is less than fail-under=90" in strict.stdout
+
+
+def test_coverage_lesson_the_missing_branch_hides_a_crash_and_the_fix_works(tmp_path):
+    demo = copy_demo(tmp_path)
+    tests = demo / "test_points.py"
+    tests.write_text(tests.read_text() + NOT_A_MEMBER_TEST)
+
+    crash = pytest_in(demo)
+    assert "UnboundLocalError" in crash.stdout
+    assert "1 failed, 1 passed" in crash.stdout
+
+    code = demo / "points.py"
+    old = "    if member:\n        points = order_cents // 100 * 2\n"
+    new = "    points = order_cents // 100\n    if member:\n        points *= 2\n"
+    assert old in code.read_text()
+    code.write_text(code.read_text().replace(old, new))
+    fixed = coverage_report(demo, "--branch")
+    assert "points.py       7      0      4      0   100%" in fixed.stdout

@@ -21,7 +21,7 @@ that teaches it.
 
 <!-- BEGIN glossary (generated from data/glossary.yml, do not edit by hand) -->
 
-<nav class="zts-az" aria-label="Jump to a letter" markdown>[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v)</nav>
+<nav class="zts-az" aria-label="Jump to a letter" markdown>[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w)</nav>
 
 ## A
 
@@ -66,6 +66,11 @@ that teaches it.
 :   A value right at the edge of what is allowed, like 0, 1, 99 and 100 for "1 to 99". Bugs love edges.
 
     Learn more: [Boundary values](think-like-a-tester/test-design-techniques/boundary-values.md)
+
+[](){ #branch-coverage }**Branch coverage**
+:   The share of ways through each if (yes and no) that the tests took. It finds paths that line coverage misses.
+
+    Learn more: [Statement and branch coverage](think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md)
 
 [](){ #bug-report }**Bug report**
 :   A short note that tells a developer what went wrong, how to make it happen again, and what should have happened instead.
@@ -379,6 +384,11 @@ that teaches it.
 
     Learn more: [State transitions](think-like-a-tester/test-design-techniques/state-transitions.md)
 
+[](){ #statement-coverage }**Statement coverage**
+:   The share of code lines that ran at least once during the tests. 100% means every line ran, not that every line was checked.
+
+    Learn more: [Statement and branch coverage](think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md)
+
 [](){ #static-analysis }**Static analysis**
 :   Checking code for mistakes without running it, like a spell checker for code.
 
@@ -459,6 +469,13 @@ that teaches it.
 :   A private folder of Python packages for one project, so projects do not mix up each other's versions.
 
     Learn more: [Environment setup](start-here/environment-setup/index.md)
+
+## W
+
+[](){ #white-box-testing }**White-box testing**
+:   Testing with a view of the code inside, for example to see which lines and branches the tests run.
+
+    Learn more: [Statement and branch coverage](think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md)
 
 <!-- END glossary -->
 

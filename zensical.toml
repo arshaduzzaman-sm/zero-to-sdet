@@ -73,6 +73,7 @@ nav = [
       { "Error guessing" = "think-like-a-tester/test-design-techniques/error-guessing.md" },
       { "Exploratory testing" = "think-like-a-tester/test-design-techniques/exploratory-testing.md" },
       { "Checklist-based testing" = "think-like-a-tester/test-design-techniques/checklist-based-testing.md" },
+      { "Statement and branch coverage" = "think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md" },
     ] },
     { "Static testing and reviews" = "think-like-a-tester/static-testing-and-reviews/index.md" },
     { "Test cases" = "think-like-a-tester/test-cases/index.md" },

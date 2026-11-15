@@ -35,8 +35,30 @@ Newest entry first. No secrets or personal data in this file.
 | No level talk | No "zero to mid level", "junior to mid-level", "first test to senior level" anywhere. The Skills Matrix is grouped by area. | 2026-11-16 |
 | Author's note | Home (short) and About (full): the content comes from the author's work and from what many people shared online, gathered in one place in plain words, with thanks. | 2026-11-16 |
 | No story characters | Pages talk straight to the reader, like a senior engineer explaining real work ("Your lead asks…", "Ask the product owner…"). No named hero whose day the reader follows. Arshad stays only as a test-data name. Style guide and brief section 8 updated. | 2026-11-16 |
+| coverage.py | Added to `requirements.txt` (7.17.3, pinned with hashes) for the statement and branch coverage lesson. Owner said yes. Nothing else changed in the lock file. | 2026-11-16 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-16 · Phase 2 · Topic 4 complete: statement and branch coverage
+
+**Done**
+
+- Owner approved `coverage`. Added to `requirements.in` and compiled with hashes (coverage 7.17.3 only; no other package changed). Installed with `--require-hashes`.
+- Lesson "Statement and branch coverage", with a real demo: a points rule has 100% line coverage, but branch coverage shows 80% with the "not a member" path never taken. One test for that path finds a crash (`UnboundLocalError`) that every non-member customer would have hit. After the fix, branches are 100%. The lesson also shows what coverage can't tell you (mixes of conditions, missing code), and a `fail_under` limit.
+- New template: `.coveragerc` (branches on, missing lines shown, `fail_under`).
+- 50 topic tests (was 45): the demo's numbers, the crash and the fix are all checked.
+- 3 new glossary terms: statement coverage, branch coverage, white-box testing.
+- Topic 4 now has all nine lessons from the brief.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Page: Test design techniques, then Statement and branch coverage.
+
+**Next step**
+
+Topic 5: Static testing and reviews.
 
 ---
 

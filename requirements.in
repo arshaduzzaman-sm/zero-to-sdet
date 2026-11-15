@@ -5,3 +5,4 @@ pytest
 httpx2       # the Practice App's own API tests (FastAPI TestClient; the httpx successor Starlette asks for)
 ruff
 pyphen
+coverage     # which lines and branches the tests run (Test design techniques: coverage lesson)
