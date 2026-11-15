@@ -9,7 +9,7 @@ site_name = "Zero to SDET"
 site_url = "https://arshaduzzaman-sm.github.io/zero-to-sdet/"
 site_description = "Everything you need to become a professional SDET. From your first test to senior level, step by step. Hands-on with Python, real templates, free."
 site_author = "Arshaduzzaman SM"
-copyright = "&copy; 2026 Arshaduzzaman SM &middot; Code MIT &middot; Text CC BY 4.0"
+copyright = "&copy; 2026 Arshaduzzaman SM. Code under MIT, text under CC BY 4.0."
 docs_dir = "docs"
 dev_addr = "127.0.0.1:8001"
 
@@ -117,7 +117,7 @@ nav = [
 
 [project.theme]
 language = "en"
-# No external font requests: system fonts are faster and keep readers private.
+# No external font requests. Fonts are self-hosted in docs/assets/fonts (see extra.css).
 font = false
 features = [
   "announce.dismiss",
@@ -155,16 +155,16 @@ toggle.name = "Switch to light mode"
 [[project.theme.palette]]
 media = "(prefers-color-scheme: light)"
 scheme = "default"
-primary = "blue"
-accent = "light blue"
+primary = "custom"
+accent = "custom"
 toggle.icon = "lucide/sun"
 toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme: dark)"
 scheme = "slate"
-primary = "blue"
-accent = "light blue"
+primary = "custom"
+accent = "custom"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to system preference"
 

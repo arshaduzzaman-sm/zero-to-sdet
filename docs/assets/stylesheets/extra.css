@@ -1,76 +1,478 @@
-/* Zero to SDET: small additions to the theme. Keep this file short and readable. */
+/* ==========================================================================
+   Zero to SDET: design layer on top of the Zensical theme.
+   One memorable element (the hero test run). Everything else stays calm.
+   ========================================================================== */
 
-/* Comfortable reading: a slightly larger body text and line height. */
+/* ---------- Fonts: self-hosted, no requests to Google ---------------------
+   Atkinson Hyperlegible Next: made by the Braille Institute so that letters
+   people often confuse (I l 1, O 0) look different. Good for beginners and code.
+   License: SIL Open Font License 1.1 (assets/fonts/OFL-LICENSE.txt). */
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("../fonts/atkinson-hyperlegible-next-latin-400-normal.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("../fonts/atkinson-hyperlegible-next-latin-400-italic.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("../fonts/atkinson-hyperlegible-next-latin-700-normal.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("../fonts/atkinson-hyperlegible-next-latin-700-italic.woff2") format("woff2");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Mono";
+  src: url("../fonts/atkinson-hyperlegible-mono-latin-400-normal.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Mono";
+  src: url("../fonts/atkinson-hyperlegible-mono-latin-700-normal.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* ---------- Tokens --------------------------------------------------------- */
+:root {
+  --md-text-font: "Atkinson Hyperlegible Next";
+  --md-code-font: "Atkinson Hyperlegible Mono";
+  --zts-radius: 12px;
+  --zts-radius-small: 8px;
+  --zts-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Light: harbor blue on a cool white page, ink-coloured text. */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #1f5fbf;
+  --md-primary-fg-color--light: #4f86d9;
+  --md-primary-fg-color--dark: #174a96;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.75);
+  --md-accent-fg-color: #174a96;
+  --md-accent-fg-color--transparent: rgba(31, 95, 191, 0.1);
+  --md-typeset-a-color: #1f5fbf;
+  --md-typeset-color: #16243a;
+  --md-default-bg-color: #fbfcfe;
+  --zts-surface: #eef3fa;
+  --zts-border: #d6e0ee;
+  --zts-term-bg: #12223a;
+  --zts-term-fg: #dbe6f5;
+  --zts-term-dim: #8ea3c0;
+  --zts-pass: #1e8e5a;
+  --zts-pass-term: #5fd39a;
+  --zts-fail: #c2412d;
+}
+
+/* Dark: deep navy instead of plain black, so the brand blue still feels at home. */
+[data-md-color-scheme="slate"] {
+  --md-hue: 216;
+  --md-default-bg-color: #0f1a2b;
+  --md-primary-fg-color: #1f5fbf;
+  --md-primary-fg-color--light: #4f86d9;
+  --md-primary-fg-color--dark: #174a96;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #9cc3fa;
+  --md-accent-fg-color--transparent: rgba(127, 176, 245, 0.12);
+  --md-typeset-a-color: #7fb0f5;
+  --md-typeset-color: #dbe5f2;
+  --md-default-fg-color: #dbe5f2;
+  --md-default-fg-color--light: #a9b9cf;
+  --zts-surface: #16243a;
+  --zts-border: #263a56;
+  --zts-term-bg: #0a1322;
+  --zts-term-fg: #dbe6f5;
+  --zts-term-dim: #7f93b0;
+  --zts-pass: #4cc38a;
+  --zts-pass-term: #5fd39a;
+  --zts-fail: #f07a63;
+}
+
+/* ---------- Text: calm, clear, never cramped ------------------------------ */
 .md-typeset {
-  font-size: 0.85rem;
-  line-height: 1.7;
+  font-size: 0.86rem;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
-
-/* Home page hero */
-.zts-hero {
-  text-align: center;
-  padding: 2rem 0 1rem;
+.md-typeset p,
+.md-typeset li {
+  text-wrap: pretty;
 }
-.zts-hero h1 {
-  margin-bottom: 0.4rem;
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  text-wrap: balance;
+  letter-spacing: -0.01em;
+  color: var(--md-typeset-color);
+}
+.md-typeset h1 {
   font-weight: 700;
-  color: var(--md-default-fg-color);
 }
-.zts-hero__lead {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--md-primary-fg-color);
+.md-typeset h2 {
+  font-weight: 700;
+  margin-top: 2.2em;
 }
-.zts-hero .md-button {
-  margin: 0.4rem 0.3rem;
+.md-typeset code {
+  border-radius: 6px;
 }
 
-/* Cards: a gentle lift on hover so people see they can click. */
-.md-typeset .grid.cards > ul > li {
-  transition: border-color 125ms, box-shadow 125ms;
+/* Info, tip and warning boxes hold key explanations: same easy size as body text. */
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  border-radius: var(--zts-radius);
 }
-.md-typeset .grid.cards > ul > li:hover {
-  border-color: var(--md-accent-fg-color);
-  box-shadow: var(--md-shadow-z2);
-}
-
-/* "I need to…" cards: let the whole card be the click target. */
-.zts-tasks li {
-  position: relative;
-}
-.zts-tasks li strong a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-size: 0.8rem;
 }
 
-/* Home page: no "edit / view source" buttons over the hero. */
+/* ---------- Focus and press feedback (keyboard and touch users) ---------- */
+.md-typeset a:focus-visible,
+.md-typeset .md-button:focus-visible,
+.md-typeset summary:focus-visible {
+  outline: 3px solid var(--md-accent-fg-color);
+  outline-offset: 3px;
+  border-radius: var(--zts-radius-small);
+}
+.md-typeset .md-button {
+  border-radius: 999px;
+  padding: 0.6em 1.4em;
+  transition: transform 140ms var(--zts-ease), background-color 140ms, border-color 140ms, color 140ms;
+}
+.md-typeset .md-button:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Opening a folded block slides open smoothly (where supported) - */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+  .md-typeset details::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition: block-size 260ms var(--zts-ease), content-visibility 260ms allow-discrete;
+  }
+  .md-typeset details[open]::details-content {
+    block-size: auto;
+  }
+}
+
+/* ---------- Diagrams: soft, rounded, readable in both modes -------------- */
+.md-typeset .mermaid {
+  text-align: center;
+  --md-mermaid-font-family: var(--md-text-font-family);
+  --md-mermaid-node-bg-color: var(--zts-surface);
+  --md-mermaid-node-fg-color: var(--md-primary-fg-color);
+  --md-mermaid-label-fg-color: var(--md-typeset-color);
+  --md-mermaid-label-bg-color: var(--md-default-bg-color);
+  --md-mermaid-edge-color: var(--md-primary-fg-color--light);
+}
+/* Note: the theme draws diagrams in a sealed-off area (shadow DOM), so only
+   the colour variables above reach inside. Shapes and widths are set in each
+   diagram with Mermaid's own options (rounded nodes, wrappingWidth). */
+
+/* ==========================================================================
+   Home page
+   ========================================================================== */
+
+/* No "edit / view source" buttons over the hero. */
 .md-content__inner:has(.zts-hero) > .md-content__button {
   display: none;
 }
 
-/* "Pick your path": two columns on wide screens, so four cards sit as 2 x 2. */
-.md-typeset .grid.zts-paths > ul {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+/* Comfortable line length (about 70 characters) for plain text on the home page. */
+.md-content__inner:has(.zts-hero) > p,
+.md-content__inner:has(.zts-hero) > ol {
+  max-width: 38rem;
 }
 
-/* Diagrams sit in the middle of the page. */
-.md-typeset .mermaid {
-  text-align: center;
+/* Titles inside rows and the route: underline only when pointed at. */
+.md-typeset .zts-tasks li strong a,
+.md-typeset .zts-route li strong a {
+  text-decoration: none;
+}
+.md-typeset .zts-tasks li:hover strong a,
+.md-typeset .zts-route li strong a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* Closing call to action */
-.zts-cta {
-  text-align: center;
-  padding: 1rem 0 2rem;
+/* ---------- Hero: words on the left, a real test run on the right -------- */
+.zts-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 2.4rem;
+  align-items: center;
+  padding: 1.6rem 0 1.2rem;
+}
+.md-typeset .zts-hero h1 {
+  font-size: 2.6rem;
+  line-height: 1.08;
+  margin: 0 0 0.5rem;
+}
+.zts-hero__lead {
+  font-size: 1.15rem;
+  line-height: 1.45;
+  font-weight: 700;
+  color: var(--md-typeset-color);
+  margin: 0 0 0.6rem;
+}
+.zts-hero__sub {
+  color: var(--md-default-fg-color--light);
+  margin: 0 0 1.2rem;
+}
+.zts-hero .md-button {
+  margin: 0.25rem 0.5rem 0.25rem 0;
 }
 
-/* Phones: a little less padding. */
-@media screen and (max-width: 44.9375em) {
-  .zts-hero {
-    padding-top: 1rem;
+/* The terminal window */
+.zts-term {
+  border-radius: var(--zts-radius);
+  background: var(--zts-term-bg);
+  color: var(--zts-term-fg);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 18px 40px -18px rgba(15, 26, 43, 0.55);
+  overflow: hidden;
+  font-family: var(--md-code-font-family);
+  font-size: 0.7rem;
+  line-height: 1.75;
+}
+.zts-term__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--zts-term-dim);
+  font-size: 0.62rem;
+}
+.zts-term__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+.zts-term__title {
+  margin-left: 0.4rem;
+}
+.zts-term__body {
+  padding: 0.8rem 1rem 1rem;
+  overflow-x: auto;
+}
+.zts-term__line {
+  display: block;
+  white-space: pre;
+  opacity: 0;
+  animation: zts-line-in 220ms var(--zts-ease) forwards;
+  animation-delay: calc(var(--i) * 260ms + 300ms);
+}
+.zts-term__prompt { color: var(--zts-term-dim); }
+.zts-term__dim { color: var(--zts-term-dim); }
+.zts-term__pass { color: var(--zts-pass-term); font-weight: 700; }
+.zts-term__summary {
+  color: var(--zts-pass-term);
+  font-weight: 700;
+}
+.zts-term__cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.1em;
+  vertical-align: text-bottom;
+  background: var(--zts-term-fg);
+  animation: zts-blink 1.1s steps(1) infinite;
+}
+@keyframes zts-line-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes zts-blink {
+  50% { opacity: 0; }
+}
+
+/* ---------- "I need to…": compact rows, the whole row is the link -------- */
+.md-typeset .zts-tasks > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15.5rem), 1fr));
+  gap: 0.6rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.md-typeset .zts-tasks > ul > li {
+  position: relative;
+  margin: 0;
+  padding: 0.75rem 0.9rem 0.75rem 3.4rem;
+  border: 1px solid var(--zts-border);
+  border-radius: var(--zts-radius);
+  background: var(--md-default-bg-color);
+  transition: border-color 140ms, background-color 140ms, transform 140ms var(--zts-ease);
+}
+.md-typeset .zts-tasks > ul > li:hover {
+  border-color: var(--md-primary-fg-color--light);
+  background: var(--zts-surface);
+}
+.md-typeset .zts-tasks > ul > li:active {
+  transform: scale(0.985);
+}
+.md-typeset .zts-tasks li p {
+  margin: 0;
+}
+.md-typeset .zts-tasks li p + p {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.md-typeset .zts-tasks li strong a {
+  color: var(--md-typeset-color);
+}
+.md-typeset .zts-tasks li strong a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--zts-radius);
+}
+.md-typeset .zts-tasks li:has(a:focus-visible) {
+  outline: 3px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+}
+.md-typeset .zts-tasks li strong a:focus-visible {
+  outline: none;
+}
+.md-typeset .zts-tasks .twemoji {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.8rem;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: var(--zts-radius-small);
+  background: var(--zts-surface);
+  color: var(--md-primary-fg-color);
+}
+.md-typeset .zts-tasks li:hover .twemoji {
+  background: var(--md-default-bg-color);
+}
+.md-typeset .zts-tasks .twemoji svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* ---------- Role paths: four calm cards, 2 x 2 --------------------------- */
+.md-typeset .grid.zts-paths {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media screen and (max-width: 44em) {
+  .md-typeset .grid.zts-paths {
+    grid-template-columns: minmax(0, 1fr);
   }
-  .zts-hero__lead {
-    font-size: 1.1rem;
+}
+.md-typeset .grid.zts-paths > ul > li {
+  border: 1px solid var(--zts-border);
+  border-radius: var(--zts-radius);
+  box-shadow: none;
+  transition: border-color 140ms;
+}
+.md-typeset .grid.zts-paths > ul > li:hover {
+  border-color: var(--md-primary-fg-color--light);
+  box-shadow: none;
+}
+.md-typeset .grid.zts-paths .twemoji {
+  color: var(--md-primary-fg-color);
+}
+
+/* ---------- The route: six stages, a real numbered sequence -------------- */
+.md-typeset ol.zts-route,
+.md-typeset .zts-route > ol {
+  list-style: none;
+  counter-reset: zts-stage;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 0.6rem 1.2rem;
+}
+.md-typeset .zts-route > ol > li {
+  counter-increment: zts-stage;
+  position: relative;
+  margin: 0;
+  padding: 0.2rem 0 0.8rem 2.9rem;
+}
+.md-typeset .zts-route > ol > li::before {
+  content: counter(zts-stage);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.md-typeset .zts-route > ol > li p {
+  margin: 0;
+}
+.md-typeset .zts-route > ol > li p + p {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* ---------- Closing call to action --------------------------------------- */
+.zts-cta {
+  margin: 2.5rem 0 1rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: var(--zts-radius);
+  background: var(--zts-surface);
+}
+.zts-cta p {
+  margin: 0 0 0.8rem;
+}
+
+/* ---------- Phones and narrow screens ------------------------------------ */
+@media screen and (max-width: 60em) {
+  .zts-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.6rem;
+  }
+  .md-typeset .zts-hero h1 {
+    font-size: 2.1rem;
+  }
+}
+@media screen and (max-width: 30em) {
+  .zts-term {
+    font-size: 0.62rem;
+  }
+  .zts-term__pct {
+    display: none;
+  }
+}
+
+/* ---------- Respect "reduce motion": show everything at once ------------- */
+@media (prefers-reduced-motion: reduce) {
+  .zts-term__line {
+    opacity: 1;
+    animation: none;
+  }
+  .zts-term__cursor {
+    animation: none;
+  }
+  .md-typeset .md-button,
+  .md-typeset .zts-tasks > ul > li,
+  .md-typeset details::details-content {
+    transition: none;
   }
 }

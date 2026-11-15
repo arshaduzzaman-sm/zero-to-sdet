@@ -19,12 +19,21 @@ This page shows the whole journey on one map, then gives you a step-by-step path
 Each box is a group of topics. Follow the arrows from top to bottom.
 
 ```mermaid
+---
+config:
+  flowchart:
+    wrappingWidth: 360
+    nodeSpacing: 30
+    rankSpacing: 34
+---
 flowchart TD
-    A["<b>1. Start Here</b><br/>Set up your computer<br/>Python for testers"] --> B["<b>2. Think Like a Tester</b><br/>Test design, test cases,<br/>bug reports, plans"]
-    B --> C["<b>3. Core Automation</b><br/>pytest, API, database,<br/>BDD, UI with Playwright<br/><i>You are now a junior SDET</i>"]
-    C --> D["<b>4. Infrastructure</b><br/>CI/CD, Docker, Linux,<br/>debugging<br/><i>You are now a mid-level SDET</i>"]
-    D --> E["<b>5. Advanced Testing</b><br/>Performance, security,<br/>contracts, microservices<br/><i>You are now a senior SDET</i>"]
-    E --> F["<b>6. The Professional SDET</b><br/>Releases, metrics,<br/>leading quality<br/><i>Ready to lead</i>"]
+    A("<b>1. Start Here</b><br/>Set up your computer · Python for testers")
+    B("<b>2. Think Like a Tester</b><br/>Test design · test cases · bug reports · plans")
+    C("<b>3. Core Automation</b><br/>pytest · API · database · BDD · Playwright<br/><i>You are now a junior SDET</i>")
+    D("<b>4. Infrastructure</b><br/>CI/CD · Docker · Linux · debugging<br/><i>You are now a mid-level SDET</i>")
+    E("<b>5. Advanced Testing</b><br/>Performance · security · contracts · microservices<br/><i>You are now a senior SDET</i>")
+    F("<b>6. The Professional SDET</b><br/>Releases · metrics · leading quality<br/><i>Ready to lead a team</i>")
+    A --> B --> C --> D --> E --> F
 ```
 
 The line in italics shows roughly which level you reach after each stage.

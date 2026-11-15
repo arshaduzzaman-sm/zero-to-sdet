@@ -27,6 +27,28 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Design pass (owner request: more attractive, beautiful diagrams, perfect text, click animations)
+
+**Design system**
+
+- Colours: harbor blue `#1f5fbf`, deep navy dark mode `#0f1a2b` (not plain black), mist surface `#eef3fa`, ink text `#16243a`, pass green and fail red used only for test results.
+- Font: Atkinson Hyperlegible Next + Mono (Braille Institute, made for legibility; OFL 1.1). Self-hosted in `docs/assets/fonts/` from the official @fontsource npm packages 5.3.0, sha512 integrity verified. About 73 KB. No requests to Google.
+- One memorable element: the home hero runs a pytest session once (6 tests pass). Motion otherwise only answers the reader: button press, row press, folded blocks sliding open. All motion stops under "reduce motion".
+- Home: hero (words left, terminal right), "I need to…" as compact rows with icon chips (whole row clickable, focus ring for keyboard), role paths 2 x 2, the six stages as a real numbered route, comfortable line length.
+- Diagrams: rounded nodes, wide text, brand colours, self-hosted font (Mermaid options per diagram; the theme's shadow DOM blocks outside CSS).
+- Info boxes use the same easy text size as the body. Footer text without dot separators.
+- Checked with screenshots in light and dark mode.
+
+**Files changed**
+
+`docs/assets/stylesheets/extra.css`, `docs/assets/fonts/*`, `docs/index.md`, `docs/learning-path.md`, `zensical.toml`
+
+**Next step**
+
+1.7 About page and footer with the author name (waiting for optional photo and short bio from the owner).
+
+---
+
 ## 2026-11-15 · Phase 1 · Steps 1.5 and 1.6: Home page and Learning Path
 
 **Done**
