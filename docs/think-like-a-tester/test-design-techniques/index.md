@@ -21,8 +21,8 @@ No one can test every possible input. A form with one number field already has m
     Test design works the same way. One test stands in for a whole group of similar inputs. Then you add extra tests at the places where bugs like to hide.
 
 !!! example "Your task"
-    Arshad's shop launches member accounts on Friday. Three things change at once: a new sign-up form, new delivery fees for members, and members can now cancel orders. His lead says: "We have two days. We can't test everything. Which tests give us the most confidence?"
-    This page follows Arshad through that task.
+    Your shop launches member accounts on Friday. Three things change at once: a new sign-up form, new delivery fees for members, and members can now cancel orders. Your lead says: "We have two days. We can't test everything. Which tests give us the most confidence?"
+    This page walks through that task.
 
 ## Jump to what you need
 
@@ -35,9 +35,9 @@ More techniques are on the way in this topic: pairwise testing, error guessing, 
 
 ## 1. Understand the ask
 
-Arshad reads the three stories, then asks the questions the stories don't answer:
+Read the three stories, then ask the questions they don't answer:
 
-| Arshad asks | The product owner answers |
+| You ask | The product owner answers |
 | --- | --- |
 | Sign-up says "age 18 to 120". Is 120 itself allowed? | Yes, both ends are allowed |
 | What can a username contain? | Letters and numbers, 3 to 20 characters |
@@ -45,7 +45,7 @@ Arshad reads the three stories, then asks the questions the stories don't answer
 | Can a member cancel an order that has shipped? | No. Only before it ships. After paying, cancelling gives a refund |
 | What does "done" mean for testing? | Automated tests for the rules, and a short list of what was not tested |
 
-Look at the third question. The story never said express might be free. Arshad only asked because he was already thinking in combinations. That is the first gift of test design: it shows you the questions.
+Look at the third question. The story never said express might be free. You only think to ask because you are already thinking in combinations. This is the first thing test design gives you: better questions.
 
 ## 2. Picture the system
 
@@ -62,28 +62,28 @@ Choosing the technique starts with asking "what kind of rule is this?" A range o
 
 ## 3. Learn just enough
 
-Arshad doesn't read a textbook. He spends 30 minutes on:
+You don't need a textbook. Spend 30 minutes on:
 
 1. This topic's [equivalence partitioning](equivalence-partitioning.md) and [boundary values](boundary-values.md) lessons: they belong together, and cover most form fields.
-2. The [ISTQB Foundation syllabus](https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/), chapter 4, "Test Analysis and Design": the shared names for these techniques, so his plan uses words the whole team knows.
+2. The [ISTQB Foundation syllabus](https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/), chapter 4, "Test Analysis and Design": the shared names for these techniques, so your plan uses words the whole team knows.
 
 ## 4. Get something running
 
-Before he designs anything, Arshad runs the developers' existing tests and tries each feature once by hand. Sign-up works with a normal name and age. Delivery shows a fee. An order can be paid. The basics are alive, so the detailed design is worth doing now. (If the basics were broken, the right move would be to report that first, and wait.)
+Before you design anything, run the developers' existing tests and try each feature once by hand. Sign-up works with a normal name and age. Delivery shows a fee. An order can be paid. The basics are alive, so the detailed design is worth doing now. (If the basics were broken, the right move would be to report that first, and wait.)
 
 ## 5. Decide what to test
 
-Now the techniques do the real work. For each feature, Arshad fills one worksheet from the [templates](#templates):
+Now the techniques do the real work. For each feature, fill one worksheet from the [templates](#templates):
 
 - **Sign-up age and username:** groups and edges. Age has three groups (too young, allowed, too old) and four edge values (17, 18, 120, 121). Username has five groups and four edges. That makes 16 tests instead of millions.
 - **Delivery fee:** a decision table. Three yes/no conditions give 8 rows. Each row is one test.
 - **Order status:** a state table. 6 statuses and 4 actions give 24 cells. 5 are allowed moves, and the other 19 must be refused.
 
-He sorts them by risk. Money first (delivery fee), then what stops a sale (sign-up), then cancelling.
+Then sort them by risk. Money first (delivery fee), then what stops a sale (sign-up), then cancelling.
 
 ## 6. Write a one-page plan
 
-Arshad's plan, shared with the team before he writes any code:
+The plan, shared with the team before any test code is written:
 
 - **In scope:** sign-up rules, delivery fees, order status rules, each with the technique above.
 - **Not in scope:** what the pages look like, speed, and other browsers. Each is noted as a risk, with a reason.
@@ -92,7 +92,7 @@ Arshad's plan, shared with the team before he writes any code:
 
 ## 7. Build in small steps
 
-He writes the tests one technique at a time, and runs them after each one. The whole set runs in a blink:
+Write the tests one technique at a time, and run them after each one. The whole set runs in a blink:
 
 ```bash
 python -m pytest -q
@@ -102,7 +102,7 @@ python -m pytest -q
 49 passed in 0.03s
 ```
 
-Then he does something many people skip. He breaks each rule on purpose, to check the tests would notice. For age, he changes `MIN_AGE <= age` to `MIN_AGE < age`, so an 18-year-old is refused. The group tests still pass. Only the edge test catches it:
+Then do something many people skip: break each rule on purpose, to check the tests would notice. For age, change `MIN_AGE <= age` to `MIN_AGE < age`, so an 18-year-old is refused. The group tests still pass. Only the edge test catches it:
 
 ```text
 FAILED tests/test_signup_edges.py::test_age_at_the_edges[18-expected1] - Asse...
@@ -113,7 +113,7 @@ That one line shows why you need both techniques. The [boundary values](boundary
 
 ## 8. Report and get feedback
 
-Arshad shows his lead the filled decision table, because it is easy for anyone to read and check. He points out the row the story didn't cover (express for big orders), and the answer the product owner gave. He also lists what he didn't test, and why. The lead can now say "yes, that is enough for Friday", or "add this".
+Show your lead the filled decision table, because it is easy for anyone to read and check. Point out the row the story didn't cover (express for big orders), and the answer the product owner gave. Also list what you didn't test, and why. The lead can now say "yes, that is enough for Friday", or "add this".
 
 ## 9. Keep learning on your own
 

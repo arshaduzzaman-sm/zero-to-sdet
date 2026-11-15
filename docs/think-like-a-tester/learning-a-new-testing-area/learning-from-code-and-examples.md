@@ -45,9 +45,9 @@ flowchart LR
 
 ## Step by step
 
-1. **Find the tests.** They usually sit in a folder called `tests`, in files whose names start with `test_`. If you can't find them, ask: "Where do the tests for login live?" It is a perfectly normal question on a new team. Arshad finds his team's login tests in a file called `test_auth.py`.
+1. **Find the tests.** They usually sit in a folder called `tests`, in files whose names start with `test_`. If you can't find them, ask: "Where do the tests for login live?" It is a perfectly normal question on a new team. In our example, the login tests are in a file called `test_auth.py`.
 
-2. **Read the test names first.** Good test names read like sentences. Arshad scrolls through `test_auth.py` and finds:
+2. **Read the test names first.** Good test names read like sentences. Scroll through `test_auth.py` and you find:
 
     ```text
     test_a_code_expires_after_10_minutes
@@ -56,7 +56,7 @@ flowchart LR
     test_reset_password_with_the_code
     ```
 
-    Without reading a single line of code, he already knows four things the team cares about. Names are cheap to read and full of information.
+    Without reading a single line of code, you already know four things the team cares about. Names are cheap to read and full of information.
 
 3. **Read one test like a story.** Here is the start of the team's reset test:
 
@@ -71,7 +71,7 @@ flowchart LR
 
     Don't try to understand every symbol. Tell it as a story instead:
 
-    - **Setup:** ask for a reset code for Arshad, and read the code from the email.
+    - **Setup:** ask for a reset code for the test user Arshad, and read the code from the email.
     - **Action:** send the code with a new password.
     - **Check:** the first try works (200). The second try with the same code fails (`INVALID_CODE`). So a code works only once.
 
@@ -85,7 +85,7 @@ flowchart LR
     | A reset code works only once | `test_reset_password_with_the_code` |
     | Known and unknown emails get the same answer | `test_forgot_password_gives_the_same_answer_for_unknown_emails` |
 
-5. **Look for the gaps.** Now put your risk list next to the "tested" list. Arshad's first high risk was "a reset code older than 10 minutes must not work". He looks again. There is a test for the **sign-up** code expiring. There is no test for the **reset** code expiring. That gap goes straight to the top of his list: it is the first thing he tests by hand.
+5. **Look for the gaps.** Now put your risk list next to the "tested" list. The first high risk in the plan was "a reset code older than 10 minutes must not work". Look again. There is a test for the **sign-up** code expiring. There is no test for the **reset** code expiring. That gap goes straight to the top of your list: it is the first thing to test by hand.
 
 6. **Search the whole folder before you call it a gap.** Tests aren't always where you expect them. Search every test file for a word from your risk, like `expire` or `invoice`. In VS Code, that is **Search in files** (Ctrl+Shift+F, or Cmd+Shift+F on a Mac).
 

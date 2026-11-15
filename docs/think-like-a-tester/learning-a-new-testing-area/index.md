@@ -22,8 +22,8 @@ Sooner or later, your lead will give you a task you have never done. Maybe it is
     Learning a new testing area works the same way: ask, look, try something small, and learn as you go.
 
 !!! example "Your task"
-    Arshad tests an online shop. On Monday his lead says: "Next sprint we test password reset. You have never tested login features, but can you own it?"
-    Arshad has never tested anything to do with passwords. This page follows him through the task, step by step. The shop runs on his own computer, at `http://127.0.0.1:8080`. On your team, the address will be your test environment.
+    You test an online shop. On Monday your lead says: "Next sprint we test password reset. You have never tested login features, but can you own it?"
+    This page walks through that task, step by step, the way you would do it at work. The example shop runs at `http://127.0.0.1:8080`. On your team, the address will be your test environment.
 
 ## Jump to what you need
 
@@ -38,9 +38,9 @@ Sooner or later, your lead will give you a task you have never done. Maybe it is
 
 The first thing to do is not testing. It is finding out what your lead actually wants. "Test password reset" sounds clear, but it hides a lot of questions. Is the web page included? Does "done" mean a plan, or finished tests? When is it due?
 
-Arshad copies the [day-one questions](#templates) and asks his lead five of them in one message:
+Copy the [day-one questions](#templates) and send your lead five of them in one message:
 
-| Arshad asks | His lead answers |
+| You ask | Your lead answers |
 | --- | --- |
 | What exactly should I test? | Forgot password and reset password, in the API and the web page |
 | Why now? | We are adding a "Forgot password?" link to the login page |
@@ -48,11 +48,11 @@ Arshad copies the [day-one questions](#templates) and asks his lead five of them
 | When is it due? | End of next sprint |
 | Where do I test? | The test copy of the shop on your own computer |
 
-That took ten minutes. Now Arshad knows what to test, what not to test, and how to tell when he is finished. Without those answers, he could have worked hard for a week on the wrong thing. [Asking the right questions](asking-the-right-questions.md) has the full list.
+That took ten minutes. Now you know what to test, what not to test, and how to tell when you are finished. Without those answers, you could work hard for a week on the wrong thing. [Asking the right questions](asking-the-right-questions.md) has the full list.
 
 ## 2. Picture the system
 
-Next, draw what you are testing and where the data goes. It doesn't need to be pretty. Boxes and arrows on paper are fine. Arshad reads the API docs and draws this:
+Next, draw what you are testing and where the data goes. It doesn't need to be pretty. Boxes and arrows on paper are fine. From the API docs, the picture looks like this:
 
 ```mermaid
 sequenceDiagram
@@ -72,17 +72,17 @@ Look at the drawing and ask: where could this break? The code could be wrong. Th
 
 ## 3. Learn just enough
 
-Here is a trap many people fall into: they read for days before trying anything. Don't. Give yourself 30 to 60 minutes of reading, aimed only at this task. Arshad reads in this order:
+Here is a trap many people fall into: they read for days before trying anything. Don't. Give yourself 30 to 60 minutes of reading, aimed only at this task. For this task, read in this order:
 
 1. The shop's API docs at `/docs`: the two reset endpoints and their fields (10 minutes).
 2. The [OWASP Forgot Password Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html): a free guide from security experts on what a safe reset must do (20 minutes).
 3. The team's existing tests for login, to see how they test (15 minutes).
 
-He skips everything about encryption, other login methods, and passwords in general. Interesting, but not this task. [Reading official docs fast](reading-official-docs-fast.md) shows how to find the right part quickly.
+Skip everything about encryption, other login methods, and passwords in general. Interesting, but not this task. [Reading official docs fast](reading-official-docs-fast.md) shows how to find the right part quickly.
 
 ## 4. Get something running
 
-Within the first hour, try the feature once by hand. This is the step that turns a scary, vague task into something real. Arshad asks the shop for a reset code:
+Within the first hour, try the feature once by hand. This is the step that turns a scary, vague task into something real. Ask the shop for a reset code:
 
 ```bash
 curl -X POST http://127.0.0.1:8080/api/auth/forgot-password \
@@ -96,9 +96,9 @@ You should see:
 {"message": "If that email has an account, we sent a code to it."}
 ```
 
-Notice something already: the answer doesn't say whether the email has an account. That is on purpose, so strangers can't use this page to find out who shops there. One small try, and Arshad has learned a security rule.
+Notice something already: the answer doesn't say whether the email has an account. That is on purpose, so strangers can't use this page to find out who shops there. One small try, and you have learned a security rule.
 
-His team catches test emails with [Mailpit](https://mailpit.axllent.org/docs/), a tool that collects emails instead of sending them to real people. He opens it and finds:
+In this example, test emails go to [Mailpit](https://mailpit.axllent.org/docs/), a tool that collects emails instead of sending them to real people. Open it and you find:
 
 ```text
 Subject: Your Bookshelf password reset code
@@ -110,7 +110,7 @@ Your code will be different: every code is new and random.
 
 ## 5. Decide what to test
 
-Now list your test ideas, and sort them by risk. Risk means: if this breaks, how badly does it hurt the user or the business? You will never have time to test everything, so the riskiest things go first. Arshad uses the [test design techniques](../test-design-techniques/index.md) to find ideas:
+Now list your test ideas, and sort them by risk. Risk means: if this breaks, how badly does it hurt the user or the business? You will never have time to test everything, so the riskiest things go first. The [test design techniques](../test-design-techniques/index.md) help you find ideas:
 
 | Risk | Test idea | Technique |
 | --- | --- | --- |
@@ -125,7 +125,7 @@ Why is "a short password is refused" low? The shop checks new passwords the same
 
 ## 6. Write a one-page plan
 
-Before you build anything, put the plan on one page and share it. This feels slow, but it is the step that saves the most time. Your lead can spot a wrong idea in five minutes. Without the plan, you might find out in week three. Arshad fills in the [one-page test plan](#templates). You can read [his finished plan](#templates) below and copy its shape.
+Before you build anything, put the plan on one page and share it. This feels slow, but it is the step that saves the most time. Your lead can spot a wrong idea in five minutes. Without the plan, you might find out in week three. Fill in the [one-page test plan](#templates). There is a [finished example plan](#templates) below: copy its shape.
 
 ## 7. Build in small steps
 
@@ -193,7 +193,7 @@ Copy these into your own project. Each one starts with a comment line that says 
     --8<-- "modules/think_like_a_tester/learning_a_new_testing_area/templates/learning_log.md"
     ```
 
-=== "Example: Arshad's plan"
+=== "Example: a finished plan"
 
     ```markdown
     --8<-- "modules/think_like_a_tester/learning_a_new_testing_area/examples/password_reset_test_plan.md"

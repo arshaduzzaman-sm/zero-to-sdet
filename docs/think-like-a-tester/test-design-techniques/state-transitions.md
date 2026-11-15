@@ -42,7 +42,7 @@ Three words to know:
 - **Action** (or event): something that happens, like "ship".
 - **Transition**: an allowed move from one state to another, caused by an action.
 
-Here are the order rules from Arshad's story:
+Here are the order rules from the story:
 
 ```mermaid
 stateDiagram-v2

@@ -97,7 +97,8 @@ Each playbook also has a **"How an experienced SDET thinks about this"** box, a 
   - Code: `create_user(name="Arshad")`, `assert response.json()["name"] == "Arshad"`.
   - Gherkin: `Given Arshad is logged in`, `When Arshad adds 2 books to the cart`.
   - SQL: `INSERT INTO customers (name) VALUES ('Arshad');`
-  - Stories: "Arshad just joined a new team. On his first day, his lead asks him to test the checkout API…" (clearly an example, never presented as real experience).
+  - No story character. Arshad is a test-data name only (users, rows, Gherkin steps), never a person whose day the reader follows (owner decision, 2026-11-16: a cartoon-like hero looks childish on a public repo).
+  - Work situations are written straight to the reader, the way a senior engineer explains a real job: "Your team launches member accounts on Friday. Your lead asks: …", "Ask the product owner…", "A common mistake here is…". Plain, practical, no characters.
 - **Never** use a full name, a real email, phone number, birth date, address or any password pattern I really use. Emails always end in `@example.com`.
 - Arshad is not the only person: second users, admins and customer lists use other names (Faker or common names from many countries), for example "Arshad must not be able to see Maria's order".
 
@@ -123,7 +124,7 @@ Every page should read as if a real person wrote it from their own work and rese
 - Talk the way a good teacher talks: "Here is the trick", "This part trips most people up", "Don't worry if this feels slow at first".
 - Explain how to **think**, not only what to type: what you notice first, what you ask, what you try when the first idea fails.
 - Every topic answers "What do I do when this goes wrong at work?" with concrete steps, not general advice.
-- Prefer one worked example, told like a story, over a list of abstract points.
+- Prefer one worked example from a real work situation over a list of abstract points. Tell it straight to the reader ("Your team…", "You ask…"), the way a senior engineer explains a job to a new colleague. No made-up story characters (owner decision, 2026-11-16).
 - Use plain, everyday English. No stiff or showy words such as "utilize", "facilitate", "comprehensive", "crucial", "landscape", "ensure that", "it is important to note". Say "use", "help", "full", "important", "make sure".
 - Don't open every section the same way, or end every paragraph with a neat summary line. Real writing varies.
 - Point to real resources (official docs, well-known articles, tools) where they help, and say what each one is good for.

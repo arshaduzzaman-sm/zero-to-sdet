@@ -22,8 +22,8 @@ You can test the same rule in very different ways. You can check one small funct
     Software tests work the same way. Most checks belong on the bench. Only a few need the full drive.
 
 !!! example "Your task"
-    Arshad's team runs an online shop. Their tests take ages, and a few fail at random, so people have started to ignore them. His lead says: "Can you work out why our tests are so slow and flaky, and what we should change?"
-    This page follows Arshad through that task, with a small example shop you can run yourself.
+    Your team runs an online shop. The tests take ages, and a few fail at random, so people have started to ignore them. Your lead asks: "Can you work out why our tests are so slow and flaky, and what we should change?"
+    This page walks through that task, with a small example shop you can run yourself.
 
 ## Jump to what you need
 
@@ -35,9 +35,9 @@ You can test the same rule in very different ways. You can check one small funct
 
 ## 1. Understand the ask
 
-"The tests are slow and flaky" could mean many things. Arshad asks before he looks:
+"The tests are slow and flaky" could mean many things. Ask before you look:
 
-| Arshad asks | His lead answers |
+| You ask | Your lead answers |
 | --- | --- |
 | Which tests are slow? | The full run before each release. It takes most of a morning |
 | Which ones fail at random? | Mostly the browser tests for checkout |
@@ -49,7 +49,7 @@ The last answer matters. Tests that nobody owns tend to grow in the easiest dire
 
 ## 2. Picture the system
 
-Arshad draws the shop's parts, and where each kind of test touches them:
+Draw the shop's parts, and where each kind of test touches them:
 
 ```mermaid
 flowchart LR
@@ -65,22 +65,22 @@ Look at the arrows. A UI test goes through every part, so it can break for many 
 
 ## 3. Learn just enough
 
-Arshad reads two well-known articles, about 40 minutes in total:
+Read two well-known articles, about 40 minutes in total:
 
 1. [The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) by Ham Vocke, on Martin Fowler's site: the sections "The Test Pyramid" and "Unit tests" are enough for now.
 2. [The Testing Trophy and Testing Classifications](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) by Kent C. Dodds: a different view, from the world of web front ends.
 
-Then he reads this topic's [test levels](the-test-levels.md) lesson, to see one rule tested at every level.
+Then read this topic's [test levels](the-test-levels.md) lesson, to see one rule tested at every level.
 
 ## 4. Get something running
 
-Before he changes anything, Arshad wants to see the shape of the suite. He sorts the test files into folders by level (`tests/unit`, `tests/api`, `tests/ui` and so on), adds the [conftest.py template](#templates) so each test gets marked with its folder's level, and runs the [pyramid report](#templates):
+Before you change anything, look at the shape of the suite. Sort the test files into folders by level (`tests/unit`, `tests/api`, `tests/ui` and so on), add the [conftest.py template](#templates) so each test gets marked with its folder's level, and run the [pyramid report](#templates):
 
 ```bash
 python pyramid_report.py
 ```
 
-His team's suite looks like this:
+In this example, the team's suite looks like this:
 
 ```text
 Tests per level (a healthy suite is widest at the bottom)
@@ -102,7 +102,7 @@ There it is. Almost everything is tested through the browser: the slowest and mo
 
 ## 5. Decide what to change
 
-Arshad goes through the UI tests one by one, with the [decision chart](#templates). For each one he asks: "What is this test really checking? What is the lowest level that could catch that bug?"
+Go through the UI tests one by one, with the [decision chart](#templates). For each one, ask: "What is this test really checking? What is the lowest level that could catch that bug?"
 
 | UI test today | What it really checks | Better level |
 | --- | --- | --- |
@@ -116,7 +116,7 @@ Most of the "UI tests" were really checking rules. Those belong lower down, wher
 
 ## 6. Write a one-page plan
 
-Arshad's plan, shared with his lead:
+A plan to share with your lead:
 
 - **Goal:** a suite that is widest at the bottom, and a full run that takes minutes, not a morning.
 - **First area:** checkout. Move the money rules to unit tests, the error cases to API tests, and keep one end-to-end checkout journey.
@@ -125,7 +125,7 @@ Arshad's plan, shared with his lead:
 
 ## 7. Build in small steps
 
-He moves one rule at a time. For each one: write the lower-level test, check that it fails when the rule breaks, and only then delete the old UI test. That order matters. If you delete first, you might lose a check without noticing. After checkout, the report for that part of the shop looks like this:
+Move one rule at a time. For each one: write the lower-level test, check that it fails when the rule breaks, and only then delete the old UI test. That order matters. If you delete first, you might lose a check without noticing. After checkout, the report for that part of the shop looks like this:
 
 ```text
 Tests per level (a healthy suite is widest at the bottom)
@@ -141,7 +141,7 @@ Total: 13 tests
 
 ## 8. Report and get feedback
 
-Arshad shows his lead the two reports side by side, the run time before and after, and the list of UI tests he kept, with a reason for each. He also shows one real bug the new integration test caught that the unit tests missed (see [The test levels](the-test-levels.md), step 3). A real catch convinces people more than any chart.
+Show your lead the two reports side by side, the run time before and after, and the list of UI tests you kept, with a reason for each. Also show one real bug the new integration test caught that the unit tests missed (see [The test levels](the-test-levels.md), step 3). A real catch convinces people more than any chart.
 
 ## 9. Keep learning on your own
 

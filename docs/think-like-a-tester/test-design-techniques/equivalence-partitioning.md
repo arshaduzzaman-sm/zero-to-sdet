@@ -44,7 +44,7 @@ The idea behind it: **if the app treats every value in a group the same way, tes
 
 ## Step by step
 
-Arshad's new sign-up form has two fields. The rules, from the story: "Age must be 18 to 120. Username must be 3 to 20 characters, letters and numbers only." Here is the code:
+Say your shop has a new sign-up form with two fields. The rules, from the story: "Age must be 18 to 120. Username must be 3 to 20 characters, letters and numbers only." Here is the code:
 
 ```python
 --8<-- "modules/think_like_a_tester/test_design_techniques/examples/shop/signup.py"

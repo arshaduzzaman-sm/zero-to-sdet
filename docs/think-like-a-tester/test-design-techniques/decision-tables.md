@@ -89,7 +89,7 @@ The delivery rules, as the product owner wrote them in the story:
 
     Rows 1 and 5 can't be filled from the story. Is express free for a big order, like standard is? The story doesn't say. **This is the moment the table pays for itself.** You found a missing rule before a single line of code or test was written.
 
-4. **Ask, and write the answer down.** Arshad asks the product owner: "Is express delivery free for orders of $50 or more?" The answer: "No, express is never free." So row 1 is $4.99 (member price) and row 5 is $9.99. He adds "Express is never free" to the story, so the developer sees it too.
+4. **Ask, and write the answer down.** Ask the product owner: "Is express delivery free for orders of $50 or more?" Say the answer is: "No, express is never free." So row 1 is $4.99 (member price) and row 5 is $9.99. Add "Express is never free" to the story, so the developer sees it too.
 
 5. **Turn each row into a test.** With `parametrize`, the test looks almost exactly like the table:
 

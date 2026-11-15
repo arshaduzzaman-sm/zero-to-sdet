@@ -48,7 +48,7 @@ flowchart TD
 
 ## Step by step
 
-Our example: Arshad is setting up his computer to run the team's tests. The team starts its local test environment with Docker (a tool that runs apps in boxes called containers), using the command `docker compose up -d`. It fails.
+A common example: you are setting up your computer to run the team's tests. The team starts its local test environment with Docker (a tool that runs apps in boxes called containers), using the command `docker compose up -d`. It fails.
 
 1. **Try on your own for about 30 minutes.** Read the error message slowly, word by word. Many errors tell you exactly what is wrong if you read them carefully. Search the official docs for it. Try one idea at a time, and see what changes.
 

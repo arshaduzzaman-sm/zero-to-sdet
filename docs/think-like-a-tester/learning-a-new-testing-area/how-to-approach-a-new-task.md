@@ -48,7 +48,7 @@ flowchart LR
 
 ## Step by step
 
-We use Arshad's task from the [topic page](index.md): "Test password reset in the shop." He has never tested a login feature in his life.
+We use the task from the [topic page](index.md): "Test password reset in the shop." Say you have never tested a login feature before.
 
 1. **Write the task in one sentence, in your own words.** Not your lead's words. Yours. If you can't, you don't understand it yet, and that is your first question.
 
@@ -56,7 +56,7 @@ We use Arshad's task from the [topic page](index.md): "Test password reset in th
     Make sure users can safely get back into their account when they forget their password.
     ```
 
-    Notice the word "safely". Arshad added it himself. It tells him this is partly a security task, which changes what he will test.
+    Notice the word "safely". Your lead didn't say it. You added it, because it tells you this is partly a security task, and that changes what you will test.
 
 2. **Make two lists: what you know, and what you don't.** Give it five minutes. Don't look anything up yet. You are just emptying your head onto paper.
 
@@ -78,7 +78,7 @@ We use Arshad's task from the [topic page](index.md): "Test password reset in th
     | What makes a reset safe? | The [OWASP Forgot Password Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html) |
     | What does "done" mean? | My lead |
 
-4. **Try one small thing.** Pick the easiest unknown you can answer yourself, right now. Arshad asks the shop for a reset code:
+4. **Try one small thing.** Pick the easiest unknown you can answer yourself, right now. For example, ask the shop for a reset code:
 
     ```bash
     curl -X POST http://127.0.0.1:8080/api/auth/forgot-password \

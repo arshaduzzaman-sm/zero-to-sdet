@@ -123,7 +123,7 @@ Kent C. Dodds suggested this shape for testing web front ends. His reasoning: in
 
 ## Try it yourself
 
-Arshad's team looks at their last 10 bugs. Six were "the web form sent the wrong value to the API". Three were "a price was calculated wrong". One was "a typo in a variable name". Which shape fits them better, and what would you add first?
+A team looks at its last 10 bugs. Six were "the web form sent the wrong value to the API". Three were "a price was calculated wrong". One was "a typo in a variable name". Which shape fits them better, and what would you add first?
 
 ??? success "Solution"
     Six of ten bugs were parts not fitting together, so the **trophy** fits this team better: add integration tests between the form and the API first.

@@ -60,19 +60,19 @@ flowchart LR
 
 2. **Tick what you can do alone.** Open the [Skills Matrix](../../start-here/skills-matrix.md). It lists every skill in these areas, each with a link to the lesson that teaches it. Tick a box only if you have done the task yourself, without help. Reading about it, or watching a video, does not count yet. Your ticks stay in your own browser.
 
-3. **Pick three gaps your work needs.** Don't pick the three hardest skills. Pick the three that your next real task needs. Arshad's next task is to automate the checkout check, so he picks:
+3. **Pick three gaps your work needs.** Don't pick the three hardest skills. Pick the three that your next real task needs. Say your next task is to automate the checkout check. Then pick:
 
     | Gap | Why now |
     | --- | --- |
     | Write tests with pytest | Every automated check needs it |
     | Send API requests from Python and check the answer | The checkout test logs in and pays through the API |
-    | Run tests in a CI pipeline | The test must run on every change, not only on his computer |
+    | Run tests in a CI pipeline | The test must run on every change, not only on your computer |
 
-4. **Write each gap as a goal with proof.** "Learn pytest" can't be checked. A goal with proof can. Arshad adds these to his [30-60-90 day plan](index.md#templates):
+4. **Write each gap as a goal with proof.** "Learn pytest" can't be checked. A goal with proof can. Add them to your [30-60-90 day plan](index.md#templates):
 
     | Goal | Proof it is done |
     | --- | --- |
-    | Write tests with pytest | 10 tests for shipping and coupons, reviewed by Maria |
+    | Write tests with pytest | 10 tests for shipping and coupons, reviewed by a developer |
     | Test the API from Python | The checkout test logs in, adds to cart and pays, through the API |
     | Run tests in CI | The tests run on every pull request, and a failure blocks the merge |
 
@@ -116,7 +116,7 @@ The goals go into the 30-60-90 day plan from the [topic page](index.md#templates
 
 ## Try it yourself
 
-Maria is a developer who wants to move into test automation. She writes Python every day, but has never written a test plan or a bug report. Her next task is to test a new password reset feature. Which three gaps should she pick?
+A developer on your team wants to move into test automation. They write Python every day, but have never written a test plan or a bug report. Their next task is to test a new password reset feature. Which three gaps should they pick?
 
 ??? success "Solution"
     One good answer:
@@ -124,10 +124,10 @@ Maria is a developer who wants to move into test automation. She writes Python e
     | Gap | Why now |
     | --- | --- |
     | Use test design techniques (boundary values and more) | To find the risky cases: expired codes, used codes, wrong codes |
-    | Write a one-page test plan sorted by risk | To agree what she will and won't test |
-    | Write a bug report a developer can act on | To report what she finds |
+    | Write a one-page test plan sorted by risk | To agree what will and won't be tested |
+    | Write a bug report a developer can act on | To report what they find |
 
-    She doesn't need Python yet: she already has it. Her gaps are in testing basics, not code. That is common for developers, and the opposite of most manual testers.
+    They don't need Python yet: they already have it. Their gaps are in testing basics, not code. That is common for developers, and the opposite of most manual testers.
 
 ## Quick check
 

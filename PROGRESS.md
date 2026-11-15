@@ -34,8 +34,24 @@ Newest entry first. No secrets or personal data in this file.
 | Real templates only | Templates are the scripts, code snippets, checklists and plans people use at work, ready to adapt. No toy exercises (the skills self-assessment CSV and score script are to be removed, owner said yes). | 2026-11-16 |
 | No level talk | No "zero to mid level", "junior to mid-level", "first test to senior level" anywhere. The Skills Matrix is grouped by area. | 2026-11-16 |
 | Author's note | Home (short) and About (full): the content comes from the author's work and from what many people shared online, gathered in one place in plain words, with thanks. | 2026-11-16 |
+| No story characters | Pages talk straight to the reader, like a senior engineer explaining real work ("Your lead asks…", "Ask the product owner…"). No named hero whose day the reader follows. Arshad stays only as a test-data name. Style guide and brief section 8 updated. | 2026-11-16 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-16 · Phase 2 · Voice: no story characters (owner request)
+
+**Done**
+
+- Owner said the "Arshad's lead asks him…" stories feel cartoon-like and would look childish on a public repo. Pages should explain practically, like a senior engineer, in easy words.
+- Rewrote every story line in Topics 1 to 4 (21 files) to talk straight to the reader: "You test an online shop. Your lead says…", "Ask the product owner…". The worked examples, outputs and steps are unchanged.
+- "Maria" as a teammate is gone too ("a developer on the team"). Arshad stays only as test data (the test user in emails and in code), as the brief says.
+- STYLE_GUIDE.md and PROJECT_BRIEF.md section 8 now say: no story characters.
+
+**Next step**
+
+Topic 4, part B (waiting on the owner's answer about the `coverage` package).
 
 ---
 

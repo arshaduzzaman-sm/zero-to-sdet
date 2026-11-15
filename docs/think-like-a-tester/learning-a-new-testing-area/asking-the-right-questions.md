@@ -50,9 +50,9 @@ flowchart TD
 
 1. **Copy the checklist** from the [template below](#the-template) into a new file or a ticket comment.
 
-2. **Answer what you can yourself first.** Read the ticket, the docs and the code before you ask. Your lead is busy, and they will notice that you did your homework. For the password reset task, Arshad finds these on his own:
+2. **Answer what you can yourself first.** Read the ticket, the docs and the code before you ask. Your lead is busy, and they will notice that you did your homework. For the password reset task, you can find these on your own:
 
-    | Question | Answer | Where he found it |
+    | Question | Answer | Where to find it |
     | --- | --- | --- |
     | Which parts does it touch? | The API, the database and email | The API docs at `/docs` |
     | Are there tests already? | Yes, in the login test file | The team's code |

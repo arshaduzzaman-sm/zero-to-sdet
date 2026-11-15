@@ -1,6 +1,6 @@
 # Test plan: password reset in the online shop
 
-Author: Arshad · Reviewed by: team lead · Date: 2026-11-15
+Author: QA engineer · Reviewed by: team lead · Date: 2026-11-15
 
 ## 1. What and why
 

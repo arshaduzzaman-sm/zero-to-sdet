@@ -56,11 +56,11 @@ Testers spend a lot of time in reference pages, because that is where the limits
 
 ## Step by step
 
-Arshad needs to know exactly what the reset endpoint expects. That is a reference question.
+Say you need to know exactly what the reset endpoint expects. That is a reference question.
 
 1. **Start at the official source.** For an API, that is its own docs page, often at `/docs`. For a tool, it is the tool's own website. A blog post can be helpful later, but it might be old, or about a different version.
 
-2. **Find the one page you need.** Use the docs' search box, or your browser's find (Ctrl+F, or Cmd+F on a Mac). Arshad searches for "reset" and finds `POST /api/auth/reset-password`.
+2. **Find the one page you need.** Use the docs' search box, or your browser's find (Ctrl+F, or Cmd+F on a Mac). Search for "reset" and you find `POST /api/auth/reset-password`.
 
 3. **Read the example first, then the rules.** The example shows you the normal case quickly. The rules show you the limits. Many APIs also publish their rules as a file called `openapi.json`. Here is the part for this endpoint:
 

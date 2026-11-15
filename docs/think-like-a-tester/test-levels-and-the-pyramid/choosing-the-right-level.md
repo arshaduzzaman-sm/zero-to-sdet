@@ -63,7 +63,7 @@ flowchart TB
 
     Go down the questions in order, and stop at the first "yes". The order matters: it pushes every idea as low as it can go.
 
-2. **Write down the test ideas first, without levels.** Arshad's team is adding coupons to checkout. The story says: "SAVE10 takes 10% off. Unknown coupons show an error. Free shipping is worked out after the discount." Arshad lists his ideas, without thinking about levels yet:
+2. **Write down the test ideas first, without levels.** Say your team is adding coupons to checkout. The story says: "SAVE10 takes 10% off. Unknown coupons show an error. Free shipping is worked out after the discount." List your ideas, without thinking about levels yet:
 
     - SAVE10 takes 10% off
     - A $50.00 order with SAVE10 pays shipping
@@ -76,12 +76,12 @@ flowchart TB
 
     Listing first, sorting second, keeps you from forcing ideas into the level you happen to like. Notice the lower-case idea is a question, not a check. Writing ideas down often shows you what the story forgot to say.
 
-3. **Put each idea through the questions.** Here is Arshad's finished table, the "My test ideas" part of the chart:
+3. **Put each idea through the questions.** Here is the finished table, the "My test ideas" part of the chart:
 
     | Test idea | Level | Why this level |
     | --- | --- | --- |
     | SAVE10 takes 10% off | Unit | A rule in one function: `discount()` |
-    | Lower-case "save10" | Unit, after asking | Same function, one more input. Today the code refuses it, so Arshad asks the product owner which is right before writing the test |
+    | Lower-case "save10" | Unit, after asking | Same function, one more input. Today the code refuses it, so ask the product owner which is right before writing the test |
     | A $50.00 order with SAVE10 pays shipping | Integration | The cart combining two rules. This caught a real bug in [the test levels](the-test-levels.md) lesson |
     | An unknown coupon is refused | API | What the API answers: status 400 and the error text |
     | The error shows under the coupon box | UI | Only visible in a browser |

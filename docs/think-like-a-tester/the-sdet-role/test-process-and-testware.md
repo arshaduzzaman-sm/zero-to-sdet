@@ -45,10 +45,10 @@ flowchart LR
 
 ## Step by step
 
-We use Arshad's task from the last topic: test password reset in the shop.
+We use the task from the last topic: test password reset in the shop.
 
 1. **Test planning: decide the goal and the approach.** What to test, what not to test, how, and when it is done.
-    *Testware:* a test plan. Arshad's is the [one-page test plan](../learning-a-new-testing-area/index.md#templates).
+    *Testware:* a test plan. For example, the [one-page test plan](../learning-a-new-testing-area/index.md#templates).
 
 2. **Test monitoring and control: check progress, and change course.** This runs the whole time. If tests find many bugs in one place, you move time there.
     *Testware:* progress notes, short status reports.
@@ -62,7 +62,7 @@ We use Arshad's task from the last topic: test password reset in the shop.
 5. **Test implementation: get everything ready to run.** Write the automated tests, prepare the data, set up the test environment.
     *Testware:* test scripts, test data files, a working test environment.
 
-6. **Test execution: run the tests and compare the results.** Run the tests, and check every result against what you expected. Here Arshad uses the shipping tests from [What an SDET does](what-an-sdet-does.md). He wants to rerun only the $49.99 case, and types:
+6. **Test execution: run the tests and compare the results.** Run the tests, and check every result against what you expected. Here we use the shipping tests from [What an SDET does](what-an-sdet-does.md). To rerun only the $49.99 case, type:
 
     ```bash
     python -m pytest test_shipping.py -v -k 499

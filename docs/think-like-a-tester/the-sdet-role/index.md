@@ -22,8 +22,8 @@ This topic explains what an SDET does, and walks you through the first 90 days i
     **SDET** means Software Development Engineer in Test: a tester who writes code to test software.
 
 !!! example "Your task"
-    Arshad has tested his company's online shop by hand for two years. His lead says: "We want you as the team's first SDET. Can you plan your first 90 days?"
-    This page follows Arshad through that plan. The same steps work if you are starting a new SDET job, joining a new team, or asked to "start automating" for the first time.
+    You have tested your company's online shop by hand for two years. Your lead says: "We want you as the team's first SDET. Can you plan your first 90 days?"
+    This page walks through that plan. The same steps work if you are starting a new SDET job, joining a new team, or asked to "start automating" for the first time.
 
 ## Jump to what you need
 
@@ -35,21 +35,21 @@ This topic explains what an SDET does, and walks you through the first 90 days i
 
 ## 1. Understand the ask
 
-"Be our SDET" can mean many things. Arshad uses the [day-one questions](../learning-a-new-testing-area/index.md#templates) from the last topic and asks his lead:
+"Be our SDET" can mean many things. Use the [day-one questions](../learning-a-new-testing-area/index.md#templates) from the last topic, and ask your lead:
 
-| Arshad asks | His lead answers |
+| You ask | Your lead answers |
 | --- | --- |
 | What should I do more of? | Automate the checks we repeat before every release |
 | What should I do less of? | Testing the same pages by hand every sprint |
 | What does "done" mean after 90 days? | Smoke tests run after every deploy, and the team trusts them |
 | Will I still test by hand? | Yes, for new features and for exploring |
-| Who helps me with code? | Maria, a developer on the team, will review your code |
+| Who helps me with code? | A developer on the team will review your code |
 
 The answers show the job is not "stop testing, start coding". It is testing, plus code that saves the team time.
 
 ## 2. Picture the system
 
-Draw where an SDET fits in the team. Arshad draws how a change travels from an idea to users:
+Draw where an SDET fits in the team: how a change travels from an idea to users.
 
 ```mermaid
 flowchart LR
@@ -65,14 +65,14 @@ The SDET does not wait at the end. They join at the start (reviewing the idea) a
 
 ## 3. Learn just enough
 
-Arshad doesn't try to learn every tool at once. In his first week he works through the [new team onboarding checklist](#templates): access, people, the product, the existing tests. Then he reads two pages on this site:
+Don't try to learn every tool at once. In the first week, work through the [new team onboarding checklist](#templates): access, people, the product, the existing tests. Then read two pages on this site:
 
 1. [What an SDET does](what-an-sdet-does.md) (15 minutes).
-2. [The seven testing principles](seven-testing-principles.md): the ideas his team will expect him to know (20 minutes).
+2. [The seven testing principles](seven-testing-principles.md): the ideas your team will expect you to know (20 minutes).
 
 ## 4. Get something running
 
-The first test most SDETs write on a new team is a **smoke test**: the quickest check that the app is up after a deploy. Arshad copies the [smoke test template](#templates), points it at the shop, and runs it:
+The first test most SDETs write on a new team is a **smoke test**: the quickest check that the app is up after a deploy. Copy the [smoke test template](#templates), point it at the shop, and run it:
 
 ```bash
 BASE_URL=http://127.0.0.1:8080 HEALTH_PATH=/api/health SMOKE_PAGES=/,/login pytest test_smoke.py -v
@@ -88,7 +88,7 @@ test_smoke.py::test_page_loads[/login] PASSED                            [100%]
 ============================== 4 passed in 0.19s ===============================
 ```
 
-Here `BASE_URL` points at a copy of the shop on Arshad's computer. On your team it is your test environment, for example `https://staging.your-company.example`. If a page is missing, the test names it:
+Here `BASE_URL` points at a copy of the shop on a local computer. On your team it is your test environment, for example `https://staging.your-company.example`. If a page is missing, the test names it:
 
 ```text
 FAILED test_smoke.py::test_page_loads[/basket] - AssertionError: /basket answ...
@@ -99,7 +99,7 @@ Four checks in a fifth of a second, after every deploy, forever. That is the kin
 
 ## 5. Decide what to automate first
 
-Arshad lists the checks his team repeats by hand before each release. He runs each one through the [automation readiness checklist](#templates):
+List the checks your team repeats by hand before each release. Run each one through the [automation readiness checklist](#templates):
 
 | Check done by hand today | Worth it? | Reliable? | Decision |
 | --- | --- | --- | --- |
@@ -108,11 +108,11 @@ Arshad lists the checks his team repeats by hand before each release. He runs ea
 | The new homepage banner "looks right" | Changes every month | No, needs a human eye | Keep manual |
 | The monthly sales report adds up | Monthly, 2 hours | Yes, with fixed test data | Automate later, after checkout |
 
-Not every check should be automated. The checklist makes the choice clear, and gives Arshad an answer when someone asks "why not automate everything?"
+Not every check should be automated. The checklist makes the choice clear, and gives you an answer when someone asks "why not automate everything?"
 
 ## 6. Write a one-page plan
 
-Arshad turns his choices into a [30-60-90 day plan](#templates) and agrees it with his lead:
+Turn your choices into a [30-60-90 day plan](#templates), and agree it with your lead:
 
 | When | Goal | Proof it is done |
 | --- | --- | --- |
@@ -124,11 +124,11 @@ Every goal has proof you can show. "Learn Python" can't be checked. "The checkou
 
 ## 7. Build in small steps
 
-Arshad keeps testing by hand while he builds. Each week he automates one check, starting with the most boring and most repeated one. He runs each new test as soon as he writes it, and asks Maria to review the code. The [Python for testers](../../start-here/python-for-testers/index.md) and [pytest](../../core-automation/pytest-framework/index.md) topics teach the code.
+Keep testing by hand while you build. Each week, automate one check, starting with the most boring and most repeated one. Run each new test as soon as you write it, and ask a developer to review the code. The [Python for testers](../../start-here/python-for-testers/index.md) and [pytest](../../core-automation/pytest-framework/index.md) topics teach the code.
 
 ## 8. Report and get feedback
 
-Every two weeks, Arshad shows his lead three things: the tests he added, a problem they caught, and what is still checked by hand. At each check-in he updates the plan's table. Plans change, and that is fine, as long as the change is written down.
+Every two weeks, show your lead three things: the tests you added, a problem they caught, and what is still checked by hand. At each check-in, update the plan's table. Plans change, and that is fine, as long as the change is written down.
 
 ## 9. Keep learning on your own
 
