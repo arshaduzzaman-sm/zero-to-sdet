@@ -27,6 +27,22 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Step 1.11: new topic template
+
+**Done**
+
+- `scripts/new_topic.py`: one command adds a topic: "Coming soon" page (draft), `modules/` folders (templates, examples, exercises, solutions, tests), then runs `build_nav.py`. Picks the order (last, or between two topics with `--after`), checks section, group and folder name, never overwrites.
+- `_new_topic_template/` (not published): README with both stages, the full "First time? Start here" playbook page (brief 7.1), a lesson page skeleton (7.2: before you start, code tabs pulled from `modules/` with snippets, common mistakes, error box, exercise, quick check, references), an example template with the credit line, and its test.
+- Tested in a scratch copy: grouped and ungrouped sections, `--after` gives order 25 between 20 and 30, six error cases stop with a clear message, strict build passes. Template tests pass.
+- CONTRIBUTING: the quick way first.
+- Owner decision: Code of Conduct contact is discussed again in Phase 9 (saved in memory).
+
+**Next step**
+
+Step 1.12: `scripts/check.sh` (build, menu check, tests, link check, gitleaks, readability) and ruff in pre-commit.
+
+---
+
 ## 2026-11-15 · Phase 1 · Step 1.10: repository documents
 
 **Done**
@@ -42,7 +58,7 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 **Open questions**
 
-- Code of Conduct contact: LinkedIn message for now. A project-only email would be more private (owner's choice).
+- Code of Conduct contact: LinkedIn message for now. **Owner decision: discuss again in Phase 9** (CI/CD time); the owner may create a project-only email then, with GitHub "Report content" as backup.
 - The GitHub CLI on this machine is logged in to a different account, so labels `content` and `code` were not created. Create them when convenient (or in Phase 9).
 - Phase 9: turn on private vulnerability reporting (Settings, Security) when the repo is public; add Discussions links to `config.yml`.
 

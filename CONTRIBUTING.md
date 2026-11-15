@@ -41,6 +41,20 @@ A topic is a folder in a section, for example `docs/core-automation/api-testing/
 The menu and the section overview cards are **built from the topic's own front
 matter**, so there is no list to edit by hand.
 
+**The quick way (recommended):** one command makes the page, the code folders
+and the menu entry. It checks the section, group and name for you.
+
+```bash
+.venv/bin/python scripts/new_topic.py --section core-automation --slug api-testing \
+  --title "API testing" --level Intermediate --group "API and databases" \
+  --after pytest-framework --summary "Send requests from Python and check the answers."
+```
+
+When you start writing the real pages, copy them from
+[`_new_topic_template/`](_new_topic_template/README.md).
+
+**By hand**, if you prefer:
+
 1. Pick the section and a short folder name: lowercase, words joined with `-`,
    **no numbers** (the order lives in the front matter).
 2. Create `docs/<section>/<topic>/index.md` with this front matter:
