@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - infrastructure
+nav_title: "Docker for testers"
+order: 60
+group: "Pipelines and environments"
+summary: "Run the same tests the same way on any computer."
 ---
 
 # Docker for testers

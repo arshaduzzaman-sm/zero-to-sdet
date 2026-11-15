@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - infrastructure
+nav_title: "Linux and shell"
+order: 10
+group: "Your toolkit"
+summary: "The commands you need to read logs and move around a server."
 ---
 
 # Linux and shell

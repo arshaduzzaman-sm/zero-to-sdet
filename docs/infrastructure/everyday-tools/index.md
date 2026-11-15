@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - infrastructure
+nav_title: "Everyday tools"
+order: 40
+group: "Your toolkit"
+summary: "Postman or Bruno, the VS Code debugger, and searching big logs."
 ---
 
 # Everyday tools

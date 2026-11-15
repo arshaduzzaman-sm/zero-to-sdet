@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - think-like-a-tester
+nav_title: "Learning a new testing area"
+order: 10
+summary: "A 9-step playbook for any testing task you have never done before."
 ---
 
 # Learning a new testing area

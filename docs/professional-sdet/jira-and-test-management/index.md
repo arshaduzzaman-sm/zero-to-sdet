@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "Jira and test management"
+order: 50
+group: "Working in a team"
+summary: "Tickets, workflows, and linking tests to stories."
 ---
 
 # Jira and test management

@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - core-automation
+nav_title: "API testing"
+order: 20
+group: "API and databases"
+summary: "Send requests from Python and check status codes, JSON, headers and auth."
 ---
 
 # API testing

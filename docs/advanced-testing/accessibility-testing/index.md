@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Accessibility testing"
+order: 90
+group: "Beyond functional testing"
+summary: "Check that everyone can use the app, with WCAG basics and Axe."
 ---
 
 # Accessibility testing

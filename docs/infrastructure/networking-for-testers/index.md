@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - infrastructure
+nav_title: "Networking for testers"
+order: 20
+group: "Your toolkit"
+summary: "DNS, ports, HTTPS, cookies and CORS, explained for testers."
 ---
 
 # Networking for testers

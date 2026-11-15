@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - toolbox
+nav_title: "Test idea banks"
+order: 20
+summary: "Ready lists of test ideas for login, search, checkout and more."
 ---
 
 # Test idea banks

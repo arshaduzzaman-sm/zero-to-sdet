@@ -5,6 +5,10 @@ level: Beginner
 status: draft
 tags:
   - core-automation
+nav_title: "pytest framework"
+order: 10
+group: "Foundations"
+summary: "Your first automated tests: project layout, fixtures, parametrize and markers."
 ---
 
 # pytest framework

@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Testing microservices"
+order: 30
+group: "Services and integrations"
+summary: "Test one service alone, then the conversations between services."
 ---
 
 # Testing microservices

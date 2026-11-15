@@ -5,6 +5,10 @@ level: Senior
 status: draft
 tags:
   - professional-sdet
+nav_title: "Leading quality (senior level)"
+order: 120
+group: "Senior skills"
+summary: "Design test architecture, choose tools and lead quality for a team."
 ---
 
 # Leading quality (senior level)

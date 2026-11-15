@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - core-automation
+nav_title: "UI automation"
+order: 80
+group: "BDD and UI"
+summary: "Click, type and check web pages with Playwright and Page Objects."
 ---
 
 # UI automation

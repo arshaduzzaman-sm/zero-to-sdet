@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - think-like-a-tester
+nav_title: "The SDET role"
+order: 20
+summary: "What an SDET does, how it differs from QA, and the seven testing principles."
 ---
 
 # The SDET role

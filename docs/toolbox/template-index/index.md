@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - toolbox
+nav_title: "Template index"
+order: 30
+summary: "Every template on the site, in one place."
 ---
 
 # Template index

@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Mocking and stubbing"
+order: 10
+group: "Services and integrations"
+summary: "Replace slow or unreliable parts with fakes you control."
 ---
 
 # Mocking and stubbing

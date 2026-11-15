@@ -22,3 +22,14 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
         args: ["--markdown-linebreak-ext=md"]
+
+  # The menu and section overview pages are built from page front matter.
+  # This stops a commit if someone forgot to run the generator.
+  - repo: local
+    hooks:
+      - id: build-nav
+        name: menu and overview pages are up to date
+        entry: .venv/bin/python scripts/build_nav.py --check
+        language: system
+        pass_filenames: false
+        files: ^(docs/.*\.md|zensical\.toml|scripts/build_nav\.py)$

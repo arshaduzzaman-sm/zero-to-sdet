@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - start-here
+nav_title: "Practice App tour"
+order: 40
+summary: "Meet the small online shop you will test in every lesson."
 ---
 
 # Practice App tour

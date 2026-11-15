@@ -4,6 +4,10 @@ description: "Plain-English meanings of every testing and automation term used o
 tags:
   - glossary
 updated: "2026-11-15"
+nav_title: "Glossary"
+order: 40
+nav_section: "toolbox"
+summary: "Every testing word on this site, in plain English."
 ---
 
 # Glossary

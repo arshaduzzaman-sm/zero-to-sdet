@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - start-here
+nav_title: "Environment setup"
+order: 20
+summary: "Install Python, VS Code and Docker, and make your first virtual environment."
 ---
 
 # Environment setup

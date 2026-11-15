@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - professional-sdet
+nav_title: "Release sign-off"
+order: 100
+group: "Releases and quality"
+summary: "Make a clear go or no-go call for a release."
 ---
 
 # Release sign-off

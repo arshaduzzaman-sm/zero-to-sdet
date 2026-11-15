@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "A day in the life"
+order: 10
+group: "Working in a team"
+summary: "From ticket to test to bug report: what a working day looks like."
 ---
 
 # A day in the life

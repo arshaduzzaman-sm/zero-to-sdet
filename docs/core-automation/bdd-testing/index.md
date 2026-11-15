@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - core-automation
+nav_title: "BDD testing"
+order: 70
+group: "BDD and UI"
+summary: "Tests in plain English with Gherkin, using behave or pytest-bdd."
 ---
 
 # BDD testing

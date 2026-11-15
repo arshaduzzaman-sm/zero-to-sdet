@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - infrastructure
+nav_title: "Observability"
+order: 80
+group: "Pipelines and environments"
+summary: "Logs, metrics and traces, and testing safely in production."
 ---
 
 # Observability

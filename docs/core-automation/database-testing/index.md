@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - core-automation
+nav_title: "Database testing"
+order: 30
+group: "API and databases"
+summary: "Write SQL to prove the right data was saved, and test schemas and rules."
 ---
 
 # Database testing

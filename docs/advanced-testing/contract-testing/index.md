@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Contract testing"
+order: 20
+group: "Services and integrations"
+summary: "Catch breaking API changes between teams before release, with Pact."
 ---
 
 # Contract testing

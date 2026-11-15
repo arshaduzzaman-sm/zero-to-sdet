@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "AI in testing"
+order: 140
+group: "More platforms"
+summary: "Test features built on AI, and use AI tools safely in your own work."
 ---
 
 # AI in testing

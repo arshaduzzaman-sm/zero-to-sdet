@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - professional-sdet
+nav_title: "Quality metrics"
+order: 90
+group: "Releases and quality"
+summary: "Measure what matters, and know what not to measure."
 ---
 
 # Quality metrics

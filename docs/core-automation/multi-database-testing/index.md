@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - core-automation
+nav_title: "Multi-database testing"
+order: 40
+group: "API and databases"
+summary: "Run one test on MySQL, PostgreSQL, SQLite and MongoDB."
 ---
 
 # Multi-database testing

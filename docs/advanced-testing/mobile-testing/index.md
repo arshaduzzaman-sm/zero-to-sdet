@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Mobile testing"
+order: 130
+group: "More platforms"
+summary: "Automate Android and iOS apps with Appium."
 ---
 
 # Mobile testing

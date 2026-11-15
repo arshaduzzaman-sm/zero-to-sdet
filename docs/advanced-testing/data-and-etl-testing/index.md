@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Data and ETL testing"
+order: 110
+group: "Data and reliability"
+summary: "Check that data pipelines move and change data correctly."
 ---
 
 # Data and ETL testing

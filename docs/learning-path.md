@@ -4,6 +4,10 @@ description: "The full SDET learning path on one map: what to learn first, what 
 tags:
   - sdet-roadmap
 updated: "2026-11-15"
+nav_title: "Learning Path"
+order: 60
+nav_section: "start-here"
+summary: "The whole journey on one map, plus step-by-step paths for your role."
 ---
 
 # SDET Learning Path

@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "GraphQL testing"
+order: 40
+group: "Services and integrations"
+summary: "Test GraphQL queries, mutations, schemas and errors."
 ---
 
 # GraphQL testing

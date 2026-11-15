@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "Communicating your work"
+order: 70
+group: "Working in a team"
+summary: "Estimates, status updates and explaining risk to managers."
 ---
 
 # Communicating your work

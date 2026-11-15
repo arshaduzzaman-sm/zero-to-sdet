@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "Interview preparation"
+order: 150
+group: "Your career"
+summary: "Common questions, coding tasks and clear answers."
 ---
 
 # Interview preparation

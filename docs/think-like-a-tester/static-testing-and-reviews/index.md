@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - think-like-a-tester
+nav_title: "Static testing and reviews"
+order: 50
+summary: "Find bugs before any code runs, by reviewing requirements and stories."
 ---
 
 # Static testing and reviews

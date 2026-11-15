@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - think-like-a-tester
+nav_title: "Test strategy and planning"
+order: 80
+summary: "Decide what to test first, what not to automate, and when testing is done."
 ---
 
 # Test strategy and planning

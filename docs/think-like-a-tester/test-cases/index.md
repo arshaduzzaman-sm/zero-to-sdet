@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - think-like-a-tester
+nav_title: "Test cases"
+order: 60
+summary: "Write clear test cases, positive and negative, linked to what they check."
 ---
 
 # Test cases

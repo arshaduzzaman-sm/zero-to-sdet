@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Performance testing"
+order: 70
+group: "Beyond functional testing"
+summary: "See what happens under load, with Locust, k6 and JMeter."
 ---
 
 # Performance testing

@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - professional-sdet
+nav_title: "Capstone project"
+order: 130
+group: "Senior skills"
+summary: "Build a full framework against the Practice App, from API to CI."
 ---
 
 # Capstone project

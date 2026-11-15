@@ -27,6 +27,28 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Navigation for scale, part B: menu and overviews built from front matter
+
+**Done**
+
+- `scripts/build_nav.py` builds the menu (`nav` in `zensical.toml`) and the topic cards on every section overview page from each page's own front matter: `nav_title`, `order`, `group` (optional), `summary`, plus `level` and `status` for the card labels. Lessons inside a topic folder are picked up automatically.
+- Adding a topic now means: make the folder and `index.md` with those fields, run the script. No hand-written list anywhere.
+- One-off migration added the fields to all 70 pages from the old menu. Verified: same 74 menu entries, same labels.
+- Groups in the four big sections (Core Automation, Infrastructure, Advanced Testing, Professional SDET). The breadcrumb skips group names (`extra.nav_groups`, written by the script; a group may not share a name with a page).
+- Section overview pages: one card per topic (whole card clickable, level and "Coming soon" as text labels, small lift on hover, none with reduced motion).
+- Pre-commit hook `build-nav` runs `build_nav.py --check`. Tested: a changed label without regenerating fails, a missing `summary` fails with a clear message.
+- Bug found and fixed: the theme treated the first topic of a group as the group's own page (topics vanished from the sidebar). Topics inside groups are now one-page sections.
+
+**How to check**
+
+Open http://127.0.0.1:8001/zero-to-sdet/core-automation/ and http://127.0.0.1:8001/zero-to-sdet/advanced-testing/: grouped sidebar, cards per group, breadcrumb "Home > Core Automation > API testing" on a topic.
+
+**Next step**
+
+Step 1.10: repository documents. Add "how to add a topic" (the front matter fields above) to CONTRIBUTING.md.
+
+---
+
 ## 2026-11-15 · Phase 1 · Navigation for scale, part A (owner request: professional UI that stays clean at 2000+ topics)
 
 **Done**

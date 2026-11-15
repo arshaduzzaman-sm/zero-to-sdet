@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "gRPC and WebSocket testing"
+order: 50
+group: "Services and integrations"
+summary: "Test streams and live messages that are not REST."
 ---
 
 # gRPC and WebSocket testing

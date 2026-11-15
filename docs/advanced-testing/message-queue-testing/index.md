@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Message queue testing"
+order: 60
+group: "Services and integrations"
+summary: "Test Kafka and RabbitMQ flows, where answers arrive later."
 ---
 
 # Message queue testing

@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "Working with developers"
+order: 60
+group: "Working in a team"
+summary: "Talk about bugs without blame, review code and pair well."
 ---
 
 # Working with developers

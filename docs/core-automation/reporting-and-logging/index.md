@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - core-automation
+nav_title: "Reporting and logging"
+order: 90
+group: "Reports"
+summary: "Reports people can read: pytest-html, Allure, logs and screenshots."
 ---
 
 # Reporting and logging

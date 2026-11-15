@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - core-automation
+nav_title: "API + database"
+order: 50
+group: "API and databases"
+summary: "Call the API, then prove the change landed in the database."
 ---
 
 # API + database

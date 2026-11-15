@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - toolbox
+nav_title: "Cheat sheets"
+order: 10
+summary: "One-page reminders: SQL, pytest, HTTP, Git, Linux, Docker and more."
 ---
 
 # Cheat sheets

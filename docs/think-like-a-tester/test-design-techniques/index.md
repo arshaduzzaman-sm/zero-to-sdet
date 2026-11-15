@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - think-like-a-tester
+nav_title: "Test design techniques"
+order: 40
+summary: "Boundary values, decision tables and more: find the tests that catch the most bugs."
 ---
 
 # Test design techniques

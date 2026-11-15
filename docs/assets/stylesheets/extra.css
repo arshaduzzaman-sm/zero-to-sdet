@@ -685,3 +685,79 @@
   .md-tabs__item--active::after { animation: none; }
   .md-tabs__link { transition: none; }
 }
+
+/* ---------- Section overview: topic cards (built by scripts/build_nav.py) ---
+   The whole card is one link. Level and status are text labels, so they work
+   without colour. Hover lifts the card a little to show it can be clicked. */
+.md-typeset .grid.cards.zts-topics {
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+.md-typeset .grid.cards.zts-topics > ul > li {
+  position: relative;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--zts-border);
+  border-radius: var(--zts-radius);
+  background: var(--md-default-bg-color);
+  box-shadow: none;
+  transition: border-color 0.15s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.md-typeset .grid.cards.zts-topics > ul > li:hover,
+.md-typeset .grid.cards.zts-topics > ul > li:focus-within {
+  border-color: var(--md-typeset-a-color);
+  box-shadow: 0 0.4rem 1rem -0.5rem rgb(31 95 191 / 0.35);
+  transform: translateY(-2px);
+}
+.md-typeset .grid.cards.zts-topics > ul > li:active {
+  transform: translateY(0) scale(0.99);
+}
+.md-typeset .grid.cards.zts-topics > ul > li > p {
+  margin: 0.35rem 0 0;
+}
+.md-typeset .grid.cards.zts-topics > ul > li > p:first-child {
+  margin-top: 0;
+}
+.md-typeset .grid.cards.zts-topics > ul > li > p:first-child a {
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+}
+.md-typeset .grid.cards.zts-topics > ul > li > p:first-child a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.md-typeset .grid.cards.zts-topics > ul > li > p:first-child a:focus-visible {
+  outline: none;
+}
+.md-typeset .grid.cards.zts-topics > ul > li:has(a:focus-visible) {
+  outline: 2px solid var(--md-typeset-a-color);
+  outline-offset: 2px;
+}
+.md-typeset .grid.cards.zts-topics > ul > li > p:nth-child(2) {
+  color: var(--md-default-fg-color--light);
+}
+.zts-chip {
+  display: inline-block;
+  padding: 0.05rem 0.5rem;
+  margin: 0.3rem 0.25rem 0 0;
+  border-radius: 999px;
+  border: 1px solid var(--zts-border);
+  background: var(--zts-surface);
+  color: var(--md-default-fg-color);
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.zts-chip--soon {
+  background: transparent;
+  color: var(--md-default-fg-color--light);
+  font-weight: 400;
+}
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .grid.cards.zts-topics > ul > li { transition: none; }
+  .md-typeset .grid.cards.zts-topics > ul > li:hover,
+  .md-typeset .grid.cards.zts-topics > ul > li:focus-within,
+  .md-typeset .grid.cards.zts-topics > ul > li:active { transform: none; }
+}

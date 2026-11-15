@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - infrastructure
+nav_title: "Cloud and Kubernetes basics"
+order: 70
+group: "Pipelines and environments"
+summary: "Cloud test environments and Kubernetes in plain words."
 ---
 
 # Cloud and Kubernetes basics

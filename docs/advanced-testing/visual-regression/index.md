@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Visual regression"
+order: 100
+group: "Beyond functional testing"
+summary: "Catch layout changes by comparing screenshots."
 ---
 
 # Visual regression

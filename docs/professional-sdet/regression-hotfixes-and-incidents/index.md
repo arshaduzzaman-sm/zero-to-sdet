@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "Regression, hotfixes and incidents"
+order: 80
+group: "Releases and quality"
+summary: "Pick the right tests for a change, and stay calm in an incident."
 ---
 
 # Regression, hotfixes and incidents

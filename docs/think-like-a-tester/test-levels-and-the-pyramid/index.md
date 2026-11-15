@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - think-like-a-tester
+nav_title: "Test levels and the pyramid"
+order: 30
+summary: "Unit, integration, API, UI and end-to-end tests, and how many of each to write."
 ---
 
 # Test levels and the pyramid

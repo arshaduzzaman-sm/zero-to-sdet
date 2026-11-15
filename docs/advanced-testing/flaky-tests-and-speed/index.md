@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Flaky tests and speed"
+order: 120
+group: "Data and reliability"
+summary: "Fix tests that pass one day and fail the next, and run them faster."
 ---
 
 # Flaky tests and speed

@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - core-automation
+nav_title: "Data-driven testing"
+order: 60
+group: "API and databases"
+summary: "Feed tests from CSV, JSON, YAML or Excel, with fake data from Faker."
 ---
 
 # Data-driven testing

@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - start-here
+nav_title: "How to use this site"
+order: 10
+summary: "How the site is organized, which path fits you, and where to ask for help."
 ---
 
 # How to use this site

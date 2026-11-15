@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - infrastructure
+nav_title: "CI/CD (teaching topic)"
+order: 50
+group: "Pipelines and environments"
+summary: "Run your tests on every change with GitHub Actions."
 ---
 
 # CI/CD (teaching topic)

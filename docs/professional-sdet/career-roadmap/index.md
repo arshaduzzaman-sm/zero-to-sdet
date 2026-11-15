@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "Career roadmap"
+order: 140
+group: "Your career"
+summary: "What junior, mid, senior and lead SDETs know and do."
 ---
 
 # Career roadmap

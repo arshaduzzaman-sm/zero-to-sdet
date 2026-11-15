@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - think-like-a-tester
+nav_title: "Bug reports"
+order: 70
+summary: "Report a bug so a developer can fix it fast: steps, severity and priority."
 ---
 
 # Bug reports

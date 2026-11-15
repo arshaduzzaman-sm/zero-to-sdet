@@ -7,6 +7,9 @@ tags:
   - sdet-roadmap
   - skills
 updated: "2026-11-15"
+nav_title: "Skills Matrix"
+order: 50
+summary: "Every SDET skill from junior to lead. Tick what you know and find your next lesson."
 ---
 
 # SDET Skills Matrix: Every Skill from Junior to Lead

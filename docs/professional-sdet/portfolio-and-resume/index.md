@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "Portfolio and resume"
+order: 160
+group: "Your career"
+summary: "Show your work on GitHub and write a tester resume."
 ---
 
 # Portfolio and resume

@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - infrastructure
+nav_title: "Debugging toolkit"
+order: 30
+group: "Your toolkit"
+summary: "Find the real cause of a failure with DevTools, curl and stack traces."
 ---
 
 # Debugging toolkit

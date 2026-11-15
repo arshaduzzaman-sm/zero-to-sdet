@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Tricky real-world cases"
+order: 150
+group: "More platforms"
+summary: "Emails, OTPs, file uploads, PDFs, payments and time zones."
 ---
 
 # Tricky real-world cases

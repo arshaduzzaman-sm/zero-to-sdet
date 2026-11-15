@@ -5,6 +5,9 @@ level: Beginner
 status: draft
 tags:
   - start-here
+nav_title: "Python for testers"
+order: 30
+summary: "Just enough Python to write real tests: data, loops, functions, classes and files."
 ---
 
 # Python for testers

@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "Clean test code"
+order: 110
+group: "Senior skills"
+summary: "Test code that is easy to read, change and trust."
 ---
 
 # Clean test code

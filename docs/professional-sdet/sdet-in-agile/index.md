@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "SDET in Agile"
+order: 30
+group: "Working in a team"
+summary: "Scrum, user stories, Three Amigos and shift-left, from a tester's view."
 ---
 
 # SDET in Agile

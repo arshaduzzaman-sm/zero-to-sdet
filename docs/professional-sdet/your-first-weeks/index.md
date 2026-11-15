@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "Your first weeks in a new job"
+order: 20
+group: "Working in a team"
+summary: "Learn a framework someone else wrote and earn trust in a new team."
 ---
 
 # Your first weeks in a new job

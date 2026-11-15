@@ -15,7 +15,11 @@
         </a>
       </li>
       {% for nav_item in page.ancestors | reverse %}
-        {{ item.render(nav_item) }}
+        {#- Skip menu groups ("API and databases"): they are headings, not pages.
+            scripts/build_nav.py lists them in extra.nav_groups. -#}
+        {% if nav_item.title not in (config.extra.nav_groups or []) %}
+          {{ item.render(nav_item) }}
+        {% endif %}
       {% endfor %}
     </ol>
   </nav>

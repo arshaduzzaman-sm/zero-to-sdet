@@ -5,6 +5,10 @@ level: Intermediate
 status: draft
 tags:
   - professional-sdet
+nav_title: "Git in a team"
+order: 40
+group: "Working in a team"
+summary: "Branches, good pull requests, code review and merge conflicts."
 ---
 
 # Git in a team

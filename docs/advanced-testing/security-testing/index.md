@@ -5,6 +5,10 @@ level: Advanced
 status: draft
 tags:
   - advanced-testing
+nav_title: "Security testing basics"
+order: 80
+group: "Beyond functional testing"
+summary: "OWASP Top 10, auth and injection tests, and a first ZAP scan."
 ---
 
 # Security testing basics
