@@ -14,6 +14,8 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 
+from . import bugs
+
 TAX_PERCENT = 10
 FREE_SHIPPING_FROM_CENTS = 5000
 SHIPPING_CENTS = 499
@@ -42,5 +44,9 @@ def calculate(subtotal_cents: int, coupon_kind: str | None = None, coupon_value:
     if subtotal_cents == 0 or coupon_kind == "free_shipping":
         shipping = 0
     else:
-        shipping = 0 if after_discount >= FREE_SHIPPING_FROM_CENTS else SHIPPING_CENTS
+        if bugs.on("BH-01"):
+            free = after_discount > FREE_SHIPPING_FROM_CENTS
+        else:
+            free = after_discount >= FREE_SHIPPING_FROM_CENTS
+        shipping = 0 if free else SHIPPING_CENTS
     return Totals(subtotal_cents, discount, tax, shipping, after_discount + tax + shipping)

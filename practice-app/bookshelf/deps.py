@@ -11,6 +11,7 @@ from fastapi import Depends, Query, Request
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.orm import Session
 
+from . import bugs
 from .clock import Clock
 from .config import Settings
 from .errors import ApiError
@@ -98,4 +99,6 @@ PageSize = Annotated[int, Query(ge=1, le=50, description="Items per page, 1 to 5
 
 
 def page_count(total: int, size: int) -> int:
+    if bugs.on("BH-02"):
+        return max(total // size, 1) if total else 0
     return (total + size - 1) // size

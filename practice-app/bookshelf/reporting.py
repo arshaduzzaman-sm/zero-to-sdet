@@ -19,6 +19,7 @@ from datetime import date, datetime
 from sqlalchemy import Date, String, delete, func, select
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 
+from . import bugs
 from .db import UTCDateTime
 from .models import Order, OrderItem, User
 
@@ -83,7 +84,7 @@ def sync(main: sessionmaker, reporting: sessionmaker, now: datetime) -> dict:
                 synced_at=now,
             )
         )
-        if status in SOLD:
+        if status in SOLD or (bugs.on("BH-03") and status == "cancelled"):
             day = days[created_at.date()]
             day[0] += 1
             day[1] += total

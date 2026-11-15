@@ -45,6 +45,7 @@ def test_settings(**changes) -> Settings:
         fast_password_hashing=True,
         payment_timeout_seconds=0,
         reporting_sync_seconds=0,
+        planted_bugs=False,  # the app's own tests check the correct behavior
         fake_customers=0,  # tests use only the fixed seed data, so numbers stay small
     )
     for name, value in changes.items():

@@ -65,6 +65,8 @@ class Settings:
     # Uploaded pictures (profile pictures, product images).
     files_dir: Path = DATA_DIR / "files"
     max_upload_bytes: int = 2 * 1024 * 1024
+    # Bug Hunt bugs (bugs.py). PRACTICE_APP_BUGS=off turns them all off.
+    planted_bugs: bool = True
     # Tests only: cheaper password hashing so the test run stays fast.
     fast_password_hashing: bool = False
 
@@ -102,6 +104,13 @@ class Settings:
             settings.token_minutes = int(env["TOKEN_MINUTES"])
         if env.get("PAYMENT_TIMEOUT_SECONDS"):
             settings.payment_timeout_seconds = float(env["PAYMENT_TIMEOUT_SECONDS"])
+        if env.get("PRACTICE_APP_BUGS"):
+            settings.planted_bugs = env["PRACTICE_APP_BUGS"].lower() not in (
+                "0",
+                "off",
+                "false",
+                "no",
+            )
         if env.get("CLOCK_CONTROL"):
             settings.clock_control = env["CLOCK_CONTROL"].lower() in ("1", "on", "true", "yes")
         return settings

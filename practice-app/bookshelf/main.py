@@ -10,7 +10,7 @@ from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 
-from . import __version__, errors
+from . import __version__, bugs, errors
 from .api import admin, auth, cart, orders, products, tools, users
 from .clock import Clock
 from .config import Settings
@@ -49,6 +49,7 @@ Every response has an `X-Request-ID` header.
 
 def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or Settings.from_env()
+    bugs.switch(settings.planted_bugs)
     for url in (settings.database_url, settings.reporting_database_url):
         if url.startswith("sqlite:///"):
             Path(url.removeprefix("sqlite:///")).parent.mkdir(parents=True, exist_ok=True)

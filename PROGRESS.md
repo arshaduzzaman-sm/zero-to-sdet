@@ -35,6 +35,23 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1.5 · Step 1.5.7: starter set of planted bugs
+
+**Done**
+
+- Six bugs planted on purpose, one per area: business rule boundary (BH-01), API pagination (BH-02), reporting database (BH-03), access control / IDOR (BH-04), web page (BH-05), and time-based security (BH-06). Each one is a mistake real teams make, and each fits a lesson technique: boundary values, comparing two databases, changing ids, comparing web and API, or using the clock control.
+- The switch: `PRACTICE_APP_BUGS=off` (in `.env` or docker compose) turns them all off; on by default. The code marks each bug only with its answer code, with no description in comments.
+- Answers: `practice-app/BUG_HUNT_ANSWERS.md` gives each bug's steps, expected and actual result, the testing technique, and severity. The website gets them folded in step 1.5.8.
+- Found while writing the answers: every seed price ends in .99, so no cart reaches exactly $50.00. BH-01's steps start with the admin making a $25.00 product, which is itself a lesson in making boundary test data.
+- The bugs stay inside the local app: they never touch the repository, the site or CI.
+- Tests: the app's own tests run with the bugs off; `test_planted_bugs.py` checks each bug both on and off (12 tests). 177 app tests pass. Checked live in Docker with the switch on and off.
+
+**Next step**
+
+Step 1.5.8: the Practice App tour page (finished, with the Bug Hunt answers folded).
+
+---
+
 ## 2026-11-15 · Phase 1.5 · Step 1.5.6: one-command start, reset, status page, Codespaces, safety guard
 
 **Done**

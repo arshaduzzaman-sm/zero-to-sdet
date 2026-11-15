@@ -8,6 +8,7 @@ from fastapi import APIRouter
 from sqlalchemy import or_, select
 from sqlalchemy.orm import Session
 
+from .. import bugs
 from ..deps import AppClock, AppOutbox, AppSettings, CurrentUser, Db, Hasher
 from ..errors import ApiError
 from ..models import OtpCode, User
@@ -72,7 +73,7 @@ def use_code(db: Session, user: User | None, purpose: str, code: str, secret: st
     ).first()
     if otp is None:
         raise invalid
-    if otp.expires_at <= now:
+    if otp.expires_at <= now and not (purpose == "reset" and bugs.on("BH-06")):
         raise ApiError(400, "CODE_EXPIRED", "That code has expired. Ask for a new one.")
     if not otp_matches(secret, user.id, code, otp.code_hash):
         otp.attempts += 1

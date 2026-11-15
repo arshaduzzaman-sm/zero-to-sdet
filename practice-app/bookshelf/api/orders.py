@@ -10,6 +10,7 @@ from fastapi import APIRouter, Response
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from .. import bugs
 from ..deps import (
     AppClock,
     AppOutbox,
@@ -230,7 +231,9 @@ def get_order(order_id: int, user: CurrentUser, db: Db) -> OrderOut:
 def order_invoice(order_id: int, user: CurrentUser, db: Db) -> Response:
     """Only for orders that were paid (also after they are shipped, delivered or
     cancelled). An unpaid (pending) order has no invoice."""
-    order = own_order(db, order_id, user.id)
+    order = db.get(Order, order_id) if bugs.on("BH-04") else own_order(db, order_id, user.id)
+    if order is None:
+        raise ApiError(404, "ORDER_NOT_FOUND", "Order not found.")
     if order.status == "pending":
         raise ApiError(
             409, "INVOICE_NOT_AVAILABLE", "This order was not paid, so it has no invoice."

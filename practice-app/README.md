@@ -7,9 +7,9 @@ A small online shop with bugs planted on purpose. Every lesson on
 > For practice on your own computer (or your own private Codespace) only. Every
 > port listens on `127.0.0.1`. Never deploy it to the internet.
 
-**Status:** being built in Phase 1.5. Everything works: the web shop, the API,
-three databases, email (Mailpit), picture uploads and invoice PDFs. The planted
-bugs come next. The plan, features and data model are in [DESIGN.md](DESIGN.md).
+**Version 1.0.** The web shop, the API, three databases, email (Mailpit),
+picture uploads, invoice PDFs and a starter set of planted bugs. The plan,
+features and data model are in [DESIGN.md](DESIGN.md).
 
 ## Start it with one command (Docker)
 
@@ -121,6 +121,13 @@ The app sends a sign-up code, a password reset code and an order confirmation.
   Anything else gets a clear error (good practice for negative tests).
 - **Invoice PDF:** on an order page, "Download invoice (PDF)", or
   `GET /api/orders/{id}/invoice.pdf`.
+
+## Bug Hunts
+
+The app has bugs planted on purpose. Each topic ends with a Bug Hunt: find them
+and write a bug report. Start the app with `PRACTICE_APP_BUGS=off` to see the
+correct behavior. The answers are in [BUG_HUNT_ANSWERS.md](BUG_HUNT_ANSWERS.md)
+(spoilers).
 
 ## Sandbox cards
 

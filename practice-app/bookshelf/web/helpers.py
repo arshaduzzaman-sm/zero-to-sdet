@@ -14,7 +14,7 @@ from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel, ValidationError
 from starlette.datastructures import UploadFile
 
-from .. import __version__
+from .. import __version__, bugs
 from ..deps import AppClock, AppSettings, Db
 from ..errors import ApiError
 from ..models import User
@@ -193,7 +193,11 @@ def cart_count(request: Request, user: User | None) -> int:
 
     with request.app.state.sessionmaker() as session:
         cart = session.query(Cart).filter(Cart.user_id == user.id).first()
-        return sum(item.quantity for item in cart.items) if cart else 0
+        if cart is None:
+            return 0
+        if bugs.on("BH-05"):
+            return len(cart.items)
+        return sum(item.quantity for item in cart.items)
 
 
 def go(path: str, msg: str | None = None) -> RedirectResponse:

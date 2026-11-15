@@ -375,10 +375,12 @@ All under `/api`. JSON in and out. Errors always look like
 About 30 bugs are planted on purpose across the API, database, web page,
 security and performance: a starter set in step 1.5.7, the rest added with the
 topics that use them (lessons come first, see the brief section 6). They are **not** listed here or anywhere
-in the app's code comments, so Bug Hunts stay fair. The answers live in one
-place, `practice-app/BUG_HUNT_ANSWERS.md`, and on a website page that is folded
-by default. A switch, `PRACTICE_APP_BUGS=off`, turns every planted bug off, so
-lessons can show what correct behavior looks like.
+in the app's code comments, so Bug Hunts stay fair: the code only marks each
+one with its answer code (`bugs.on("BH-01")`). The answers live in one place,
+`practice-app/BUG_HUNT_ANSWERS.md`, and on the Practice App tour page, folded by
+default. A switch, `PRACTICE_APP_BUGS=off`, turns every planted bug off, so
+lessons can show what correct behavior looks like. The app's own tests run with
+the bugs off; `tests/test_planted_bugs.py` checks each bug both ways.
 
 ## 8. Safety rules
 
