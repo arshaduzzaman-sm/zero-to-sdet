@@ -1,7 +1,11 @@
 {#-
   Zero to SDET: page body. Based on the theme's partials/content.html.
-  Change: "Was this page helpful?" and "Written by" share one row at the end
-  of the page (.zts-page-end), instead of two stacked blocks.
+  Changes:
+  - "Was this page helpful?" and "Written by" share one row at the end of the
+    page (.zts-page-end), instead of two stacked blocks.
+  - Finished lessons (pages with a level, not drafts) get a "Mark as done"
+    button. It stays hidden until progress.js shows it, and saves only in the
+    reader's own browser. Turn it off for a page with `hide: [progress]`.
 -#}
 {% include "partials/actions.html" %}
 {% if "<h1" not in page.content %}
@@ -9,6 +13,16 @@
 {% endif %}
 {{ page.content }}
 {% include "partials/tags.html" %}
+{% if page.meta and page.meta.level and page.meta.status != "draft"
+      and "progress" not in (page.meta.hide or []) %}
+  <div class="zts-done-wrap">
+    <button type="button" class="md-button zts-done" data-zts-done aria-pressed="false" hidden>
+      <span class="zts-done__icon" aria-hidden="true"></span>
+      <span data-zts-done-label>Mark this lesson as done</span>
+    </button>
+    <p class="zts-done__note" data-zts-done-note role="status"></p>
+  </div>
+{% endif %}
 <div class="zts-page-end">
   {% include "partials/feedback.html" %}
   {% include "partials/source-file.html" %}

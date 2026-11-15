@@ -5,6 +5,8 @@ level: Beginner
 tags:
   - Career
   - Getting started
+hide:
+  - progress
 updated: "2026-11-15"
 nav_title: "Skills Matrix"
 order: 50
@@ -32,6 +34,15 @@ This page lists every skill a professional SDET needs, sorted by level, with a l
 3. When almost every box in a level is ticked, move to the next level.
 
 You don't need to finish one level before you peek at the next one. Real people learn in a messy order, and that is fine.
+
+<div class="zts-matrix" data-zts-matrix data-zts-matrix-panel hidden markdown>
+<p class="zts-matrix__title">Your progress: <strong data-zts-total>0 of 0</strong> skills</p>
+<ul class="zts-matrix__levels" data-zts-levels></ul>
+<p class="zts-matrix__next" data-zts-next></p>
+<p class="zts-matrix__foot">Your ticks are saved only in this browser. Nothing is sent anywhere.
+<button type="button" class="zts-matrix__reset" data-zts-reset>Clear all ticks</button></p>
+<p class="md-visually-hidden" data-zts-live role="status"></p>
+</div>
 
 The **"in X% of ads"** note tells you how often real employers asked for that skill.
 We counted it from 58 job ads (see [How we built this list](#how-we-built-this-list)).

@@ -67,6 +67,8 @@ Everyone moves at their own speed, and that is fine.
 10. [Git in a team](professional-sdet/git-in-a-team/index.md)
 11. [Debugging toolkit](infrastructure/debugging-toolkit/index.md)
 
+<p class="zts-path-progress" data-zts-path hidden></p>
+
 ---
 
 ## Junior to mid-level
@@ -87,6 +89,8 @@ Everyone moves at their own speed, and that is fine.
 11. [Test strategy and planning](think-like-a-tester/test-strategy-and-planning/index.md)
 12. [Clean test code](professional-sdet/clean-test-code/index.md)
 
+<p class="zts-path-progress" data-zts-path hidden></p>
+
 ---
 
 ## Mid-level to senior
@@ -106,6 +110,8 @@ Everyone moves at their own speed, and that is fine.
 10. [Leading quality](professional-sdet/leading-quality/index.md)
 11. [Capstone project](professional-sdet/capstone-project/index.md): build a full framework
 
+<p class="zts-path-progress" data-zts-path hidden></p>
+
 ---
 
 ## Interview prep in 4 weeks
@@ -119,6 +125,8 @@ Everyone moves at their own speed, and that is fine.
 | 2 | API and database | [API testing](core-automation/api-testing/index.md), [Database testing](core-automation/database-testing/index.md), [pytest framework](core-automation/pytest-framework/index.md) |
 | 3 | UI, CI and frameworks | [UI automation](core-automation/ui-automation/index.md), [CI/CD](infrastructure/ci-cd/index.md), [Clean test code](professional-sdet/clean-test-code/index.md) |
 | 4 | Interview practice | [Interview preparation](professional-sdet/interview-preparation/index.md), [Portfolio and resume](professional-sdet/portfolio-and-resume/index.md), [Career roadmap](professional-sdet/career-roadmap/index.md) |
+
+<p class="zts-path-progress" data-zts-path hidden></p>
 
 !!! warning "Be honest with yourself"
     Four weeks is enough to prepare, but not to learn everything from zero.

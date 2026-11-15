@@ -149,6 +149,15 @@ summary: "One plain sentence for the card on the section overview."
 The menu and the section overview cards are built from these fields by
 `scripts/build_nav.py`. Never edit the `nav` block in `zensical.toml` by hand.
 
+### Progress tracker
+
+Every finished page with a `level` (not a draft) gets a "Mark this lesson as
+done" button at the end, and links to finished lessons get a check mark across
+the site. It is saved only in the reader's browser (`docs/assets/javascripts/progress.js`);
+nothing is sent anywhere. To turn the button off on one page, add
+`hide: [progress]` to its front matter (the Skills Matrix does this, because it
+has its own tick boxes).
+
 ### Tags
 
 Tags say what a page is **about** (API, Database, Debugging), not where it sits

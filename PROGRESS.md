@@ -31,6 +31,29 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Step 1.15: progress tracker and the Skills Matrix
+
+**Done**
+
+- `docs/assets/javascripts/progress.js` (no libraries): progress saved **only in the reader's browser** (localStorage key `zts-progress-v1`). No account, nothing sent anywhere; works without JavaScript too (buttons stay hidden).
+- **Lessons:** finished pages with a `level` get a "Mark this lesson as done" button at the end (`overrides/partials/content.html`), with a small check animation and a saved/blocked message. `hide: [progress]` turns it off for one page.
+- **Across the site:** links to finished lessons get a ✓ in the menu and in lists; topic cards get a green "✓ Done" badge. On the lesson itself, only the menu entry gets the ✓ (not the headings or breadcrumb).
+- **Learning Path:** "Your progress: X of Y lessons done" with a bar under each of the four paths (lists and the interview table).
+- **Skills Matrix:** all 95 boxes can be ticked. A summary panel shows a bar per level, the total, "Your next skill" with its lesson link, and "Clear all ticks" (asks first). Each level heading gets its own bar.
+- About page privacy section says where progress is saved. Style guide has a "Progress tracker" section.
+- Tested in headless Chrome: ticks and "done" survive a reload in the same browser profile (3 of 95; Junior bar at 10%); marking API testing as done shows 1 of 11 and 1 of 12 on the two paths that include it, the menu ✓ and the card badge. Checked light, dark and narrow width; reduced motion turns off the animations.
+- Deferred to step 1.17 (share buttons): the "Share your progress" message when a reader finishes a whole section.
+
+**How to check**
+
+Preview → Start Here → Skills Matrix: tick a few boxes, reload, they stay. Lesson buttons appear once real lessons are finished (all topics are drafts today).
+
+**Next step**
+
+Step 1.16: readability check (mostly done in 1.12), then 1.17: share images, share buttons and the credit-line rule.
+
+---
+
 ## 2026-11-15 · Phase 1 · Step 1.14: Glossary, Tags and Start Here
 
 **Done**
