@@ -22,7 +22,7 @@ Before you automate anything, you need to know what to test and why. This pillar
 
 -   [**The SDET role**](the-sdet-role/index.md)
 
-    What an SDET does, how it differs from QA, and the seven testing principles.
+    What an SDET does, how to start the job well, and the templates for your first 90 days.
 
     <span class="zts-chip">Beginner</span>
 

@@ -6,6 +6,10 @@ testpaths = ["modules", "_new_topic_template/modules", "scripts/tests", "practic
 # The Practice App package (practice-app/bookshelf) is imported by its own tests.
 pythonpath = ["practice-app"]
 addopts = ["--import-mode=importlib", "-ra", "--strict-markers"]
+# Test files inside templates/ and examples/ are for readers to copy. They run
+# through each topic's tests/ (in a subprocess, the way a reader runs them),
+# so pytest does not collect them directly.
+norecursedirs = ["*.egg", ".*", "_darcs", "build", "CVS", "dist", "node_modules", "venv", "{arch}", "templates", "examples"]
 
 [tool.ruff]
 target-version = "py313"
@@ -38,3 +42,7 @@ known-first-party = ["bookshelf"]
 "scripts/research/**" = ["E501"]
 # The Practice App's tests type the fake seeded passwords on purpose.
 "practice-app/tests/**" = ["S101", "S105", "S106"]
+# Test templates and examples use plain assert, like every pytest test.
+"modules/**/test_*.py" = ["S101"]
+# Topic tests run a template with pytest in a subprocess, with fixed arguments.
+"modules/**/tests/**" = ["S101", "S603"]

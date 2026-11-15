@@ -304,7 +304,7 @@ Every topic's `index.md` is a playbook for someone doing this for the first time
 8. **Report and get feedback.** What to show your team, and how.
 9. **Keep learning on your own.** What to read next, practice ideas, and official docs to bookmark.
 
-Each playbook also has a **"How an experienced SDET thinks about this"** box, a **"Red flags"** box (signs the plan is going wrong), a **"Jump to what you need"** link list, and an **"Official resources"** list at the end.
+Each playbook also has a **"How an experienced SDET thinks about this"** box, a **"Red flags"** box (signs the plan is going wrong), a **"Stuck? Try this"** box (what to do when you are stuck, added 2026-11-16), a **"Jump to what you need"** link list, and an **"Official resources"** list at the end.
 
 ### 7.2 Lesson page template (top to bottom)
 

@@ -57,44 +57,40 @@ flowchart TB
 
 ## Step by step
 
-We follow one bug from the Practice App: an order of exactly $50.00 is charged $4.99 shipping, but the shop promises free shipping from $50.
+We follow one real kind of bug through a team. The user story says: "Orders of $50.00 or more ship free." A customer orders exactly $50.00 worth of books and is charged $4.99 for shipping.
 
-1. **The QA tester finds it by hand.** They build a cart of exactly $50.00 and look at the total. Shipping says $4.99. They write a bug report with the steps, what they expected and what they saw.
+1. **The QA tester finds it by hand.** They test the edges of the rule on purpose: $49.99, $50.00 and $50.01. At exactly $50.00, shipping says $4.99. They write a bug report with the steps, what they expected and what they saw.
 
-2. **The developer fixes it, and adds a unit test.** A **unit test** checks one small piece of code on its own, like the function that works out shipping. The developer's test checks 49.99, 50.00 and 50.01. It runs in milliseconds:
+2. **The developer fixes it, and adds a unit test.** A **unit test** checks one small piece of code on its own, like the function that works out shipping. The developer's code used `>` where the story needs `>=`. They fix it and add a test for 49.99, 50.00 and 50.01 (the full test is on [What an SDET does](what-an-sdet-does.md)). It runs in milliseconds:
 
     ```bash
-    .venv/bin/pytest practice-app/tests/test_money.py -q
+    python -m pytest test_shipping.py -q
     ```
 
     You should see:
 
     ```text
-    11 passed in 0.02s
+    5 passed in 0.02s
     ```
 
-3. **The SDET checks the whole shop, through the API.** The unit test proves the function is right. It does not prove the cart, the coupon and the checkout use it the right way. The SDET's tests send real requests to the shop, like a user would. Here is one that checks the cart's limits:
+3. **The SDET makes sure it can't come back unseen.** A test only protects you if it runs. The SDET adds the tests to the team's pipeline, so they run on every change, before anyone can merge it. On GitHub, that is a short file like this:
 
-    ```python
-    def test_quantity_is_1_to_10(client, login):
-        headers = login()
-        assert add(client, headers, PYTHON_BOOK, 0).status_code == 422
-        assert add(client, headers, PYTHON_BOOK, 11).status_code == 422
-        add(client, headers, PYTHON_BOOK, 10)
-        assert error_code(add(client, headers, PYTHON_BOOK, 1)) == "QUANTITY_LIMIT"
+    ```yaml
+    name: tests
+    on: [push, pull_request]
+    jobs:
+      test:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v5
+          - uses: actions/setup-python@v6
+            with:
+              python-version: "3.13"
+          - run: pip install pytest
+          - run: python -m pytest -q
     ```
 
-    Run the whole cart and order file:
-
-    ```bash
-    .venv/bin/pytest practice-app/tests/test_cart_and_orders.py -q
-    ```
-
-    You should see:
-
-    ```text
-    23 passed in 0.79s
-    ```
+    The last line is the same command you just ran. Now, if anyone changes `>=` back to `>`, the pipeline goes red and names the test. The SDET also asks a bigger question: "Where else does the $50 rule live?" The checkout page, the order email and the invoice may each show shipping. They add one end-to-end test that places a real $50.00 order and checks the total the customer sees. The [CI/CD](../../infrastructure/ci-cd/index.md) and [API testing](../../core-automation/api-testing/index.md) topics teach both.
 
 4. **Compare the three jobs side by side.**
 
@@ -119,8 +115,8 @@ We follow one bug from the Practice App: an order of exactly $50.00 is charged $
     - **Trusting the job title.** Read the list of tasks. Titles mean different things at different companies.
 
 !!! failure "If you see this error"
-    **`ERROR: file or directory not found: practice-app/tests/test_money.py`**
-    You ran pytest from the wrong folder. Go to the repository folder, the one that has `practice-app` inside it, and run the command again.
+    **`python3: No module named pytest`** (the path in front depends on your computer)
+    pytest is not installed for the Python you used. Run `python -m pip install pytest`, then the test command again. If you use a virtual environment, turn it on first.
 
 ## Try it yourself
 
@@ -158,4 +154,4 @@ Read this job ad task list. Is it mostly developer, QA or SDET work?
 - [ISTQB Glossary](https://glossary.istqb.org/): unit testing (component testing), test automation
 - [pytest: How to invoke pytest](https://docs.pytest.org/en/stable/how-to/usage.html)
 
-Written for Bookshelf 1.0.0 and pytest 9. Links checked: November 2026.
+Written for Python 3.13 and pytest 9. Links checked: November 2026.

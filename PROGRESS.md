@@ -39,6 +39,35 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 2 rewritten: real job templates, no app needed
+
+**Done**
+
+- Removed (owner said yes): the skills self-assessment CSV, the score script, Arshad's example scores and their tests.
+- New templates that SDETs really use, in `modules/think_like_a_tester/the_sdet_role/templates/`:
+  - new team onboarding checklist (access, people, product, existing tests, first useful change);
+  - 30-60-90 day plan (goals with proof, support needed, risks, check-ins);
+  - automation readiness checklist (worth it, reliable, rough payback, decision);
+  - a pytest smoke test for any app (`BASE_URL`, health check, speed, pages; standard library only; skips without `BASE_URL`).
+- Example code for the lessons: a shipping rule and its boundary tests (`examples/`).
+- 11 tests: credit line and sections of each checklist; the example passes; the smoke test passes on a healthy app, names a broken health check or a missing page, and skips without `BASE_URL` (run against a small local fake app).
+- Pages rewritten around real work, with real output on the page and no app needed:
+  - the playbook: first smoke test, choosing what to automate, the 90-day plan, and a new "Stuck? Try this" box;
+  - what an SDET does: a test catching a `>=` changed to `>`;
+  - SDET vs QA vs developer: one bug through three roles, with a pipeline file;
+  - skills map: gaps tied to a real task, with no CSV;
+  - principles: 4 tests pass while the bug is still there, and 46,800,000 checkout combinations;
+  - test process: what `-k` really selected.
+- The Practice App is now only an optional Bug Hunt box.
+- The playbook standard (brief 7.1) and `_new_topic_template` now include "Stuck? Try this", and the Bug Hunt is optional.
+- pytest no longer collects `templates/` and `examples/` directly. Topic tests run them the way a reader would. Ruff allows `assert` in test templates.
+
+**Next step**
+
+Rewrite Topic 1 (Learning a new testing area) the same way: real job examples, the app only optional. Then Topic 3, Test levels and the pyramid.
+
+---
+
 ## 2026-11-16 · Owner direction: pages for everyone, real templates, author's note
 
 **Done**

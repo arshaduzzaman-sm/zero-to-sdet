@@ -1,19 +1,19 @@
 ---
 title: "The Seven Testing Principles, with Real Examples"
-description: "The seven testing principles from the ISTQB Foundation syllabus, each explained simply and shown with the Practice App: why passing tests don't prove there are no bugs, and more."
+description: "The seven testing principles from the ISTQB Foundation syllabus, each explained simply with a real example: why passing tests don't prove there are no bugs, why you can't test everything, and more."
 level: Beginner
 tags:
   - Test planning
   - Career
 nav_title: "The seven testing principles"
 order: 40
-summary: "Seven ideas every tester works by, each shown with the Practice App."
+summary: "Seven ideas every tester works by, each with a real example."
 updated: "2026-11-16"
 ---
 
 # The Seven Testing Principles, with Real Examples
 
-This lesson explains the seven testing principles. Testers everywhere use them, and job interviews often ask about them. You will see three of them happen in the Practice App.
+This lesson explains the seven testing principles. Testers everywhere use them, and job interviews often ask about them. You will see two of them happen in real test runs.
 
 !!! note "Before you start"
     Read [What an SDET does](what-an-sdet-does.md) first.
@@ -22,7 +22,7 @@ This lesson explains the seven testing principles. Testers everywhere use them, 
 ## What you will learn
 
 - The seven principles, in plain words
-- Why 177 passing tests did not mean "no bugs"
+- Why passing tests did not mean "no bugs"
 - How the principles change what you test first
 - How to answer "name the testing principles" in an interview
 
@@ -50,38 +50,47 @@ flowchart LR
 
 ## Step by step
 
-1. **Testing shows that bugs are there, not that they are gone.** The Practice App has six bugs planted on purpose. Run its login tests with those bugs switched on:
+1. **Testing shows that bugs are there, not that they are gone.** Take the shipping rule from [What an SDET does](what-an-sdet-does.md): orders of $50.00 or more ship free. Say the code has the `>` bug, so exactly $50.00 still pays $4.99. Now say the team's test checks only these amounts:
+
+    ```python
+    (0, 0),  # empty cart: nothing to ship
+    (1, 499),  # $0.01: the smallest real order pays shipping
+    (4999, 499),  # $49.99: one cent under the line
+    (5001, 0),  # $50.01: just over the line
+    ```
+
+    Run it:
 
     ```bash
-    BOOKSHELF_TEST_BUGS=on .venv/bin/pytest practice-app/tests/test_auth.py -q
+    python -m pytest test_shipping.py -q
     ```
 
     You should see:
 
     ```text
-    26 passed in 0.44s
+    4 passed in 0.02s
     ```
 
-    Every test passed. But one planted bug lives in password reset: an old reset code still works after its 10 minutes. No test checks that case, so nothing failed. "All tests pass" only means "the things we checked work".
+    Every test passed, and the bug is still there. Nobody checked exactly $50.00, so nothing failed. "All tests pass" only means "the things we checked work". When you report results, say what you checked, not "no bugs".
 
-2. **You can't test everything.** A quantity field that takes 1 to 10, a coupon box and a card number already make millions of combinations. So you choose. Run the whole suite with the bugs on:
+2. **You can't test everything.** Count the ways one checkout can go, in a small shop:
 
-    ```bash
-    BOOKSHELF_TEST_BUGS=on .venv/bin/pytest practice-app/tests -q
+    ```python
+    quantities = 10      # 1 to 10 copies
+    coupons = 6          # no coupon, or one of 5 codes
+    payments = 4         # Visa, Mastercard, Amex, PayPal
+    countries = 195
+    products = 1000
+    print(f"{quantities * coupons * payments * countries * products:,} combinations")
     ```
 
     You should see:
 
     ```text
-    FAILED practice-app/tests/test_catalog.py::test_pages - AssertionError: asser...
-    FAILED practice-app/tests/test_files_and_email.py::test_no_invoice_for_someone_elses_order
-    FAILED practice-app/tests/test_money.py::test_free_shipping_from_50[5000-0]
-    3 failed, 174 passed, 1 skipped in 5.31s
+    46,800,000 combinations
     ```
 
-    pytest cuts long lines to fit your terminal, so yours may be a little longer or shorter.
-
-    177 tests caught only 3 of the 6 bugs. More tests would not fix this by themselves. Better chosen tests would. That is why [test design techniques](../test-design-techniques/index.md) exist.
+    At one second each, that is more than a year and a half of testing without a break. So you choose. You test the risky parts and the edges, using [test design techniques](../test-design-techniques/index.md): they find most bugs with a few hundred well-chosen tests, not millions.
 
 3. **Test early.** A bug found while reading the story costs one question. The same bug found after release costs a fix, a new release and unhappy customers. Ask "is exactly $50.00 free?" before the code exists, and the shipping bug never gets written.
 
@@ -89,12 +98,12 @@ flowchart LR
 
 5. **Tests wear out.** Running the same tests again and again finds fewer new bugs over time. Old tests still protect what already works, but to find new bugs you need new tests and new data. ISTQB calls this the **pesticide paradox**: insects get used to the same spray.
 
-6. **Testing depends on context.** A bank app and a hobby blog need very different testing. For the Practice App, money and logins get the most tests, because mistakes there hurt users most.
+6. **Testing depends on context.** A bank app and a hobby blog need very different testing. For an online shop, payments and logins get the most tests, because mistakes there hurt customers most.
 
 7. **Bug-free can still be useless.** A shop with no bugs but no search box fails its users. Testing also asks: "Is this what people need?" This is the **absence-of-errors fallacy** (a fallacy is a wrong belief).
 
     !!! success "Check: you should now be able to"
-        Name the seven principles, and explain why "26 passed" did not prove the login code was bug-free.
+        Name the seven principles, and explain why "4 passed" did not prove the shipping code was bug-free.
 
 ## Common mistakes
 
@@ -104,8 +113,8 @@ flowchart LR
     - **Never changing old tests.** Add new cases when you find bugs, or the suite stops finding anything new.
 
 !!! failure "If you see this error"
-    **`FAILED practice-app/tests/test_money.py::test_free_shipping_from_50[5000-0]`**
-    You ran the tests with `BOOKSHELF_TEST_BUGS=on`, so this failure is expected: it is a planted bug being caught. Run without that setting to see the correct shop pass.
+    **`E       assert 499 == 0`**
+    pytest shows the actual value on the left and the expected value on the right. Here the code gave 499 ($4.99 shipping), but the test expected 0 (free). Look at the test's name to see which amount it was: a failure like this is a test doing its job.
 
 ## Try it yourself
 
@@ -123,7 +132,7 @@ Your lead says: "The checkout tests all passed last night, so we can release." W
 
 ## Quick check
 
-1. All 26 login tests passed with a bug in password reset. Which principle does that show?
+1. All 4 shipping tests passed, but exactly $50.00 still paid shipping. Which principle does that show?
 
     ??? question "Answer"
         Principle 1: testing shows that bugs are there, not that they are gone.
@@ -143,4 +152,4 @@ Your lead says: "The checkout tests all passed last night, so we can release." W
 - [ISTQB Certified Tester Foundation Level v4.0](https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/): section 1.3, the seven testing principles
 - [ISTQB Glossary](https://glossary.istqb.org/): pesticide paradox, defect clustering, exhaustive testing
 
-Written for Bookshelf 1.0.0 and the ISTQB CTFL v4.0 syllabus. Links checked: November 2026.
+Written for Python 3.13, pytest 9 and the ISTQB CTFL v4.0 syllabus. Links checked: November 2026.

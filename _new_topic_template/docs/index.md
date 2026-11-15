@@ -79,10 +79,13 @@ flowchart LR
 !!! warning "Red flags"
     <!-- Signs the plan is going wrong. -->
 
+!!! question "Stuck? Try this"
+    <!-- The common ways people get stuck in this area, and what to do about each. -->
+
 ## Bug Hunt
 
-<!-- Planted bugs in the Practice App for this topic. Answers on a separate page,
-     folded by default. -->
+<!-- Optional: an "Optional: try it on the Practice App" box with a planted bug.
+     Answers on the tour page, folded by default. -->
 
 ## Official resources
 

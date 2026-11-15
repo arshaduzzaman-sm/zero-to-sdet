@@ -16,8 +16,8 @@ updated: "2026-11-16"
 This lesson explains what an SDET does in a normal week, and shows you an automated test catching a real bug.
 
 !!! note "Before you start"
-    You don't need any testing or coding experience.
-    It helps to have the [Practice App](../../start-here/practice-app-tour/index.md) set up, so you can run the test yourself.
+    You don't need any testing or coding experience. Every step shows its result, so you can learn without running anything.
+    If you want to run the example yourself, you need Python and pytest (`pip install pytest`).
 
 ## What you will learn
 
@@ -60,49 +60,48 @@ flowchart LR
     | Keep tests healthy | Fix a test that fails at random, so the team trusts the results |
     | Share results | Tell the team which bug the tests caught, and what is still not tested |
 
-3. **See an automated test.** An automated test is code that uses the app and checks the answer. This test from the Practice App checks free shipping at four amounts (in cents, so 5000 means $50.00):
+3. **See an automated test.** An automated test is code that uses the app and checks the answer. Say the user story is: "Orders of $50.00 or more ship free. Smaller orders pay $4.99." Here is the code that works out shipping (money is in cents, so 5000 means $50.00):
 
     ```python
-    @pytest.mark.parametrize(("subtotal", "shipping"), [
-        (0, 0),        # empty cart: no shipping
-        (4999, 499),   # 49.99: just under the free shipping line
-        (5000, 0),     # 50.00: free
-        (5001, 0),
-    ])
-    def test_free_shipping_from_50(subtotal, shipping):
-        assert calculate(subtotal).shipping_cents == shipping
+    --8<-- "modules/think_like_a_tester/the_sdet_role/examples/shipping.py"
+    ```
+
+    And here is the test an SDET writes for it. It checks the amounts where bugs like to hide: just under, exactly on, and just over the $50.00 line.
+
+    ```python
+    --8<-- "modules/think_like_a_tester/the_sdet_role/examples/test_shipping.py"
     ```
 
     `assert` is the check. If the shipping is not what the line says, the test fails.
 
-4. **Run it.** From the repository folder:
+4. **Run it.** Save both files in one folder, then run:
 
     ```bash
-    .venv/bin/pytest practice-app/tests/test_money.py -q
+    python -m pytest test_shipping.py -v
     ```
 
     You should see:
 
     ```text
-    11 passed in 0.02s
+    test_shipping.py::test_free_shipping_from_50_dollars[0-0] PASSED         [ 20%]
+    test_shipping.py::test_free_shipping_from_50_dollars[1-499] PASSED       [ 40%]
+    test_shipping.py::test_free_shipping_from_50_dollars[4999-499] PASSED    [ 60%]
+    test_shipping.py::test_free_shipping_from_50_dollars[5000-0] PASSED      [ 80%]
+    test_shipping.py::test_free_shipping_from_50_dollars[5001-0] PASSED      [100%]
+    ============================== 5 passed in 0.03s ===============================
     ```
 
-    All 11 money tests passed: the four shipping checks and seven others.
-
-5. **Watch it catch a bug.** The Practice App has bugs planted on purpose. Run the same tests with them switched on:
-
-    ```bash
-    BOOKSHELF_TEST_BUGS=on .venv/bin/pytest practice-app/tests/test_money.py -q
-    ```
-
-    You should see:
+5. **Watch it catch a bug.** Months later, a developer tidies the code and changes `>=` to `>`. It looks harmless. The tests run on their change, and say:
 
     ```text
-    FAILED practice-app/tests/test_money.py::test_free_shipping_from_50[5000-0]
-    1 failed, 10 passed in 0.05s
+    E       assert 499 == 0
+    E        +  where 499 = shipping_cost(5000)
+    ...
+    FAILED test_shipping.py::test_free_shipping_from_50_dollars[5000-0] - assert ...
+    1 failed, 4 passed in 0.02s
     ```
 
-    The name tells you exactly what broke: free shipping at a subtotal of 5000 cents ($50.00). A person checking by hand would need to build a $50.00 cart to see this. The test checks it in a fraction of a second, every time anyone changes the code.
+    The name tells you exactly what broke: an order of exactly $50.00 (5000 cents) now pays $4.99. A person checking by hand would have to build an order of exactly $50.00 to see this, and few people do. The test checks it in a fraction of a second, every time anyone changes the code, before a single customer sees the bug.
 
 6. **Know what an SDET does not do.** An SDET is not the only person who cares about quality, and not a "bug catcher" at the end. Developers still test their own code. The whole team owns quality; the SDET makes testing faster and easier for everyone.
 
@@ -117,21 +116,36 @@ flowchart LR
     - **Measuring yourself by the number of tests.** A few tests that catch real bugs beat hundreds that never fail.
 
 !!! failure "If you see this error"
-    **`zsh: no such file or directory: .venv/bin/pytest`**
-    You are not in the repository folder, or the setup has not been done yet. Go to the folder that has `practice-app` in it, and follow [Environment setup](../../start-here/environment-setup/index.md).
+    **`ModuleNotFoundError: No module named 'shipping'`**
+    Python can't find `shipping.py`. Put both files in the same folder, open the terminal in that folder, and run `python -m pytest test_shipping.py -v`. The `python -m` part makes Python look in the current folder.
 
 ## Try it yourself
 
-Look at the shipping test above. Which line would you add to also check a subtotal of $0.01 (1 cent)? What shipping do you expect?
+The business changes the rule: "Orders of $75.00 or more ship free." What do you change first, the test or the code? Which test lines change?
 
 ??? success "Solution"
-    Add this line inside the list:
+    Change the test first, so it describes the new rule. The three lines at the edge move from $50 to $75:
 
     ```python
-    (1, 499),      # 0.01: a tiny order still pays shipping
+    (7499, 499),  # $74.99: one cent under the line
+    (7500, 0),  # $75.00: exactly on the line, ships free
+    (7501, 0),  # $75.01: just over the line
     ```
 
-    Any order under $50.00 pays $4.99 shipping, so 1 cent should give 499. An empty cart (0) pays nothing, because there is nothing to ship.
+    Run it before touching the code. It should fail, because the code still uses the old rule:
+
+    ```text
+    FAILED test_shipping.py::test_free_shipping_from_75_dollars[7499-499] - asser...
+    1 failed, 4 passed in 0.02s
+    ```
+
+    Now change `FREE_SHIPPING_FROM = 5000` to `7500` in `shipping.py` and run again:
+
+    ```text
+    5 passed in 0.02s
+    ```
+
+    A failing test first, then the fix, then a passing test: now you know the test really checks the new rule. Rename the test to `test_free_shipping_from_75_dollars` too, so its name stays true.
 
 ## Quick check
 
@@ -156,4 +170,4 @@ Look at the shipping test above. Which line would you add to also check a subtot
 - [pytest: Get started](https://docs.pytest.org/en/stable/getting-started.html)
 - [pytest: Parametrizing tests](https://docs.pytest.org/en/stable/how-to/parametrize.html)
 
-Written for Bookshelf 1.0.0 and pytest 9. Links checked: November 2026.
+Written for Python 3.13 and pytest 9. Links checked: November 2026.

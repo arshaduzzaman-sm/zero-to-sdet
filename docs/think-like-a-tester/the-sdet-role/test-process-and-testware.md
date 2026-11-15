@@ -60,22 +60,24 @@ We use Arshad's task from the last topic: test password reset in the shop.
     *Testware:* test cases and the test data they need.
 
 5. **Test implementation: get everything ready to run.** Write the automated tests, prepare the data, set up the test environment.
-    *Testware:* test scripts, test data files, a running Practice App.
+    *Testware:* test scripts, test data files, a working test environment.
 
-6. **Test execution: run the tests and compare the results.** Run the tests, and check every result against what you expected. Arshad runs the reset tests:
+6. **Test execution: run the tests and compare the results.** Run the tests, and check every result against what you expected. Here Arshad uses the shipping tests from [What an SDET does](what-an-sdet-does.md). He wants to rerun only the $49.99 case, and types:
 
     ```bash
-    .venv/bin/pytest practice-app/tests/test_auth.py -k reset -v
+    python -m pytest test_shipping.py -v -k 499
     ```
 
     You should see:
 
     ```text
-    practice-app/tests/test_auth.py::test_a_good_login_resets_the_wrong_password_count PASSED [ 50%]
-    practice-app/tests/test_auth.py::test_reset_password_with_the_code PASSED [100%]
+    test_shipping.py::test_free_shipping_from_50_dollars[1-499] PASSED       [ 50%]
+    test_shipping.py::test_free_shipping_from_50_dollars[4999-499] PASSED    [100%]
+    ======================= 2 passed, 3 deselected in 0.03s ========================
     ```
 
-    Read results with care. `-k reset` picks every test with "reset" in its name, so it also ran a login test that has nothing to do with password reset. Only one test really checks the reset flow, and no test checks an old code. That gap goes into the report.
+    Two tests ran, not one. `-k` picks every test whose name contains the text, and the values in square brackets are part of the name. So "499" also matched the $0.01 case. Read results with care: always check which tests really ran before you report "passed".
+    Then look for what did *not* run. No test checks a coupon that takes an order from $52.00 down to $48.00. Should that order still ship free? That gap goes into the report.
     *Testware:* test results, logs and bug reports.
 
 7. **Test completion: wrap up and learn.** Check the exit criteria, report what was and wasn't tested, save what can be reused, and note what to do better next time.
@@ -104,8 +106,8 @@ We use Arshad's task from the last topic: test password reset in the shop.
     - **Skipping completion.** Without a short report, the next person can't see what was tested or reuse your work.
 
 !!! failure "If you see this error"
-    **`2 passed, 24 deselected in 0.09s`, but you expected more tests**
-    `-k` matched fewer tests than you thought. Run with `-v` to see the names it picked, then change the word after `-k`. It searches test names, not what the tests do.
+    **`2 passed, 3 deselected in 0.03s`, but you expected a different number of tests**
+    `-k` matched more or fewer tests than you thought. Run with `-v` to see the names it picked, then change the text after `-k`. It searches test names (including the values in square brackets), not what the tests do.
 
 ## Try it yourself
 
@@ -143,4 +145,4 @@ For the task "test product reviews", write one piece of testware for analysis, d
 - [ISTQB Glossary](https://glossary.istqb.org/): testware, test condition, exit criteria
 - [pytest: Specifying which tests to run](https://docs.pytest.org/en/stable/how-to/usage.html#specifying-which-tests-to-run)
 
-Written for Bookshelf 1.0.0, pytest 9 and the ISTQB CTFL v4.0 syllabus. Links checked: November 2026.
+Written for pytest 9 and the ISTQB CTFL v4.0 syllabus. Links checked: November 2026.

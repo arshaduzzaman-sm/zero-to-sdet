@@ -1,6 +1,6 @@
 ---
-title: "The SDET Role: What an SDET Does and How to Grow into One"
-description: "What an SDET does all day, how the role differs from QA and developers, the skills you need, the seven testing principles, and a skills self-assessment you can score."
+title: "The SDET Role: What the Job Is, and How to Start It Well"
+description: "What an SDET does, how the role differs from QA and developers, the ideas every tester works by, and ready templates for your first weeks: onboarding checklist, 90-day plan, automation checklist and a smoke test."
 level: Beginner
 tags:
   - Career
@@ -8,13 +8,13 @@ tags:
   - Templates
 nav_title: "The SDET role"
 order: 20
-summary: "What an SDET does, how it differs from QA, and the seven testing principles."
+summary: "What an SDET does, how to start the job well, and the templates for your first 90 days."
 updated: "2026-11-16"
 ---
 
-# The SDET Role: What an SDET Does and How to Grow into One
+# The SDET Role: What the Job Is, and How to Start It Well
 
-This topic explains what an SDET does, the skills the job needs, and the ideas every tester works by. It ends with a self-assessment that shows you what to learn next.
+This topic explains what an SDET does, and walks you through the first 90 days in the role. It gives you the checklists, plan and first test that people really use when they start.
 
 !!! info "In plain words"
     Think of a building inspector. A manual tester walks through the house and checks each room by hand.
@@ -22,14 +22,14 @@ This topic explains what an SDET does, the skills the job needs, and the ideas e
     **SDET** means Software Development Engineer in Test: a tester who writes code to test software.
 
 !!! example "Your task"
-    Arshad has tested the shop by hand for two years. His lead says: "We want you as our team's first SDET. Can you plan your first 90 days?"
-    This page follows Arshad through that plan with the [Practice App](../../start-here/practice-app-tour/index.md). It is an example, but the steps are the ones real testers use when they grow into the role.
+    Arshad has tested his company's online shop by hand for two years. His lead says: "We want you as the team's first SDET. Can you plan your first 90 days?"
+    This page follows Arshad through that plan. The same steps work if you are starting a new SDET job, joining a new team, or asked to "start automating" for the first time.
 
 ## Jump to what you need
 
-- [What an SDET does](what-an-sdet-does.md): the daily work, with a real test run
+- [What an SDET does](what-an-sdet-does.md): the daily work, and a test catching a real bug
 - [SDET vs QA vs developer](sdet-vs-qa-vs-developer.md): who does what with the same bug
-- [Skills map](skills-map.md): the skills, and how to score yours
+- [Skills map](skills-map.md): the skills the job needs, and how to find your gaps
 - [The seven testing principles](seven-testing-principles.md): the ideas every tester works by
 - [The test process and testware](test-process-and-testware.md): the seven activities of testing, and what each one produces
 
@@ -41,11 +41,11 @@ This topic explains what an SDET does, the skills the job needs, and the ideas e
 | --- | --- |
 | What should I do more of? | Automate the checks we repeat before every release |
 | What should I do less of? | Testing the same pages by hand every sprint |
-| What does "done" mean after 90 days? | Smoke tests run on every change, and the team trusts them |
+| What does "done" mean after 90 days? | Smoke tests run after every deploy, and the team trusts them |
 | Will I still test by hand? | Yes, for new features and for exploring |
 | Who helps me with code? | Maria, a developer on the team, will review your code |
 
-The answers show the job is not "stop testing, start coding". It is testing, plus code that saves time.
+The answers show the job is not "stop testing, start coding". It is testing, plus code that saves the team time.
 
 ## 2. Picture the system
 
@@ -65,82 +65,74 @@ The SDET does not wait at the end. They join at the start (reviewing the idea) a
 
 ## 3. Learn just enough
 
-Arshad doesn't try to learn every tool at once. He reads three things this week:
+Arshad doesn't try to learn every tool at once. In his first week he works through the [new team onboarding checklist](#templates): access, people, the product, the existing tests. Then he reads two pages on this site:
 
-1. [What an SDET does](what-an-sdet-does.md) on this site (15 minutes).
+1. [What an SDET does](what-an-sdet-does.md) (15 minutes).
 2. [The seven testing principles](seven-testing-principles.md): the ideas his team will expect him to know (20 minutes).
-3. The Practice App's own tests in `practice-app/tests`, to see what real test code looks like (20 minutes).
 
 ## 4. Get something running
 
-Before planning 90 days, Arshad runs the tests that already exist. From the repository folder:
+The first test most SDETs write on a new team is a **smoke test**: the quickest check that the app is up after a deploy. Arshad copies the [smoke test template](#templates), points it at the shop, and runs it:
 
 ```bash
-.venv/bin/pytest practice-app/tests -q
+BASE_URL=http://127.0.0.1:8080 HEALTH_PATH=/api/health SMOKE_PAGES=/,/login pytest test_smoke.py -v
 ```
 
 You should see:
 
 ```text
-177 passed, 1 skipped in 4.94s
+test_smoke.py::test_health_check_says_ok PASSED                          [ 25%]
+test_smoke.py::test_health_check_is_fast PASSED                          [ 50%]
+test_smoke.py::test_page_loads[/] PASSED                                 [ 75%]
+test_smoke.py::test_page_loads[/login] PASSED                            [100%]
+============================== 4 passed in 0.19s ===============================
 ```
 
-Your time will be a little different. In five seconds, the computer did 177 checks that would take a person days. This is what an SDET builds and looks after.
-
-## 5. Decide what to learn first
-
-Arshad scores himself with the [skills self-assessment](#templates). He rates each skill from 0 (never done it) to 3 (can teach it), then runs the scoring script:
-
-```bash
-python score_skills.py arshad_skills.csv
-```
-
-You should see:
+Here `BASE_URL` points at a copy of the shop on Arshad's computer. On your team it is your test environment, for example `https://staging.your-company.example`. If a page is missing, the test names it:
 
 ```text
-Your SDET skills
-
-Testing basics   ########    78%
-Python           ##          22%
-API testing      ##          17%
-UI automation                 0%
-Databases        #####       50%
-Tools            #           11%
-Teamwork         #####       50%
-
-Overall: 33%
-
-Learn next:
-- Use pytest to write and run tests (Python, now: never done it)
-- Test login tokens and permissions (API testing, now: never done it)
-- Find elements with stable locators (UI automation, now: never done it)
+FAILED test_smoke.py::test_page_loads[/basket] - AssertionError: /basket answ...
+1 failed, 3 passed in 0.07s
 ```
 
-His testing basics are strong. His gaps are code and tools. That is normal for a manual tester, and it tells him exactly where to start. [Skills map](skills-map.md) explains each area.
+Four checks in a fifth of a second, after every deploy, forever. That is the kind of thing an SDET builds.
+
+## 5. Decide what to automate first
+
+Arshad lists the checks his team repeats by hand before each release. He runs each one through the [automation readiness checklist](#templates):
+
+| Check done by hand today | Worth it? | Reliable? | Decision |
+| --- | --- | --- | --- |
+| The site is up after a deploy | Every deploy, 10 minutes | Yes | Automate now (done in step 4) |
+| Log in, add to cart, pay with a test card | Every release, 20 minutes | Yes, with test accounts | Automate now |
+| The new homepage banner "looks right" | Changes every month | No, needs a human eye | Keep manual |
+| The monthly sales report adds up | Monthly, 2 hours | Yes, with fixed test data | Automate later, after checkout |
+
+Not every check should be automated. The checklist makes the choice clear, and gives Arshad an answer when someone asks "why not automate everything?"
 
 ## 6. Write a one-page plan
 
-Arshad turns the scores into a short 90-day plan and shares it with his lead:
+Arshad turns his choices into a [30-60-90 day plan](#templates) and agrees it with his lead:
 
 | When | Goal | Proof it is done |
 | --- | --- | --- |
-| Days 1 to 30 | Python basics and pytest | 10 small pytest tests for the shop's prices |
-| Days 31 to 60 | API testing | Smoke tests for login, cart and checkout |
-| Days 61 to 90 | Run tests on every change | Tests run in the team's pipeline, and the team looks at the results |
+| Days 1 to 30 | Learn the product, the team and the existing tests | Onboarding checklist complete; smoke tests run after every deploy |
+| Days 31 to 60 | Automate the checkout check | The checkout test runs in the pipeline on every change, and has run green for two weeks |
+| Days 61 to 90 | Own the release checks | Half the release checklist is automated, and the team looks at the results without being asked |
 
-Every goal has proof you can show. "Learn Python" can't be checked. "10 tests that pass" can.
+Every goal has proof you can show. "Learn Python" can't be checked. "The checkout test runs in the pipeline" can.
 
 ## 7. Build in small steps
 
-Arshad keeps testing by hand while he learns. Each week he automates one check he used to do by hand, starting with the most boring and most repeated one. The [Python for testers](../../start-here/python-for-testers/index.md) and [pytest](../../core-automation/pytest-framework/index.md) topics teach the code.
+Arshad keeps testing by hand while he builds. Each week he automates one check, starting with the most boring and most repeated one. He runs each new test as soon as he writes it, and asks Maria to review the code. The [Python for testers](../../start-here/python-for-testers/index.md) and [pytest](../../core-automation/pytest-framework/index.md) topics teach the code.
 
 ## 8. Report and get feedback
 
-Every two weeks, Arshad shows his lead three things: the new tests, a bug they caught, and what he will learn next. After a month he scores himself again and compares the two reports. A number that went from 0% to 50% is easier to show than "I learned a lot".
+Every two weeks, Arshad shows his lead three things: the tests he added, a problem they caught, and what is still checked by hand. At each check-in he updates the plan's table. Plans change, and that is fine, as long as the change is written down.
 
 ## 9. Keep learning on your own
 
-Score yourself again every three months. Your "Learn next" list changes as you grow. Next, read [Test levels and the pyramid](../test-levels-and-the-pyramid/index.md) to decide which tests to automate first.
+Pick one new skill per month from the [Skills Matrix](../../start-here/skills-matrix.md), and tie it to a real task on your team. Next, read [Test levels and the pyramid](../test-levels-and-the-pyramid/index.md) to decide which kinds of tests to build first.
 
 !!! tip "How an experienced SDET thinks about this"
     - Code is a tool for testing, not the goal. A test that nobody runs or trusts is worth nothing.
@@ -150,51 +142,62 @@ Score yourself again every three months. Your "Learn next" list changes as you g
 
 !!! warning "Red flags"
     - You stopped testing by hand completely as soon as you started coding.
-    - You count tests instead of bugs caught. 500 tests that never fail may test nothing useful.
+    - You count tests instead of problems caught. 500 tests that never fail may test nothing useful.
     - Your plan says "learn Python" with no proof of being done.
-    - You try to learn five tools at once and finish none.
+    - You try to automate everything at once, and finish nothing.
     - Only you can run or fix the tests. If you are on holiday, nobody can use them.
+
+!!! question "Stuck? Try this"
+    - **You don't know where to start.** Write a smoke test. It is small, useful on day one, and teaches you how the team deploys.
+    - **The existing tests are a mess.** Don't rewrite them. Run them, list what fails and why, and fix one thing per week.
+    - **Nobody has time for your questions.** Collect them in the onboarding checklist, and ask them all in one 30-minute meeting.
+    - **You can't get access to an environment.** Tell your lead on day one, in writing. Missing access is one of the most common reasons a new SDET is stuck for weeks.
 
 ## Templates
 
-Copy these into your own folder. Each code file starts with a comment line that says where it came from. A CSV file can't have comments, so the credit is in the scoring script.
+Copy these into your own project and change the parts in `<angle brackets>`. Each file starts with a comment line that says where it came from.
 
-=== "Skills self-assessment (CSV)"
+=== "New team onboarding checklist"
 
-    ```text
-    --8<-- "modules/think_like_a_tester/the_sdet_role/templates/skills_self_assessment.csv"
+    ```markdown
+    --8<-- "modules/think_like_a_tester/the_sdet_role/templates/new_team_onboarding_checklist.md"
     ```
 
-=== "Scoring script"
+=== "30-60-90 day plan"
+
+    ```markdown
+    --8<-- "modules/think_like_a_tester/the_sdet_role/templates/first_90_days_plan.md"
+    ```
+
+=== "Automation readiness checklist"
+
+    ```markdown
+    --8<-- "modules/think_like_a_tester/the_sdet_role/templates/automation_readiness_checklist.md"
+    ```
+
+=== "Smoke test (pytest)"
 
     ```python
-    --8<-- "modules/think_like_a_tester/the_sdet_role/templates/score_skills.py"
+    --8<-- "modules/think_like_a_tester/the_sdet_role/templates/test_smoke.py"
     ```
 
-=== "Example: Arshad's scores"
+=== "How to use them"
 
-    ```text
-    --8<-- "modules/think_like_a_tester/the_sdet_role/examples/arshad_skills.csv"
-    ```
-
-=== "How to use it"
-
-    1. Copy both template files into one folder.
-    2. Open the CSV in a spreadsheet program or a text editor. Change each `0` to your level: 0 never done it, 1 with help, 2 alone, 3 can teach it.
-    3. Save it as CSV, then run `python score_skills.py skills_self_assessment.csv`.
-    4. Learn the three skills under "Learn next". Score yourself again in three months.
-    5. Add your own rows if your team uses other skills. Keep the three column names as they are.
+    1. **Week 1:** copy the onboarding checklist into your notes. Fill in each answer as you get it.
+    2. **Week 2:** write your 30-60-90 day plan, and agree it with your lead.
+    3. **Before each automation task:** run the check through the readiness checklist. Keep the filled-in copy: it explains your choice later.
+    4. **Smoke test:** save `test_smoke.py` in your test folder. Install pytest (`pip install pytest`), set `BASE_URL` to your test environment, and run `pytest test_smoke.py -v`. Without `BASE_URL`, every test is skipped, so it never fails by accident.
 
 ## Bug Hunt
 
-A good SDET compares two views of the same data. In the Practice App, add the same book to your cart three times, then look at the cart badge in the top bar, and at the cart page.
+!!! example "Optional: try it on the Practice App"
+    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, compare two views of the same number. Add the same book to your cart three times, then look at the cart badge in the top bar, and at the cart page. Do they agree? Check `/api/cart` too: which one is right?
 
-Hint: the two numbers should agree. Do they? Check the API answer at `/api/cart` too: which one is right?
-
-When you have found it, check your answer in the [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts), Bug Hunt **BH-05** (folded, so you can't see it by accident).
+    Check your answer in the [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts), Bug Hunt **BH-05** (folded, so you can't see it by accident).
 
 ## Official resources
 
 - [ISTQB Certified Tester Foundation Level](https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/): the seven principles and the test process come from this syllabus
 - [ISTQB Glossary](https://glossary.istqb.org/): the official meaning of testing words
 - [pytest documentation](https://docs.pytest.org/en/stable/): the test tool used across this site
+- [Python: urllib.request](https://docs.python.org/3/library/urllib.request.html): what the smoke test uses to call your app
