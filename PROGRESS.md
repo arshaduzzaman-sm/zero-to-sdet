@@ -41,6 +41,29 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 5: Static testing and reviews
+
+**Done**
+
+- Playbook: review a refund story before planning. A vague-word scan, the review worksheet, nine questions sent with best guesses, and the story rewritten with clear criteria.
+- Five lessons, written straight to the reader, each with "When it goes wrong": what static testing is, reviewing user stories, finding ambiguity and missing cases, review types, static analysis tools.
+- Real outputs:
+  - the scanner finds 7 vague words in the first story, and 1 harmless flag ("support") in the reviewed one;
+  - a test file where pytest says "1 failed, 3 passed" while Ruff finds 5 real mistakes (an assert that is always true, a shared default list, a bare except, `== None`, an unused import).
+- Templates: `ambiguity_scan.py`, user story review worksheet, requirements review checklist, review comments guide, `.pre-commit-config.yaml` and `ruff.toml` for test projects. The deliberately broken test file is excluded from the repo's own Ruff check (`pyproject.toml`).
+- Found while writing: pytest's "assertion is always true" warning appears only the first time it reads a file, and the scanner missed "appropriately" (added).
+- 22 topic tests. 8 new glossary terms.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Pages: Think like a tester, then Static testing and reviews.
+
+**Next step**
+
+Topic 6: Test cases.
+
+---
+
 ## 2026-11-16 · Phase 2 · Topic 4 complete: statement and branch coverage
 
 **Done**

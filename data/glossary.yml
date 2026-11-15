@@ -298,7 +298,7 @@
 
 - term: Static analysis
   meaning: Checking code for mistakes without running it, like a spell checker for code.
-  page: think-like-a-tester/test-levels-and-the-pyramid/the-testing-trophy.md
+  page: think-like-a-tester/static-testing-and-reviews/static-analysis-tools.md
 
 - term: Non-functional testing
   meaning: Testing how well the app works, not what it does. For example, how fast it is, how easy it is to use, and whether it stays up.
@@ -351,3 +351,35 @@
 - term: White-box testing
   meaning: Testing with a view of the code inside, for example to see which lines and branches the tests run.
   page: think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md
+
+- term: Static testing
+  meaning: Checking work without running it, by reading stories, specs, plans and code, or by letting a tool read the code.
+  page: think-like-a-tester/static-testing-and-reviews/what-is-static-testing.md
+
+- term: Dynamic testing
+  meaning: Testing by running the software and checking what it does.
+  page: think-like-a-tester/static-testing-and-reviews/what-is-static-testing.md
+
+- term: User story
+  meaning: A short description of a feature from the user's side, like "As a customer, I want to request a refund, so that I get my money back".
+  page: think-like-a-tester/static-testing-and-reviews/reviewing-user-stories.md
+
+- term: Ambiguity
+  meaning: Words that two people can read in different ways, like "fast" or "recent". Testers ask for a number or a clear rule instead.
+  page: think-like-a-tester/static-testing-and-reviews/finding-ambiguity-and-missing-cases.md
+
+- term: Walkthrough
+  meaning: A review where the author takes others through their work, explaining it and taking questions.
+  page: think-like-a-tester/static-testing-and-reviews/review-types.md
+
+- term: Inspection
+  meaning: The most formal kind of review, with set roles, a checklist, prepared reviewers and a written list of findings.
+  page: think-like-a-tester/static-testing-and-reviews/review-types.md
+
+- term: Linter
+  meaning: A tool that reads code and points at bugs and risky patterns, like an unused import or an assert that can never fail.
+  page: think-like-a-tester/static-testing-and-reviews/static-analysis-tools.md
+
+- term: pre-commit
+  meaning: A tool that runs checks automatically every time you commit, and stops the commit if something is wrong.
+  page: think-like-a-tester/static-testing-and-reviews/static-analysis-tools.md

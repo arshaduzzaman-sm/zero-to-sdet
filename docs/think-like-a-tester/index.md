@@ -42,7 +42,7 @@ Before you automate anything, you need to know what to test and why. This pillar
 
     Find bugs before any code runs, by reviewing requirements and stories.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Test cases**](test-cases/index.md)
 

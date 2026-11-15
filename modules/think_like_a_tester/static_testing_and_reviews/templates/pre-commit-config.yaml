@@ -1,0 +1,30 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# Static checks for a test project, run before every commit.
+# Save as .pre-commit-config.yaml in your project's main folder, then:
+#   pip install pre-commit
+#   pre-commit install
+#   pre-commit run --all-files    (once, to check everything)
+# Update the rev numbers to the latest release when you copy this.
+repos:
+  # Blocks passwords, keys and tokens before they reach the repository.
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+
+  # Finds real bugs and style problems in Python, and formats the code.
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.5
+    hooks:
+      - id: ruff-check
+        args: ["--fix"]
+      - id: ruff-format
+
+  # Small checks that cost nothing.
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace

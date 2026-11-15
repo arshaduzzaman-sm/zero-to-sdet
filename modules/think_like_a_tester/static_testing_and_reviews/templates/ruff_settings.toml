@@ -1,0 +1,12 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# Ruff settings for a test project. Save this file as ruff.toml in your project's main folder.
+line-length = 100
+
+[lint]
+select = [
+  "E", "W",  # layout, and mistakes like == None and bare except
+  "F",       # real bugs: undefined names, unused imports, assert on a tuple
+  "B",       # likely bugs: mutable default arguments, and more
+  "I",       # sorted imports
+  "PT",      # pytest style: pytest.raises with match, fixtures
+]

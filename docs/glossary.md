@@ -35,6 +35,11 @@ that teaches it.
 
     Learn more: [Accessibility testing](advanced-testing/accessibility-testing/index.md)
 
+[](){ #ambiguity }**Ambiguity**
+:   Words that two people can read in different ways, like "fast" or "recent". Testers ask for a number or a clear rule instead.
+
+    Learn more: [Finding ambiguity and missing cases](think-like-a-tester/static-testing-and-reviews/finding-ambiguity-and-missing-cases.md)
+
 [](){ #api }**API (Application Programming Interface)**
 :   A way for one program to ask another program for data or to do something. Like a waiter who takes your order to the kitchen and brings back your food.
 
@@ -121,6 +126,11 @@ that teaches it.
 
     Learn more: [Docker for testers](infrastructure/docker-for-testers/index.md)
 
+[](){ #dynamic-testing }**Dynamic testing**
+:   Testing by running the software and checking what it does.
+
+    Learn more: [What static testing is](think-like-a-tester/static-testing-and-reviews/what-is-static-testing.md)
+
 ## E
 
 [](){ #e2e }**E2E (End-to-end)**
@@ -206,6 +216,11 @@ that teaches it.
 
     Learn more: [The test pyramid](think-like-a-tester/test-levels-and-the-pyramid/the-test-pyramid.md)
 
+[](){ #inspection }**Inspection**
+:   The most formal kind of review, with set roles, a checklist, prepared reviewers and a written list of findings.
+
+    Learn more: [Review types](think-like-a-tester/static-testing-and-reviews/review-types.md)
+
 [](){ #integration-test }**Integration test**
 :   A test that checks two or more parts of the app work together, like the API and the database.
 
@@ -224,6 +239,11 @@ that teaches it.
     Learn more: [API testing](core-automation/api-testing/index.md)
 
 ## L
+
+[](){ #linter }**Linter**
+:   A tool that reads code and points at bugs and risky patterns, like an unused import or an assert that can never fail.
+
+    Learn more: [Static analysis tools](think-like-a-tester/static-testing-and-reviews/static-analysis-tools.md)
 
 [](){ #load-testing }**Load testing**
 :   Checking how the app behaves when many people use it at the same time.
@@ -323,6 +343,11 @@ that teaches it.
 
     Learn more: [Practice App tour](start-here/practice-app-tour/index.md)
 
+[](){ #pre-commit }**pre-commit**
+:   A tool that runs checks automatically every time you commit, and stops the commit if something is wrong.
+
+    Learn more: [Static analysis tools](think-like-a-tester/static-testing-and-reviews/static-analysis-tools.md)
+
 [](){ #pull-request }**Pull request**
 :   A request to add your code changes to the team's main code. Others review it first.
 
@@ -392,7 +417,12 @@ that teaches it.
 [](){ #static-analysis }**Static analysis**
 :   Checking code for mistakes without running it, like a spell checker for code.
 
-    Learn more: [The testing trophy](think-like-a-tester/test-levels-and-the-pyramid/the-testing-trophy.md)
+    Learn more: [Static analysis tools](think-like-a-tester/static-testing-and-reviews/static-analysis-tools.md)
+
+[](){ #static-testing }**Static testing**
+:   Checking work without running it, by reading stories, specs, plans and code, or by letting a tool read the code.
+
+    Learn more: [What static testing is](think-like-a-tester/static-testing-and-reviews/what-is-static-testing.md)
 
 [](){ #status-code }**Status code**
 :   The number an API sends back to say how a request went, like 200 for OK or 404 for not found.
@@ -463,6 +493,11 @@ that teaches it.
 
     Learn more: [Test levels and the pyramid](think-like-a-tester/test-levels-and-the-pyramid/index.md)
 
+[](){ #user-story }**User story**
+:   A short description of a feature from the user's side, like "As a customer, I want to request a refund, so that I get my money back".
+
+    Learn more: [Reviewing user stories](think-like-a-tester/static-testing-and-reviews/reviewing-user-stories.md)
+
 ## V
 
 [](){ #virtual-environment }**Virtual environment**
@@ -471,6 +506,11 @@ that teaches it.
     Learn more: [Environment setup](start-here/environment-setup/index.md)
 
 ## W
+
+[](){ #walkthrough }**Walkthrough**
+:   A review where the author takes others through their work, explaining it and taking questions.
+
+    Learn more: [Review types](think-like-a-tester/static-testing-and-reviews/review-types.md)
 
 [](){ #white-box-testing }**White-box testing**
 :   Testing with a view of the code inside, for example to see which lines and branches the tests run.

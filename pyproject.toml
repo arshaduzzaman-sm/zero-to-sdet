@@ -15,7 +15,11 @@ norecursedirs = ["*.egg", ".*", "_darcs", "build", "CVS", "dist", "node_modules"
 target-version = "py313"
 line-length = 100
 # Markdown is not formatted: it would break snippet lines such as --8<-- "file.py".
-extend-exclude = ["*.md"]
+extend-exclude = [
+  "*.md",
+  # Mistakes on purpose: the static analysis lesson shows Ruff finding them.
+  "modules/think_like_a_tester/static_testing_and_reviews/examples/static_analysis/test_cart_mistakes.py",
+]
 
 [tool.ruff.lint]
 select = [
