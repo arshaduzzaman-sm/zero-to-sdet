@@ -39,6 +39,31 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 3: Test levels and the pyramid
+
+**Done**
+
+- Playbook page: Arshad's team has a slow, flaky suite. He measures its shape (an "ice cream cone"), moves rule checks down a level, and reports the result. It includes "Stuck? Try this" and an optional Bug Hunt box (BH-01).
+- Five lessons, in a teacher's voice, each with a "When it goes wrong" section:
+  - the test levels: one small shop tested at every level, including an integration test catching a bug that seven unit tests missed;
+  - the test pyramid: the ice cream cone, and how to move a test down safely;
+  - the testing trophy: a real Ruff example of static analysis;
+  - non-functional testing: a first speed check, and why percentiles beat averages;
+  - choosing the right level: a five-question decision chart, worked through on a coupon feature.
+- Real templates: `pytest.ini` with the levels, a `conftest.py` that marks tests by folder, a pyramid report script, and a decision chart. The example shop has unit, integration, API and UI tests plus a speed check. 14 tests cover the templates and examples.
+- Every output on the pages is real, from real runs.
+- 8 new glossary terms: test level, API test, ice cream cone, marker, testing trophy, static analysis, non-functional testing, percentile.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Pages: Think like a tester, then Test levels and the pyramid.
+
+**Next step**
+
+Topic 4: Test design techniques.
+
+---
+
 ## 2026-11-16 · Phase 2 · Topic 2 lessons: "When it goes wrong"
 
 **Done**

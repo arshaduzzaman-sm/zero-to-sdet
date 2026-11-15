@@ -40,6 +40,11 @@ that teaches it.
 
     Learn more: [API testing](core-automation/api-testing/index.md)
 
+[](){ #api-test }**API test**
+:   A test that sends a real request to the app's API and checks the status code and the data that come back.
+
+    Learn more: [The test levels](think-like-a-tester/test-levels-and-the-pyramid/the-test-levels.md)
+
 [](){ #assertion }**Assertion**
 :   The line in a test that checks the result. If the check is false, the test fails.
 
@@ -176,6 +181,11 @@ that teaches it.
 
 ## I
 
+[](){ #ice-cream-cone }**Ice cream cone**
+:   A test suite shaped like an upside-down pyramid, with many slow UI tests and very few unit tests. It is slow and often flaky.
+
+    Learn more: [The test pyramid](think-like-a-tester/test-levels-and-the-pyramid/the-test-pyramid.md)
+
 [](){ #integration-test }**Integration test**
 :   A test that checks two or more parts of the app work together, like the API and the database.
 
@@ -212,6 +222,11 @@ that teaches it.
 
     Learn more: [The SDET role](think-like-a-tester/the-sdet-role/index.md)
 
+[](){ #marker }**Marker**
+:   A label on a pytest test, like unit or ui, so you can run only the tests with that label.
+
+    Learn more: [The test pyramid](think-like-a-tester/test-levels-and-the-pyramid/the-test-pyramid.md)
+
 [](){ #microservice }**Microservice**
 :   One small service that does one job. A big app can be made of many microservices talking to each other.
 
@@ -229,12 +244,22 @@ that teaches it.
 
     Learn more: [The 9-step playbook](think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md)
 
+[](){ #non-functional-testing }**Non-functional testing**
+:   Testing how well the app works, not what it does. For example, how fast it is, how easy it is to use, and whether it stays up.
+
+    Learn more: [Non-functional testing](think-like-a-tester/test-levels-and-the-pyramid/non-functional-testing.md)
+
 ## P
 
 [](){ #page-object }**Page Object**
 :   A class that holds everything a UI test needs about one page, so tests stay short and a page change is fixed in one place.
 
     Learn more: [UI automation](core-automation/ui-automation/index.md)
+
+[](){ #percentile }**Percentile**
+:   A way to describe speed. The 95th percentile is the time that 95 out of 100 requests were as fast as, or faster than.
+
+    Learn more: [Non-functional testing](think-like-a-tester/test-levels-and-the-pyramid/non-functional-testing.md)
 
 [](){ #performance-testing }**Performance testing**
 :   Measuring how fast the app is and how much it can handle before it slows down or breaks.
@@ -317,6 +342,11 @@ that teaches it.
 
     Learn more: [Database testing](core-automation/database-testing/index.md)
 
+[](){ #static-analysis }**Static analysis**
+:   Checking code for mistakes without running it, like a spell checker for code.
+
+    Learn more: [The testing trophy](think-like-a-tester/test-levels-and-the-pyramid/the-testing-trophy.md)
+
 [](){ #status-code }**Status code**
 :   The number an API sends back to say how a request went, like 200 for OK or 404 for not found.
 
@@ -344,6 +374,11 @@ that teaches it.
 
     Learn more: [Data-driven testing](core-automation/data-driven-testing/index.md)
 
+[](){ #test-level }**Test level**
+:   How much of the app a test uses at once, from one small function (unit) up to the whole system (end-to-end).
+
+    Learn more: [The test levels](think-like-a-tester/test-levels-and-the-pyramid/the-test-levels.md)
+
 [](){ #test-plan }**Test plan**
 :   A short document that says what will be tested, how, by whom and when.
 
@@ -353,6 +388,11 @@ that teaches it.
 :   A picture of a healthy test mix. Many small, fast unit tests at the bottom, fewer integration tests, and only a few slow end-to-end tests at the top.
 
     Learn more: [Test levels and the pyramid](think-like-a-tester/test-levels-and-the-pyramid/index.md)
+
+[](){ #testing-trophy }**Testing trophy**
+:   Another picture of a healthy test mix, with static checks at the base and most tests checking parts working together.
+
+    Learn more: [The testing trophy](think-like-a-tester/test-levels-and-the-pyramid/the-testing-trophy.md)
 
 [](){ #testware }**Testware**
 :   Everything testing produces, such as plans, test cases, test data, scripts, results and reports.

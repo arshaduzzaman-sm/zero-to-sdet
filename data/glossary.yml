@@ -275,3 +275,35 @@
 - term: Testware
   meaning: Everything testing produces, such as plans, test cases, test data, scripts, results and reports.
   page: think-like-a-tester/the-sdet-role/test-process-and-testware.md
+
+- term: Test level
+  meaning: How much of the app a test uses at once, from one small function (unit) up to the whole system (end-to-end).
+  page: think-like-a-tester/test-levels-and-the-pyramid/the-test-levels.md
+
+- term: API test
+  meaning: A test that sends a real request to the app's API and checks the status code and the data that come back.
+  page: think-like-a-tester/test-levels-and-the-pyramid/the-test-levels.md
+
+- term: Ice cream cone
+  meaning: A test suite shaped like an upside-down pyramid, with many slow UI tests and very few unit tests. It is slow and often flaky.
+  page: think-like-a-tester/test-levels-and-the-pyramid/the-test-pyramid.md
+
+- term: Marker
+  meaning: A label on a pytest test, like unit or ui, so you can run only the tests with that label.
+  page: think-like-a-tester/test-levels-and-the-pyramid/the-test-pyramid.md
+
+- term: Testing trophy
+  meaning: Another picture of a healthy test mix, with static checks at the base and most tests checking parts working together.
+  page: think-like-a-tester/test-levels-and-the-pyramid/the-testing-trophy.md
+
+- term: Static analysis
+  meaning: Checking code for mistakes without running it, like a spell checker for code.
+  page: think-like-a-tester/test-levels-and-the-pyramid/the-testing-trophy.md
+
+- term: Non-functional testing
+  meaning: Testing how well the app works, not what it does. For example, how fast it is, how easy it is to use, and whether it stays up.
+  page: think-like-a-tester/test-levels-and-the-pyramid/non-functional-testing.md
+
+- term: Percentile
+  meaning: A way to describe speed. The 95th percentile is the time that 95 out of 100 requests were as fast as, or faster than.
+  page: think-like-a-tester/test-levels-and-the-pyramid/non-functional-testing.md

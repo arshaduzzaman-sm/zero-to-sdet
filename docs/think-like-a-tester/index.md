@@ -30,7 +30,7 @@ Before you automate anything, you need to know what to test and why. This pillar
 
     Unit, integration, API, UI and end-to-end tests, and how many of each to write.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Test design techniques**](test-design-techniques/index.md)
 
