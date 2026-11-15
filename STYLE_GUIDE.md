@@ -1,0 +1,165 @@
+# Style guide
+
+How every page and every template on Zero to SDET is written. These rules come
+from the project brief (sections 7 and 8); keep both in step when one changes.
+
+Contents: [Content standards](#7-content-standards) ·
+[Writing style](#8-writing-style) ·
+[Site conventions](#site-conventions)
+
+## 7. Content standards
+
+### 7.1 Topic playbook: "First time? Start here"
+
+Every topic's `index.md` is a playbook for someone doing this for the first time at work. It walks through one realistic request (for example, "Your manager says: we're adding BDD, can you set it up?") from start to finish, in these steps:
+
+1. **Understand the ask.** Questions to ask your lead on day one: what system, why now, what "done" means, deadline, environments, access.
+2. **Picture the system.** A simple diagram of what you are testing and where the data flows.
+3. **Learn just enough.** A 30–60 minute reading path through the official docs, in order, with what to skip for now.
+4. **Get something running.** Copy the topic's template and run a first test against the Practice App within an hour.
+5. **Decide what to test.** Test ideas specific to this area, sorted by risk, using the test design techniques.
+6. **Write a one-page plan** with the test plan template, and share it before building.
+7. **Build in small steps.** Smoke test, then happy path, then negative cases, then edge cases.
+8. **Report and get feedback.** What to show your team, and how.
+9. **Keep learning on your own.** What to read next, practice ideas, and official docs to bookmark.
+
+Each playbook also has a **"How an experienced SDET thinks about this"** box, a **"Red flags"** box (signs the plan is going wrong), a **"Jump to what you need"** link list, and an **"Official resources"** list at the end.
+
+### 7.2 Lesson page template (top to bottom)
+
+1. Title and a one-sentence summary.
+2. Info bar: level, reading time, tags.
+3. **"Before you start"** box: prerequisites as links, plus a short recap so the page stands on its own.
+4. **"What you will learn":** three to five outcomes.
+5. **"Why this matters at work":** a real situation.
+6. The concept in plain words, starting with an everyday comparison and a diagram.
+7. Step-by-step walkthrough: exactly what to type, and a screenshot or expected output after each step.
+8. The template: code tabs (code · how to run · expected output), pulled from `modules/`.
+9. **"Common mistakes"** box.
+10. **"If you see this error"** box: the real error text and the fix.
+11. **"Try it yourself":** an exercise against the Practice App, with the solution in a collapsed block.
+12. **Quick check:** three questions.
+13. **References:** every source used, plus the tool version the page was written for and the date the links were last checked.
+14. Footer: previous / next, "Edit this page on GitHub", comments, feedback widget, author line.
+
+### 7.3 Teaching method
+
+- Start with a picture or everyday comparison, then the real thing. Example: "An API is like a waiter who takes your order to the kitchen and brings back your food."
+- Show, then do: a diagram of the idea, then a guided walkthrough, then the reader does it alone.
+- One new idea at a time. If a page needs three new ideas, it becomes three pages.
+- After every few steps, a **"Check: you should now see…"** line with a screenshot.
+- When something can go wrong, show the real error and the fix.
+
+### 7.4 Install and setup steps (every tool)
+
+- Tabs for **macOS, Windows and Linux**.
+- The exact version used, with a link to the **official** download page only.
+- The command to type, then a **verify command** with its expected output (for example `python3 --version` → `Python 3.12.x`).
+- A screenshot of every installer screen and settings window, with the right button highlighted.
+- A **Troubleshooting** box for the most common problems.
+- A folder tree showing where each file goes, before the reader creates it.
+- How to uninstall or clean up.
+
+### 7.5 Visuals checklist (every page)
+
+- At least one **Mermaid diagram** for any flow, architecture or sequence.
+- A **screenshot** for every step in a UI (VS Code, browser DevTools, database tools, GitHub), with arrows or highlights.
+- A **terminal output** block for every command.
+- **Alt text** on every image.
+- Images at `docs/assets/images/<topic>/<page>-<n>.png`, compressed under 300 KB.
+- Where a screenshot is still needed, add a placeholder image link and list it in `docs/assets/images/IMAGES_NEEDED.md` with a description of exactly what to capture. I will take the screenshots myself.
+- One illustrated **cheat sheet image** per topic that people can save and share.
+
+### 7.6 References and sources
+
+- Official sources first: the tool's own documentation (for example docs.pytest.org, the Requests docs, the MySQL and PostgreSQL manuals, the Cucumber Gherkin reference), standards bodies (W3C for accessibility, OWASP for security, the ISTQB glossary for testing terms), and original authors' articles.
+- Link inline, right where a fact or rule is used.
+- End every page with a **References** list.
+- Run a link check locally before each push (in `scripts/check.sh`). From Phase 9, also weekly in CI.
+- Never link to pirated books, copied content or low-quality sites.
+
+### 7.7 Code rules
+
+- Every example runs and has a test.
+- No passwords or keys in code: use `.env` plus `.env.example`.
+- Pin library versions.
+- Format and lint with `ruff`. Use type hints and short comments that explain **why**, not what.
+- Use Python 3.12+ and pytest as the base for all templates. Exceptions, where the tool has its own runner: behave (BDD), Robot Framework, Locust, k6 and JMeter. Their templates still have a check that `scripts/check.sh` runs.
+- Every template file starts with one credit comment line: `# Template from Zero to SDET: <site URL>`.
+
+### 7.8 Example names and data
+
+- The main example person in the site is **Arshad** (first name only). Use him wherever an example needs a person:
+  - Practice App main test user: username `arshad`, name `Arshad`, email `arshad@example.com`, password `Test@1234` (clearly fake).
+  - Code: `create_user(name="Arshad")`, `assert response.json()["name"] == "Arshad"`.
+  - Gherkin: `Given Arshad is logged in`, `When Arshad adds 2 books to the cart`.
+  - SQL: `INSERT INTO customers (name) VALUES ('Arshad');`
+  - Stories: "Arshad just joined a new team. On his first day, his lead asks him to test the checkout API…" (clearly an example, never presented as real experience).
+- **Never** use a full name, a real email, phone number, birth date, address or any password pattern I really use. Emails always end in `@example.com`.
+- Arshad is not the only person: second users, admins and customer lists use other names (Faker or common names from many countries), for example "Arshad must not be able to see Maria's order".
+
+## 8. Writing style
+
+Write like an experienced human teacher sitting next to one learner.
+
+- Use "you" and "we", in plain English that a 10-year-old could follow.
+- Explain **why** before **how**.
+- Define every new word the first time it appears on a page, and add it to the Glossary.
+- Use real work situations. Example: "Your team moved customer data from MySQL to PostgreSQL. How do you prove nothing was lost?"
+- **Never invent personal stories, fake experience, fake statistics or fake quotes.**
+- Mix short and long sentences. Be warm, direct, and honest about what is hard.
+- Keep paragraphs short. Use lists only for real lists or steps.
+- Every command shows what you type **and** what you should see.
+- **Banned phrases:** "In today's fast-paced world", "Let's dive in", "dive deep", "It's not X, it's Y", "Moreover", "Furthermore", "In conclusion", "Unlock", "Seamless", "Robust", "Leverage", "Game-changer", "Delve". No emoji spam.
+- Read each page aloud once. If it sounds like a robot or a sales page, rewrite it.
+
+### 8A. The 10-year-old test
+
+Every explanation must make sense to a curious 10-year-old reading it with no help. Technical words are allowed, but only after they are explained.
+
+- Each concept page opens with an **"In plain words"** box: two or three sentences and an everyday comparison, before any technical detail. Example: "A database is like a giant, super-organized notebook. Each table is one page, and each row is one line on that page."
+- Every concept gets a **picture**: a diagram, an illustration or an annotated screenshot.
+- Sentences stay short (aim for under 20 words). One idea per paragraph.
+- No unexplained abbreviations. Write "API (Application Programming Interface): a way for two programs to talk" the first time on every page.
+- Explanations aim for a reading level around school grade 6–8. `scripts/check.sh` runs a readability check (for example with the `textstat` library) on the prose of each page, skipping code blocks, and lists pages that score too hard.
+- Before a page is done, read it as if you had never heard of the topic. Anything you would have to look up is explained on the page or linked.
+
+## Site conventions
+
+Rules that come from how the site is built.
+
+### Front matter on every page
+
+```yaml
+---
+title: "API testing"                   # page title (also the browser tab and search result)
+description: "One or two sentences."   # search engines and link previews
+level: Intermediate                    # Beginner, Intermediate, Advanced or Senior
+status: draft                          # remove when the page is finished
+tags:
+  - core-automation
+nav_title: "API testing"               # short label in the menu
+order: 20                              # position in its section (10, 20, 30 ... leave gaps)
+group: "API and databases"             # only in sections that use groups
+summary: "One plain sentence for the card on the section overview."
+---
+```
+
+The menu and the section overview cards are built from these fields by
+`scripts/build_nav.py`. Never edit the `nav` block in `zensical.toml` by hand.
+
+### Boxes (admonitions)
+
+| Box | Use it for |
+| --- | --- |
+| `!!! info "In plain words"` | The everyday explanation at the top of a concept page |
+| `!!! tip` | A shortcut or a good habit |
+| `!!! warning` | Something that can go wrong or cost time |
+| `!!! danger` | Something that can lose data or leak a secret |
+| `??? success "Solution"` | Exercise answers, folded by default |
+
+### Dates
+
+Pages show no "last updated" date (an old date makes a correct page look
+abandoned). Each lesson shows the tool versions it was tested with instead.
+`scripts/update_page_dates.py` keeps a hidden date for search engines.

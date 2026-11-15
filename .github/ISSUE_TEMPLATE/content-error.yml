@@ -1,0 +1,38 @@
+name: Content error
+description: Something on a page is wrong, unclear, out of date, or a link is broken.
+title: "Content: "
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping make Zero to SDET better. Please do not paste
+        passwords, tokens, real emails or company information.
+  - type: input
+    id: page
+    attributes:
+      label: Page address
+      description: Copy it from your browser's address bar.
+      placeholder: https://arshaduzzaman-sm.github.io/zero-to-sdet/...
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem is it?
+      options:
+        - Wrong or out of date
+        - Unclear or hard to follow
+        - Broken link or image
+        - Code example does not run
+        - Typo or grammar
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What is wrong, and what should it say?
+      description: Quote the sentence if you can.
+    validations:
+      required: true

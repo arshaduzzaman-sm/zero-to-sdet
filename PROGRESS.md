@@ -27,6 +27,31 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Step 1.10: repository documents
+
+**Done**
+
+- `LICENSE` (MIT, standard text so GitHub detects it) and `LICENSE-CC-BY-4.0.txt` (official legal code from creativecommons.org, with a header saying which files each license covers). Fonts keep their OFL.
+- `CODE_OF_CONDUCT.md`: Contributor Covenant 2.1 (official text), contact = private LinkedIn message, scope names issues, PRs, Discussions and lesson comments.
+- `SECURITY.md`: brief section 9, plus private reporting through GitHub, and a note that the Practice App's planted bugs are not vulnerabilities (localhost only, never deploy it).
+- `STYLE_GUIDE.md`: brief sections 7 and 8 copied by script, plus site conventions (front matter fields, boxes, no visible dates).
+- `CONTRIBUTING.md`: setup with uv and hashed installs, how to add a topic (front matter + `build_nav.py`), the lesson checklist (brief section 13), licenses.
+- `.github/ISSUE_TEMPLATE/`: "Content error" and "Template or code problem" forms (privacy reminders), blank issues off, security link. `.github/PULL_REQUEST_TEMPLATE.md` with the checklist.
+- 👎 feedback link now opens the "Content error" form with the page address filled in.
+- Brief updated: navigation order lives in front matter; author line has no visible date.
+
+**Open questions**
+
+- Code of Conduct contact: LinkedIn message for now. A project-only email would be more private (owner's choice).
+- The GitHub CLI on this machine is logged in to a different account, so labels `content` and `code` were not created. Create them when convenient (or in Phase 9).
+- Phase 9: turn on private vulnerability reporting (Settings, Security) when the repo is public; add Discussions links to `config.yml`.
+
+**Next step**
+
+Step 1.11: `_new_topic_template/` (a ready topic folder to copy, with the front matter fields).
+
+---
+
 ## 2026-11-15 · Phase 1 · Navigation for scale, part B: menu and overviews built from front matter
 
 **Done**

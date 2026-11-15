@@ -232,7 +232,7 @@ note = "Thanks! Glad it helped. A star on <a href=\"https://github.com/arshaduzz
 icon = "lucide/thumbs-down"
 name = "No, this page needs work"
 data = 0
-note = "Thanks for telling us. <a href=\"https://github.com/arshaduzzaman-sm/zero-to-sdet/issues/new?title=Feedback%3A%20{title}&body=Page%3A%20{url}%0A%0AWhat%20was%20unclear%20or%20missing%3F%0A\" target=\"_blank\" rel=\"noopener\">Tell us what was unclear</a> and we will fix it."
+note = "Thanks for telling us. <a href=\"https://github.com/arshaduzzaman-sm/zero-to-sdet/issues/new?template=content-error.yml&title=Content%3A%20{title}&page=https%3A%2F%2Farshaduzzaman-sm.github.io%2Fzero-to-sdet{url}\" target=\"_blank\" rel=\"noopener\">Tell us what was unclear</a> and we will fix it."
 
 # Comments under each lesson (Giscus = GitHub Discussions). OFF until Phase 9:
 # it needs a public repo. Fill repo_id and category_id from https://giscus.app.
