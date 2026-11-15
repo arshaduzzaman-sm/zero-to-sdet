@@ -504,7 +504,7 @@ People share things that make them look good or genuinely help someone else. Nev
 
 ---
 
-## 11. Full topic and lesson catalog (62 topics)
+## 11. Full topic and lesson catalog (64 topics: 60 learning topics + 4 Toolbox pages)
 
 Topics and lessons added on 2026-11-15 from the skills matrix gap check (step 0.6) are marked *(added 0.6)*.
 

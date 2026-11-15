@@ -15,18 +15,77 @@ Newest entry first. No secrets or personal data in this file.
 | Main color | Calm blue | 2026-11-15 |
 | BDD tool | Both behave and pytest-bdd, equal depth. No main track. | 2026-11-15 |
 | Equal depth | Every topic and every tool is taught in full: playbook, lessons, templates with tests, Bug Hunt. No "main" vs "side" topics. Goal: a reader can reach senior/lead SDET level from this repo alone. | 2026-11-15 |
-| Skills gaps | All 4 new topics and 13 new lessons from step 0.6 approved and added to brief section 11 (now 62 topics). | 2026-11-15 |
+| Skills gaps | All 4 new topics and 13 new lessons from step 0.6 approved and added to brief section 11 (now 64 topics: 60 learning topics + 4 Toolbox pages). | 2026-11-15 |
 | Multi-database set | MySQL, PostgreSQL, SQLite, MongoDB | 2026-11-15 |
 | Custom domain | GitHub Pages first | 2026-11-15 |
 | Analytics | GoatCounter (account in Phase 9) | 2026-11-15 |
+| Way of working | Owner asked for best practice and security first, handled end to end ("complete the project"). Assistant installs tools, commits and pushes to the private repo after the pre-push checklist passes, and keeps going step by step, logging each step here. | 2026-11-15 |
+| Dependencies | Pinned with SHA-256 hashes (`uv pip compile --generate-hashes`), installed with `--require-hashes`. | 2026-11-15 |
+| Fonts | No external fonts (`font = false`): system fonts, no Google requests. | 2026-11-15 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-15 · Phase 1 · Steps 1.1 to 1.4: skeleton, Zensical config, Markdown features, local preview
+
+**Done**
+
+- 1.1 Folder skeleton generated from brief section 11: a placeholder page for each of the 63 topic folders (Glossary is a single page), 7 tab overview pages, plus Home, Learning Path, About, Glossary, Tags, Changelog. Each placeholder lists the lessons and templates it will contain. `docs/assets/images/IMAGES_NEEDED.md`, `docs/assets/diagrams/`, `modules/README.md`.
+- 1.2 Zensical 0.1.1 installed in `.venv` (Python 3.13). `zensical.toml`: name, URL, author, copyright, repo link with "Edit this page", tabs, breadcrumbs, search highlight, instant navigation, back-to-top, previous/next footer, calm blue light/dark/system palettes, GitHub and LinkedIn links.
+- 1.3 Markdown features: admonitions, details (collapsible), tabs, Mermaid, task lists, snippets (base path = repo root, missing files fail the build), tags plugin with index on `tags.md`, a "Coming soon" status badge for draft pages.
+- 1.4 `zensical build --strict`: no issues. `zensical serve` serves every page (HTTP 200).
+
+**How to check**
+
+```bash
+cd ~/Documents/"Claude code"/zero-to-sdet
+.venv/bin/zensical serve
+# open http://localhost:8000/zero-to-sdet/
+```
+
+**Files changed**
+
+`zensical.toml`, `requirements-docs.in`, `requirements-docs.txt`, `docs/**` (placeholder pages), `modules/README.md`, `PROJECT_BRIEF.md` (topic count corrected to 64), `PROGRESS.md`
+
+**Notes for later**
+
+- The theme loads Mermaid from unpkg.com on pages that have a diagram. Review in Phase 9 (self-host for privacy).
+- The level badge, Giscus comments and the feedback widget need template overrides: steps 1.8 and 1.15.
+- Giscus needs a public repo with Discussions, so it can only go live in Phase 9. Its template is prepared earlier.
+
+**Next step**
+
+1.5 Home page: hero, "I need to…" task finder, learning paths by role, pillar cards, star button.
+
+---
+
+## 2026-11-15 · Phase 0 · Gate passed
+
+**Done**
+
+- Tools installed on the owner's machine (owner authorized): uv 0.13.8, Python 3.13.18 (via uv), pre-commit 4.7.0 (via `uv tool`), gitleaks 8.30.1 (official GitHub release, SHA-256 checksum verified, in `~/.local/bin`).
+- `pre-commit install` done; all hooks pass on every file.
+- Pre-push checklist passed: gitleaks clean (staged and full history), no personal paths or emails, no images, no `.env`, no third-party course material.
+- First commit `06baf46` pushed to the private `zero-to-sdet` repo. Author: Arshaduzzaman SM (no-reply email). No AI attribution.
+
+**Gate check**
+
+- Clean `main`: yes. No secrets: yes. Decisions written down: yes.
+
+**Note for the Phase 9 audit**
+
+- `PROJECT_BRIEF.md` mentions that an old private repo once held a real password. Harmless, but decide before going public whether the brief should be public as is.
+
+**Next step**
+
+Phase 1, step 1.1: folder skeleton with placeholder pages for every tab.
+
+---
+
 ## 2026-11-15 · Phase 0 · Step 0.6: skills matrix (done)
 
-Update: owner approved all gaps and chose equal depth for everything. Brief updated: core idea 3 ("Equal depth"), section 11 (62 topics, additions marked "added 0.6"), Phase 2 (Python for testers, Static testing), Phase 6 order (Testing microservices, Data and ETL testing), section 14 (BDD), rule 7.7 (tools with their own runner). The "Open questions" below are resolved.
+Update: owner approved all gaps and chose equal depth for everything. Brief updated: core idea 3 ("Equal depth"), section 11 (64 topics, additions marked "added 0.6"), Phase 2 (Python for testers, Static testing), Phase 6 order (Testing microservices, Data and ETL testing), section 14 (BDD), rule 7.7 (tools with their own runner). The "Open questions" below are resolved.
 
 **Done**
 
