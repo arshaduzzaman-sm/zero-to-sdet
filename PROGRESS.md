@@ -36,8 +36,31 @@ Newest entry first. No secrets or personal data in this file.
 | Author's note | Home (short) and About (full): the content comes from the author's work and from what many people shared online, gathered in one place in plain words, with thanks. | 2026-11-16 |
 | No story characters | Pages talk straight to the reader, like a senior engineer explaining real work ("Your lead asks…", "Ask the product owner…"). No named hero whose day the reader follows. Arshad stays only as a test-data name. Style guide and brief section 8 updated. | 2026-11-16 |
 | coverage.py | Added to `requirements.txt` (7.17.3, pinned with hashes) for the statement and branch coverage lesson. Owner said yes. Nothing else changed in the lock file. | 2026-11-16 |
+| API testing libraries | `requests` 2.34.2 and `jsonschema` 4.26.0 added to `requirements.in` (owner chose them), pinned with hashes. New indirect packages: attrs, certifi, charset-normalizer, jsonschema-specifications, referencing, rpds-py, urllib3. | 2026-11-16 |
+| API for the lessons | Public practice APIs online (owner's choice): Restful-booker, httpbin.org and DummyJSON, using only the demo logins they publish. Online checks run only with `ZTS_ONLINE=1`, so `check.sh` stays offline. | 2026-11-16 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-16 · Phase 3 · Topic 2: API testing
+
+**Done**
+
+- Playbook (index page): test a booking API end to end, with a request diagram and the nine steps.
+- Ten lessons, written straight to the reader, each with "When it goes wrong": how HTTP works, the five methods, status codes, headers and JSON, query and path parameters, authentication (API key, Basic, Bearer, a token login, OAuth2 client credentials), schema validation, chaining requests, file upload, and an API client class.
+- Template project `templates/booker_api_tests`: an `ApiClient` on a session (base URL, headers, timeout, logging), `check_status` failures that show the method, URL, status and body with secret headers hidden, login helpers, JSON Schemas with `$ref`, and fixtures that create a booking and delete it afterwards. 11 passed and 1 xfailed against Restful-booker; the xfail is its real 500-for-a-missing-field bug.
+- Nine runnable examples. Every output on the pages comes from a real run, and every quoted error was reproduced first. Restful-booker's wrong status codes (200 on create, 201 on delete and ping, 200 on a wrong password) are explained as bugs to report, not copied as right.
+- Secrets: logins come only from environment variables; tests skip with a clear reason when they are missing. The demo login `admin` / `password123` is Restful-booker's own published practice account.
+- 51 topic tests: 41 offline (a local echo server for the client, auth helpers, OAuth2 and schema errors), 10 online with `ZTS_ONLINE=1` that check the page outputs against live runs. 11 new glossary terms (124 in total); Status code now points to its lesson.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Pages: Core automation, then API testing. Try: `cd modules/core_automation/api_testing/templates/booker_api_tests`, set `BOOKER_USERNAME=admin BOOKER_PASSWORD=password123`, then `python -m pytest -v`.
+
+**Next step**
+
+Phase 3, Core Automation: Database testing.
 
 ---
 

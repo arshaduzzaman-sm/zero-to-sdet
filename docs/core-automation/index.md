@@ -32,7 +32,7 @@ The everyday work of an SDET: automated tests for APIs, databases and web pages,
 
     Send requests from Python and check status codes, JSON, headers and auth.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 -   [**Database testing**](database-testing/index.md)
 

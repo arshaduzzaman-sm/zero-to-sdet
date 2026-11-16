@@ -196,7 +196,7 @@
 
 - term: Status code
   meaning: The number an API sends back to say how a request went, like 200 for OK or 404 for not found.
-  page: core-automation/api-testing/index.md
+  page: core-automation/api-testing/status-codes.md
 
 - term: Stub
   meaning: A very simple fake that always gives the same ready answer, so a test does not need the real thing.
@@ -475,3 +475,47 @@
 - term: xfail
   meaning: A pytest marker for a test that is expected to fail, usually because of a known bug. The run stays green until the bug is fixed.
   page: core-automation/pytest-framework/markers.md
+
+- term: HTTP method
+  meaning: The word at the start of a request that says what to do, like GET to read, POST to create, PUT or PATCH to change and DELETE to remove.
+  page: core-automation/api-testing/http-methods.md
+
+- term: Idempotent
+  meaning: A request is idempotent when sending it twice gives the same result as sending it once. PUT and DELETE are, POST is not.
+  page: core-automation/api-testing/http-methods.md
+
+- term: Request header
+  meaning: A short note sent with a request, like Accept or Authorization, that tells the server about the request.
+  page: core-automation/api-testing/headers-and-json.md
+
+- term: Query parameter
+  meaning: A value after the question mark in a web address, like page=2, used to filter, sort or page results.
+  page: core-automation/api-testing/query-and-path-params.md
+
+- term: Path parameter
+  meaning: A value that is part of the web address itself, like the 42 in /booking/42, usually the id of one thing.
+  page: core-automation/api-testing/query-and-path-params.md
+
+- term: API key
+  meaning: A secret code an app sends with every request, usually in a header, so the API knows who is calling.
+  page: core-automation/api-testing/authentication.md
+
+- term: Bearer token
+  meaning: A secret you get from logging in and send in the Authorization header on every request. Whoever holds it gets in, until it expires.
+  page: core-automation/api-testing/authentication.md
+
+- term: OAuth2
+  meaning: A standard way to get access tokens from a separate token server, instead of sending a password to every API.
+  page: core-automation/api-testing/authentication.md
+
+- term: JSON Schema
+  meaning: A file that describes the shape JSON must have, like which fields are required and what type each one is. Tests use it to check responses.
+  page: core-automation/api-testing/schema-validation.md
+
+- term: Multipart form data
+  meaning: The kind of request body used to upload files. It is split into parts, one for each file and form field.
+  page: core-automation/api-testing/file-upload.md
+
+- term: API client
+  meaning: A small class in a test project that holds the base address, headers, timeout and logging for one API, so tests do not repeat them.
+  page: core-automation/api-testing/api-client-class.md

@@ -120,7 +120,7 @@ Click a stage to open it.
 
 **API and databases**
 
-- [API testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/api-testing/): Send requests from Python and check status codes, JSON, headers and auth. *(coming soon)*
+- [API testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/api-testing/): Send requests from Python and check status codes, JSON, headers and auth.
 - [Database testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/database-testing/): Write SQL to prove the right data was saved, and test schemas and rules. *(coming soon)*
 - [Multi-database testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/multi-database-testing/): Run one test on MySQL, PostgreSQL, SQLite and MongoDB. *(coming soon)*
 - [API + database](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/api-and-database/): Call the API, then prove the change landed in the database. *(coming soon)*

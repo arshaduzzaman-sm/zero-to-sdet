@@ -45,6 +45,16 @@ that teaches it.
 
     Learn more: [API testing](core-automation/api-testing/index.md)
 
+[](){ #api-client }**API client**
+:   A small class in a test project that holds the base address, headers, timeout and logging for one API, so tests do not repeat them.
+
+    Learn more: [An API client class](core-automation/api-testing/api-client-class.md)
+
+[](){ #api-key }**API key**
+:   A secret code an app sends with every request, usually in a header, so the API knows who is calling.
+
+    Learn more: [Authentication](core-automation/api-testing/authentication.md)
+
 [](){ #api-test }**API test**
 :   A test that sends a real request to the app's API and checks the status code and the data that come back.
 
@@ -71,6 +81,11 @@ that teaches it.
 :   A way of writing tests as plain English examples, like "Given I am logged in, When I add a book, Then my cart has 1 item".
 
     Learn more: [BDD testing](core-automation/bdd-testing/index.md)
+
+[](){ #bearer-token }**Bearer token**
+:   A secret you get from logging in and send in the Authorization header on every request. Whoever holds it gets in, until it expires.
+
+    Learn more: [Authentication](core-automation/api-testing/authentication.md)
 
 [](){ #boundary-value }**Boundary value**
 :   A value right at the edge of what is allowed, like 0, 1, 99 and 100 for "1 to 99". Bugs love edges.
@@ -254,12 +269,22 @@ that teaches it.
 
     Learn more: [Networking for testers](infrastructure/networking-for-testers/index.md)
 
+[](){ #http-method }**HTTP method**
+:   The word at the start of a request that says what to do, like GET to read, POST to create, PUT or PATCH to change and DELETE to remove.
+
+    Learn more: [GET, POST, PUT, PATCH, DELETE](core-automation/api-testing/http-methods.md)
+
 ## I
 
 [](){ #ice-cream-cone }**Ice cream cone**
 :   A test suite shaped like an upside-down pyramid, with many slow UI tests and very few unit tests. It is slow and often flaky.
 
     Learn more: [The test pyramid](think-like-a-tester/test-levels-and-the-pyramid/the-test-pyramid.md)
+
+[](){ #idempotent }**Idempotent**
+:   A request is idempotent when sending it twice gives the same result as sending it once. PUT and DELETE are, POST is not.
+
+    Learn more: [GET, POST, PUT, PATCH, DELETE](core-automation/api-testing/http-methods.md)
 
 [](){ #inspection }**Inspection**
 :   The most formal kind of review, with set roles, a checklist, prepared reviewers and a written list of findings.
@@ -282,6 +307,11 @@ that teaches it.
 :   A simple text format for data, made of names and values in curly brackets. Most APIs send and receive JSON.
 
     Learn more: [JSON](start-here/python-for-testers/json.md)
+
+[](){ #json-schema }**JSON Schema**
+:   A file that describes the shape JSON must have, like which fields are required and what type each one is. Tests use it to check responses.
+
+    Learn more: [Schema validation](core-automation/api-testing/schema-validation.md)
 
 ## L
 
@@ -322,6 +352,11 @@ that teaches it.
 
     Learn more: [Mocking and stubbing](advanced-testing/mocking-and-stubbing/index.md)
 
+[](){ #multipart-form-data }**Multipart form data**
+:   The kind of request body used to upload files. It is split into parts, one for each file and form field.
+
+    Learn more: [File upload](core-automation/api-testing/file-upload.md)
+
 ## N
 
 [](){ #negative-test }**Negative test**
@@ -335,6 +370,11 @@ that teaches it.
     Learn more: [Non-functional testing](think-like-a-tester/test-levels-and-the-pyramid/non-functional-testing.md)
 
 ## O
+
+[](){ #oauth2 }**OAuth2**
+:   A standard way to get access tokens from a separate token server, instead of sending a password to every API.
+
+    Learn more: [Authentication](core-automation/api-testing/authentication.md)
 
 [](){ #off-by-one-bug }**Off-by-one bug**
 :   A bug where a limit is out by one step, like refusing age 18 when 18 should be allowed. Often caused by mixing up < and <=.
@@ -357,6 +397,11 @@ that teaches it.
 :   A pytest feature that runs the same test many times, once for each row of values you give it.
 
     Learn more: [Parametrize](core-automation/pytest-framework/parametrize.md)
+
+[](){ #path-parameter }**Path parameter**
+:   A value that is part of the web address itself, like the 42 in /booking/42, usually the id of one thing.
+
+    Learn more: [Query and path parameters](core-automation/api-testing/query-and-path-params.md)
 
 [](){ #percentile }**Percentile**
 :   A way to describe speed. The 95th percentile is the time that 95 out of 100 requests were as fast as, or faster than.
@@ -430,12 +475,22 @@ that teaches it.
 
     Learn more: [The SDET role](think-like-a-tester/the-sdet-role/index.md)
 
+[](){ #query-parameter }**Query parameter**
+:   A value after the question mark in a web address, like page=2, used to filter, sort or page results.
+
+    Learn more: [Query and path parameters](core-automation/api-testing/query-and-path-params.md)
+
 ## R
 
 [](){ #regression-testing }**Regression testing**
 :   Running tests again after a change, to make sure things that worked before still work.
 
     Learn more: [Regression, hotfixes and incidents](professional-sdet/regression-hotfixes-and-incidents/index.md)
+
+[](){ #request-header }**Request header**
+:   A short note sent with a request, like Accept or Authorization, that tells the server about the request.
+
+    Learn more: [Headers and JSON](core-automation/api-testing/headers-and-json.md)
 
 [](){ #rest }**REST (Representational State Transfer)**
 :   The most common style of web API. You use web addresses for things and HTTP methods like GET and POST for actions.
@@ -502,7 +557,7 @@ that teaches it.
 [](){ #status-code }**Status code**
 :   The number an API sends back to say how a request went, like 200 for OK or 404 for not found.
 
-    Learn more: [API testing](core-automation/api-testing/index.md)
+    Learn more: [Status codes](core-automation/api-testing/status-codes.md)
 
 [](){ #steps-to-reproduce }**Steps to reproduce**
 :   The numbered actions in a bug report that make the bug happen again, written so someone else can follow them.

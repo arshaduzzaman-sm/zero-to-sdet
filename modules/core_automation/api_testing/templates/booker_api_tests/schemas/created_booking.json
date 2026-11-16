@@ -1,0 +1,13 @@
+{
+  "$comment": "Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "created_booking.json",
+  "title": "Created booking",
+  "type": "object",
+  "required": ["bookingid", "booking"],
+  "additionalProperties": false,
+  "properties": {
+    "bookingid": {"type": "integer", "minimum": 1},
+    "booking": {"$ref": "booking.json"}
+  }
+}

@@ -6,3 +6,5 @@ httpx2       # the Practice App's own API tests (FastAPI TestClient; the httpx s
 ruff
 pyphen
 coverage     # which lines and branches the tests run (Test design techniques: coverage lesson)
+requests     # HTTP calls in the API testing lessons and templates
+jsonschema   # checking the shape of API responses (API testing: schema validation)
