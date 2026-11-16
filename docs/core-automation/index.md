@@ -1,7 +1,7 @@
 ---
 title: "Core Test Automation with Python: pytest, API, Database, BDD and UI"
 description: "Learn core test automation with Python: pytest, API testing, database testing, BDD and Playwright UI tests, with templates."
-updated: "2026-11-15"
+updated: "2026-11-16"
 nav_title: "Core Automation"
 order: 30
 ---
@@ -20,7 +20,7 @@ The everyday work of an SDET: automated tests for APIs, databases and web pages,
 
     Your first automated tests: project layout, fixtures, parametrize and markers.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 </div>
 

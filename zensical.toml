@@ -120,7 +120,16 @@ nav = [
   { "Core Automation" = [
     "core-automation/index.md",
     { "Foundations" = [
-      { "pytest framework" = ["core-automation/pytest-framework/index.md"] },
+      { "pytest framework" = [
+        "core-automation/pytest-framework/index.md",
+        { "Project layout" = "core-automation/pytest-framework/project-layout.md" },
+        { "Tests and asserts" = "core-automation/pytest-framework/tests-and-asserts.md" },
+        { "Fixtures and conftest.py" = "core-automation/pytest-framework/fixtures-and-conftest.md" },
+        { "Parametrize" = "core-automation/pytest-framework/parametrize.md" },
+        { "Markers" = "core-automation/pytest-framework/markers.md" },
+        { "pytest.ini" = "core-automation/pytest-framework/pytest-ini.md" },
+        { "Environments" = "core-automation/pytest-framework/environments.md" },
+      ] },
     ] },
     { "API and databases" = [
       { "API testing" = ["core-automation/api-testing/index.md"] },

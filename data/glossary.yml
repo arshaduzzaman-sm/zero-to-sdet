@@ -27,7 +27,7 @@
 
 - term: Assertion
   meaning: The line in a test that checks the result. If the check is false, the test fails.
-  page: core-automation/pytest-framework/index.md
+  page: core-automation/pytest-framework/tests-and-asserts.md
 
 - term: Automation
   meaning: Letting a program do a check that a person would otherwise do by hand, so it can run again and again in seconds.
@@ -78,7 +78,7 @@
 
 - term: Environment
   meaning: One full copy of the app for a purpose, like your own computer, a shared test copy, or the live site.
-  page: infrastructure/ci-cd/index.md
+  page: core-automation/pytest-framework/environments.md
 
 - term: Equivalence partitioning
   meaning: Splitting inputs into groups that should behave the same, then testing one value from each group instead of all of them.
@@ -90,7 +90,7 @@
 
 - term: Fixture
   meaning: In pytest, a small helper that gets something ready for a test, like a logged-in user, and cleans it up afterwards.
-  page: core-automation/pytest-framework/index.md
+  page: core-automation/pytest-framework/fixtures-and-conftest.md
 
 - term: Flaky test
   meaning: A test that sometimes passes and sometimes fails without any change to the code.
@@ -290,7 +290,7 @@
 
 - term: Marker
   meaning: A label on a pytest test, like unit or ui, so you can run only the tests with that label.
-  page: think-like-a-tester/test-levels-and-the-pyramid/the-test-pyramid.md
+  page: core-automation/pytest-framework/markers.md
 
 - term: Testing trophy
   meaning: Another picture of a healthy test mix, with static checks at the base and most tests checking parts working together.
@@ -322,7 +322,7 @@
 
 - term: Parametrize
   meaning: A pytest feature that runs the same test many times, once for each row of values you give it.
-  page: think-like-a-tester/test-design-techniques/equivalence-partitioning.md
+  page: core-automation/pytest-framework/parametrize.md
 
 - term: Pairwise testing
   meaning: Picking a small set of tests where every pair of settings, like Safari with PayPal, appears together at least once.
@@ -467,3 +467,11 @@
 - term: pip
   meaning: The tool that installs Python packages, like pytest, into your virtual environment.
   page: start-here/python-for-testers/virtual-environments-and-pip.md
+
+- term: conftest.py
+  meaning: A file pytest loads by itself, where you put fixtures and options that many test files share.
+  page: core-automation/pytest-framework/fixtures-and-conftest.md
+
+- term: xfail
+  meaning: A pytest marker for a test that is expected to fail, usually because of a known bug. The run stays green until the bug is fixed.
+  page: core-automation/pytest-framework/markers.md

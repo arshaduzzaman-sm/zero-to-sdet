@@ -1,0 +1,13 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# One section per environment. Choose one with --env, or the TEST_ENV variable.
+# Never put passwords or tokens here: name the environment variable that holds them.
+
+[local]
+base_url = "http://127.0.0.1:8080"
+timeout = 2
+token_variable = "SHOP_LOCAL_TOKEN"
+
+[staging]
+base_url = "https://staging.example.com"
+timeout = 10
+token_variable = "SHOP_STAGING_TOKEN"

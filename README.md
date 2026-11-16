@@ -116,7 +116,7 @@ Click a stage to open it.
 
 **Foundations**
 
-- [pytest framework](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/pytest-framework/): Your first automated tests: project layout, fixtures, parametrize and markers. *(coming soon)*
+- [pytest framework](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/pytest-framework/): Your first automated tests: project layout, fixtures, parametrize and markers.
 
 **API and databases**
 

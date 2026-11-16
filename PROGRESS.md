@@ -41,6 +41,29 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 3 · Topic 1: pytest framework
+
+**Done**
+
+- Playbook: turn hand-run cart scripts into a pytest project a pipeline can run on local and staging. The "before" script really runs: it prints "OK" for a person to read, then crashes on the second check, so nothing after it runs.
+- Seven lessons, written straight to the reader, each with "When it goes wrong": project layout, tests and asserts, fixtures and conftest.py, parametrize, markers, pytest.ini, environments.
+- Example project `examples/shop_project` (src layout, a cart with coupons in whole cents): 63 tests plus one `api` health check that runs only with `-m api`. It skips with a reason when there is no server, and passes against the Practice App.
+- Environments: `config/environments.toml` per environment, a `--env` option (or the `TEST_ENV` variable), the choice shown in the run header, an unknown name refused, and tokens read only from environment variables.
+- Demos that fail on purpose: `assert_demo` (how a failure reads) and `typo_demo` (`--strict-markers`).
+- Templates: a copy-ready `pytest_skeleton` (pytest.ini, conftest.py, environments.toml, requirements.txt, .gitignore, README) and a pytest command cheat sheet.
+- Every output on the pages comes from a real run with only pytest loaded (`PYTEST_DISABLE_PLUGIN_AUTOLOAD=1`), so the repo's own plugins (Faker) don't show up. Topic tests check that the outputs stay true, ignoring the run time. Every quoted error was reproduced first.
+- 36 topic tests. 2 new glossary terms (113 in total); Assertion, Fixture, Marker, Parametrize and Environment now point to these lessons.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Pages: Core automation, then pytest framework. Try: `cd modules/core_automation/pytest_framework/examples/shop_project && python -m pytest -v`.
+
+**Next step**
+
+Phase 3, topic 2: API testing.
+
+---
+
 ## 2026-11-16 · Phase 2 · Start Here: Python for testers
 
 **Done**

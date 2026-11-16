@@ -21,7 +21,7 @@ that teaches it.
 
 <!-- BEGIN glossary (generated from data/glossary.yml, do not edit by hand) -->
 
-<nav class="zts-az" aria-label="Jump to a letter" markdown>[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w)</nav>
+<nav class="zts-az" aria-label="Jump to a letter" markdown>[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x)</nav>
 
 ## A
 
@@ -53,7 +53,7 @@ that teaches it.
 [](){ #assertion }**Assertion**
 :   The line in a test that checks the result. If the check is false, the test fails.
 
-    Learn more: [pytest framework](core-automation/pytest-framework/index.md)
+    Learn more: [Tests and asserts](core-automation/pytest-framework/tests-and-asserts.md)
 
 [](){ #automation }**Automation**
 :   Letting a program do a check that a person would otherwise do by hand, so it can run again and again in seconds.
@@ -108,6 +108,11 @@ that teaches it.
 :   A blueprint that bundles data and actions together. Page objects and API clients are classes.
 
     Learn more: [Classes and objects](start-here/python-for-testers/classes-and-objects.md)
+
+[](){ #conftestpy }**conftest.py**
+:   A file pytest loads by itself, where you put fixtures and options that many test files share.
+
+    Learn more: [Fixtures and conftest.py](core-automation/pytest-framework/fixtures-and-conftest.md)
 
 [](){ #container }**Container**
 :   A small, sealed box that holds an app and everything it needs, so it runs the same way on every computer.
@@ -176,7 +181,7 @@ that teaches it.
 [](){ #environment }**Environment**
 :   One full copy of the app for a purpose, like your own computer, a shared test copy, or the live site.
 
-    Learn more: [CI/CD (teaching topic)](infrastructure/ci-cd/index.md)
+    Learn more: [Environments](core-automation/pytest-framework/environments.md)
 
 [](){ #equivalence-partitioning }**Equivalence partitioning**
 :   Splitting inputs into groups that should behave the same, then testing one value from each group instead of all of them.
@@ -208,7 +213,7 @@ that teaches it.
 [](){ #fixture }**Fixture**
 :   In pytest, a small helper that gets something ready for a test, like a logged-in user, and cleans it up afterwards.
 
-    Learn more: [pytest framework](core-automation/pytest-framework/index.md)
+    Learn more: [Fixtures and conftest.py](core-automation/pytest-framework/fixtures-and-conftest.md)
 
 [](){ #flaky-test }**Flaky test**
 :   A test that sometimes passes and sometimes fails without any change to the code.
@@ -305,7 +310,7 @@ that teaches it.
 [](){ #marker }**Marker**
 :   A label on a pytest test, like unit or ui, so you can run only the tests with that label.
 
-    Learn more: [The test pyramid](think-like-a-tester/test-levels-and-the-pyramid/the-test-pyramid.md)
+    Learn more: [Markers](core-automation/pytest-framework/markers.md)
 
 [](){ #microservice }**Microservice**
 :   One small service that does one job. A big app can be made of many microservices talking to each other.
@@ -351,7 +356,7 @@ that teaches it.
 [](){ #parametrize }**Parametrize**
 :   A pytest feature that runs the same test many times, once for each row of values you give it.
 
-    Learn more: [Equivalence partitioning](think-like-a-tester/test-design-techniques/equivalence-partitioning.md)
+    Learn more: [Parametrize](core-automation/pytest-framework/parametrize.md)
 
 [](){ #percentile }**Percentile**
 :   A way to describe speed. The 95th percentile is the time that 95 out of 100 requests were as fast as, or faster than.
@@ -621,6 +626,13 @@ that teaches it.
 :   Testing with a view of the code inside, for example to see which lines and branches the tests run.
 
     Learn more: [Statement and branch coverage](think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md)
+
+## X
+
+[](){ #xfail }**xfail**
+:   A pytest marker for a test that is expected to fail, usually because of a known bug. The run stays green until the bug is fixed.
+
+    Learn more: [Markers](core-automation/pytest-framework/markers.md)
 
 <!-- END glossary -->
 
