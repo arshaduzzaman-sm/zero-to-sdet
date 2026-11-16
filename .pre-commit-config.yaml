@@ -16,12 +16,18 @@ repos:
       - id: detect-private-key
       - id: check-added-large-files
         args: ["--maxkb=500"]
+        # Pinned third-party files must stay byte-for-byte as published (their hash is checked).
+        exclude: ^docs/assets/javascripts/vendor/
       - id: check-merge-conflict
       - id: check-yaml
       - id: check-toml
       - id: end-of-file-fixer
+        # Pinned third-party files must stay byte-for-byte as published (their hash is checked).
+        exclude: ^docs/assets/javascripts/vendor/
       - id: trailing-whitespace
         args: ["--markdown-linebreak-ext=md"]
+        # Pinned third-party files must stay byte-for-byte as published (their hash is checked).
+        exclude: ^docs/assets/javascripts/vendor/
 
   # The menu and section overview pages are built from page front matter.
   # This stops a commit if someone forgot to run the generator.

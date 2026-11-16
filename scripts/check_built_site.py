@@ -6,7 +6,10 @@ can reach from the home page, and fails when:
 - a page or file is missing (a broken link),
 - a link leaves the /zero-to-sdet/ path on the same server (it would 404 on Pages),
 - a page loads a script, style, image or frame from another server
-  (readers' browsers would contact it; everything should come from the site).
+  (readers' browsers would contact it; everything should come from the site),
+- a page lacks the Mermaid loader before the theme's script (without it, the
+  theme fetches Mermaid from unpkg.com), or the pinned Mermaid file doesn't
+  match the hash in the loader.
 
 Links that people click to other sites are fine and are not checked here
 (scripts/check_links.py --external does that).
@@ -17,7 +20,10 @@ Run after `zensical build`:
     .venv/bin/python scripts/check_built_site.py path/to/other/site   # another folder
 """
 
+import base64
 import functools
+import hashlib
+import re
 import sys
 import threading
 import urllib.error
@@ -57,6 +63,34 @@ class Links(HTMLParser):
             self.links.append(values["href"])
 
 
+def mermaid_problems(site: Path) -> list[str]:
+    """The loader's pinned Mermaid file exists and matches its SHA-384 hash."""
+    loader = site / "assets" / "javascripts" / "mermaid-loader.js"
+    if not loader.is_file():
+        return ["missing assets/javascripts/mermaid-loader.js"]
+    text = loader.read_text(encoding="utf-8")
+    version = re.search(r'var VERSION = "([^"]+)"', text)
+    integrity = re.search(r'var INTEGRITY = "(sha384-[^"]+)"', text)
+    if not (version and integrity):
+        return ["mermaid-loader.js: VERSION or INTEGRITY not found"]
+    vendored = loader.parent / "vendor" / f"mermaid-{version[1]}.min.js"
+    if not vendored.is_file():
+        return [f"missing {vendored.relative_to(site)}"]
+    digest = base64.b64encode(hashlib.sha384(vendored.read_bytes()).digest()).decode()
+    if f"sha384-{digest}" != integrity[1]:
+        return [f"{vendored.name} doesn't match the INTEGRITY hash in mermaid-loader.js"]
+    return []
+
+
+def loader_problem(url: str, html: str) -> str | None:
+    """The Mermaid loader must come before the theme's bundle on every page."""
+    loader = html.find("assets/javascripts/mermaid-loader.js")
+    bundle = html.find("assets/javascripts/bundle.")
+    if bundle != -1 and (loader == -1 or loader > bundle):
+        return f"no Mermaid loader before the theme's script: {url}"
+    return None
+
+
 class SiteHandler(SimpleHTTPRequestHandler):
     """Serve site/ under /zero-to-sdet/, like GitHub Pages does."""
 
@@ -88,8 +122,11 @@ def crawl(base: str, host: str) -> tuple[int, list[str]]:
             continue
         if not is_html:
             continue
+        html = body.decode("utf-8", "replace")
+        if problem := loader_problem(url, html):
+            problems.append(problem)
         page = Links()
-        page.feed(body.decode("utf-8", "replace"))
+        page.feed(html)
         for load in page.loads:
             target = urlparse(urljoin(url, load))
             if target.scheme in ("http", "https") and target.netloc != host:
@@ -121,6 +158,7 @@ def main() -> int:
         count, problems = crawl(f"http://{host}{BASE_PATH}", host)
     finally:
         server.shutdown()
+    problems += mermaid_problems(SITE)
     shown = [problem.replace(f"http://{host}", "") for problem in problems]
     for problem in shown:
         print(" ", problem)

@@ -1,0 +1,15 @@
+# gitleaks settings: all of gitleaks' own rules, plus one narrow exception.
+#
+# The exception: pinned copies of third-party browser code in
+# docs/assets/javascripts/vendor/*.min.js. They are minified, so gitleaks
+# mistakes variable names for keys (for example "atlasCount" in Mermaid).
+# Each file is checked against npm's published hash before it is added, and the
+# browser checks it again with its SHA-384 hash (see deploy/README.md).
+# Nothing else is skipped. Never add our own code or settings files here.
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Pinned, hash-checked third-party browser code (vendor/*.min.js)"
+paths = ['''^docs/assets/javascripts/vendor/[a-z0-9.-]+\.min\.js$''']

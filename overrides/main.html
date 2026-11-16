@@ -5,8 +5,15 @@
   - Share tags (Open Graph and X): title, description and the share image made
     by scripts/build_share_images.py at the same address
     (assets/images/social/<page address>.png, "index.png" for the home page).
+  - Mermaid loader (in the head, before the theme's script): diagrams use our
+    own pinned, hash-checked copy instead of unpkg.com. See the comment at the
+    top of docs/assets/javascripts/mermaid-loader.js.
 -#}
 {% extends "base.html" %}
+{% block libs %}
+  {{ super() }}
+  <script src="{{ 'assets/javascripts/mermaid-loader.js' | url }}"></script>
+{% endblock %}
 {% block extrahead %}
   {% if page.meta and page.meta.updated %}
     <meta property="article:modified_time" content="{{ page.meta.updated }}">

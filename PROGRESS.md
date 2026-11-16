@@ -39,8 +39,30 @@ Newest entry first. No secrets or personal data in this file.
 | API testing libraries | `requests` 2.34.2 and `jsonschema` 4.26.0 added to `requirements.in` (owner chose them), pinned with hashes. New indirect packages: attrs, certifi, charset-normalizer, jsonschema-specifications, referencing, rpds-py, urllib3. | 2026-11-16 |
 | API for the lessons | Public practice APIs online (owner's choice): Restful-booker, httpbin.org and DummyJSON, using only the demo logins they publish. Online checks run only with `ZTS_ONLINE=1`, so `check.sh` stays offline. | 2026-11-16 |
 | GitHub Pages | Built and checked for Pages now; switched on in Phase 9 after the security audit (owner's choice). The repo stays private until then. The ready workflow lives in `deploy/`, outside `.github/workflows/`, so it doesn't run. | 2026-11-16 |
+| Mermaid (diagrams) | Our own pinned copy, never unpkg.com (owner: "solve it the best way"). Mermaid 12.2.0 from npm (MIT), checked against npm's sha512, loaded only on pages with a diagram, with a SHA-384 integrity check in the browser. Releases younger than two weeks are not used. | 2026-11-16 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-16 · Diagrams without a CDN (owner request: solve it the best way)
+
+**Done**
+
+- Found in the Pages check: on the 35 pages with diagrams, the theme loaded Mermaid from `unpkg.com` at an unpinned version (`mermaid@12`), so readers' browsers contacted that server, and whatever was newest there would run on the site.
+- Now the site keeps its own copy: `docs/assets/javascripts/vendor/mermaid-12.2.0.min.js`, with its MIT licence. It was downloaded from npm and matched npm's published sha512. 12.2.0 is the newest 12.x older than two weeks, and no security advisory affects 12.x.
+- `docs/assets/javascripts/mermaid-loader.js`, loaded in every page's head before the theme's script, stands in for Mermaid. The real 5.5 MB file loads only when a page draws a diagram (it works with instant navigation too), and the browser checks its SHA-384 hash before running it.
+- `scripts/check_built_site.py` now also fails if a page lacks the loader, or the file doesn't match the hash.
+- Tested in headless Chrome with `unpkg.com` and `cdn.jsdelivr.net` blocked: two kinds of diagrams draw, pages without diagrams don't download the file, no request goes to a CDN, and a copy with one byte changed is refused, so its diagram isn't drawn.
+- `deploy/README.md`: steps to update Mermaid safely.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Open any page with a diagram in the preview (for example Think like a tester, Bug reports, Bug lifecycle).
+
+**Next step**
+
+Phase 3, Core Automation: Database testing.
 
 ---
 
@@ -53,17 +75,13 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 - Ready publish workflow `deploy/github-pages.yml`: actions pinned to full commit SHAs, the smallest token rights, no saved credentials, no secrets, hash-checked installs. Checked that every pinned package has a matching Linux hash. Not active: it sits outside `.github/workflows/`.
 - `deploy/README.md`: the Phase 9 steps in order (full-history scan, make public, Pages source, move the workflow, check the live site, HTTPS).
 
-**Open question for the owner**
-
-- On the 35 pages with diagrams, the theme loads Mermaid from `unpkg.com`, with an unpinned version (`mermaid@12`). Suggested fix: keep a pinned, hash-checked copy on the site. Waiting for the owner's yes.
-
 **Check it**
 
 `bash scripts/check.sh` passes, including the new built-site check.
 
 **Next step**
 
-The owner's answer on Mermaid, then Phase 3, Core Automation: Database testing.
+Phase 3, Core Automation: Database testing.
 
 ---
 
