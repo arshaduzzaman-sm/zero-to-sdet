@@ -1,0 +1,7 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# Results on the release candidate, collected on the last day of testing.
+failed_tests = 0
+open_critical_bugs = 0
+open_major_bugs = 1              # the Refund button does nothing in Safari
+requirements_without_tests = 0
+deep_risks_not_tested = 0

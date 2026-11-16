@@ -60,6 +60,11 @@ that teaches it.
 
     Learn more: [The SDET role](think-like-a-tester/the-sdet-role/index.md)
 
+[](){ #automation-roi }**Automation ROI**
+:   ROI means return on investment. It is whether an automated test saves more time than it costs to build and keep working, and how soon.
+
+    Learn more: [What not to automate](think-like-a-tester/test-strategy-and-planning/what-not-to-automate.md)
+
 ## B
 
 [](){ #bdd }**BDD (Behavior-Driven Development)**
@@ -153,6 +158,11 @@ that teaches it.
 
     Learn more: [API testing](core-automation/api-testing/index.md)
 
+[](){ #entry-criteria }**Entry criteria**
+:   What must be true before testing starts, like a reviewed story, a deployed build and ready test data.
+
+    Learn more: [Entry and exit criteria](think-like-a-tester/test-strategy-and-planning/entry-and-exit-criteria.md)
+
 [](){ #environment }**Environment**
 :   One full copy of the app for a purpose, like your own computer, a shared test copy, or the live site.
 
@@ -167,6 +177,11 @@ that teaches it.
 :   Trying the inputs and actions that often break software, like emoji, double clicks or 29 February.
 
     Learn more: [Error guessing](think-like-a-tester/test-design-techniques/error-guessing.md)
+
+[](){ #exit-criteria }**Exit criteria**
+:   What must be true before testing is done, like no failing tests and no open critical bugs. Agreed before testing starts.
+
+    Learn more: [Entry and exit criteria](think-like-a-tester/test-strategy-and-planning/entry-and-exit-criteria.md)
 
 [](){ #expected-result }**Expected result**
 :   Exactly what should happen when you run a test, and what must not. The most important line of a test case.
@@ -407,6 +422,11 @@ that teaches it.
 
     Learn more: [Learning a new testing area](think-like-a-tester/learning-a-new-testing-area/index.md)
 
+[](){ #risk-based-testing }**Risk-based testing**
+:   Spending most of your testing time where a bug is most likely and would hurt most, and testing those things first.
+
+    Learn more: [Risk-based testing](think-like-a-tester/test-strategy-and-planning/risk-based-testing.md)
+
 ## S
 
 [](){ #scope }**Scope**
@@ -499,12 +519,17 @@ that teaches it.
 [](){ #test-plan }**Test plan**
 :   A short document that says what will be tested, how, by whom and when.
 
-    Learn more: [Test strategy and planning](think-like-a-tester/test-strategy-and-planning/index.md)
+    Learn more: [Test plan](think-like-a-tester/test-strategy-and-planning/test-plan.md)
 
 [](){ #test-pyramid }**Test pyramid**
 :   A picture of a healthy test mix. Many small, fast unit tests at the bottom, fewer integration tests, and only a few slow end-to-end tests at the top.
 
     Learn more: [Test levels and the pyramid](think-like-a-tester/test-levels-and-the-pyramid/index.md)
+
+[](){ #test-strategy }**Test strategy**
+:   One page that says how a team tests every feature, at which levels, with which tools, and when a release is ready.
+
+    Learn more: [Test strategy](think-like-a-tester/test-strategy-and-planning/test-strategy.md)
 
 [](){ #testing-trophy }**Testing trophy**
 :   Another picture of a healthy test mix, with static checks at the base and most tests checking parts working together.

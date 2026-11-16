@@ -60,7 +60,7 @@ Before you automate anything, you need to know what to test and why. This pillar
 
     Decide what to test first, what not to automate, and when testing is done.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 </div>
 

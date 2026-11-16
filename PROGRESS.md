@@ -41,6 +41,31 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 8: Test strategy and planning (Pillar 1 complete)
+
+**Done**
+
+- Playbook: write the test plan for the refund feature in release 2.4: risks first, what stays manual, and how the team knows testing is done.
+- Five lessons, written straight to the reader, each with "When it goes wrong": test strategy, test plan, risk-based testing, entry and exit criteria, what not to automate.
+- Three tools, standard library only (no new dependencies):
+  - `risk_score.py` scores likelihood x impact and sorts the refund risks into 3 deep, 3 normal, 2 light;
+  - `exit_check.py` reads two TOML files and finds 1 criterion not met (an open major bug); a missing result counts as not met;
+  - `automation_roi.py` shows payback in months: 2.0 for the refund rules, never for the Bengali layout check, 144 for a slow UI check.
+- Templates: test strategy, test plan, risks CSV, exit criteria TOML, automation checklist. Filled examples: the shop's strategy and the refund test plan. A test checks that the risk table in the plan is the scorer's real output.
+- Every error message quoted on the pages (`KeyError: 'Area'`, `TOMLDecodeError`, the argparse message) was reproduced first.
+- 30 topic tests. 5 new glossary terms (105 in total); "Test plan" now points to the test plan lesson.
+- All eight topics of Pillar 1, Think like a tester, are now written.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Pages: Think like a tester, then Test strategy and planning.
+
+**Next step**
+
+Python for testers (Start Here), then Pillar 2, Core Automation, starting with the pytest framework.
+
+---
+
 ## 2026-11-16 · Phase 2 · Topic 7: Bug reports
 
 **Done**

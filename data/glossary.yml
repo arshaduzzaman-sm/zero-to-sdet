@@ -212,7 +212,7 @@
 
 - term: Test plan
   meaning: A short document that says what will be tested, how, by whom and when.
-  page: think-like-a-tester/test-strategy-and-planning/index.md
+  page: think-like-a-tester/test-strategy-and-planning/test-plan.md
 
 - term: Test pyramid
   meaning: A picture of a healthy test mix. Many small, fast unit tests at the bottom, fewer integration tests, and only a few slow end-to-end tests at the top.
@@ -423,3 +423,23 @@
 - term: Bug lifecycle
   meaning: The states a bug moves through, like new, triaged, in progress, fixed, verified and closed.
   page: think-like-a-tester/bug-reports/bug-lifecycle.md
+
+- term: Test strategy
+  meaning: One page that says how a team tests every feature, at which levels, with which tools, and when a release is ready.
+  page: think-like-a-tester/test-strategy-and-planning/test-strategy.md
+
+- term: Risk-based testing
+  meaning: Spending most of your testing time where a bug is most likely and would hurt most, and testing those things first.
+  page: think-like-a-tester/test-strategy-and-planning/risk-based-testing.md
+
+- term: Entry criteria
+  meaning: What must be true before testing starts, like a reviewed story, a deployed build and ready test data.
+  page: think-like-a-tester/test-strategy-and-planning/entry-and-exit-criteria.md
+
+- term: Exit criteria
+  meaning: What must be true before testing is done, like no failing tests and no open critical bugs. Agreed before testing starts.
+  page: think-like-a-tester/test-strategy-and-planning/entry-and-exit-criteria.md
+
+- term: Automation ROI
+  meaning: ROI means return on investment. It is whether an automated test saves more time than it costs to build and keep working, and how soon.
+  page: think-like-a-tester/test-strategy-and-planning/what-not-to-automate.md

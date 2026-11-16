@@ -95,7 +95,14 @@ nav = [
       { "Severity and priority" = "think-like-a-tester/bug-reports/severity-and-priority.md" },
       { "The bug lifecycle" = "think-like-a-tester/bug-reports/bug-lifecycle.md" },
     ] },
-    { "Test strategy and planning" = "think-like-a-tester/test-strategy-and-planning/index.md" },
+    { "Test strategy and planning" = [
+      "think-like-a-tester/test-strategy-and-planning/index.md",
+      { "Test strategy" = "think-like-a-tester/test-strategy-and-planning/test-strategy.md" },
+      { "Test plan" = "think-like-a-tester/test-strategy-and-planning/test-plan.md" },
+      { "Risk-based testing" = "think-like-a-tester/test-strategy-and-planning/risk-based-testing.md" },
+      { "Entry and exit criteria" = "think-like-a-tester/test-strategy-and-planning/entry-and-exit-criteria.md" },
+      { "What not to automate" = "think-like-a-tester/test-strategy-and-planning/what-not-to-automate.md" },
+    ] },
   ] },
   { "Core Automation" = [
     "core-automation/index.md",

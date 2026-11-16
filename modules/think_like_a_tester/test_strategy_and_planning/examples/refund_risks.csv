@@ -1,0 +1,10 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+Area,Risk,Likelihood,Impact,Notes
+Money,The same item is refunded twice (REF-2),2,3,Money leaves the company; two tabs or a double click could do it
+Money,Money goes back to the wrong place (REF-5),2,3,Three payment types with different rules
+Rules,Day 30 or day 31 is handled wrongly (REF-1),3,2,Date limits are where off-by-one bugs live
+Email,The approval or refusal email is not sent (REF-3),2,2,A separate email service; customers will call support
+Rules,A sale item is refunded when it is not faulty (REF-4),2,2,The faulty flag is set by hand in the support tool
+Money,A refund to an expired card is lost (REF-6),1,3,Rare but the customer gets nothing
+Page,The Cancel order link is missing for undelivered orders (REF-7),1,1,Customers can still find Cancel order in the menu
+Page,Long Bengali item names break the refund page layout,2,1,Seen on other pages before

@@ -105,7 +105,7 @@ Click a stage to open it.
 - [Static testing and reviews](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/static-testing-and-reviews/): Find bugs before any code runs, by reviewing requirements and stories.
 - [Test cases](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/test-cases/): Write clear test cases, positive and negative, linked to what they check.
 - [Bug reports](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/bug-reports/): Report a bug so a developer can fix it fast: steps, severity and priority.
-- [Test strategy and planning](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/test-strategy-and-planning/): Decide what to test first, what not to automate, and when testing is done. *(coming soon)*
+- [Test strategy and planning](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/test-strategy-and-planning/): Decide what to test first, what not to automate, and when testing is done.
 
 </details>
 
