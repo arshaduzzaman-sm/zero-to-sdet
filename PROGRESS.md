@@ -48,6 +48,32 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Learn from the site alone: setup pages and topic downloads
+
+Owner asked that anyone can learn everything from the pages alone.
+
+**Done**
+
+- One ZIP download per topic: `scripts/build_downloads.py` puts every template and example of a topic (git-tracked files only, fixed order and date, so the same files always make the same ZIP) into `site/downloads/<topic>.zip` at build time. Nothing is committed. Each of the 16 topic pages links to its ZIP under `## Templates`; `--check` makes sure every topic page has the link. Wired into `scripts/check.sh`, the Pages workflow in `deploy/` and the new topic template.
+- Clean-room test of every download: unzipped into an empty folder, a new Python 3.13 virtual environment, `pip install -r requirements.txt`, then the tests. All 8 test projects install and run; the database and API ones skip until their service runs, as designed.
+- Start Here, Environment setup (was "Coming soon"): terminal, Python 3.13 (with the macOS trap: `python3` is the system 3.9, and pip then can't find pytest 9), VS Code, Git, Docker (`hello-world` check), a topic download, a virtual environment and the first `3 passed`, the Playwright browser, and Codespaces when nothing can be installed. Every output is from a real run.
+- Start Here, How to use this site (was "Coming soon"): where to start (paths, today's task, Skills Matrix), how topic pages and lessons are built, what each box means, why outputs may differ (times, paths, versions), downloads, progress tracking, help.
+- pytest framework and database testing: "Before you start" now links to the setup page.
+
+**Files changed**
+
+`scripts/build_downloads.py` (new), `scripts/check.sh`, `deploy/github-pages.yml`, `_new_topic_template/docs/index.md`, 16 topic `index.md` pages, `docs/start-here/environment-setup/index.md`, `docs/start-here/how-to-use-this-site/index.md`, `docs/start-here/index.md` and `README.md` (generated menus).
+
+**Check it**
+
+`bash scripts/check.sh` passes. Open any topic page, click "Download every file for this topic (ZIP)" under Templates.
+
+**Next step**
+
+Phase 3, Core Automation: UI automation (Playwright).
+
+---
+
 ## 2026-11-16 · Phase 3 · Topic 7: BDD testing
 
 **Done**

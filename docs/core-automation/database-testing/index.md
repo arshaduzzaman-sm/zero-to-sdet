@@ -25,7 +25,7 @@ The screen says "Order placed". The API answers 201. But was the order saved, wi
     This page walks through it, on a small bookshop database you can start in one command.
 
 !!! note "Before you start"
-    Read [pytest framework](../pytest-framework/index.md) first. You need Docker for the practice database, and these in a virtual environment: `python -m pip install "pytest==9.2.0" "psycopg[binary]==3.3.9"`.
+    Read [pytest framework](../pytest-framework/index.md) first. You need Docker for the practice database ([Environment setup](../../start-here/environment-setup/index.md#5-install-docker) shows how), and these in a virtual environment: `python -m pip install "pytest==9.2.0" "psycopg[binary]==3.3.9"`.
 
 ## Jump to what you need
 
@@ -157,6 +157,8 @@ Next, [multi-database testing](../multi-database-testing/index.md) runs the same
     - **The query is right but slow.** Ask a developer for `EXPLAIN` help, and run heavy checks on a copy.
 
 ## Templates
+
+**[Download every file for this topic (ZIP)](../../downloads/database-testing.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
 
 Copy the whole `shop_db_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 

@@ -143,6 +143,8 @@ Use the worksheets on your next real story, even a small one. After a few times,
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/test-design-techniques.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy these into your own notes or project. Each file starts with a line that says where it came from.
 
 === "Groups and edges worksheet"

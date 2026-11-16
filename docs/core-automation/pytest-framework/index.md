@@ -26,7 +26,7 @@ updated: "2026-11-16"
     This page walks through that change, from one script to a project the whole team can use.
 
 !!! note "Before you start"
-    You need Python 3.11 or newer and pytest: `python -m pip install "pytest==9.2.0"` inside a [virtual environment](../../start-here/python-for-testers/virtual-environments-and-pip.md). If Python is new to you, start with [Python for testers](../../start-here/python-for-testers/index.md).
+    You need Python 3.11 or newer and pytest: `python -m pip install "pytest==9.2.0"` inside a [virtual environment](../../start-here/python-for-testers/virtual-environments-and-pip.md). New computer? [Environment setup](../../start-here/environment-setup/index.md) installs Python step by step. If Python is new to you, start with [Python for testers](../../start-here/python-for-testers/index.md).
     Run the commands from the `examples/shop_project` folder of this topic.
 
 ## Jump to what you need
@@ -142,6 +142,8 @@ Next is [API testing](../api-testing/index.md), where these fixtures and environ
     - **You don't know which command to use.** Keep the [cheat sheet](#templates) open. It has the 20 commands you'll use most, and what to try when something is wrong.
 
 ## Templates
+
+**[Download every file for this topic (ZIP)](../../downloads/pytest-framework.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
 
 Copy these into your own project. Each file starts with a line that says where it came from.
 

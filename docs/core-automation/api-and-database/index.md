@@ -139,6 +139,8 @@ Next, [data-driven testing](../data-driven-testing/index.md) runs the same check
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/api-and-database.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy the whole `api_db_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 
 === "helpers/clients.py"

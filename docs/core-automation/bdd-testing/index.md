@@ -147,6 +147,8 @@ Next, [UI automation](../ui-automation/index.md) goes deep into Playwright: loca
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/bdd-testing.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy the whole `bdd_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 
 === "features/coupons.feature"

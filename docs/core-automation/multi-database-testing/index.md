@@ -129,6 +129,8 @@ Next, [API + database](../api-and-database/index.md) checks that an API call sav
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/multi-database-testing.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy the whole `multi_db_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 
 === "docker-compose.yml"

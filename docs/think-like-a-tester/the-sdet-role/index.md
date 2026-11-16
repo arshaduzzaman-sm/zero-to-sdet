@@ -155,6 +155,8 @@ Pick one new skill per month from the [Skills Matrix](../../start-here/skills-ma
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/the-sdet-role.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy these into your own project and change the parts in `<angle brackets>`. Each file starts with a comment line that says where it came from.
 
 === "New team onboarding checklist"

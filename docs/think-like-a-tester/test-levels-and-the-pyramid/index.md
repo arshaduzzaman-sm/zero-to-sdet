@@ -168,6 +168,8 @@ Run the pyramid report every few weeks, and add it to your team's review of the 
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/test-levels-and-the-pyramid.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy these into your own project. Each file starts with a comment line that says where it came from.
 
 === "Decision chart"

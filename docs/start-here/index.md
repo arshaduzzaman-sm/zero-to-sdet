@@ -62,15 +62,15 @@ word in plain English.
 
 -   [**How to use this site**](how-to-use-this-site/index.md)
 
-    How the site is organized, which path fits you, and where to ask for help.
+    Pick a path, read a page, download the files, track your progress, ask for help.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Environment setup**](environment-setup/index.md)
 
-    Install Python, VS Code and Docker, and make your first virtual environment.
+    Install Python, VS Code and Docker, and run your first tests from a download.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Python for testers**](python-for-testers/index.md)
 

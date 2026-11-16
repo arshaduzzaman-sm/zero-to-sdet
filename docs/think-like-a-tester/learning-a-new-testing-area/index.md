@@ -173,6 +173,8 @@ Keep a [learning log](#templates): five minutes at the end of each day, one shor
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/learning-a-new-testing-area.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy these into your own project. Each one starts with a comment line that says where it came from.
 
 === "Day-one questions"

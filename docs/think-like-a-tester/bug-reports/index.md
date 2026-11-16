@@ -123,6 +123,8 @@ Next, read [Test strategy and planning](../test-strategy-and-planning/index.md) 
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/bug-reports.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy these into your own project. Each file starts with a line that says where it came from.
 
 === "Bug report (Markdown)"

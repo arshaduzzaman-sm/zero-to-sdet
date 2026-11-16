@@ -144,6 +144,8 @@ Next, [database testing](../database-testing/index.md) checks what the API saved
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/api-testing.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy the whole `booker_api_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 
 === "api/client.py"

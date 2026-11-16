@@ -148,6 +148,8 @@ Next, [BDD testing](../bdd-testing/index.md) takes readable tests further, with 
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/data-driven-testing.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy the whole `data_driven_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 
 === "helpers/data_loaders.py"

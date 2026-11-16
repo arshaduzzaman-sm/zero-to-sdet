@@ -142,6 +142,8 @@ When you start automating, the [pytest framework](../../core-automation/pytest-f
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/test-strategy-and-planning.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy these into your own project. Each file starts with a line that says where it came from.
 
 === "Test plan"

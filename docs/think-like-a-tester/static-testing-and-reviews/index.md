@@ -145,6 +145,8 @@ Review one story per sprint with the worksheet, even when nobody asks. Next, rea
 
 ## Templates
 
+**[Download every file for this topic (ZIP)](../../downloads/static-testing-and-reviews.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
 Copy these into your own notes or project. Each file starts with a line that says where it came from.
 
 === "User story review"

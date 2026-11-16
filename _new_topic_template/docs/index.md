@@ -82,6 +82,14 @@ flowchart LR
 !!! question "Stuck? Try this"
     <!-- The common ways people get stuck in this area, and what to do about each. -->
 
+## Templates
+
+**[Download every file for this topic (ZIP)](../../downloads/TOPIC-SLUG.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+
+<!-- One tab per main file (=== "name" with a --8<-- snippet), then a "How to use them" tab.
+     Replace TOPIC-SLUG with the topic's folder name. scripts/build_downloads.py --check
+     fails until the page links to its download. -->
+
 ## Bug Hunt
 
 <!-- Optional: an "Optional: try it on the Practice App" box with a planted bug.
