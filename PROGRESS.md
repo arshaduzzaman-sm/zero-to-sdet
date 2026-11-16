@@ -38,8 +38,32 @@ Newest entry first. No secrets or personal data in this file.
 | coverage.py | Added to `requirements.txt` (7.17.3, pinned with hashes) for the statement and branch coverage lesson. Owner said yes. Nothing else changed in the lock file. | 2026-11-16 |
 | API testing libraries | `requests` 2.34.2 and `jsonschema` 4.26.0 added to `requirements.in` (owner chose them), pinned with hashes. New indirect packages: attrs, certifi, charset-normalizer, jsonschema-specifications, referencing, rpds-py, urllib3. | 2026-11-16 |
 | API for the lessons | Public practice APIs online (owner's choice): Restful-booker, httpbin.org and DummyJSON, using only the demo logins they publish. Online checks run only with `ZTS_ONLINE=1`, so `check.sh` stays offline. | 2026-11-16 |
+| GitHub Pages | Built and checked for Pages now; switched on in Phase 9 after the security audit (owner's choice). The repo stays private until then. The ready workflow lives in `deploy/`, outside `.github/workflows/`, so it doesn't run. | 2026-11-16 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-16 · Ready for GitHub Pages (owner request)
+
+**Done**
+
+- Checked the built site the way GitHub Pages serves it, at `/zero-to-sdet/`: all 157 pages and files open, no broken links, a 404 page exists, and no file starts with `_`.
+- New check `scripts/check_built_site.py`, now part of `check.sh`: serves `site/` at `/zero-to-sdet/`, opens everything, and fails on a broken link, a link outside the path, or a page that loads a script, style or image from another server. Tested on a copy of the site with three planted faults: it caught all three.
+- Ready publish workflow `deploy/github-pages.yml`: actions pinned to full commit SHAs, the smallest token rights, no saved credentials, no secrets, hash-checked installs. Checked that every pinned package has a matching Linux hash. Not active: it sits outside `.github/workflows/`.
+- `deploy/README.md`: the Phase 9 steps in order (full-history scan, make public, Pages source, move the workflow, check the live site, HTTPS).
+
+**Open question for the owner**
+
+- On the 35 pages with diagrams, the theme loads Mermaid from `unpkg.com`, with an unpinned version (`mermaid@12`). Suggested fix: keep a pinned, hash-checked copy on the site. Waiting for the owner's yes.
+
+**Check it**
+
+`bash scripts/check.sh` passes, including the new built-site check.
+
+**Next step**
+
+The owner's answer on Mermaid, then Phase 3, Core Automation: Database testing.
 
 ---
 
