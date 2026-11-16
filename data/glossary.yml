@@ -403,3 +403,23 @@
 - term: Traceability matrix
   meaning: A table with one row per requirement and the test cases that cover it. Empty rows are gaps.
   page: think-like-a-tester/test-cases/traceability.md
+
+- term: Severity
+  meaning: How badly a bug hurts the people using the app, from critical (money, data or security) to trivial (a typo). The reporter sets it.
+  page: think-like-a-tester/bug-reports/severity-and-priority.md
+
+- term: Priority
+  meaning: How soon the team will fix a bug. The team decides it in triage, and the reporter can suggest one.
+  page: think-like-a-tester/bug-reports/severity-and-priority.md
+
+- term: Triage
+  meaning: Looking at new bugs, checking they are real and clear, and deciding how soon each one gets fixed.
+  page: think-like-a-tester/bug-reports/severity-and-priority.md
+
+- term: Steps to reproduce
+  meaning: The numbered actions in a bug report that make the bug happen again, written so someone else can follow them.
+  page: think-like-a-tester/bug-reports/what-makes-a-great-bug-report.md
+
+- term: Bug lifecycle
+  meaning: The states a bug moves through, like new, triaged, in progress, fixed, verified and closed.
+  page: think-like-a-tester/bug-reports/bug-lifecycle.md

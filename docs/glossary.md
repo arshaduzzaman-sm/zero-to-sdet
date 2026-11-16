@@ -77,6 +77,11 @@ that teaches it.
 
     Learn more: [Statement and branch coverage](think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md)
 
+[](){ #bug-lifecycle }**Bug lifecycle**
+:   The states a bug moves through, like new, triaged, in progress, fixed, verified and closed.
+
+    Learn more: [The bug lifecycle](think-like-a-tester/bug-reports/bug-lifecycle.md)
+
 [](){ #bug-report }**Bug report**
 :   A short note that tells a developer what went wrong, how to make it happen again, and what should have happened instead.
 
@@ -363,6 +368,11 @@ that teaches it.
 
     Learn more: [Anatomy of a test case](think-like-a-tester/test-cases/anatomy-of-a-test-case.md)
 
+[](){ #priority }**Priority**
+:   How soon the team will fix a bug. The team decides it in triage, and the reporter can suggest one.
+
+    Learn more: [Severity and priority](think-like-a-tester/bug-reports/severity-and-priority.md)
+
 [](){ #pull-request }**Pull request**
 :   A request to add your code changes to the team's main code. Others review it first.
 
@@ -409,6 +419,11 @@ that teaches it.
 
     Learn more: [The SDET role](think-like-a-tester/the-sdet-role/index.md)
 
+[](){ #severity }**Severity**
+:   How badly a bug hurts the people using the app, from critical (money, data or security) to trivial (a typo). The reporter sets it.
+
+    Learn more: [Severity and priority](think-like-a-tester/bug-reports/severity-and-priority.md)
+
 [](){ #smoke-test }**Smoke test**
 :   A few quick tests that check the most important things work, before you spend time on deeper testing.
 
@@ -443,6 +458,11 @@ that teaches it.
 :   The number an API sends back to say how a request went, like 200 for OK or 404 for not found.
 
     Learn more: [API testing](core-automation/api-testing/index.md)
+
+[](){ #steps-to-reproduce }**Steps to reproduce**
+:   The numbered actions in a bug report that make the bug happen again, written so someone else can follow them.
+
+    Learn more: [What makes a great bug report](think-like-a-tester/bug-reports/what-makes-a-great-bug-report.md)
 
 [](){ #stub }**Stub**
 :   A very simple fake that always gives the same ready answer, so a test does not need the real thing.
@@ -505,6 +525,11 @@ that teaches it.
 :   A table with one row per requirement and the test cases that cover it. Empty rows are gaps.
 
     Learn more: [Traceability](think-like-a-tester/test-cases/traceability.md)
+
+[](){ #triage }**Triage**
+:   Looking at new bugs, checking they are real and clear, and deciding how soon each one gets fixed.
+
+    Learn more: [Severity and priority](think-like-a-tester/bug-reports/severity-and-priority.md)
 
 ## U
 

@@ -89,7 +89,12 @@ nav = [
       { "Positive and negative cases" = "think-like-a-tester/test-cases/positive-and-negative-cases.md" },
       { "Traceability" = "think-like-a-tester/test-cases/traceability.md" },
     ] },
-    { "Bug reports" = "think-like-a-tester/bug-reports/index.md" },
+    { "Bug reports" = [
+      "think-like-a-tester/bug-reports/index.md",
+      { "What makes a great bug report" = "think-like-a-tester/bug-reports/what-makes-a-great-bug-report.md" },
+      { "Severity and priority" = "think-like-a-tester/bug-reports/severity-and-priority.md" },
+      { "The bug lifecycle" = "think-like-a-tester/bug-reports/bug-lifecycle.md" },
+    ] },
     { "Test strategy and planning" = "think-like-a-tester/test-strategy-and-planning/index.md" },
   ] },
   { "Core Automation" = [

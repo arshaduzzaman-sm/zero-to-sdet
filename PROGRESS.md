@@ -41,6 +41,27 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Topic 7: Bug reports
+
+**Done**
+
+- Playbook: rewrite a vague teammate report ("Signup broken") about the Bengali names bug found in Error guessing, so developers can pick it up the same day.
+- Three lessons, written straight to the reader, each with "When it goes wrong": what makes a great bug report, severity and priority, the bug lifecycle (with a state diagram).
+- Real outputs: `bug_report_check.py` finds 6 problems in the vague report and passes the rewrite.
+- Templates: bug report (Markdown), `bug_report_check.py`, a GitHub issue form (save as `.github/ISSUE_TEMPLATE/bug_report.yml`; it is a form, not a workflow), and a severity, priority and states guide.
+- The example report says honestly that the rule is unclear, instead of claiming a decision nobody made.
+- 13 topic tests. 5 new glossary terms (100 in total).
+
+**Check it**
+
+`bash scripts/check.sh` passes. Pages: Think like a tester, then Bug reports.
+
+**Next step**
+
+Topic 8: Test strategy and planning, the last topic of Pillar 1.
+
+---
+
 ## 2026-11-16 · Phase 2 · Topic 6: Test cases
 
 **Done**

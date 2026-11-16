@@ -22,7 +22,7 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:ai" title="Using AI tools to help with testing, and testing apps that use AI.">AI <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:api" title="Testing the requests and answers that apps send to each other.">API <span class="zts-tag__count">8</span></a>
 <a class="zts-tag" href="#tag:bdd" title="Writing tests as plain English examples that everyone can read.">BDD <span class="zts-tag__count">1</span></a>
-<a class="zts-tag" href="#tag:bug-reports" title="Writing bug reports that developers can act on fast.">Bug reports <span class="zts-tag__count">1</span></a>
+<a class="zts-tag" href="#tag:bug-reports" title="Writing bug reports that developers can act on fast.">Bug reports <span class="zts-tag__count">4</span></a>
 <a class="zts-tag" href="#tag:career" title="Growing in your testing career, from interviews to working in a team.">Career <span class="zts-tag__count">16</span></a>
 <a class="zts-tag" href="#tag:cicd" title="Running tests automatically every time code changes.">CI/CD <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:clean-code" title="Test code that is easy to read, change and trust.">Clean code <span class="zts-tag__count">1</span></a>
@@ -52,8 +52,8 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:reporting" title="Test reports and logs that people understand.">Reporting <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:reviews" title="Finding problems by reading requirements, designs and code, before running anything.">Reviews <span class="zts-tag__count">6</span></a>
 <a class="zts-tag" href="#tag:security" title="Finding common security holes before attackers do.">Security <span class="zts-tag__count">2</span></a>
-<a class="zts-tag" href="#tag:teamwork" title="Working well with developers, product owners and other testers.">Teamwork <span class="zts-tag__count">11</span></a>
-<a class="zts-tag" href="#tag:templates" title="Ready code and documents you can copy into your own work.">Templates <span class="zts-tag__count">23</span></a>
+<a class="zts-tag" href="#tag:teamwork" title="Working well with developers, product owners and other testers.">Teamwork <span class="zts-tag__count">14</span></a>
+<a class="zts-tag" href="#tag:templates" title="Ready code and documents you can copy into your own work.">Templates <span class="zts-tag__count">25</span></a>
 <a class="zts-tag" href="#tag:test-data" title="Creating and managing the data your tests need.">Test data <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:test-design" title="Choosing what to test so you find the most bugs with the fewest tests.">Test design <span class="zts-tag__count">25</span></a>
 <a class="zts-tag" href="#tag:test-planning" title="Deciding what to test, when, and how much is enough.">Test planning <span class="zts-tag__count">17</span></a>

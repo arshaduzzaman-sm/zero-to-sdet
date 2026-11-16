@@ -54,7 +54,7 @@ Before you automate anything, you need to know what to test and why. This pillar
 
     Report a bug so a developer can fix it fast: steps, severity and priority.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Test strategy and planning**](test-strategy-and-planning/index.md)
 

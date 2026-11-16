@@ -1,0 +1,84 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# A GitHub issue form for bug reports.
+# Save as .github/ISSUE_TEMPLATE/bug_report.yml in your repository.
+# GitHub then shows these fields when someone opens a new issue.
+name: Bug report
+description: Something doesn't work the way it should.
+title: "<what is wrong, where, and when>"
+labels: ["bug", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please never paste real passwords, keys or customer data.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happens, and who it affects, in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps, starting from a page, account or data someone else can use.
+      placeholder: |
+        1. Open ...
+        2. Enter ...
+        3. Press ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: What should happen, and where that comes from (story, spec, earlier behaviour).
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: What happens instead. Copy exact messages, status codes and numbers.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or build
+      placeholder: "1.4.2, or a commit"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Where, and with what
+      placeholder: "staging, Chrome 141 on Windows 11"
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How badly it hurts users. The team sets the priority.
+      options:
+        - Critical (data loss, money, security, or nobody can use the main feature)
+        - Major (a main feature is broken for many users, no easy workaround)
+        - Minor (it works, but wrongly, or there is a workaround)
+        - Trivial (cosmetic, like a typo)
+    validations:
+      required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often
+      options:
+        - Every time
+        - Sometimes
+        - Once, can't repeat it
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Screenshots, logs, request and response, or the failing test. Drag files here.
