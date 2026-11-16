@@ -1,0 +1,15 @@
+{
+  "$comment": "Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/ Money is written as text, so it stays exact.",
+  "cases": [
+    {"case": "no coupon", "subtotal": "30.00", "coupon": null, "member": false, "expected": "30.00"},
+    {"case": "SAVE10", "subtotal": "30.00", "coupon": "SAVE10", "member": false, "expected": "27.00"},
+    {"case": "SAVE10 and member", "subtotal": "30.00", "coupon": "SAVE10", "member": true, "expected": "25.65"},
+    {"case": "WELCOME5 just under 20", "subtotal": "19.99", "coupon": "WELCOME5", "member": false, "expected": "19.99"},
+    {"case": "WELCOME5 at exactly 20", "subtotal": "20.00", "coupon": "WELCOME5", "member": false, "expected": "15.00"},
+    {"case": "WELCOME5 and member", "subtotal": "20.00", "coupon": "WELCOME5", "member": true, "expected": "14.25"},
+    {"case": "member rounds half up", "subtotal": "0.10", "coupon": null, "member": true, "expected": "0.10"},
+    {"case": "unknown coupon", "subtotal": "30.00", "coupon": "FREE", "member": false, "error": "Unknown coupon: FREE"},
+    {"case": "coupon in small letters", "subtotal": "30.00", "coupon": "save10", "member": false, "error": "Unknown coupon: save10"},
+    {"case": "negative subtotal", "subtotal": "-1.00", "coupon": null, "member": false, "error": "Subtotal can't be negative"}
+  ]
+}

@@ -8,3 +8,5 @@ pyphen
 coverage     # which lines and branches the tests run (Test design techniques: coverage lesson)
 requests     # HTTP calls in the API testing lessons and templates
 jsonschema   # checking the shape of API responses (API testing: schema validation)
+openpyxl     # reading test data from Excel files (Data-driven testing)
+robotframework  # keyword-driven testing (Data-driven testing: Robot Framework lesson)

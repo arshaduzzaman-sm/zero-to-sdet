@@ -76,6 +76,8 @@
   about: Test reports and logs that people understand.
 - name: Reviews
   about: Finding problems by reading requirements, designs and code, before running anything.
+- name: Robot Framework
+  about: A keyword-driven test tool where tests read like a list of steps.
 - name: Security
   about: Finding common security holes before attackers do.
 - name: Teamwork

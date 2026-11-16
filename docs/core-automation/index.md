@@ -56,7 +56,7 @@ The everyday work of an SDET: automated tests for APIs, databases and web pages,
 
     Feed tests from CSV, JSON, YAML or Excel, with fake data from Faker.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 </div>
 

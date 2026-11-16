@@ -124,7 +124,7 @@ Click a stage to open it.
 - [Database testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/database-testing/): Write SQL to prove the right data was saved, and test schemas and rules.
 - [Multi-database testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/multi-database-testing/): Run one test on MySQL, PostgreSQL, SQLite and MongoDB.
 - [API + database](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/api-and-database/): Call the API, then prove the change landed in the database.
-- [Data-driven testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/data-driven-testing/): Feed tests from CSV, JSON, YAML or Excel, with fake data from Faker. *(coming soon)*
+- [Data-driven testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/data-driven-testing/): Feed tests from CSV, JSON, YAML or Excel, with fake data from Faker.
 
 **BDD and UI**
 

@@ -21,7 +21,7 @@ that teaches it.
 
 <!-- BEGIN glossary (generated from data/glossary.yml, do not edit by hand) -->
 
-<nav class="zts-az" aria-label="Jump to a letter" markdown>[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x)</nav>
+<nav class="zts-az" aria-label="Jump to a letter" markdown>[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x)</nav>
 
 ## A
 
@@ -165,6 +165,11 @@ that teaches it.
 :   Moving data from one database to another, often once, such as from MySQL to PostgreSQL.
 
     Learn more: [Migration and ETL validation](core-automation/multi-database-testing/migration-and-etl-validation.md)
+
+[](){ #data-driven-testing }**Data-driven testing**
+:   Writing a check once and running it with many rows of data, often read from a file.
+
+    Learn more: [One test, many rows](core-automation/data-driven-testing/one-test-many-rows.md)
 
 [](){ #database }**Database**
 :   An organized store of data that an app saves to and reads from, like a set of very large tables.
@@ -358,6 +363,13 @@ that teaches it.
 
     Learn more: [Schema validation](core-automation/api-testing/schema-validation.md)
 
+## K
+
+[](){ #keyword-driven-testing }**Keyword-driven testing**
+:   Writing tests as plain steps called keywords, like "Apply coupon". The code behind each keyword is written once.
+
+    Learn more: [Keyword-driven: Robot Framework](core-automation/data-driven-testing/keyword-driven-robot-framework.md)
+
 ## L
 
 [](){ #linter }**Linter**
@@ -547,6 +559,11 @@ that teaches it.
 
     Learn more: [Cleanup after API tests](core-automation/api-and-database/cleanup-after-api-tests.md)
 
+[](){ #random-seed }**Random seed**
+:   The starting number for random values. The same seed gives the same values again, so a random test can be repeated.
+
+    Learn more: [Fake data with Faker](core-automation/data-driven-testing/fake-data-with-faker.md)
+
 [](){ #regression-testing }**Regression testing**
 :   Running tests again after a change, to make sure things that worked before still work.
 
@@ -690,6 +707,11 @@ that teaches it.
 :   The users, products, orders and other data a test needs to run.
 
     Learn more: [Data-driven testing](core-automation/data-driven-testing/index.md)
+
+[](){ #test-data-factory }**Test data factory**
+:   A small function that makes a complete, valid test object, so each test changes only what it is about.
+
+    Learn more: [Test data factories](core-automation/data-driven-testing/test-data-factories.md)
 
 [](){ #test-level }**Test level**
 :   How much of the app a test uses at once, from one small function (unit) up to the whole system (end-to-end).

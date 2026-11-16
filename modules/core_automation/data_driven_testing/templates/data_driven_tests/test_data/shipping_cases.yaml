@@ -1,0 +1,36 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# Shipping prices from the logistics team's price list.
+# Quote country codes and numbers: unquoted, YAML reads NO as false and 1.10 as 1.1.
+cases:
+  - case: Bangladesh, half a kilo
+    country: "BD"
+    weight_kg: "0.5"
+    expected: "2.00"
+  - case: Bangladesh, exactly 1 kg
+    country: "BD"
+    weight_kg: "1"
+    expected: "2.00"
+  - case: Bangladesh, just over 1 kg
+    country: "BD"
+    weight_kg: "1.01"
+    expected: "3.00"
+  - case: Bangladesh, 3 kg
+    country: "BD"
+    weight_kg: "3"
+    expected: "4.00"
+  - case: United States, 2.5 kg
+    country: "US"
+    weight_kg: "2.5"
+    expected: "15.00"
+  - case: Norway, 2 kg
+    country: "NO"
+    weight_kg: "2"
+    expected: "16.00"
+  - case: weight zero
+    country: "BD"
+    weight_kg: "0"
+    error: "Weight must be more than 0"
+  - case: country we don't ship to
+    country: "XX"
+    weight_kg: "1"
+    error: "We don't ship to XX"

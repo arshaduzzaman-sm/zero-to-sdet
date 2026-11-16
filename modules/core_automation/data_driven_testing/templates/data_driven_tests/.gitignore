@@ -1,0 +1,6 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+.venv/
+__pycache__/
+.pytest_cache/
+# Robot Framework's log.html, report.html and output.xml
+results/

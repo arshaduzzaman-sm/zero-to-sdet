@@ -609,3 +609,19 @@
 - term: Race condition
   meaning: A bug that depends on which of two things happens first. It can pass a hundred times and then fail.
   page: core-automation/api-and-database/cleanup-after-api-tests.md
+
+- term: Data-driven testing
+  meaning: Writing a check once and running it with many rows of data, often read from a file.
+  page: core-automation/data-driven-testing/one-test-many-rows.md
+
+- term: Keyword-driven testing
+  meaning: Writing tests as plain steps called keywords, like "Apply coupon". The code behind each keyword is written once.
+  page: core-automation/data-driven-testing/keyword-driven-robot-framework.md
+
+- term: Test data factory
+  meaning: A small function that makes a complete, valid test object, so each test changes only what it is about.
+  page: core-automation/data-driven-testing/test-data-factories.md
+
+- term: Random seed
+  meaning: The starting number for random values. The same seed gives the same values again, so a random test can be repeated.
+  page: core-automation/data-driven-testing/fake-data-with-faker.md

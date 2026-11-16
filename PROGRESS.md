@@ -41,8 +41,30 @@ Newest entry first. No secrets or personal data in this file.
 | GitHub Pages | Built and checked for Pages now; switched on in Phase 9 after the security audit (owner's choice). The repo stays private until then. The ready workflow lives in `deploy/`, outside `.github/workflows/`, so it doesn't run. | 2026-11-16 |
 | Mermaid (diagrams) | Our own pinned copy, never unpkg.com (owner: "solve it the best way"). Mermaid 12.2.0 from npm (MIT), checked against npm's sha512, loaded only on pages with a diagram, with a SHA-384 integrity check in the browser. Releases younger than two weeks are not used. | 2026-11-16 |
 | Database for the lessons | PostgreSQL 17 with psycopg 3.3.9 (already pinned with hashes for the Practice App, so no new dependency). Lessons and templates run against a throwaway local PostgreSQL in Docker, bound to 127.0.0.1. Database checks in the topic tests run only with `ZTS_DATABASE_URL`, so `check.sh` needs no database. | 2026-11-16 |
+| Data-driven testing packages | `openpyxl` 3.1.5 (with `et-xmlfile` 2.0.0) for Excel test data and `robotframework` 7.5.1 for keyword-driven testing, added to `requirements.in` and pinned with hashes. Owner said yes. Faker was already pinned; factories are plain dataclasses, so no factory library. | 2026-11-16 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-16 · Phase 3 · Topic 6: Data-driven testing
+
+**Done**
+
+- Topic page and 6 lessons in `docs/core-automation/data-driven-testing/`: one test, many rows; CSV, JSON and YAML data; Excel test data; fake data with Faker; test data factories; keyword-driven testing with Robot Framework.
+- Template project `modules/core_automation/data_driven_testing/templates/data_driven_tests/`: a shop's signup, price and shipping rules as the code under test (one planted bug: age 18 is refused), a loader for CSV, JSON, YAML and Excel that names each case and marks known bugs as strict xfails, Faker factories with one printed seed per run, and two Robot Framework suites (data-driven and keyword-driven). pytest: 38 passed, 1 xfailed. Robot Framework: 10 tests, 9 passed, 1 skipped. Both find the planted bug.
+- Every trap on the pages was reproduced first: CSV gives only text; Excel's invisible mark breaks the first column name; JSON floats for money; YAML reads `NO` as false and `01234` as 668; an Excel formula with no saved value comes back as `None`; `free_email()` makes real-provider addresses; Robot without `--pythonpath .` can't import its library. A random-age test failed only with seed 139 (none of 1 to 100), and `TEST_SEED=139` repeats it.
+- New dependencies (owner said yes): openpyxl 3.1.5 (+ et-xmlfile) and robotframework 7.5.1, pinned with hashes.
+- `scripts/check_credit_lines.py` now knows `.robot` files (`#` comments) and skips `.xlsx`. New tag: Robot Framework.
+- Glossary: Data-driven testing, Keyword-driven testing, Test data factory, Random seed (150 terms).
+
+**Check it**
+
+`bash scripts/check.sh` passes; the topic test runs the whole template and both Robot suites offline.
+
+**Next step**
+
+Phase 3, Core Automation: BDD testing (behave and pytest-bdd).
 
 ---
 

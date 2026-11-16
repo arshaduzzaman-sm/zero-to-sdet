@@ -7,10 +7,10 @@ their teammates where it came from (brief section 7.7 and the growth plan):
 
 Template files are the files inside any `templates/` folder under `modules/`
 (and in `_new_topic_template/`). The comment uses each file type's own style:
-`#` for Python, YAML, Gherkin, shell and Dockerfiles, `//` for JavaScript and
+`#` for Python, YAML, Gherkin, Robot Framework, shell and Dockerfiles, `//` for JavaScript and
 Java, `--` for SQL, `<!-- -->` for Markdown, HTML and XML (JMeter plans).
 A first line like `#!/usr/bin/env bash` or `<?xml ...?>` may come before it.
-JSON and CSV cannot hold comments, so they are skipped.
+JSON, CSV and Excel files cannot hold comments, so they are skipped.
 
 Usage (from the repository root):
     .venv/bin/python scripts/check_credit_lines.py          # list files without it
@@ -32,7 +32,19 @@ DASHES = ("--", "")
 MARKUP = ("<!--", " -->")
 STYLE_BY_SUFFIX = {
     **dict.fromkeys(
-        [".py", ".sh", ".bash", ".yml", ".yaml", ".toml", ".feature", ".cfg", ".ini", ".txt"],
+        [
+            ".py",
+            ".sh",
+            ".bash",
+            ".yml",
+            ".yaml",
+            ".toml",
+            ".feature",
+            ".cfg",
+            ".ini",
+            ".txt",
+            ".robot",
+        ],
         HASH,
     ),
     **dict.fromkeys([".js", ".mjs", ".ts", ".java", ".kt", ".go", ".cs"], SLASHES),
@@ -45,7 +57,7 @@ STYLE_BY_NAME = {
     ".env.example": HASH,
     "docker-compose.yml": HASH,
 }
-NO_COMMENTS = {".json", ".csv", ".gitkeep", ".png", ".jpg", ".svg", ".pdf"}
+NO_COMMENTS = {".json", ".csv", ".gitkeep", ".png", ".jpg", ".svg", ".pdf", ".xlsx"}
 PREAMBLE = ("#!", "<?xml", "# -*- coding", "# syntax=")  # may stay above the credit line
 
 

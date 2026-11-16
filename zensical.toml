@@ -175,7 +175,15 @@ nav = [
         { "Cleanup after API tests" = "core-automation/api-and-database/cleanup-after-api-tests.md" },
         { "Waiting for late writes" = "core-automation/api-and-database/waiting-for-async-writes.md" },
       ] },
-      { "Data-driven testing" = ["core-automation/data-driven-testing/index.md"] },
+      { "Data-driven testing" = [
+        "core-automation/data-driven-testing/index.md",
+        { "One test, many rows" = "core-automation/data-driven-testing/one-test-many-rows.md" },
+        { "CSV, JSON and YAML data" = "core-automation/data-driven-testing/csv-json-yaml-data.md" },
+        { "Excel test data" = "core-automation/data-driven-testing/excel-test-data.md" },
+        { "Fake data with Faker" = "core-automation/data-driven-testing/fake-data-with-faker.md" },
+        { "Test data factories" = "core-automation/data-driven-testing/test-data-factories.md" },
+        { "Keyword-driven: Robot Framework" = "core-automation/data-driven-testing/keyword-driven-robot-framework.md" },
+      ] },
     ] },
     { "BDD and UI" = [
       { "BDD testing" = ["core-automation/bdd-testing/index.md"] },

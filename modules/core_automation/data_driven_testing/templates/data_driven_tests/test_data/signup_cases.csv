@@ -1,0 +1,14 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# Signup rules from the product owner: email with @ and a dot after it, password 8 to 64 characters, age 18 or older.
+case,email,password,age,expected_problems,known_bug
+valid adult,arshad@example.com,correct-horse-1,30,,
+exactly 18,maria@example.com,correct-horse-1,18,,AGE-18
+one day under 18,zoe@example.com,correct-horse-1,17,age,
+password 7 characters,lee@example.com,short12,25,password,
+password 8 characters,lee@example.com,short123,25,,
+password 64 characters,lee@example.com,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-123,25,,
+password 65 characters,lee@example.com,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-123,25,password,
+email without @,arshad.example.com,correct-horse-1,30,email,
+email without a dot after @,arshad@example,correct-horse-1,30,email,
+email with two @,arshad@@example.com,correct-horse-1,30,email,
+everything wrong,not-an-email,short,12,email password age,
