@@ -167,7 +167,14 @@ nav = [
         { "Cross-database comparison" = "core-automation/multi-database-testing/cross-database-comparison.md" },
         { "Migration and ETL validation" = "core-automation/multi-database-testing/migration-and-etl-validation.md" },
       ] },
-      { "API + database" = ["core-automation/api-and-database/index.md"] },
+      { "API + database" = [
+        "core-automation/api-and-database/index.md",
+        { "Why check the database" = "core-automation/api-and-database/why-check-the-database.md" },
+        { "Verify an API write" = "core-automation/api-and-database/verify-an-api-write.md" },
+        { "Seed then call" = "core-automation/api-and-database/seed-then-call.md" },
+        { "Cleanup after API tests" = "core-automation/api-and-database/cleanup-after-api-tests.md" },
+        { "Waiting for late writes" = "core-automation/api-and-database/waiting-for-async-writes.md" },
+      ] },
       { "Data-driven testing" = ["core-automation/data-driven-testing/index.md"] },
     ] },
     { "BDD and UI" = [

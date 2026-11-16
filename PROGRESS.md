@@ -46,6 +46,27 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 3 · Topic 5: API + database
+
+**Done**
+
+- Topic page and 5 lessons in `docs/core-automation/api-and-database/`: why check the database; verify an API write; seed then call; cleanup after API tests; waiting for late writes.
+- Practice API `modules/core_automation/api_and_database/examples/bookshop_api/`: a small FastAPI bookshop on its own PostgreSQL (pinned digest, port on 127.0.0.1, password from `.env`). Two planted bugs: a price sent by the client is saved, and email case is not ignored. It also writes an event half a second after it answers, for the late-write lesson.
+- Template project `modules/core_automation/api_and_database/templates/api_db_tests/`: API and database helpers, `wait_for`, a cleanup tracker, fixtures, and 11 tests. Against the practice API: 9 passed, 2 xfailed (both planted bugs found). Every row a test makes is deleted; the database was empty after the runs.
+- Found and fixed while building: a duplicate email gave a 500 (the app now answers 409); cleanup deleted orders before the app's late write, which filled the app's log with errors while the tests passed (`place_order` now waits); a strict xfail hid a `NameError` in a test (every xfail now has `raises=`, and a topic test checks it). Each is in a "When it goes wrong" section.
+- No new dependency: FastAPI, uvicorn, requests and psycopg were already pinned with hashes.
+- Glossary: Seed data, Background job, Polling, Race condition (146 terms).
+
+**Check it**
+
+`bash scripts/check.sh` passes (the template runs and skips cleanly with no API). With the practice API up (steps on the topic page): `ZTS_API_DB=1 .venv/bin/python -m pytest modules/core_automation/api_and_database/tests`.
+
+**Next step**
+
+Phase 3, Core Automation: data-driven testing.
+
+---
+
 ## 2026-11-16 · Phase 3 · Topic 4: Multi-database testing
 
 **Done**

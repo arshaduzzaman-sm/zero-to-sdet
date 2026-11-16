@@ -50,7 +50,7 @@ The everyday work of an SDET: automated tests for APIs, databases and web pages,
 
     Call the API, then prove the change landed in the database.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 -   [**Data-driven testing**](data-driven-testing/index.md)
 

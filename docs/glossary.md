@@ -77,6 +77,11 @@ that teaches it.
 
 ## B
 
+[](){ #background-job }**Background job**
+:   Work an app does after it has already answered the request, like sending an email or writing a history row.
+
+    Learn more: [Waiting for late writes](core-automation/api-and-database/waiting-for-async-writes.md)
+
 [](){ #bdd }**BDD (Behavior-Driven Development)**
 :   A way of writing tests as plain English examples, like "Given I am logged in, When I add a book, Then my cart has 1 item".
 
@@ -478,6 +483,11 @@ that teaches it.
 
     Learn more: [UI automation](core-automation/ui-automation/index.md)
 
+[](){ #polling }**Polling**
+:   Asking the same question again and again, a short time apart, until the answer is there or time runs out.
+
+    Learn more: [Waiting for late writes](core-automation/api-and-database/waiting-for-async-writes.md)
+
 [](){ #positive-test }**Positive test**
 :   A test that checks something works when it should, like a refund within 30 days going through.
 
@@ -532,6 +542,11 @@ that teaches it.
 
 ## R
 
+[](){ #race-condition }**Race condition**
+:   A bug that depends on which of two things happens first. It can pass a hundred times and then fail.
+
+    Learn more: [Cleanup after API tests](core-automation/api-and-database/cleanup-after-api-tests.md)
+
 [](){ #regression-testing }**Regression testing**
 :   Running tests again after a change, to make sure things that worked before still work.
 
@@ -578,6 +593,11 @@ that teaches it.
 :   A tester who writes code to test software.
 
     Learn more: [The SDET role](think-like-a-tester/the-sdet-role/index.md)
+
+[](){ #seed-data }**Seed data**
+:   Rows a test puts straight into the database before it starts, so the app has something to work with.
+
+    Learn more: [Seed then call](core-automation/api-and-database/seed-then-call.md)
 
 [](){ #severity }**Severity**
 :   How badly a bug hurts the people using the app, from critical (money, data or security) to trivial (a typo). The reporter sets it.

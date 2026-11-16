@@ -20,14 +20,14 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:accessibility" title="Making sure everyone can use the app, including people who use a screen reader or keyboard.">Accessibility <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:agile" title="Testing inside short sprints with the rest of the team.">Agile <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:ai" title="Using AI tools to help with testing, and testing apps that use AI.">AI <span class="zts-tag__count">1</span></a>
-<a class="zts-tag" href="#tag:api" title="Testing the requests and answers that apps send to each other.">API <span class="zts-tag__count">19</span></a>
+<a class="zts-tag" href="#tag:api" title="Testing the requests and answers that apps send to each other.">API <span class="zts-tag__count">24</span></a>
 <a class="zts-tag" href="#tag:bdd" title="Writing tests as plain English examples that everyone can read.">BDD <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:bug-reports" title="Writing bug reports that developers can act on fast.">Bug reports <span class="zts-tag__count">5</span></a>
 <a class="zts-tag" href="#tag:career" title="Growing in your testing career, from interviews to working in a team.">Career <span class="zts-tag__count">16</span></a>
 <a class="zts-tag" href="#tag:cicd" title="Running tests automatically every time code changes.">CI/CD <span class="zts-tag__count">3</span></a>
 <a class="zts-tag" href="#tag:clean-code" title="Test code that is easy to read, change and trust.">Clean code <span class="zts-tag__count">5</span></a>
 <a class="zts-tag" href="#tag:cloud" title="Testing apps that run on cloud servers and Kubernetes.">Cloud <span class="zts-tag__count">1</span></a>
-<a class="zts-tag" href="#tag:database" title="Checking that the right data is saved, changed and deleted.">Database <span class="zts-tag__count">20</span></a>
+<a class="zts-tag" href="#tag:database" title="Checking that the right data is saved, changed and deleted.">Database <span class="zts-tag__count">25</span></a>
 <a class="zts-tag" href="#tag:debugging" title="Finding out why something failed, step by step.">Debugging <span class="zts-tag__count">8</span></a>
 <a class="zts-tag" href="#tag:docker" title="Running apps and tests in containers, the same way on every computer.">Docker <span class="zts-tag__count">4</span></a>
 <a class="zts-tag" href="#tag:flaky-tests" title="Tests that pass one day and fail the next, and how to fix them.">Flaky tests <span class="zts-tag__count">1</span></a>
@@ -44,7 +44,7 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:performance" title="Checking that the app stays fast when many people use it.">Performance <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:playwright" title="Automating web pages with Playwright.">Playwright <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:practice-app" title="The small online shop you test in every lesson.">Practice App <span class="zts-tag__count">2</span></a>
-<a class="zts-tag" href="#tag:pytest" title="The Python test tool used across this site.">pytest <span class="zts-tag__count">34</span></a>
+<a class="zts-tag" href="#tag:pytest" title="The Python test tool used across this site.">pytest <span class="zts-tag__count">39</span></a>
 <a class="zts-tag" href="#tag:python" title="The programming language used for every example on this site.">Python <span class="zts-tag__count">31</span></a>
 <a class="zts-tag" href="#tag:quality-metrics" title="Numbers that show how good the product and the testing are.">Quality metrics <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:quick-reference" title="Short pages to look things up fast.">Quick reference <span class="zts-tag__count">4</span></a>

@@ -1,0 +1,22 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# The database behind the practice bookshop API. Your own computer only.
+#
+#   cp .env.example .env            once, then change the password
+#   docker compose up -d --wait     start, and wait until it's ready
+#   docker compose down -v          stop and delete its data
+
+name: bookshop-api
+
+services:
+  postgres:
+    image: postgres:17.12@sha256:0d938e975177bef9f1f61f3f9dbcf2e0aa0a139568f66d3415ed8892eb97f6ac
+    environment:
+      POSTGRES_DB: bookshop
+      POSTGRES_USER: shop_tester
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Copy .env.example to .env first}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "shop_tester", "-d", "bookshop"]
+      interval: 2s
+      retries: 30

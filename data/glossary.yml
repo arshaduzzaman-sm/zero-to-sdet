@@ -593,3 +593,19 @@
 - term: Source of truth
   meaning: The one place everyone agrees holds the right data. Copies are checked against it.
   page: core-automation/multi-database-testing/why-test-several-databases.md
+
+- term: Seed data
+  meaning: Rows a test puts straight into the database before it starts, so the app has something to work with.
+  page: core-automation/api-and-database/seed-then-call.md
+
+- term: Background job
+  meaning: Work an app does after it has already answered the request, like sending an email or writing a history row.
+  page: core-automation/api-and-database/waiting-for-async-writes.md
+
+- term: Polling
+  meaning: Asking the same question again and again, a short time apart, until the answer is there or time runs out.
+  page: core-automation/api-and-database/waiting-for-async-writes.md
+
+- term: Race condition
+  meaning: A bug that depends on which of two things happens first. It can pass a hundred times and then fail.
+  page: core-automation/api-and-database/cleanup-after-api-tests.md
