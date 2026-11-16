@@ -10,3 +10,12 @@ requests     # HTTP calls in the API testing lessons and templates
 jsonschema   # checking the shape of API responses (API testing: schema validation)
 openpyxl     # reading test data from Excel files (Data-driven testing)
 robotframework  # keyword-driven testing (Data-driven testing: Robot Framework lesson)
+behave       # BDD with Gherkin feature files, own runner (BDD testing)
+pytest-bdd   # BDD with the same feature files, run by pytest (BDD testing)
+playwright   # browser automation (BDD for UI, UI automation)
+# Release-age caps: these newer releases were under two weeks old on 2026-11-16.
+# Remove a cap once that release is two weeks old.
+playwright<1.65
+gherkin-official<43
+cucumber-expressions<20.2
+cucumber-tag-expressions<11.1

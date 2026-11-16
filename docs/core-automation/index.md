@@ -68,7 +68,7 @@ The everyday work of an SDET: automated tests for APIs, databases and web pages,
 
     Tests in plain English with Gherkin, using behave or pytest-bdd.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 -   [**UI automation**](ui-automation/index.md)
 

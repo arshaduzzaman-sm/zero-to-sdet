@@ -2,6 +2,7 @@
      Added to every page (pymdownx.snippets auto_append) for hover explanations. -->
 
 *[API]: Application Programming Interface. A way for one program to ask another program for data or to do something.
+*[ATDD]: Acceptance Test-Driven Development. The team writes the acceptance tests for a feature before it is built, then builds until they pass.
 *[BDD]: Behavior-Driven Development. A way of writing tests as plain English examples, like "Given I am logged in, When I add a book, Then my cart has 1 item".
 *[CI/CD]: Continuous Integration and Continuous Delivery. A setup that builds the app and runs the tests every time someone changes the code, then helps ship it.
 *[CRUD]: Create, Read, Update, Delete. The four things an app does with stored data.
@@ -14,4 +15,5 @@
 *[REST]: Representational State Transfer. The most common style of web API.
 *[SDET]: Software Development Engineer in Test. A tester who writes code to test software.
 *[SQL]: Structured Query Language. The language used to ask a database for data or change it, like SELECT * FROM orders.
+*[TDD]: Test-Driven Development. Writing a small failing test first, then the code that makes it pass, then tidying the code.
 *[UI]: User Interface. The part of an app people see and use, like pages, buttons and forms.

@@ -36,7 +36,7 @@
 - term: BDD
   stands_for: Behavior-Driven Development
   meaning: A way of writing tests as plain English examples, like "Given I am logged in, When I add a book, Then my cart has 1 item".
-  page: core-automation/bdd-testing/index.md
+  page: core-automation/bdd-testing/what-is-bdd.md
 
 - term: Boundary value
   meaning: A value right at the edge of what is allowed, like 0, 1, 99 and 100 for "1 to 99". Bugs love edges.
@@ -102,7 +102,7 @@
 
 - term: Gherkin
   meaning: The plain-English format BDD tests are written in, using the words Given, When and Then.
-  page: core-automation/bdd-testing/index.md
+  page: core-automation/bdd-testing/gherkin-and-feature-files.md
 
 - term: Git
   meaning: A tool that saves every change to your code, so you can go back in time and work with others safely.
@@ -625,3 +625,33 @@
 - term: Random seed
   meaning: The starting number for random values. The same seed gives the same values again, so a random test can be repeated.
   page: core-automation/data-driven-testing/fake-data-with-faker.md
+
+- term: TDD
+  stands_for: Test-Driven Development
+  meaning: Writing a small failing test first, then the code that makes it pass, then tidying the code.
+  page: core-automation/bdd-testing/what-is-bdd.md
+
+- term: ATDD
+  stands_for: Acceptance Test-Driven Development
+  meaning: The team writes the acceptance tests for a feature before it is built, then builds until they pass.
+  page: core-automation/bdd-testing/what-is-bdd.md
+
+- term: Feature file
+  meaning: A file ending in .feature that holds one feature and its scenarios, written in Gherkin.
+  page: core-automation/bdd-testing/gherkin-and-feature-files.md
+
+- term: Step definition
+  meaning: The Python function that runs when a Gherkin step like "When I apply the coupon" matches its pattern.
+  page: core-automation/bdd-testing/step-definitions.md
+
+- term: Scenario outline
+  meaning: One Gherkin scenario with blanks, run once for each row of an Examples table.
+  page: core-automation/bdd-testing/scenario-outlines.md
+
+- term: Three Amigos
+  meaning: A short meeting where a product owner, a developer and a tester agree on how a story should behave.
+  page: core-automation/bdd-testing/writing-scenarios-with-the-business.md
+
+- term: Example mapping
+  meaning: A way to run a Three Amigos meeting with coloured cards for the story, its rules, examples and open questions.
+  page: core-automation/bdd-testing/writing-scenarios-with-the-business.md

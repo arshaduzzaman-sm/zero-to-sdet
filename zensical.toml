@@ -186,7 +186,16 @@ nav = [
       ] },
     ] },
     { "BDD and UI" = [
-      { "BDD testing" = ["core-automation/bdd-testing/index.md"] },
+      { "BDD testing" = [
+        "core-automation/bdd-testing/index.md",
+        { "What is BDD" = "core-automation/bdd-testing/what-is-bdd.md" },
+        { "Gherkin and feature files" = "core-automation/bdd-testing/gherkin-and-feature-files.md" },
+        { "Step definitions" = "core-automation/bdd-testing/step-definitions.md" },
+        { "Scenario outlines" = "core-automation/bdd-testing/scenario-outlines.md" },
+        { "Tags and hooks" = "core-automation/bdd-testing/tags-and-hooks.md" },
+        { "BDD for API and UI" = "core-automation/bdd-testing/bdd-for-api-and-ui.md" },
+        { "Writing scenarios with the business" = "core-automation/bdd-testing/writing-scenarios-with-the-business.md" },
+      ] },
       { "UI automation" = ["core-automation/ui-automation/index.md"] },
     ] },
     { "Reports" = [

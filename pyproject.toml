@@ -40,6 +40,8 @@ known-first-party = ["bookshelf"]
 [tool.ruff.lint.per-file-ignores]
 # Tests use plain assert on purpose (that is how pytest works).
 "**/tests/**" = ["S101"]
+# behave step definitions are tests too: a failed assert is a failed step.
+"**/features/steps/**" = ["S101"]
 # Scripts call git with fixed arguments, never with user input.
 "scripts/**" = ["S603", "S607"]
 # One-off research scripts: long lines are regex patterns and data, easier to read unwrapped.

@@ -42,8 +42,29 @@ Newest entry first. No secrets or personal data in this file.
 | Mermaid (diagrams) | Our own pinned copy, never unpkg.com (owner: "solve it the best way"). Mermaid 12.2.0 from npm (MIT), checked against npm's sha512, loaded only on pages with a diagram, with a SHA-384 integrity check in the browser. Releases younger than two weeks are not used. | 2026-11-16 |
 | Database for the lessons | PostgreSQL 17 with psycopg 3.3.9 (already pinned with hashes for the Practice App, so no new dependency). Lessons and templates run against a throwaway local PostgreSQL in Docker, bound to 127.0.0.1. Database checks in the topic tests run only with `ZTS_DATABASE_URL`, so `check.sh` needs no database. | 2026-11-16 |
 | Data-driven testing packages | `openpyxl` 3.1.5 (with `et-xmlfile` 2.0.0) for Excel test data and `robotframework` 7.5.1 for keyword-driven testing, added to `requirements.in` and pinned with hashes. Owner said yes. Faker was already pinned; factories are plain dataclasses, so no factory library. | 2026-11-16 |
+| BDD and browser packages | `behave` 1.3.3, `pytest-bdd` 9.0.1 and `playwright` 1.64.1 added to `requirements.in`, pinned with hashes (owner said yes). New indirect packages: parse, parse-type, gherkin-official, cucumber-expressions, cucumber-tag-expressions, mako, markupsafe, six, colorama, greenlet, pyee. Releases under two weeks old are capped in `requirements.in` (playwright, gherkin-official, cucumber-expressions, cucumber-tag-expressions). Chromium for Playwright is downloaded once per computer into the user cache, never into the repo. | 2026-11-16 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-16 · Phase 3 · Topic 7: BDD testing
+
+**Done**
+
+- Topic page and 7 lessons in `docs/core-automation/bdd-testing/`: what is BDD (with TDD and ATDD); Gherkin and feature files; step definitions; scenario outlines; tags and hooks; BDD for API and UI; writing scenarios with the business (Three Amigos, example mapping). behave and pytest-bdd side by side in every lesson, as the brief asks.
+- Template project `modules/core_automation/bdd_testing/templates/bdd_tests/`: shared feature files, behave steps and hooks, pytest-bdd steps and conftest, an API driver (requests) and a UI driver (Playwright) with the same methods, and a small practice shop (FastAPI, API + plain HTML page) that the tests start on a free local port. One planted bug: a coupon can be applied twice. Both tools pass on both targets (8 scenarios), and both find the bug: pytest-bdd as a strict xfail, behave in a separate `--tags=@known_bug` run (behave has no xfail). Failed UI steps save a screenshot; one is on the BDD for API and UI page.
+- Found and fixed while building: a `Rule:` line in a description became a Gherkin rule; the clean-up hooks assumed setup had worked, so a setup error was followed by a second, misleading error (fixed in both tools, with a topic test). Each is in a "When it goes wrong" section.
+- `pyproject.toml`: behave step folders may use `assert`, like tests.
+- Glossary: TDD, ATDD, Feature file, Step definition, Scenario outline, Three Amigos, Example mapping (157 terms).
+
+**Check it**
+
+`bash scripts/check.sh` passes; the topic test runs behave and pytest-bdd on the API, and on the web page when Chromium is installed (`python -m playwright install chromium`).
+
+**Next step**
+
+Phase 3, Core Automation: UI automation (Playwright).
 
 ---
 

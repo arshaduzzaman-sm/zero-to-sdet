@@ -65,6 +65,11 @@ that teaches it.
 
     Learn more: [Tests and asserts](core-automation/pytest-framework/tests-and-asserts.md)
 
+[](){ #atdd }**ATDD (Acceptance Test-Driven Development)**
+:   The team writes the acceptance tests for a feature before it is built, then builds until they pass.
+
+    Learn more: [What is BDD](core-automation/bdd-testing/what-is-bdd.md)
+
 [](){ #automation }**Automation**
 :   Letting a program do a check that a person would otherwise do by hand, so it can run again and again in seconds.
 
@@ -85,7 +90,7 @@ that teaches it.
 [](){ #bdd }**BDD (Behavior-Driven Development)**
 :   A way of writing tests as plain English examples, like "Given I am logged in, When I add a book, Then my cart has 1 item".
 
-    Learn more: [BDD testing](core-automation/bdd-testing/index.md)
+    Learn more: [What is BDD](core-automation/bdd-testing/what-is-bdd.md)
 
 [](){ #bearer-token }**Bearer token**
 :   A secret you get from logging in and send in the Authorization header on every request. Whoever holds it gets in, until it expires.
@@ -248,6 +253,11 @@ that teaches it.
 
     Learn more: [Migration and ETL validation](core-automation/multi-database-testing/migration-and-etl-validation.md)
 
+[](){ #example-mapping }**Example mapping**
+:   A way to run a Three Amigos meeting with coloured cards for the story, its rules, examples and open questions.
+
+    Learn more: [Writing scenarios with the business](core-automation/bdd-testing/writing-scenarios-with-the-business.md)
+
 [](){ #exit-criteria }**Exit criteria**
 :   What must be true before testing is done, like no failing tests and no open critical bugs. Agreed before testing starts.
 
@@ -264,6 +274,11 @@ that teaches it.
     Learn more: [Exploratory testing](think-like-a-tester/test-design-techniques/exploratory-testing.md)
 
 ## F
+
+[](){ #feature-file }**Feature file**
+:   A file ending in .feature that holds one feature and its scenarios, written in Gherkin.
+
+    Learn more: [Gherkin and feature files](core-automation/bdd-testing/gherkin-and-feature-files.md)
 
 [](){ #fixture }**Fixture**
 :   In pytest, a small helper that gets something ready for a test, like a logged-in user, and cleans it up afterwards.
@@ -295,7 +310,7 @@ that teaches it.
 [](){ #gherkin }**Gherkin**
 :   The plain-English format BDD tests are written in, using the words Given, When and Then.
 
-    Learn more: [BDD testing](core-automation/bdd-testing/index.md)
+    Learn more: [Gherkin and feature files](core-automation/bdd-testing/gherkin-and-feature-files.md)
 
 [](){ #git }**Git**
 :   A tool that saves every change to your code, so you can go back in time and work with others safely.
@@ -601,6 +616,11 @@ that teaches it.
 
     Learn more: [Transactions and clean-up](core-automation/database-testing/transactions-and-cleanup.md)
 
+[](){ #scenario-outline }**Scenario outline**
+:   One Gherkin scenario with blanks, run once for each row of an Examples table.
+
+    Learn more: [Scenario outlines](core-automation/bdd-testing/scenario-outlines.md)
+
 [](){ #scope }**Scope**
 :   What is part of a task, and what is not. Writing it down stops you from testing the wrong thing.
 
@@ -666,6 +686,11 @@ that teaches it.
 
     Learn more: [Status codes](core-automation/api-testing/status-codes.md)
 
+[](){ #step-definition }**Step definition**
+:   The Python function that runs when a Gherkin step like "When I apply the coupon" matches its pattern.
+
+    Learn more: [Step definitions](core-automation/bdd-testing/step-definitions.md)
+
 [](){ #steps-to-reproduce }**Steps to reproduce**
 :   The numbered actions in a bug report that make the bug happen again, written so someone else can follow them.
 
@@ -687,6 +712,11 @@ that teaches it.
 :   One set of rows and columns in a database, like one sheet in a spreadsheet. Each row is one thing, such as one order.
 
     Learn more: [SQL for testers](core-automation/database-testing/sql-for-testers.md)
+
+[](){ #tdd }**TDD (Test-Driven Development)**
+:   Writing a small failing test first, then the code that makes it pass, then tidying the code.
+
+    Learn more: [What is BDD](core-automation/bdd-testing/what-is-bdd.md)
 
 [](){ #test-case }**Test case**
 :   One check written down step by step, with the expected result, so anyone can run it the same way.
@@ -742,6 +772,11 @@ that teaches it.
 :   Everything testing produces, such as plans, test cases, test data, scripts, results and reports.
 
     Learn more: [The test process and testware](think-like-a-tester/the-sdet-role/test-process-and-testware.md)
+
+[](){ #three-amigos }**Three Amigos**
+:   A short meeting where a product owner, a developer and a tester agree on how a story should behave.
+
+    Learn more: [Writing scenarios with the business](core-automation/bdd-testing/writing-scenarios-with-the-business.md)
 
 [](){ #traceability }**Traceability**
 :   The link between each requirement and the tests that check it, so you can see what has no test.

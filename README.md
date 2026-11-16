@@ -128,7 +128,7 @@ Click a stage to open it.
 
 **BDD and UI**
 
-- [BDD testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/bdd-testing/): Tests in plain English with Gherkin, using behave or pytest-bdd. *(coming soon)*
+- [BDD testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/bdd-testing/): Tests in plain English with Gherkin, using behave or pytest-bdd.
 - [UI automation](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/ui-automation/): Click, type and check web pages with Playwright and Page Objects. *(coming soon)*
 
 **Reports**
