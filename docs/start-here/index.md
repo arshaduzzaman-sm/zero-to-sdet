@@ -76,7 +76,7 @@ word in plain English.
 
     Just enough Python to write real tests: data, loops, functions, classes and files.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Practice App tour**](practice-app-tour/index.md)
 

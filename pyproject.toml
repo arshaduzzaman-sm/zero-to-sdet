@@ -9,7 +9,7 @@ addopts = ["--import-mode=importlib", "-ra", "--strict-markers"]
 # Test files inside templates/ and examples/ are for readers to copy. They run
 # through each topic's tests/ (in a subprocess, the way a reader runs them),
 # so pytest does not collect them directly.
-norecursedirs = ["*.egg", ".*", "_darcs", "build", "CVS", "dist", "node_modules", "venv", "{arch}", "templates", "examples"]
+norecursedirs = ["*.egg", ".*", "_darcs", "build", "CVS", "dist", "node_modules", "venv", "{arch}", "templates", "examples", "exercises", "solutions"]
 
 [tool.ruff]
 target-version = "py313"
@@ -44,6 +44,8 @@ known-first-party = ["bookshelf"]
 "scripts/**" = ["S603", "S607"]
 # One-off research scripts: long lines are regex patterns and data, easier to read unwrapped.
 "scripts/research/**" = ["E501"]
+# Exercise starting points keep the imports the answer needs, as a hint.
+"modules/**/exercises/*.py" = ["F401"]
 # The Practice App's tests type the fake seeded passwords on purpose.
 "practice-app/tests/**" = ["S101", "S105", "S106"]
 # Test templates and examples use plain assert, like every pytest test.

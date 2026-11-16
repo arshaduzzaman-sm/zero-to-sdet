@@ -1,0 +1,8 @@
+{
+  "_comment": "Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/",
+  "id": 7,
+  "name": "Pocket notebook",
+  "price": 4.25,
+  "in_stock": true,
+  "tags": ["paper", "small"]
+}

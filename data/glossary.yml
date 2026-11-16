@@ -120,7 +120,7 @@
 - term: JSON
   stands_for: JavaScript Object Notation
   meaning: A simple text format for data, made of names and values in curly brackets. Most APIs send and receive JSON.
-  page: core-automation/api-testing/index.md
+  page: start-here/python-for-testers/json.md
 
 - term: Load testing
   meaning: Checking how the app behaves when many people use it at the same time.
@@ -229,7 +229,7 @@
 
 - term: Virtual environment
   meaning: A private folder of Python packages for one project, so projects do not mix up each other's versions.
-  page: start-here/environment-setup/index.md
+  page: start-here/python-for-testers/virtual-environments-and-pip.md
 
 - term: Happy path
   meaning: The normal way a user uses a feature, with good data and no mistakes. It is usually the first thing you test.
@@ -443,3 +443,27 @@
 - term: Automation ROI
   meaning: ROI means return on investment. It is whether an automated test saves more time than it costs to build and keep working, and how soon.
   page: think-like-a-tester/test-strategy-and-planning/what-not-to-automate.md
+
+- term: Variable
+  meaning: A name for a value in a program, like the name age for the number 30.
+  page: start-here/python-for-testers/variables-and-types.md
+
+- term: Dictionary
+  meaning: In Python, a set of named values, like a product with a name and a price. API responses become dictionaries.
+  page: start-here/python-for-testers/strings-lists-and-dictionaries.md
+
+- term: Function
+  meaning: A named piece of work that takes inputs and returns a result. Every pytest test is a function.
+  page: start-here/python-for-testers/functions.md
+
+- term: Class
+  meaning: A blueprint that bundles data and actions together. Page objects and API clients are classes.
+  page: start-here/python-for-testers/classes-and-objects.md
+
+- term: Traceback
+  meaning: What Python prints when something goes wrong, the error at the bottom and the path to it above. Read it from the bottom.
+  page: start-here/python-for-testers/errors-and-exceptions.md
+
+- term: pip
+  meaning: The tool that installs Python packages, like pytest, into your virtual environment.
+  page: start-here/python-for-testers/virtual-environments-and-pip.md

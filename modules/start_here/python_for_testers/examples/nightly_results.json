@@ -1,0 +1,21 @@
+{
+  "_comment": "Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/",
+  "run": "nightly 2026-11-16",
+  "tests": [
+    {"name": "test_login_with_right_password", "outcome": "passed", "seconds": 0.41},
+    {"name": "test_login_with_wrong_password", "outcome": "passed", "seconds": 0.38},
+    {"name": "test_search_finds_books", "outcome": "passed", "seconds": 0.52},
+    {"name": "test_search_in_bengali", "outcome": "failed", "seconds": 0.47,
+     "message": "assert 0 == 2 (no results for 'বই')"},
+    {"name": "test_add_to_cart", "outcome": "passed", "seconds": 0.33},
+    {"name": "test_cart_total", "outcome": "passed", "seconds": 0.12},
+    {"name": "test_checkout_journey", "outcome": "passed", "seconds": 5.20},
+    {"name": "test_refund_day_30", "outcome": "passed", "seconds": 0.09},
+    {"name": "test_refund_day_31", "outcome": "failed", "seconds": 0.08,
+     "message": "assert None == 'Refunds are possible up to 30 days after delivery'"},
+    {"name": "test_invoice_pdf", "outcome": "passed", "seconds": 3.85},
+    {"name": "test_admin_ships_order", "outcome": "passed", "seconds": 2.10},
+    {"name": "test_paypal_refund", "outcome": "skipped", "seconds": 0.0,
+     "message": "PayPal sandbox is down"}
+  ]
+}

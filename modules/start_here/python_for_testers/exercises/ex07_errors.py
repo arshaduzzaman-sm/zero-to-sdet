@@ -1,0 +1,12 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+"""Exercise 7: errors and exceptions."""
+
+
+def parse_age(text: str) -> int:
+    """Turn "30" into 30. Raise ValueError with a clear message for anything else."""
+    raise NotImplementedError("Write your code here")
+
+
+def safe_int(text: str, default: int = 0) -> int:
+    """Turn text into an int, or return default if it isn't a whole number."""
+    raise NotImplementedError("Write your code here")

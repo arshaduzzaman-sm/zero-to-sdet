@@ -41,6 +41,29 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 2 · Start Here: Python for testers
+
+**Done**
+
+- Playbook: write `run_summary.py` for a nightly results JSON file, so nobody counts failures by hand; it ends with exit code 1 when a test failed, so a pipeline can use it.
+- Eleven lessons, written straight to the reader, each with "When it goes wrong": variables and types, strings, lists and dictionaries, if and loops, functions, modules and imports, classes and objects, errors and exceptions, files, JSON, virtual environments and pip, reading other people's code.
+- One small example script per lesson. A topic test runs each one and checks that its real output is on the page.
+- Nine exercises (32 pytest tests): readers fill in `exercises/`, and the answers are in `solutions/`. Topic tests check that every answer passes and that every exercise starts out failing.
+- Starter scripts: `run_summary.py`, `compare_json.py` (differences with paths, `--ignore` for IDs and dates), `script_starter.py`.
+- Every error message on the pages was reproduced on Python 3.13 and pytest 9 first, including the new "Did you mean" hints. The venv outputs come from a real throwaway environment, with pytest 9.2.0 pinned.
+- `pyproject.toml`: pytest skips `exercises` and `solutions` folders when run from the root (topic tests run them instead), and Ruff allows the unused hint imports in exercise files.
+- 6 new glossary terms (111 in total). "JSON" and "Virtual environment" now point to these lessons.
+
+**Check it**
+
+`bash scripts/check.sh` passes. Pages: Start Here, then Python for testers. Try an exercise: `cd modules/start_here/python_for_testers/exercises && python -m pytest`.
+
+**Next step**
+
+Phase 3, Pillar 2: Core Automation, starting with the pytest framework. (Environment setup and How to use this site in Start Here are still drafts.)
+
+---
+
 ## 2026-11-16 · Phase 2 · Topic 8: Test strategy and planning (Pillar 1 complete)
 
 **Done**

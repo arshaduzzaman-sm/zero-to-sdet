@@ -86,7 +86,7 @@ Click a stage to open it.
 
 - [How to use this site](https://arshaduzzaman-sm.github.io/zero-to-sdet/start-here/how-to-use-this-site/): How the site is organized, which path fits you, and where to ask for help. *(coming soon)*
 - [Environment setup](https://arshaduzzaman-sm.github.io/zero-to-sdet/start-here/environment-setup/): Install Python, VS Code and Docker, and make your first virtual environment. *(coming soon)*
-- [Python for testers](https://arshaduzzaman-sm.github.io/zero-to-sdet/start-here/python-for-testers/): Just enough Python to write real tests: data, loops, functions, classes and files. *(coming soon)*
+- [Python for testers](https://arshaduzzaman-sm.github.io/zero-to-sdet/start-here/python-for-testers/): Just enough Python to write real tests: data, loops, functions, classes and files.
 - [Practice App tour](https://arshaduzzaman-sm.github.io/zero-to-sdet/start-here/practice-app-tour/): Meet the small online shop you will test in every lesson.
 - [Skills Matrix](https://arshaduzzaman-sm.github.io/zero-to-sdet/start-here/skills-matrix/): Every SDET skill, grouped by area. Tick what you know and find your next lesson.
 - [Learning Path](https://arshaduzzaman-sm.github.io/zero-to-sdet/learning-path/): The whole journey on one map, plus step-by-step paths for what you want to do.

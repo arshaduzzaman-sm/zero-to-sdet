@@ -104,6 +104,11 @@ that teaches it.
 
     Learn more: [CI/CD (teaching topic)](infrastructure/ci-cd/index.md)
 
+[](){ #class }**Class**
+:   A blueprint that bundles data and actions together. Page objects and API clients are classes.
+
+    Learn more: [Classes and objects](start-here/python-for-testers/classes-and-objects.md)
+
 [](){ #container }**Container**
 :   A small, sealed box that holds an app and everything it needs, so it runs the same way on every computer.
 
@@ -130,6 +135,11 @@ that teaches it.
 :   Most bugs hide in a few parts of a system. When you find one bug, look for more nearby.
 
     Learn more: [The seven testing principles](think-like-a-tester/the-sdet-role/seven-testing-principles.md)
+
+[](){ #dictionary }**Dictionary**
+:   In Python, a set of named values, like a product with a name and a price. API responses become dictionaries.
+
+    Learn more: [Strings, lists and dictionaries](start-here/python-for-testers/strings-lists-and-dictionaries.md)
 
 [](){ #docker }**Docker**
 :   The most common tool for building and running containers.
@@ -210,6 +220,11 @@ that teaches it.
 
     Learn more: [pytest framework](core-automation/pytest-framework/index.md)
 
+[](){ #function }**Function**
+:   A named piece of work that takes inputs and returns a result. Every pytest test is a function.
+
+    Learn more: [Functions](start-here/python-for-testers/functions.md)
+
 ## G
 
 [](){ #gherkin }**Gherkin**
@@ -261,7 +276,7 @@ that teaches it.
 [](){ #json }**JSON (JavaScript Object Notation)**
 :   A simple text format for data, made of names and values in curly brackets. Most APIs send and receive JSON.
 
-    Learn more: [API testing](core-automation/api-testing/index.md)
+    Learn more: [JSON](start-here/python-for-testers/json.md)
 
 ## L
 
@@ -352,6 +367,11 @@ that teaches it.
 :   Running the same tests again and again finds fewer new bugs over time. New tests and new data find new bugs.
 
     Learn more: [The seven testing principles](think-like-a-tester/the-sdet-role/seven-testing-principles.md)
+
+[](){ #pip }**pip**
+:   The tool that installs Python packages, like pytest, into your virtual environment.
+
+    Learn more: [Virtual environments and pip](start-here/python-for-testers/virtual-environments-and-pip.md)
 
 [](){ #playbook }**Playbook**
 :   A list of steps a team follows every time for the same kind of job, so nobody has to invent the plan again.
@@ -551,6 +571,11 @@ that teaches it.
 
     Learn more: [Traceability](think-like-a-tester/test-cases/traceability.md)
 
+[](){ #traceback }**Traceback**
+:   What Python prints when something goes wrong, the error at the bottom and the path to it above. Read it from the bottom.
+
+    Learn more: [Errors and exceptions](start-here/python-for-testers/errors-and-exceptions.md)
+
 [](){ #triage }**Triage**
 :   Looking at new bugs, checking they are real and clear, and deciding how soon each one gets fixed.
 
@@ -575,10 +600,15 @@ that teaches it.
 
 ## V
 
+[](){ #variable }**Variable**
+:   A name for a value in a program, like the name age for the number 30.
+
+    Learn more: [Variables and types](start-here/python-for-testers/variables-and-types.md)
+
 [](){ #virtual-environment }**Virtual environment**
 :   A private folder of Python packages for one project, so projects do not mix up each other's versions.
 
-    Learn more: [Environment setup](start-here/environment-setup/index.md)
+    Learn more: [Virtual environments and pip](start-here/python-for-testers/virtual-environments-and-pip.md)
 
 ## W
 
