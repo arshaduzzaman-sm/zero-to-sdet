@@ -192,7 +192,7 @@
 - term: SQL
   stands_for: Structured Query Language
   meaning: The language used to ask a database for data or change it, like SELECT * FROM orders.
-  page: core-automation/database-testing/index.md
+  page: core-automation/database-testing/sql-for-testers.md
 
 - term: Status code
   meaning: The number an API sends back to say how a request went, like 200 for OK or 404 for not found.
@@ -519,3 +519,60 @@
 - term: API client
   meaning: A small class in a test project that holds the base address, headers, timeout and logging for one API, so tests do not repeat them.
   page: core-automation/api-testing/api-client-class.md
+
+- term: Table
+  meaning: One set of rows and columns in a database, like one sheet in a spreadsheet. Each row is one thing, such as one order.
+  page: core-automation/database-testing/sql-for-testers.md
+
+- term: "NULL"
+  meaning: The value a database uses for nothing at all. It is not zero and not empty text, and you find it with IS NULL.
+  page: core-automation/database-testing/sql-for-testers.md
+
+- term: JOIN
+  meaning: SQL that reads two tables together by matching a column, such as each order with its customer.
+  page: core-automation/database-testing/joins-and-group-by.md
+
+- term: SQL injection
+  meaning: A security bug where text typed by a user changes the SQL the app runs. Passing values as parameters prevents it.
+  page: core-automation/database-testing/connecting-from-python.md
+
+- term: Database schema
+  meaning: The shape of a database. Which tables it has, which columns each table has, and their types and rules.
+  page: core-automation/database-testing/schema-tests.md
+
+- term: Primary key
+  meaning: The column that gives every row its own id, never empty and never repeated.
+  page: core-automation/database-testing/integrity-constraints.md
+
+- term: Foreign key
+  meaning: A column whose value must exist in another table, such as an order's customer id. It keeps links between tables real.
+  page: core-automation/database-testing/integrity-constraints.md
+
+- term: Constraint
+  meaning: A rule written into a database table, such as NOT NULL or UNIQUE. The database refuses any row that breaks it.
+  page: core-automation/database-testing/integrity-constraints.md
+
+- term: CRUD
+  stands_for: Create, Read, Update, Delete
+  meaning: The four things an app does with stored data. In SQL they are INSERT, SELECT, UPDATE and DELETE.
+  page: core-automation/database-testing/crud-tests.md
+
+- term: Stored procedure
+  meaning: Code saved inside the database and run by name, such as place_order. In PostgreSQL it is often written as a function.
+  page: core-automation/database-testing/procedures-and-triggers.md
+
+- term: Trigger
+  meaning: Code inside the database that runs by itself when a row changes, such as writing a history row when an order's status changes.
+  page: core-automation/database-testing/procedures-and-triggers.md
+
+- term: Transaction
+  meaning: A group of database changes that are saved together with COMMIT or undone together with ROLLBACK.
+  page: core-automation/database-testing/transactions-and-cleanup.md
+
+- term: Rollback
+  meaning: Undoing every change made in a transaction. Tests use it to leave the database exactly as they found it.
+  page: core-automation/database-testing/transactions-and-cleanup.md
+
+- term: Savepoint
+  meaning: A point inside a transaction you can roll back to without undoing everything before it.
+  page: core-automation/database-testing/transactions-and-cleanup.md

@@ -40,8 +40,30 @@ Newest entry first. No secrets or personal data in this file.
 | API for the lessons | Public practice APIs online (owner's choice): Restful-booker, httpbin.org and DummyJSON, using only the demo logins they publish. Online checks run only with `ZTS_ONLINE=1`, so `check.sh` stays offline. | 2026-11-16 |
 | GitHub Pages | Built and checked for Pages now; switched on in Phase 9 after the security audit (owner's choice). The repo stays private until then. The ready workflow lives in `deploy/`, outside `.github/workflows/`, so it doesn't run. | 2026-11-16 |
 | Mermaid (diagrams) | Our own pinned copy, never unpkg.com (owner: "solve it the best way"). Mermaid 12.2.0 from npm (MIT), checked against npm's sha512, loaded only on pages with a diagram, with a SHA-384 integrity check in the browser. Releases younger than two weeks are not used. | 2026-11-16 |
+| Database for the lessons | PostgreSQL 17 with psycopg 3.3.9 (already pinned with hashes for the Practice App, so no new dependency). Lessons and templates run against a throwaway local PostgreSQL in Docker, bound to 127.0.0.1. Database checks in the topic tests run only with `ZTS_DATABASE_URL`, so `check.sh` needs no database. | 2026-11-16 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-16 · Phase 3 · Topic 3: Database testing
+
+**Done**
+
+- Topic page and 9 lessons in `docs/core-automation/database-testing/`: SQL for testers; JOIN, GROUP BY and subqueries; connecting from Python (psycopg, parameters, SQL injection); schema tests; integrity (keys, NOT NULL, UNIQUE, CHECK); CRUD tests; data validation; stored procedures and triggers; transactions and clean-up. Each has "When it goes wrong".
+- Template project `modules/core_automation/database_testing/templates/shop_db_tests/`: `DbClient`, a bookshop schema with a stored function and a trigger, fake seed data, and 33 tests. Every test runs in a savepoint inside a run-wide transaction, both always rolled back, so nothing is left behind (checked after the run).
+- Every output on the pages comes from real runs against PostgreSQL 17.12. Failures shown on the pages were made by breaking a copy of the template on purpose: a nullable column, a missing UNIQUE, a wrong order total, `now()` in the trigger, and leftover data on a second run. Each was caught.
+- Found while writing: `UNIQUE` on email lets `ARSHAD@example.com` in next to `arshad@example.com`. The lessons teach it and the data rules catch it.
+- Glossary: 14 new database terms (138 in total). `SQL` now points to the SQL lesson.
+- Topic tests (`modules/core_automation/database_testing/tests/`): credit lines, fake-only seed emails, no password in code; with `ZTS_DATABASE_URL`, the template runs and must leave no schema behind.
+
+**Check it**
+
+`bash scripts/check.sh` passes. With a throwaway database: `ZTS_DATABASE_URL=... .venv/bin/python -m pytest modules/core_automation/database_testing/tests`.
+
+**Next step**
+
+Phase 3, Core Automation: Multi-database testing.
 
 ---
 

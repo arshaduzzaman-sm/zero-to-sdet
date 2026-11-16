@@ -4,6 +4,7 @@
 *[API]: Application Programming Interface. A way for one program to ask another program for data or to do something.
 *[BDD]: Behavior-Driven Development. A way of writing tests as plain English examples, like "Given I am logged in, When I add a book, Then my cart has 1 item".
 *[CI/CD]: Continuous Integration and Continuous Delivery. A setup that builds the app and runs the tests every time someone changes the code, then helps ship it.
+*[CRUD]: Create, Read, Update, Delete. The four things an app does with stored data.
 *[E2E]: End-to-end. A test that goes through the whole app the way a real user would, from the web page down to the database and back.
 *[HTTP]: Hypertext Transfer Protocol. The set of rules web browsers and APIs use to send requests and answers.
 *[ISTQB]: International Software Testing Qualifications Board. A group that writes testing exams and a shared list of testing words, used in many countries.

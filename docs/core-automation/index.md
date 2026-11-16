@@ -38,7 +38,7 @@ The everyday work of an SDET: automated tests for APIs, databases and web pages,
 
     Write SQL to prove the right data was saved, and test schemas and rules.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 -   [**Multi-database testing**](multi-database-testing/index.md)
 

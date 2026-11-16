@@ -129,6 +129,11 @@ that teaches it.
 
     Learn more: [Fixtures and conftest.py](core-automation/pytest-framework/fixtures-and-conftest.md)
 
+[](){ #constraint }**Constraint**
+:   A rule written into a database table, such as NOT NULL or UNIQUE. The database refuses any row that breaks it.
+
+    Learn more: [Integrity: keys and rules](core-automation/database-testing/integrity-constraints.md)
+
 [](){ #container }**Container**
 :   A small, sealed box that holds an app and everything it needs, so it runs the same way on every computer.
 
@@ -139,12 +144,22 @@ that teaches it.
 
     Learn more: [Contract testing](advanced-testing/contract-testing/index.md)
 
+[](){ #crud }**CRUD (Create, Read, Update, Delete)**
+:   The four things an app does with stored data. In SQL they are INSERT, SELECT, UPDATE and DELETE.
+
+    Learn more: [CRUD tests](core-automation/database-testing/crud-tests.md)
+
 ## D
 
 [](){ #database }**Database**
 :   An organized store of data that an app saves to and reads from, like a set of very large tables.
 
     Learn more: [Database testing](core-automation/database-testing/index.md)
+
+[](){ #database-schema }**Database schema**
+:   The shape of a database. Which tables it has, which columns each table has, and their types and rules.
+
+    Learn more: [Schema tests](core-automation/database-testing/schema-tests.md)
 
 [](){ #decision-table }**Decision table**
 :   A table that lists every mix of conditions, like "member" and "order over $50", with the result for each. Each row becomes a test.
@@ -235,6 +250,11 @@ that teaches it.
 
     Learn more: [Flaky tests and speed](advanced-testing/flaky-tests-and-speed/index.md)
 
+[](){ #foreign-key }**Foreign key**
+:   A column whose value must exist in another table, such as an order's customer id. It keeps links between tables real.
+
+    Learn more: [Integrity: keys and rules](core-automation/database-testing/integrity-constraints.md)
+
 [](){ #framework }**Framework**
 :   The shared structure of a test project, such as folders, settings and helpers, so every test is written the same way.
 
@@ -303,6 +323,11 @@ that teaches it.
 
 ## J
 
+[](){ #join }**JOIN**
+:   SQL that reads two tables together by matching a column, such as each order with its customer.
+
+    Learn more: [JOIN, GROUP BY and subqueries](core-automation/database-testing/joins-and-group-by.md)
+
 [](){ #json }**JSON (JavaScript Object Notation)**
 :   A simple text format for data, made of names and values in curly brackets. Most APIs send and receive JSON.
 
@@ -368,6 +393,11 @@ that teaches it.
 :   Testing how well the app works, not what it does. For example, how fast it is, how easy it is to use, and whether it stays up.
 
     Learn more: [Non-functional testing](think-like-a-tester/test-levels-and-the-pyramid/non-functional-testing.md)
+
+[](){ #null }**NULL**
+:   The value a database uses for nothing at all. It is not zero and not empty text, and you find it with IS NULL.
+
+    Learn more: [SQL for testers](core-automation/database-testing/sql-for-testers.md)
 
 ## O
 
@@ -453,6 +483,11 @@ that teaches it.
 
     Learn more: [Anatomy of a test case](think-like-a-tester/test-cases/anatomy-of-a-test-case.md)
 
+[](){ #primary-key }**Primary key**
+:   The column that gives every row its own id, never empty and never repeated.
+
+    Learn more: [Integrity: keys and rules](core-automation/database-testing/integrity-constraints.md)
+
 [](){ #priority }**Priority**
 :   How soon the team will fix a bug. The team decides it in triage, and the reporter can suggest one.
 
@@ -507,7 +542,17 @@ that teaches it.
 
     Learn more: [Risk-based testing](think-like-a-tester/test-strategy-and-planning/risk-based-testing.md)
 
+[](){ #rollback }**Rollback**
+:   Undoing every change made in a transaction. Tests use it to leave the database exactly as they found it.
+
+    Learn more: [Transactions and clean-up](core-automation/database-testing/transactions-and-cleanup.md)
+
 ## S
+
+[](){ #savepoint }**Savepoint**
+:   A point inside a transaction you can roll back to without undoing everything before it.
+
+    Learn more: [Transactions and clean-up](core-automation/database-testing/transactions-and-cleanup.md)
 
 [](){ #scope }**Scope**
 :   What is part of a task, and what is not. Writing it down stops you from testing the wrong thing.
@@ -532,7 +577,12 @@ that teaches it.
 [](){ #sql }**SQL (Structured Query Language)**
 :   The language used to ask a database for data or change it, like SELECT * FROM orders.
 
-    Learn more: [Database testing](core-automation/database-testing/index.md)
+    Learn more: [SQL for testers](core-automation/database-testing/sql-for-testers.md)
+
+[](){ #sql-injection }**SQL injection**
+:   A security bug where text typed by a user changes the SQL the app runs. Passing values as parameters prevents it.
+
+    Learn more: [Connecting from Python](core-automation/database-testing/connecting-from-python.md)
 
 [](){ #state-transition }**State transition**
 :   A move from one status to another, like an order going from paid to shipped. Testing them checks allowed moves work and the rest are refused.
@@ -564,12 +614,22 @@ that teaches it.
 
     Learn more: [What makes a great bug report](think-like-a-tester/bug-reports/what-makes-a-great-bug-report.md)
 
+[](){ #stored-procedure }**Stored procedure**
+:   Code saved inside the database and run by name, such as place_order. In PostgreSQL it is often written as a function.
+
+    Learn more: [Stored procedures and triggers](core-automation/database-testing/procedures-and-triggers.md)
+
 [](){ #stub }**Stub**
 :   A very simple fake that always gives the same ready answer, so a test does not need the real thing.
 
     Learn more: [Mocking and stubbing](advanced-testing/mocking-and-stubbing/index.md)
 
 ## T
+
+[](){ #table }**Table**
+:   One set of rows and columns in a database, like one sheet in a spreadsheet. Each row is one thing, such as one order.
+
+    Learn more: [SQL for testers](core-automation/database-testing/sql-for-testers.md)
 
 [](){ #test-case }**Test case**
 :   One check written down step by step, with the expected result, so anyone can run it the same way.
@@ -636,10 +696,20 @@ that teaches it.
 
     Learn more: [Errors and exceptions](start-here/python-for-testers/errors-and-exceptions.md)
 
+[](){ #transaction }**Transaction**
+:   A group of database changes that are saved together with COMMIT or undone together with ROLLBACK.
+
+    Learn more: [Transactions and clean-up](core-automation/database-testing/transactions-and-cleanup.md)
+
 [](){ #triage }**Triage**
 :   Looking at new bugs, checking they are real and clear, and deciding how soon each one gets fixed.
 
     Learn more: [Severity and priority](think-like-a-tester/bug-reports/severity-and-priority.md)
+
+[](){ #trigger }**Trigger**
+:   Code inside the database that runs by itself when a row changes, such as writing a history row when an order's status changes.
+
+    Learn more: [Stored procedures and triggers](core-automation/database-testing/procedures-and-triggers.md)
 
 ## U
 
