@@ -576,3 +576,20 @@
 - term: Savepoint
   meaning: A point inside a transaction you can roll back to without undoing everything before it.
   page: core-automation/database-testing/transactions-and-cleanup.md
+
+- term: Data migration
+  meaning: Moving data from one database to another, often once, such as from MySQL to PostgreSQL.
+  page: core-automation/multi-database-testing/migration-and-etl-validation.md
+
+- term: ETL
+  stands_for: Extract, Transform, Load
+  meaning: A job that copies data from one place to another and changes it on the way, often every night.
+  page: core-automation/multi-database-testing/migration-and-etl-validation.md
+
+- term: Checksum
+  meaning: A short fingerprint made from data. The same data always gives the same fingerprint, so two fingerprints that differ mean the data differs.
+  page: core-automation/multi-database-testing/cross-database-comparison.md
+
+- term: Source of truth
+  meaning: The one place everyone agrees holds the right data. Copies are checked against it.
+  page: core-automation/multi-database-testing/why-test-several-databases.md

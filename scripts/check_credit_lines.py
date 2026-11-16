@@ -59,9 +59,15 @@ def credit_line(path: Path) -> str | None:
 
 
 def generated(path: Path) -> bool:
-    """Files tools make by themselves (Python caches, editor files) are not templates."""
+    """Files tools make by themselves (Python caches, editor files, the SQLite
+    database a test run creates) are not templates."""
     hidden = path.name.startswith(".") and path.name not in STYLE_BY_NAME
-    return hidden or any(part in ("__pycache__", ".pytest_cache") for part in path.parts)
+    made_by_tests = path.suffix in (".sqlite3", ".db")
+    return (
+        hidden
+        or made_by_tests
+        or any(part in ("__pycache__", ".pytest_cache") for part in path.parts)
+    )
 
 
 def template_files() -> list[Path]:

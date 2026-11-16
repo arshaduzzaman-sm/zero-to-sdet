@@ -1,0 +1,43 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# One block per database. Passwords are never here: password_env names the
+# environment variable (or .env line) that holds it.
+
+databases:
+  postgres:
+    driver: postgres
+    host: 127.0.0.1
+    port: 5432
+    database: shop
+    user: shop_tester
+    password_env: POSTGRES_PASSWORD
+    port_env: POSTGRES_PORT      # optional: a different port, from .env
+
+  mysql:
+    driver: mysql
+    host: 127.0.0.1
+    port: 3306
+    database: shop
+    user: shop_tester
+    password_env: MYSQL_PASSWORD
+    port_env: MYSQL_PORT      # optional: a different port, from .env
+
+  sqlite:
+    driver: sqlite
+    path: shop.sqlite3
+
+  mongo:
+    driver: mongo
+    host: 127.0.0.1
+    port: 27017
+    database: shop
+    user: shop_tester
+    password_env: MONGO_PASSWORD
+    port_env: MONGO_PORT      # optional: a different port, from .env
+
+# The database the others are compared against: the source of a migration or copy.
+compare:
+  source: postgres
+  # Each table, and the column that identifies a row in it.
+  tables:
+    customers: id
+    orders: id

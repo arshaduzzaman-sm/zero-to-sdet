@@ -1,0 +1,8 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+id,email,full_name,country
+1,arshad@example.com,Arshad Test,BD
+2,nadia@example.com,Nadia Sample,BD
+3,zoe@example.com,Zoë Exämple,DE
+4,ben@example.com,Ben Demo,GB
+5,maria.long.name@example.com,María José Fernández-Castillo Example,ES
+6,lena@example.com,Lena Fake,SE

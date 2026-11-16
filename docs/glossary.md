@@ -114,6 +114,11 @@ that teaches it.
 
     Learn more: [Checklist-based testing](think-like-a-tester/test-design-techniques/checklist-based-testing.md)
 
+[](){ #checksum }**Checksum**
+:   A short fingerprint made from data. The same data always gives the same fingerprint, so two fingerprints that differ mean the data differs.
+
+    Learn more: [Cross-database comparison](core-automation/multi-database-testing/cross-database-comparison.md)
+
 [](){ #cicd }**CI/CD (Continuous Integration and Continuous Delivery)**
 :   A setup that builds the app and runs the tests every time someone changes the code, then helps ship it.
 
@@ -150,6 +155,11 @@ that teaches it.
     Learn more: [CRUD tests](core-automation/database-testing/crud-tests.md)
 
 ## D
+
+[](){ #data-migration }**Data migration**
+:   Moving data from one database to another, often once, such as from MySQL to PostgreSQL.
+
+    Learn more: [Migration and ETL validation](core-automation/multi-database-testing/migration-and-etl-validation.md)
 
 [](){ #database }**Database**
 :   An organized store of data that an app saves to and reads from, like a set of very large tables.
@@ -222,6 +232,11 @@ that teaches it.
 :   Trying the inputs and actions that often break software, like emoji, double clicks or 29 February.
 
     Learn more: [Error guessing](think-like-a-tester/test-design-techniques/error-guessing.md)
+
+[](){ #etl }**ETL (Extract, Transform, Load)**
+:   A job that copies data from one place to another and changes it on the way, often every night.
+
+    Learn more: [Migration and ETL validation](core-automation/multi-database-testing/migration-and-etl-validation.md)
 
 [](){ #exit-criteria }**Exit criteria**
 :   What must be true before testing is done, like no failing tests and no open critical bugs. Agreed before testing starts.
@@ -573,6 +588,11 @@ that teaches it.
 :   A few quick tests that check the most important things work, before you spend time on deeper testing.
 
     Learn more: [Test levels and the pyramid](think-like-a-tester/test-levels-and-the-pyramid/index.md)
+
+[](){ #source-of-truth }**Source of truth**
+:   The one place everyone agrees holds the right data. Copies are checked against it.
+
+    Learn more: [Why test several databases](core-automation/multi-database-testing/why-test-several-databases.md)
 
 [](){ #sql }**SQL (Structured Query Language)**
 :   The language used to ask a database for data or change it, like SELECT * FROM orders.

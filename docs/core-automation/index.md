@@ -44,7 +44,7 @@ The everyday work of an SDET: automated tests for APIs, databases and web pages,
 
     Run one test on MySQL, PostgreSQL, SQLite and MongoDB.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 -   [**API + database**](api-and-database/index.md)
 

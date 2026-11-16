@@ -6,6 +6,7 @@
 *[CI/CD]: Continuous Integration and Continuous Delivery. A setup that builds the app and runs the tests every time someone changes the code, then helps ship it.
 *[CRUD]: Create, Read, Update, Delete. The four things an app does with stored data.
 *[E2E]: End-to-end. A test that goes through the whole app the way a real user would, from the web page down to the database and back.
+*[ETL]: Extract, Transform, Load. A job that copies data from one place to another and changes it on the way, often every night.
 *[HTTP]: Hypertext Transfer Protocol. The set of rules web browsers and APIs use to send requests and answers.
 *[ISTQB]: International Software Testing Qualifications Board. A group that writes testing exams and a shared list of testing words, used in many countries.
 *[JSON]: JavaScript Object Notation. A simple text format for data, made of names and values in curly brackets.

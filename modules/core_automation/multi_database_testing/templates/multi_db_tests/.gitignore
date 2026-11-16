@@ -1,0 +1,6 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+*.sqlite3

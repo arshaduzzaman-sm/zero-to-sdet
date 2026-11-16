@@ -1,0 +1,6 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+pytest==9.2.0
+pyyaml==6.0.3
+psycopg[binary]==3.3.9
+pymysql==1.2.4
+pymongo==4.20.0

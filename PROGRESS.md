@@ -46,6 +46,28 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 3 · Topic 4: Multi-database testing
+
+**Done**
+
+- Topic page and 7 lessons in `docs/core-automation/multi-database-testing/`: why test several databases; Docker Compose for test databases; config per database; one client, many drivers; one test on every database; cross-database comparison; migration and ETL validation.
+- Template project `modules/core_automation/multi_database_testing/templates/multi_db_tests/` (the layout the brief asks for): `docker-compose.yml` (pinned digests, ports on 127.0.0.1 only, passwords from `.env`, random MySQL root password), `config/databases.yaml` + `config/.env.example`, `db_clients/` (base class, shared SQL class, PostgreSQL, MySQL, SQLite, MongoDB), `queries/<database>/`, `test_data/`, and tests for schema, integrity and cross-database comparison. 44 tests pass on all four databases; the SQLite part runs with no Docker.
+- `examples/etl_copy.py`: a copy job with three planted bugs (cancelled orders skipped, names cut, times shifted 6 hours). The comparison caught all three, and the per-month report caught the time shift. The fixed job passes.
+- Found and fixed while building: a `;` in a SQL comment broke the statement split; PyMySQL read `%` in `'%Y-%m'` as a placeholder; `astimezone()` on a time with no zone used the computer's own zone (now `as_utc()`, with a topic test). Each is in a "When it goes wrong" section.
+- No new dependency: PyYAML, PyMySQL and PyMongo were already pinned with hashes. Port 3306 is taken by the owner's own MySQL, so the template lets `.env` choose ports; the runs here used 3307.
+- `scripts/check_credit_lines.py` now skips SQLite files a test run creates.
+- Glossary: Data migration, ETL, Checksum, Source of truth (142 terms).
+
+**Check it**
+
+`bash scripts/check.sh` passes (it runs the template on SQLite). All four: in the template folder, `cp config/.env.example .env`, `docker compose up -d --wait`, then `ZTS_MULTI_DB=1 .venv/bin/python -m pytest modules/core_automation/multi_database_testing/tests`.
+
+**Next step**
+
+Phase 3, Core Automation: API + database.
+
+---
+
 ## 2026-11-16 · Phase 3 · Topic 3: Database testing
 
 **Done**
