@@ -70,6 +70,11 @@ that teaches it.
 
     Learn more: [What is BDD](core-automation/bdd-testing/what-is-bdd.md)
 
+[](){ #auto-waiting }**Auto-waiting**
+:   Playwright waits by itself until an element can be used before it clicks or types, so tests don't need fixed waits.
+
+    Learn more: [Waits](core-automation/ui-automation/waits.md)
+
 [](){ #automation }**Automation**
 :   Letting a program do a check that a person would otherwise do by hand, so it can run again and again in seconds.
 
@@ -106,6 +111,11 @@ that teaches it.
 :   The share of ways through each if (yes and no) that the tests took. It finds paths that line coverage misses.
 
     Learn more: [Statement and branch coverage](think-like-a-tester/test-design-techniques/statement-and-branch-coverage.md)
+
+[](){ #browser-context }**Browser context**
+:   A fresh, private browser profile with its own cookies and tabs. UI tests get a new one each, so nothing leaks between tests.
+
+    Learn more: [How browsers and locators work](core-automation/ui-automation/how-browsers-and-locators-work.md)
 
 [](){ #bug-lifecycle }**Bug lifecycle**
 :   The states a bug moves through, like new, triaged, in progress, fixed, verified and closed.
@@ -158,6 +168,11 @@ that teaches it.
 :   Checking that two services still agree on the shape of the messages they send each other.
 
     Learn more: [Contract testing](advanced-testing/contract-testing/index.md)
+
+[](){ #cross-browser-testing }**Cross-browser testing**
+:   Running the same tests on several browsers, like Chrome, Firefox and Safari, to find bugs that show in only one.
+
+    Learn more: [Cross-browser runs](core-automation/ui-automation/cross-browser-runs.md)
 
 [](){ #crud }**CRUD (Create, Read, Update, Delete)**
 :   The four things an app does with stored data. In SQL they are INSERT, SELECT, UPDATE and DELETE.
@@ -324,6 +339,11 @@ that teaches it.
 
     Learn more: [The 9-step playbook](think-like-a-tester/learning-a-new-testing-area/the-9-step-playbook.md)
 
+[](){ #headless-browser }**Headless browser**
+:   A browser running without a window. Faster, and what test pipelines use.
+
+    Learn more: [How browsers and locators work](core-automation/ui-automation/how-browsers-and-locators-work.md)
+
 [](){ #http }**HTTP (Hypertext Transfer Protocol)**
 :   The set of rules web browsers and APIs use to send requests and answers.
 
@@ -345,6 +365,11 @@ that teaches it.
 :   A request is idempotent when sending it twice gives the same result as sending it once. PUT and DELETE are, POST is not.
 
     Learn more: [GET, POST, PUT, PATCH, DELETE](core-automation/api-testing/http-methods.md)
+
+[](){ #iframe }**Iframe**
+:   A web page shown inside another web page, like a payment form from a payment company. Tests must reach into it to use it.
+
+    Learn more: [Forms, dialogs, frames and tabs](core-automation/ui-automation/forms-dialogs-frames-and-tabs.md)
 
 [](){ #inspection }**Inspection**
 :   The most formal kind of review, with set roles, a checklist, prepared reviewers and a written list of findings.
@@ -400,7 +425,7 @@ that teaches it.
 [](){ #locator }**Locator**
 :   The instruction that tells a UI test which button, box or link on the page to use.
 
-    Learn more: [UI automation](core-automation/ui-automation/index.md)
+    Learn more: [Choosing locators](core-automation/ui-automation/choosing-locators.md)
 
 ## M
 
@@ -463,7 +488,7 @@ that teaches it.
 [](){ #page-object }**Page Object**
 :   A class that holds everything a UI test needs about one page, so tests stay short and a page change is fixed in one place.
 
-    Learn more: [UI automation](core-automation/ui-automation/index.md)
+    Learn more: [Page Object Model](core-automation/ui-automation/page-object-model.md)
 
 [](){ #pairwise-testing }**Pairwise testing**
 :   Picking a small set of tests where every pair of settings, like Safari with PayPal, appears together at least once.
@@ -777,6 +802,11 @@ that teaches it.
 :   A short meeting where a product owner, a developer and a tester agree on how a story should behave.
 
     Learn more: [Writing scenarios with the business](core-automation/bdd-testing/writing-scenarios-with-the-business.md)
+
+[](){ #trace }**Trace**
+:   A recording of a UI test run, with every action, a snapshot of the page before and after it, and the network calls. Opened in Playwright's trace viewer.
+
+    Learn more: [Screenshots and traces](core-automation/ui-automation/screenshots-and-traces.md)
 
 [](){ #traceability }**Traceability**
 :   The link between each requirement and the tests that check it, so you can see what has no test.

@@ -1,0 +1,8 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# Then, once per computer: python -m playwright install chromium
+# (and firefox and webkit, for the other browsers)
+pytest==9.2.0
+playwright==1.64.1
+fastapi==0.163.1
+uvicorn==0.54.0
+python-multipart==0.0.33

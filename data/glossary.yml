@@ -128,7 +128,7 @@
 
 - term: Locator
   meaning: The instruction that tells a UI test which button, box or link on the page to use.
-  page: core-automation/ui-automation/index.md
+  page: core-automation/ui-automation/choosing-locators.md
 
 - term: Manual testing
   meaning: Testing by using the app yourself, by hand, and checking what happens.
@@ -144,7 +144,7 @@
 
 - term: Page Object
   meaning: A class that holds everything a UI test needs about one page, so tests stay short and a page change is fixed in one place.
-  page: core-automation/ui-automation/index.md
+  page: core-automation/ui-automation/page-object-model.md
 
 - term: Performance testing
   meaning: Measuring how fast the app is and how much it can handle before it slows down or breaks.
@@ -655,3 +655,27 @@
 - term: Example mapping
   meaning: A way to run a Three Amigos meeting with coloured cards for the story, its rules, examples and open questions.
   page: core-automation/bdd-testing/writing-scenarios-with-the-business.md
+
+- term: Browser context
+  meaning: A fresh, private browser profile with its own cookies and tabs. UI tests get a new one each, so nothing leaks between tests.
+  page: core-automation/ui-automation/how-browsers-and-locators-work.md
+
+- term: Headless browser
+  meaning: A browser running without a window. Faster, and what test pipelines use.
+  page: core-automation/ui-automation/how-browsers-and-locators-work.md
+
+- term: Auto-waiting
+  meaning: Playwright waits by itself until an element can be used before it clicks or types, so tests don't need fixed waits.
+  page: core-automation/ui-automation/waits.md
+
+- term: Iframe
+  meaning: A web page shown inside another web page, like a payment form from a payment company. Tests must reach into it to use it.
+  page: core-automation/ui-automation/forms-dialogs-frames-and-tabs.md
+
+- term: Trace
+  meaning: A recording of a UI test run, with every action, a snapshot of the page before and after it, and the network calls. Opened in Playwright's trace viewer.
+  page: core-automation/ui-automation/screenshots-and-traces.md
+
+- term: Cross-browser testing
+  meaning: Running the same tests on several browsers, like Chrome, Firefox and Safari, to find bugs that show in only one.
+  page: core-automation/ui-automation/cross-browser-runs.md

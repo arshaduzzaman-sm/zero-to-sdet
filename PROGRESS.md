@@ -48,6 +48,26 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-16 · Phase 3 · Topic 8: UI automation
+
+**Done**
+
+- Topic page and 7 lessons in `docs/core-automation/ui-automation/`: how browsers and locators work; choosing locators; waits; Page Object Model; forms, dialogs, frames and tabs; screenshots and traces on failure; cross-browser runs.
+- Template project `modules/core_automation/ui_automation/templates/ui_tests/`: a Page Object Model framework (pages and a shared header component, no asserts in pages), pytest fixtures for browser, a fresh context per test, log-in and cart set-up through the API, `--browser`, `--headed` and `--slowmo` options, and a screenshot of every tab plus a Playwright trace for each failed test. A small practice shop (FastAPI) with log-in, a slow search, cart, a confirm dialog, checkout with the card field in an iframe, and a terms link in a new tab. One planted bug: removing a book doesn't update the cart count. 15 passed, 1 strict xfail, on Chromium and WebKit. Also `first_look.py`, a first script without pytest.
+- Found while building, and taught in the waits lesson with the real screenshot: a search race (the page showed the first load's books plus the search's). Fixed in the app (drop older answers) and in the page object (wait until the list is ready).
+- No new packages (pytest, Playwright, FastAPI and uvicorn were already pinned). Firefox and WebKit browsers downloaded into the user cache, not the repo. Firefox 157 doesn't start on this Mac (macOS 27.2), even outside the sandbox; the cross-browser lesson shows the real error and what to do, and the topic test skips a browser that won't start.
+- Glossary: Browser context, Headless browser, Auto-waiting, Iframe, Trace, Cross-browser testing (163 terms).
+
+**Check it**
+
+`bash scripts/check.sh` passes. The UI download was also tested from a clean folder with a new Python 3.13 virtual environment: 15 passed, 1 xfailed.
+
+**Next step**
+
+Phase 3, Core Automation: Reporting and logging (the last Phase 3 topic).
+
+---
+
 ## 2026-11-16 · Learn from the site alone: setup pages and topic downloads
 
 Owner asked that anyone can learn everything from the pages alone.

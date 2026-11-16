@@ -74,7 +74,7 @@ The everyday work of an SDET: automated tests for APIs, databases and web pages,
 
     Click, type and check web pages with Playwright and Page Objects.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 </div>
 

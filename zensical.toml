@@ -196,7 +196,16 @@ nav = [
         { "BDD for API and UI" = "core-automation/bdd-testing/bdd-for-api-and-ui.md" },
         { "Writing scenarios with the business" = "core-automation/bdd-testing/writing-scenarios-with-the-business.md" },
       ] },
-      { "UI automation" = ["core-automation/ui-automation/index.md"] },
+      { "UI automation" = [
+        "core-automation/ui-automation/index.md",
+        { "How browsers and locators work" = "core-automation/ui-automation/how-browsers-and-locators-work.md" },
+        { "Choosing locators" = "core-automation/ui-automation/choosing-locators.md" },
+        { "Waits" = "core-automation/ui-automation/waits.md" },
+        { "Page Object Model" = "core-automation/ui-automation/page-object-model.md" },
+        { "Forms, dialogs, frames and tabs" = "core-automation/ui-automation/forms-dialogs-frames-and-tabs.md" },
+        { "Screenshots and traces" = "core-automation/ui-automation/screenshots-and-traces.md" },
+        { "Cross-browser runs" = "core-automation/ui-automation/cross-browser-runs.md" },
+      ] },
     ] },
     { "Reports" = [
       { "Reporting and logging" = ["core-automation/reporting-and-logging/index.md"] },
