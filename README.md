@@ -94,7 +94,7 @@ Click a stage to open it.
 </details>
 
 <details>
-<summary><b>Work Playbooks</b> (3 topics)</summary>
+<summary><b>Work Playbooks</b> (4 topics)</summary>
 
 [Open the Work Playbooks overview](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/)
 
@@ -103,6 +103,10 @@ Click a stage to open it.
 - [Automate API tests, step by step](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/automate-api-tests/): Install, read the spec, plan, copy the GET/POST/PUT/DELETE templates, run.
 - [Test a new API endpoint](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/new-api-endpoint/): From "please test this by Friday" to a plan, tests and a report.
 - [Test an API from its Swagger file](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/api-from-openapi/): From a Swagger link to a plan, contract checks and a report.
+
+**Database work**
+
+- [Check database data, step by step](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/check-database-data/): Safe access, read the tables, plan, copy the SQL checks, run, read the results.
 
 </details>
 

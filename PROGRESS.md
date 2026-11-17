@@ -48,6 +48,26 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-17 · Work Playbooks · Guide: check database data, step by step
+
+**Done**
+
+- `docs/work-playbooks/check-database-data/` (level Beginner, group "Database work"): the same nine steps as the API guide. Install, ask for safe read-only access and read the tables, decide the checks (saved correctly, duplicates, orphans, totals, allowed values, ranges, structure), plan, set up, copy templates, run, sort results into "bug" and "ask", and an errors table. Every output and error comes from a real run.
+- Template project `modules/work_playbooks/check_database_data/templates/db_checks/`: `tests/conftest.py` (connection from `DATABASE_URL`, read-only, so checks can't change data), `test_saved_data.py`, `test_data_quality.py`, `test_schema.py`, `sql/data_checks.sql` (12 ready queries for any SQL tool), `test_plan.md`, and a practice PostgreSQL shop (`docker-compose.yml`, `sql/practice_shop.sql`, bound to 127.0.0.1, password from `.env`) with planted bad rows. Only pytest and psycopg, both already pinned.
+- Practice results the page explains: 6 failed, 8 passed (duplicate email in different case, order item with no order, wrong order total, status `shiped`, negative stock, no foreign key). psycopg leaves the password out of failure output.
+- Errors reproduced for the page, including the trap where changing the password in `.env` after the first start fails until `docker compose down -v`.
+- Home "I need to…": "Test an API" and "Check data in a database" now open the step-by-step guides.
+
+**Check it**
+
+`bash scripts/check.sh` passes; `ZTS_DOCKER=1 .venv/bin/pytest modules/work_playbooks/check_database_data` passes (19). The download was tested in a clean folder: 6 failed, 8 passed, as the page shows. No practice containers left running.
+
+**Next step**
+
+The same step-by-step guide for UI tests with Playwright.
+
+---
+
 ## 2026-11-17 · Work Playbooks · Guide: automate API tests, step by step (owner's correction)
 
 **Done**

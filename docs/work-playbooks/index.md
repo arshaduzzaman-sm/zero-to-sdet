@@ -44,4 +44,16 @@ You have a task at work and you're not sure where to start. Each playbook takes 
 
 </div>
 
+## Database work
+
+<div class="grid cards zts-topics" markdown>
+
+-   [**Check database data, step by step**](check-database-data/index.md)
+
+    Safe access, read the tables, plan, copy the SQL checks, run, read the results.
+
+    <span class="zts-chip">Beginner</span>
+
+</div>
+
 <!-- END topics -->

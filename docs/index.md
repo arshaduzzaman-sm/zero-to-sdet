@@ -65,13 +65,13 @@ Got a task at work today? Pick it and go straight to the page that helps. The [W
 
     Every endpoint listed, the spec reviewed, checks for the pipeline.
 
--   :lucide-plug-zap: **[Test an API](core-automation/api-testing/index.md)**
+-   :lucide-plug-zap: **[Automate API tests, step by step](work-playbooks/automate-api-tests/index.md)**
 
-    Send requests from Python and check the answers.
+    Install, read the spec, plan, copy GET, POST, PUT and DELETE tests, run.
 
--   :lucide-database: **[Check data in a database](core-automation/database-testing/index.md)**
+-   :lucide-database: **[Check data in a database, step by step](work-playbooks/check-database-data/index.md)**
 
-    Write SQL to prove the right data was saved.
+    Safe access, a plan, and ready checks for duplicates, orphans and wrong totals.
 
 -   :lucide-layers: **[Test several databases](core-automation/multi-database-testing/index.md)**
 
