@@ -94,6 +94,17 @@ Click a stage to open it.
 </details>
 
 <details>
+<summary><b>Work Playbooks</b> (1 topic)</summary>
+
+[Open the Work Playbooks overview](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/)
+
+**API work**
+
+- [Test a new API endpoint](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/new-api-endpoint/): From "please test this by Friday" to a plan, tests and a report.
+
+</details>
+
+<details>
 <summary><b>Think Like a Tester</b> (8 topics)</summary>
 
 [Open the Think Like a Tester overview](https://arshaduzzaman-sm.github.io/zero-to-sdet/think-like-a-tester/)

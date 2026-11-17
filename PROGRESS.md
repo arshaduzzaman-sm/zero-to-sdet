@@ -48,6 +48,33 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-17 · Work Playbooks section (owner's new direction) · Playbook 1: Test a new API endpoint
+
+**Done**
+
+- Owner's direction, also written into the brief: the site is for people already working in testing jobs, with real tasks. Each page must show how to plan and how to test, with scripts used in real work, run against the reader's own app. Bug Hunts and Book-app bugs are not important. Online practice stays a secondary goal.
+- New top tab **Work Playbooks** (`docs/work-playbooks/`, after Start Here), and a first entry on the Home page's "I need to…" list.
+- Playbook 1, `docs/work-playbooks/new-api-endpoint/`: "How to test a new API endpoint when the docs are thin". Five steps: find out what it should do (where to look, five questions), probe it, write a one-page plan, turn the rules into checks, report. All outputs from real runs against DummyJSON's public `POST /carts/add`.
+- Kit `modules/work_playbooks/new_api_endpoint/templates/endpoint_kit/`: `api_probe.py` (sends many cases, one table, picks fields with `--field`, hides token values, `--save` keeps full answers), `cases.json`, `test_plan.md`, `tests/test_endpoint.py` (checks from the rules: a table of inputs that must be refused), `findings.md`. Only pytest and requests, already pinned.
+- Real findings in DummyJSON that the page teaches with: negative quantity accepted (total -89.98), text quantity gives `null` totals, unknown product silently dropped with 201, quantity 0 silently becomes 1. The checks: 4 failed, 4 passed.
+- Topic test: a local fake API that follows the rules (all 8 checks pass), the same API with a bug put in on purpose (caught), the probe's table, `--field`, `--save`, token hiding and header errors. Online check (`ZTS_ONLINE=1`) confirms DummyJSON still shows the same four issues.
+
+**Open**
+
+- More playbooks, API first: from a Swagger/OpenAPI file; login, tokens and roles; error responses; pagination and filters; compare two environments; smoke test after deploy; is it fast enough; file upload. Then data and everyday work (database after an API call, bulk test data, CSV diff, reproduce a customer bug, a failing CI test, logs, release checklist).
+- A Scripts page in the Toolbox, collecting every playbook script.
+- Codespaces guide; browser-only Practice App later. Smaller Bug Hunt boxes in older topics.
+
+**Check it**
+
+`bash scripts/check.sh` passes; `ZTS_ONLINE=1 .venv/bin/pytest modules/work_playbooks` passes (16). The download was tested in a clean folder with a new Python 3.13 environment: 4 failed, 4 passed against DummyJSON, as the page shows.
+
+**Next step**
+
+Playbook 2: plan and test an API from its Swagger/OpenAPI file.
+
+---
+
 ## 2026-11-17 · Phase 4 · Topic 1: Docker for testers
 
 **Done**

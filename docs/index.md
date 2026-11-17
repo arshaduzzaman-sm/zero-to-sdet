@@ -8,7 +8,7 @@ hide:
   - author
   - feedback
   - path
-updated: "2026-11-16"
+updated: "2026-11-17"
 ---
 
 <div class="zts-hero" markdown>
@@ -53,9 +53,13 @@ You don't need any coding experience to start here. Every lesson explains one id
 
 ## I need to…
 
-Got a task at work today? Pick it and go straight to the page that helps.
+Got a task at work today? Pick it and go straight to the page that helps. The [Work Playbooks](work-playbooks/index.md) walk one real task from start to report.
 
 <div class="zts-tasks" markdown>
+
+-   :lucide-list-checks: **[Test a new API endpoint by Friday](work-playbooks/new-api-endpoint/index.md)**
+
+    Plan, probe, check and report, with scripts for your own app.
 
 -   :lucide-plug-zap: **[Test an API](core-automation/api-testing/index.md)**
 

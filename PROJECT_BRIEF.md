@@ -67,6 +67,8 @@ I am the **only author**. My name appears on the site (see section 10).
 
 **For everyone (owner decision, 2026-11-16).** The site never sorts readers into levels. Phrases like "zero to mid level", "junior to mid-level" or "first test to senior level" are not used anywhere: in taglines, the home page, the Learning Path or the Skills Matrix (which is grouped by skill area, not by level). Each page must answer the question of someone who has never tested, of an engineer stuck on a task today, and of an experienced engineer looking for a template.
 
+**Work Playbooks (owner decision, 2026-11-17).** The site is for people who already work in testing jobs and come with a real task ("I must test this API and don't know how"). It is not for play or time pass. A **Work Playbooks** section walks one real task per page from the first hour to the final report: what to ask, a one-page plan, scripts that run against the reader's own app, checks written from the rules, and a results template. Outputs come from real runs against public demo APIs. Bug Hunts and the Practice App's planted bugs are not important; new topics don't add them. Online practice (Codespaces guide; a browser-only Practice App later) stays a secondary goal.
+
 **Real templates (owner decision, 2026-11-16).** Templates are the scripts, code snippets, checklists and plans people really use at work, ready to copy and adapt. No toy exercises. Every topic also covers what to do when stuck, how to plan, and what to do at each stage.
 
 **The author's note (owner decision, 2026-11-16).** Home (short) and About (full) carry the author's note: the content comes from the author's own work and from what many people have shared online; the author gathered it in one place, in plain words, and thanks them.
@@ -165,7 +167,7 @@ Do **not** split the project into a private source repo plus a separate public "
 Simple, clean and calm. Learning comes first; decoration comes last.
 
 - Light and dark mode, one main color (see open decisions), clean readable font.
-- Top navigation tabs: **Home · Start Here · Think Like a Tester · Core Automation · Advanced Testing · Infrastructure · The Professional SDET · Toolbox · About**.
+- Top navigation tabs: **Home · Start Here · Work Playbooks · Think Like a Tester · Core Automation · Advanced Testing · Infrastructure · The Professional SDET · Toolbox · About**.
 - Left sidebar for pages inside the current tab; right sidebar for "On this page" headings.
 - Built-in search with suggestions.
 - Copy button on every code block, code tabs, admonition boxes (tip, warning, common mistake, troubleshooting), collapsible blocks, Mermaid diagrams, task lists.

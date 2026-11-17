@@ -1,0 +1,17 @@
+{
+  "$comment": "Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/ One case per line: a name, and the body to send.",
+  "cases": [
+    {"name": "valid: one product", "body": {"userId": 1, "products": [{"id": 144, "quantity": 4}]}},
+    {"name": "missing userId", "body": {"products": [{"id": 144, "quantity": 4}]}},
+    {"name": "userId is text", "body": {"userId": "abc", "products": [{"id": 144, "quantity": 1}]}},
+    {"name": "empty products", "body": {"userId": 1, "products": []}},
+    {"name": "quantity 0", "body": {"userId": 1, "products": [{"id": 144, "quantity": 0}]}},
+    {"name": "quantity negative", "body": {"userId": 1, "products": [{"id": 144, "quantity": -2}]}},
+    {"name": "quantity is text", "body": {"userId": 1, "products": [{"id": 144, "quantity": "many"}]}},
+    {"name": "quantity huge", "body": {"userId": 1, "products": [{"id": 144, "quantity": 1000000}]}},
+    {"name": "unknown product", "body": {"userId": 1, "products": [{"id": 99999, "quantity": 1}]}},
+    {"name": "same product twice", "body": {"userId": 1, "products": [{"id": 144, "quantity": 1}, {"id": 144, "quantity": 1}]}},
+    {"name": "empty JSON object", "body": {}},
+    {"name": "not JSON at all", "body": "not json"}
+  ]
+}
