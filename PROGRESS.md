@@ -48,6 +48,27 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-17 · Work Playbooks · Guide: automate API tests, step by step (owner's correction)
+
+**Done**
+
+- Owner's correction: the first two playbooks were too tool-heavy. A person needs one straight path: install pytest, read the developer's spec, decide the tests, plan, copy common templates for GET, POST, PUT and DELETE, run, read results, and references when stuck. Not confusing.
+- New first page of Work Playbooks, `docs/work-playbooks/automate-api-tests/` (level Beginner): nine numbered steps in that order, every output from a real run against Restful-booker. The common tests per method are in one table. Results are sorted into "bug" and "ask the developer".
+- Template project `modules/work_playbooks/automate_api_tests/templates/api_tests/`: `tests/conftest.py` with three `CHANGE` parts (address, login, one valid body), clean-up fixtures, and `HiddenHeaders` so the token shows as `***` in failures; `test_get.py`, `test_post.py`, `test_put.py`, `test_delete.py`; `test_plan.md`. Only pytest and requests.
+- Found while building: pytest printed the login token in failure output (fixed with `HiddenHeaders`, taught on the page); tests that the API wrongly accepted left bookings behind (now deleted).
+- Restful-booker results the page explains: 10 passed, 5 failed (missing field gives 500; text price saved as null; checkout before checkin accepted; PUT and DELETE on a missing id give 405).
+- The two earlier playbooks stay (nothing deleted), listed after this one as "Next steps".
+
+**Check it**
+
+`bash scripts/check.sh` passes; `ZTS_ONLINE=1 .venv/bin/pytest modules/work_playbooks` passes. The download was tested in a clean folder: 5 failed, 10 passed, as the page shows.
+
+**Next step**
+
+Owner reviews the page. Then the same step-by-step style for the next tasks.
+
+---
+
 ## 2026-11-17 · Work Playbooks · Playbook 2: Test an API from its Swagger (OpenAPI) file
 
 **Done**

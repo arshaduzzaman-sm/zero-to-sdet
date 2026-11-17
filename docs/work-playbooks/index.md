@@ -24,6 +24,12 @@ You have a task at work and you're not sure where to start. Each playbook takes 
 
 <div class="grid cards zts-topics" markdown>
 
+-   [**Automate API tests, step by step**](automate-api-tests/index.md)
+
+    Install, read the spec, plan, copy the GET/POST/PUT/DELETE templates, run.
+
+    <span class="zts-chip">Beginner</span>
+
 -   [**Test a new API endpoint**](new-api-endpoint/index.md)
 
     From "please test this by Friday" to a plan, tests and a report.

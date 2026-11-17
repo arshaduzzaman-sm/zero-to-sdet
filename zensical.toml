@@ -52,6 +52,7 @@ nav = [
   { "Work Playbooks" = [
     "work-playbooks/index.md",
     { "API work" = [
+      { "Automate API tests, step by step" = ["work-playbooks/automate-api-tests/index.md"] },
       { "Test a new API endpoint" = ["work-playbooks/new-api-endpoint/index.md"] },
       { "Test an API from its Swagger file" = ["work-playbooks/api-from-openapi/index.md"] },
     ] },
