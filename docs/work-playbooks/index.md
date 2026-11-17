@@ -30,6 +30,12 @@ You have a task at work and you're not sure where to start. Each playbook takes 
 
     <span class="zts-chip">Intermediate</span>
 
+-   [**Test an API from its Swagger file**](api-from-openapi/index.md)
+
+    From a Swagger link to a plan, contract checks and a report.
+
+    <span class="zts-chip">Intermediate</span>
+
 </div>
 
 <!-- END topics -->

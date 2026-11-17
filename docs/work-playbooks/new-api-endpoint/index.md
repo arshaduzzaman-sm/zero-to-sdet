@@ -244,6 +244,7 @@ For this endpoint, the summary would read: *"The happy path works. Bad input is 
 
 ## Learn the parts in depth
 
+- [Test an API from its Swagger file](../api-from-openapi/index.md): when you have a whole API to cover, not one endpoint.
 - [API testing](../../core-automation/api-testing/index.md): HTTP methods, status codes, headers, authentication, schema checks.
 - [Boundary values](../../think-like-a-tester/test-design-techniques/boundary-values.md) and [equivalence partitioning](../../think-like-a-tester/test-design-techniques/equivalence-partitioning.md): where the probe's cases come from.
 - [Parametrize](../../core-automation/pytest-framework/parametrize.md): the table behind `REFUSED`.

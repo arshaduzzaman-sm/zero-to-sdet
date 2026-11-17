@@ -61,6 +61,10 @@ Got a task at work today? Pick it and go straight to the page that helps. The [W
 
     Plan, probe, check and report, with scripts for your own app.
 
+-   :lucide-file-json: **[Test a whole API from its Swagger file](work-playbooks/api-from-openapi/index.md)**
+
+    Every endpoint listed, the spec reviewed, checks for the pipeline.
+
 -   :lucide-plug-zap: **[Test an API](core-automation/api-testing/index.md)**
 
     Send requests from Python and check the answers.

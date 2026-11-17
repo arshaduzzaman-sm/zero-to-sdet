@@ -48,6 +48,26 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-17 · Work Playbooks · Playbook 2: Test an API from its Swagger (OpenAPI) file
+
+**Done**
+
+- `docs/work-playbooks/api-from-openapi/`: where to find the spec for common frameworks, list every endpoint, review the spec itself, prioritise, smoke-test every GET against the spec, put the checks in pytest for the pipeline, report. All outputs from real runs against the public Swagger Petstore.
+- Kit `modules/work_playbooks/api_from_openapi/templates/openapi_kit/`: `openapi_check.py` with `inventory` (endpoints table, four kinds of spec gap, writes a plan with one row per endpoint) and `smoke` (GET only; checks login, status, content type, JSON and schema; hides login headers; exit code 1 on problems), `tests/test_contract.py` (one pytest check per GET endpoint, new endpoints covered automatically), `findings.md`. pytest, requests and jsonschema, all already pinned.
+- Real Petstore findings on the page: 31 spec gaps (no 401/403 anywhere; `password` in the User answer); three endpoints that need a login answer without one; `GET /pet/1` answers 500 instead of 404; `GET /user/login` says JSON but isn't. The page also shows what "ok" can't prove (an XML 404, an empty list).
+- Topic test: own small spec and a local fake API that follows it (all pass) or breaks it on purpose (schema, content type, no login check, 500: each caught); YAML specs; the plan file; the pytest template. Online check (`ZTS_ONLINE=1`) confirms the Petstore findings.
+- Home page "I need to…" has an entry for it; the two playbooks link to each other.
+
+**Check it**
+
+`bash scripts/check.sh` passes; `ZTS_ONLINE=1 .venv/bin/pytest modules/work_playbooks` passes. The download was tested in a clean folder: 5 failed, 3 passed against Petstore, as the page shows.
+
+**Next step**
+
+Playbook 3: test login, tokens and permissions.
+
+---
+
 ## 2026-11-17 · Work Playbooks section (owner's new direction) · Playbook 1: Test a new API endpoint
 
 **Done**
