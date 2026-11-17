@@ -49,6 +49,26 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-17 · Work Playbooks · Guide: test login, tokens and permissions, step by step
+
+**Done**
+
+- `docs/work-playbooks/test-login-and-permissions/` (level Beginner, group "Login and access"): the same nine steps. Find out how login works and ask for two normal users and an admin; try it by hand with curl; decide the tests (login, tokens, permissions); a "who may do what" plan table; set up; copy templates; run; read results by severity; errors table. Every output and error comes from a real run.
+- Template project `modules/work_playbooks/test_login_and_permissions/templates/auth_tests/`: `tests/conftest.py` (users from the terminal as `email:password`, `log_in()` and `headers_for()` to change for form or cookie logins, `HiddenHeaders` so tokens print as `***`), `test_login.py`, `test_tokens.py`, `test_permissions.py` (16 tests), `test_plan.md`, and `practice_api.py`: a Python-only practice API on 127.0.0.1 with three planted bugs (user enumeration, IDOR, logout that doesn't end the token) and a `--fixed` mode. Only pytest and requests, already pinned.
+- Results the page explains: 4 failed, 12 passed with the bugs; 16 passed with `--fixed`.
+- Found while building: gitleaks flagged the random practice token pasted on the page; it is now hidden there, and the page teaches keeping tokens out of tickets.
+- Home "I need to…" has an entry for it.
+
+**Check it**
+
+`bash scripts/check.sh` passes (includes the topic test: both API modes, skip without users, no password or token in output). The download was tested in a clean folder: 4 failed, 12 passed, as the page shows.
+
+**Next step**
+
+The next step-by-step guide.
+
+---
+
 ## 2026-11-17 · Work Playbooks · Guide: automate UI tests, step by step
 
 **Done**

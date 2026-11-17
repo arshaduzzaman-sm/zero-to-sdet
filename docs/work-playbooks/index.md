@@ -56,6 +56,18 @@ You have a task at work and you're not sure where to start. Each playbook takes 
 
 </div>
 
+## Login and access
+
+<div class="grid cards zts-topics" markdown>
+
+-   [**Test login and permissions, step by step**](test-login-and-permissions/index.md)
+
+    How login works, who may do what, ready tests for tokens and access, run, read.
+
+    <span class="zts-chip">Beginner</span>
+
+</div>
+
 ## UI work
 
 <div class="grid cards zts-topics" markdown>

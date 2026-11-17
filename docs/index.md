@@ -69,6 +69,10 @@ Got a task at work today? Pick it and go straight to the page that helps. The [W
 
     Install, read the spec, plan, copy GET, POST, PUT and DELETE tests, run.
 
+-   :lucide-key-round: **[Test login and permissions, step by step](work-playbooks/test-login-and-permissions/index.md)**
+
+    Tokens, logout, and "can user A see user B's data?", with ready tests.
+
 -   :lucide-database: **[Check data in a database, step by step](work-playbooks/check-database-data/index.md)**
 
     Safe access, a plan, and ready checks for duplicates, orphans and wrong totals.
