@@ -105,9 +105,9 @@ Got a task at work today? Pick it and go straight to the page that helps. The [W
 
     Decide what to test first, on one page.
 
--   :lucide-gauge: **[Test speed under load](advanced-testing/performance-testing/index.md)**
+-   :lucide-gauge: **[Check API speed, step by step](work-playbooks/check-api-speed/index.md)**
 
-    See what happens when many people use the app.
+    Agree targets, measure one user then many, read p95 and errors.
 
 -   :lucide-code: **[Learn Python for testing](start-here/python-for-testers/index.md)**
 

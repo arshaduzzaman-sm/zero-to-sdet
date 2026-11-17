@@ -80,4 +80,16 @@ You have a task at work and you're not sure where to start. Each playbook takes 
 
 </div>
 
+## Speed
+
+<div class="grid cards zts-topics" markdown>
+
+-   [**Check API speed, step by step**](check-api-speed/index.md)
+
+    Targets, one user, many users, read p95 and errors, speed tests in pytest.
+
+    <span class="zts-chip">Beginner</span>
+
+</div>
+
 <!-- END topics -->

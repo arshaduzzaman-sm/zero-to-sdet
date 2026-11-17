@@ -49,6 +49,26 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-17 · Work Playbooks · Guide: check API speed under load, step by step
+
+**Done**
+
+- `docs/work-playbooks/check-api-speed/` (level Beginner, group "Speed"): agree targets first (users at once, p95, errors), pick pages and plan, measure one user (baseline), then many users, read the numbers (errors before speed; requests per second shows if it scales; compare with the baseline), turn targets into pytest tests, know the limits (when to use Locust or k6), errors table. Strong warning: only load systems you are allowed to. Every output comes from a real run.
+- Template project `modules/work_playbooks/check_api_speed/templates/speed_check/`: `speed_check.py` (users as threads, p50/p95/p99, answers by status, exit code 1 when `--max-p95` or `--max-errors` is broken), `tests/test_speed.py` (a `TARGETS` table, one test per page), `test_plan.md`, and `practice_api.py` (Python only, 127.0.0.1) with two planted problems: search handled one request at a time, report fails above 4 users at once; `--fixed` mode. Only pytest and requests, already pinned.
+- Results the page explains: products healthy; search p95 58 ms for 1 user, 542 ms for 10, requests per second unchanged; report 99.5% errors (503) with a p95 of 2 ms, because failing is fast.
+- Found while building: HTTP/1.0 in the practice server broke reused connections (now HTTP/1.1); pytest printed thousands of raw timings on failure (now a short `Result(...)` and plain numbers).
+- Home "I need to…": the speed entry now opens this guide.
+
+**Check it**
+
+`bash scripts/check.sh` passes (the topic test runs short checks against both API modes, the script's exit codes and the pytest template). The download was tested in a clean folder.
+
+**Next step**
+
+The next step-by-step guide.
+
+---
+
 ## 2026-11-17 · Work Playbooks · Guide: test login, tokens and permissions, step by step
 
 **Done**
