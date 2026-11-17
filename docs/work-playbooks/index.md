@@ -56,4 +56,16 @@ You have a task at work and you're not sure where to start. Each playbook takes 
 
 </div>
 
+## UI work
+
+<div class="grid cards zts-topics" markdown>
+
+-   [**Automate UI tests, step by step**](automate-ui-tests/index.md)
+
+    Install, pick the flows, plan, copy ready tests, run, read screenshots and traces.
+
+    <span class="zts-chip">Beginner</span>
+
+</div>
+
 <!-- END topics -->

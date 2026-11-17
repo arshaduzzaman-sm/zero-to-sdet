@@ -43,8 +43,29 @@ Newest entry first. No secrets or personal data in this file.
 | Database for the lessons | PostgreSQL 17 with psycopg 3.3.9 (already pinned with hashes for the Practice App, so no new dependency). Lessons and templates run against a throwaway local PostgreSQL in Docker, bound to 127.0.0.1. Database checks in the topic tests run only with `ZTS_DATABASE_URL`, so `check.sh` needs no database. | 2026-11-16 |
 | Data-driven testing packages | `openpyxl` 3.1.5 (with `et-xmlfile` 2.0.0) for Excel test data and `robotframework` 7.5.1 for keyword-driven testing, added to `requirements.in` and pinned with hashes. Owner said yes. Faker was already pinned; factories are plain dataclasses, so no factory library. | 2026-11-16 |
 | BDD and browser packages | `behave` 1.3.3, `pytest-bdd` 9.0.1 and `playwright` 1.64.1 added to `requirements.in`, pinned with hashes (owner said yes). New indirect packages: parse, parse-type, gherkin-official, cucumber-expressions, cucumber-tag-expressions, mako, markupsafe, six, colorama, greenlet, pyee. Releases under two weeks old are capped in `requirements.in` (playwright, gherkin-official, cucumber-expressions, cucumber-tag-expressions). Chromium for Playwright is downloaded once per computer into the user cache, never into the repo. | 2026-11-16 |
+| pytest-playwright | `pytest-playwright` 0.10.0 added to `requirements.in` for the UI tests guide (owner said yes), pinned with hashes. New indirect packages: python-slugify 9.1.3 (capped `<9.2`: 9.2.0 was one day old) and text-unidecode 1.3. Practice site for UI: Sauce Demo (owner's choice). | 2026-11-17 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-17 · Work Playbooks · Guide: automate UI tests, step by step
+
+**Done**
+
+- `docs/work-playbooks/automate-ui-tests/` (level Beginner, group "UI work"): the same nine steps. Install pytest, Playwright and pytest-playwright; read the feature and use `codegen` to find locators; decide the UI tests (login, access, lists, numbers on screen, forms, main flow, state); plan; set up; copy templates; run; read results with screenshots and traces; errors table. Every output and error comes from a real run against Sauce Demo.
+- Template project `modules/work_playbooks/automate_ui_tests/templates/ui_tests/`: `tests/conftest.py` with four `CHANGE` parts (site, user from the terminal, test id attribute, login steps), `test_login.py`, `test_products.py`, `test_cart.py`, `test_checkout.py` (18 tests), `test_plan.md`. Screenshots and traces only for failed tests.
+- Results the page explains: `standard_user` 18 passed; `problem_user` 8 failed, 10 passed, grouped into three bugs (last name typed into First Name, so nobody can check out; the same picture on every product; sorting does nothing).
+- Found while building: the password is not in pytest's output but is inside `trace.zip` (the page warns); the plugin's own `base_url` fixture prints a pytest deprecation warning, so the template sets `base_url` in `conftest.py` from `BASE_URL`.
+- Home "I need to…": "Automate a web page" now opens this guide.
+
+**Check it**
+
+`bash scripts/check.sh` passes; `ZTS_ONLINE=1 .venv/bin/pytest modules/work_playbooks/automate_ui_tests` passes (16). The download was tested in a clean folder: 18 passed.
+
+**Next step**
+
+The next step-by-step guide: login, tokens and permissions.
 
 ---
 

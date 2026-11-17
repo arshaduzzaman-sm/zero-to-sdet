@@ -81,9 +81,9 @@ Got a task at work today? Pick it and go straight to the page that helps. The [W
 
     Tests in plain English with behave or pytest-bdd.
 
--   :lucide-mouse-pointer-click: **[Automate a web page](core-automation/ui-automation/index.md)**
+-   :lucide-mouse-pointer-click: **[Automate UI tests, step by step](work-playbooks/automate-ui-tests/index.md)**
 
-    Click, type and check a page with Playwright.
+    Install Playwright, pick the flows, copy login, cart and checkout tests, run.
 
 -   :lucide-container: **[Run tests in Docker](infrastructure/docker-for-testers/index.md)**
 

@@ -94,7 +94,7 @@ Click a stage to open it.
 </details>
 
 <details>
-<summary><b>Work Playbooks</b> (4 topics)</summary>
+<summary><b>Work Playbooks</b> (5 topics)</summary>
 
 [Open the Work Playbooks overview](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/)
 
@@ -107,6 +107,10 @@ Click a stage to open it.
 **Database work**
 
 - [Check database data, step by step](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/check-database-data/): Safe access, read the tables, plan, copy the SQL checks, run, read the results.
+
+**UI work**
+
+- [Automate UI tests, step by step](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/automate-ui-tests/): Install, pick the flows, plan, copy ready tests, run, read screenshots and traces.
 
 </details>
 
