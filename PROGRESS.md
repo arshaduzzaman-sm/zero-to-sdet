@@ -48,6 +48,32 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-17 · Phase 3 · Topic 9: Reporting and logging (Allure lesson still to come)
+
+**Done**
+
+- Topic page and 4 lessons in `docs/core-automation/reporting-and-logging/`: logging in tests; HTML reports with pytest-html; JUnit XML for pipelines; screenshots and request logs.
+- Template project `modules/core_automation/reporting_and_logging/templates/report_tests/`: every run writes `reports/report.html` (self-contained), `junit.xml` and `tests.log` (DEBUG). An API client that logs each call in one INFO line, a refused call and its answer at WARNING, bodies at DEBUG, with secrets (password, card, token, ...) replaced by `***`. A screenshot of the page goes into the HTML report when a browser test fails. A test fails if a password ever reaches the log. 8 passed, 1 xfail (the cart-count bug from UI automation).
+- Found while building, each now in a lesson: uvicorn's default logging set-up closed pytest's log-file handler (the log file stayed empty; fixed with `log_config=None`); other libraries flooded the log (quieted); a failed API test showed the 400 but not why (refused answers now at WARNING); JUnit XML contains the computer's name and time zone (shortened on the page, with a warning).
+- Owner said yes: `pytest-html` 4.2.0 (with `pytest-metadata` 3.1.1 and `jinja2` 3.1.6) and `allure-pytest` 2.16.2 (with `allure-python-commons`), pinned with hashes. Nothing else in the lock file changed.
+- Node.js v26.13.0 LTS installed in the user folder (`~/.local`, SHA-256 checked, no admin rights), for the Allure report tool. Not in the repo.
+- Allure: allure 3.22.1 (old enough) had 7 critical npm audit issues; 3.33.0 fixes them but was only 11 days old. Owner chose to wait: the Allure lesson is written on or after 2026-11-19 with 3.33.0. The 3.22.1 install was removed (owner said yes).
+- Glossary: Log level, JUnit XML, Redaction (166 terms).
+
+**Open**
+
+- Allure lesson (on or after 2026-11-19). Move Node.js to 26.13.1 (security release) once it is two weeks old (2026-11-24).
+
+**Check it**
+
+`bash scripts/check.sh` passes. The download was tested from a clean folder with a new Python 3.13 virtual environment: 8 passed, 1 xfailed, three report files.
+
+**Next step**
+
+Phase 4, Infrastructure (first part). Allure lesson when 3.33.0 is two weeks old.
+
+---
+
 ## 2026-11-16 · Phase 3 · Topic 8: UI automation
 
 **Done**

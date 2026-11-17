@@ -13,6 +13,8 @@ robotframework  # keyword-driven testing (Data-driven testing: Robot Framework l
 behave       # BDD with Gherkin feature files, own runner (BDD testing)
 pytest-bdd   # BDD with the same feature files, run by pytest (BDD testing)
 playwright   # browser automation (BDD for UI, UI automation)
+pytest-html  # one-file HTML test report (Reporting and logging)
+allure-pytest  # Allure test results for the Allure report (Reporting and logging)
 # Release-age caps: these newer releases were under two weeks old on 2026-11-16.
 # Remove a cap once that release is two weeks old.
 playwright<1.65

@@ -208,7 +208,13 @@ nav = [
       ] },
     ] },
     { "Reports" = [
-      { "Reporting and logging" = ["core-automation/reporting-and-logging/index.md"] },
+      { "Reporting and logging" = [
+        "core-automation/reporting-and-logging/index.md",
+        { "Logging in tests" = "core-automation/reporting-and-logging/logging-in-tests.md" },
+        { "HTML reports with pytest-html" = "core-automation/reporting-and-logging/html-reports-with-pytest-html.md" },
+        { "JUnit XML for pipelines" = "core-automation/reporting-and-logging/junit-xml-for-pipelines.md" },
+        { "Screenshots and request logs" = "core-automation/reporting-and-logging/screenshots-and-request-logs.md" },
+      ] },
     ] },
   ] },
   { "Infrastructure" = [

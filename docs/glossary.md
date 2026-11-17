@@ -3,7 +3,7 @@ title: "Software Testing Glossary: Every SDET Term in Plain English"
 description: "Plain-English meanings of every testing and automation term used on Zero to SDET, each linked to the lesson that teaches it."
 tags:
   - Quick reference
-updated: "2026-11-16"
+updated: "2026-11-17"
 nav_title: "Glossary"
 order: 40
 nav_section: "toolbox"
@@ -403,6 +403,11 @@ that teaches it.
 
     Learn more: [Schema validation](core-automation/api-testing/schema-validation.md)
 
+[](){ #junit-xml }**JUnit XML**
+:   A test results file format that almost every CI tool can read, with one entry per test and its failure message.
+
+    Learn more: [JUnit XML for pipelines](core-automation/reporting-and-logging/junit-xml-for-pipelines.md)
+
 ## K
 
 [](){ #keyword-driven-testing }**Keyword-driven testing**
@@ -426,6 +431,11 @@ that teaches it.
 :   The instruction that tells a UI test which button, box or link on the page to use.
 
     Learn more: [Choosing locators](core-automation/ui-automation/choosing-locators.md)
+
+[](){ #log-level }**Log level**
+:   How important a log line is, from DEBUG (details) through INFO, WARNING and ERROR to CRITICAL. You choose which levels to keep.
+
+    Learn more: [Logging in tests](core-automation/reporting-and-logging/logging-in-tests.md)
 
 ## M
 
@@ -603,6 +613,11 @@ that teaches it.
 :   The starting number for random values. The same seed gives the same values again, so a random test can be repeated.
 
     Learn more: [Fake data with Faker](core-automation/data-driven-testing/fake-data-with-faker.md)
+
+[](){ #redaction }**Redaction**
+:   Hiding secrets like passwords and card numbers, for example by writing "***" instead, before they reach a log or report.
+
+    Learn more: [Screenshots and request logs](core-automation/reporting-and-logging/screenshots-and-request-logs.md)
 
 [](){ #regression-testing }**Regression testing**
 :   Running tests again after a change, to make sure things that worked before still work.

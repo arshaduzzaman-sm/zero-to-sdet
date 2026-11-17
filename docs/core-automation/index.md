@@ -1,7 +1,7 @@
 ---
 title: "Core Test Automation with Python: pytest, API, Database, BDD and UI"
 description: "Learn core test automation with Python: pytest, API testing, database testing, BDD and Playwright UI tests, with templates."
-updated: "2026-11-16"
+updated: "2026-11-17"
 nav_title: "Core Automation"
 order: 30
 ---
@@ -84,9 +84,9 @@ The everyday work of an SDET: automated tests for APIs, databases and web pages,
 
 -   [**Reporting and logging**](reporting-and-logging/index.md)
 
-    Reports people can read: pytest-html, Allure, logs and screenshots.
+    Reports people can read: pytest-html, JUnit XML, logs and screenshots.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 </div>
 

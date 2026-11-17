@@ -133,7 +133,7 @@ Click a stage to open it.
 
 **Reports**
 
-- [Reporting and logging](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/reporting-and-logging/): Reports people can read: pytest-html, Allure, logs and screenshots. *(coming soon)*
+- [Reporting and logging](https://arshaduzzaman-sm.github.io/zero-to-sdet/core-automation/reporting-and-logging/): Reports people can read: pytest-html, JUnit XML, logs and screenshots.
 
 </details>
 

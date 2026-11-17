@@ -3,7 +3,7 @@ title: "Browse SDET Lessons by Tag"
 description: "Find every Zero to SDET lesson by tag: API, database, BDD, debugging, performance and more."
 tags:
   - Quick reference
-updated: "2026-11-16"
+updated: "2026-11-17"
 nav_title: "Tags"
 order: 50
 nav_section: "toolbox"
@@ -20,11 +20,11 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:accessibility" title="Making sure everyone can use the app, including people who use a screen reader or keyboard.">Accessibility <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:agile" title="Testing inside short sprints with the rest of the team.">Agile <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:ai" title="Using AI tools to help with testing, and testing apps that use AI.">AI <span class="zts-tag__count">1</span></a>
-<a class="zts-tag" href="#tag:api" title="Testing the requests and answers that apps send to each other.">API <span class="zts-tag__count">25</span></a>
+<a class="zts-tag" href="#tag:api" title="Testing the requests and answers that apps send to each other.">API <span class="zts-tag__count">26</span></a>
 <a class="zts-tag" href="#tag:bdd" title="Writing tests as plain English examples that everyone can read.">BDD <span class="zts-tag__count">8</span></a>
 <a class="zts-tag" href="#tag:bug-reports" title="Writing bug reports that developers can act on fast.">Bug reports <span class="zts-tag__count">5</span></a>
 <a class="zts-tag" href="#tag:career" title="Growing in your testing career, from interviews to working in a team.">Career <span class="zts-tag__count">16</span></a>
-<a class="zts-tag" href="#tag:cicd" title="Running tests automatically every time code changes.">CI/CD <span class="zts-tag__count">3</span></a>
+<a class="zts-tag" href="#tag:cicd" title="Running tests automatically every time code changes.">CI/CD <span class="zts-tag__count">4</span></a>
 <a class="zts-tag" href="#tag:clean-code" title="Test code that is easy to read, change and trust.">Clean code <span class="zts-tag__count">5</span></a>
 <a class="zts-tag" href="#tag:cloud" title="Testing apps that run on cloud servers and Kubernetes.">Cloud <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:database" title="Checking that the right data is saved, changed and deleted.">Database <span class="zts-tag__count">25</span></a>
@@ -42,19 +42,19 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:networking" title="How data travels between computers, and what can go wrong.">Networking <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:observability" title="Logs, metrics and traces that show what an app is doing.">Observability <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:performance" title="Checking that the app stays fast when many people use it.">Performance <span class="zts-tag__count">2</span></a>
-<a class="zts-tag" href="#tag:playwright" title="Automating web pages with Playwright.">Playwright <span class="zts-tag__count">10</span></a>
+<a class="zts-tag" href="#tag:playwright" title="Automating web pages with Playwright.">Playwright <span class="zts-tag__count">11</span></a>
 <a class="zts-tag" href="#tag:practice-app" title="The small online shop you test in every lesson.">Practice App <span class="zts-tag__count">2</span></a>
-<a class="zts-tag" href="#tag:pytest" title="The Python test tool used across this site.">pytest <span class="zts-tag__count">48</span></a>
-<a class="zts-tag" href="#tag:python" title="The programming language used for every example on this site.">Python <span class="zts-tag__count">37</span></a>
+<a class="zts-tag" href="#tag:pytest" title="The Python test tool used across this site.">pytest <span class="zts-tag__count">52</span></a>
+<a class="zts-tag" href="#tag:python" title="The programming language used for every example on this site.">Python <span class="zts-tag__count">38</span></a>
 <a class="zts-tag" href="#tag:quality-metrics" title="Numbers that show how good the product and the testing are.">Quality metrics <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:quick-reference" title="Short pages to look things up fast.">Quick reference <span class="zts-tag__count">4</span></a>
 <a class="zts-tag" href="#tag:releases" title="Getting a new version out safely, and handling problems after it ships.">Releases <span class="zts-tag__count">4</span></a>
-<a class="zts-tag" href="#tag:reporting" title="Test reports and logs that people understand.">Reporting <span class="zts-tag__count">2</span></a>
+<a class="zts-tag" href="#tag:reporting" title="Test reports and logs that people understand.">Reporting <span class="zts-tag__count">6</span></a>
 <a class="zts-tag" href="#tag:reviews" title="Finding problems by reading requirements, designs and code, before running anything.">Reviews <span class="zts-tag__count">6</span></a>
 <a class="zts-tag" href="#tag:robot-framework" title="A keyword-driven test tool where tests read like a list of steps.">Robot Framework <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:security" title="Finding common security holes before attackers do.">Security <span class="zts-tag__count">6</span></a>
 <a class="zts-tag" href="#tag:teamwork" title="Working well with developers, product owners and other testers.">Teamwork <span class="zts-tag__count">15</span></a>
-<a class="zts-tag" href="#tag:templates" title="Ready code and documents you can copy into your own work.">Templates <span class="zts-tag__count">32</span></a>
+<a class="zts-tag" href="#tag:templates" title="Ready code and documents you can copy into your own work.">Templates <span class="zts-tag__count">33</span></a>
 <a class="zts-tag" href="#tag:test-data" title="Creating and managing the data your tests need.">Test data <span class="zts-tag__count">16</span></a>
 <a class="zts-tag" href="#tag:test-design" title="Choosing what to test so you find the most bugs with the fewest tests.">Test design <span class="zts-tag__count">32</span></a>
 <a class="zts-tag" href="#tag:test-planning" title="Deciding what to test, when, and how much is enough.">Test planning <span class="zts-tag__count">22</span></a>

@@ -679,3 +679,15 @@
 - term: Cross-browser testing
   meaning: Running the same tests on several browsers, like Chrome, Firefox and Safari, to find bugs that show in only one.
   page: core-automation/ui-automation/cross-browser-runs.md
+
+- term: Log level
+  meaning: How important a log line is, from DEBUG (details) through INFO, WARNING and ERROR to CRITICAL. You choose which levels to keep.
+  page: core-automation/reporting-and-logging/logging-in-tests.md
+
+- term: JUnit XML
+  meaning: A test results file format that almost every CI tool can read, with one entry per test and its failure message.
+  page: core-automation/reporting-and-logging/junit-xml-for-pipelines.md
+
+- term: Redaction
+  meaning: Hiding secrets like passwords and card numbers, for example by writing "***" instead, before they reach a log or report.
+  page: core-automation/reporting-and-logging/screenshots-and-request-logs.md
