@@ -691,3 +691,23 @@
 - term: Redaction
   meaning: Hiding secrets like passwords and card numbers, for example by writing "***" instead, before they reach a log or report.
   page: core-automation/reporting-and-logging/screenshots-and-request-logs.md
+
+- term: Docker image
+  meaning: A read-only package with a program and everything it needs. Docker makes containers from it, like cakes from one recipe.
+  page: infrastructure/docker-for-testers/images-and-containers.md
+
+- term: Image digest
+  meaning: A long code starting with sha256 that names one exact Docker image. Unlike a tag, it can never point to a different image.
+  page: infrastructure/docker-for-testers/images-and-containers.md
+
+- term: Dockerfile
+  meaning: A text file with the steps to build a Docker image, read from top to bottom.
+  page: infrastructure/docker-for-testers/dockerfile-for-a-test-suite.md
+
+- term: Docker Compose
+  meaning: A Docker tool that starts several containers from one file, in the right order, so they can work together.
+  page: infrastructure/docker-for-testers/compose-test-environments.md
+
+- term: Health check
+  meaning: A small command that tells whether a service is ready to use, so other services can wait for it.
+  page: infrastructure/docker-for-testers/compose-test-environments.md

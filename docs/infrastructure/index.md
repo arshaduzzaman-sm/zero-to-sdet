@@ -1,7 +1,7 @@
 ---
 title: "Infrastructure for Testers: CI/CD, Docker, Linux and Debugging"
 description: "Learn the tools around your tests: CI/CD pipelines, Docker, Linux, networking, debugging, cloud and observability."
-updated: "2026-11-15"
+updated: "2026-11-17"
 nav_title: "Infrastructure"
 order: 40
 ---
@@ -56,7 +56,7 @@ Tests need somewhere to run. This pillar covers the pipelines, containers, serve
 
     Run the same tests the same way on any computer.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 -   [**Cloud and Kubernetes basics**](cloud-and-kubernetes/index.md)
 

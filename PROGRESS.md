@@ -48,6 +48,32 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-17 · Phase 4 · Topic 1: Docker for testers
+
+**Done**
+
+- Topic page and 3 lessons in `docs/infrastructure/docker-for-testers/`: images and containers; a Dockerfile for a test suite; Compose test environments.
+- Template project `modules/infrastructure/docker_for_testers/templates/docker_tests/`: a small book API (`app/`, FastAPI on PostgreSQL), a test-runner `Dockerfile` (pytest in its own image, runs as a normal user, no pytest cache), `.dockerignore` (keeps `.env` and reports out of the image), and `docker-compose.yml` with `db`, `api` and `tests` (a profile: runs only when asked). Images pinned by digest (the same Python 3.13.18 and PostgreSQL 17.12 already used by the Practice App, so nothing new), ports on 127.0.0.1 only (58180, 58132), password from `.env`, health checks, reports copied back to `reports/`. `docker compose run --rm --build tests`: 5 passed, in the container and from the computer.
+- Topic test: offline checks always run (credit lines, pinned base images, non-root user, 127.0.0.1 ports, password only from `.env`, `.env` kept out of the image and Git). With `ZTS_DOCKER=1` it builds the whole environment under its own project name and ports, runs the tests and removes everything.
+- Found while building, each now in a lesson: pytest's cache can't be written by the non-root user (warning on every run; cache turned off in the image); `localhost` inside a container is the container (tests failed with "Connection refused"); `-k book` also matches the file name, so the exercise uses `-k new_book`; `docker compose config` doesn't check a service in a profile unless the profile is named.
+- Only `zts-` and `docker-for-testers` containers were used; the owner's other containers were never touched.
+- Glossary: Docker image, Image digest, Dockerfile, Docker Compose, Health check (171 terms).
+
+**Open**
+
+- Allure lesson (on or after 2026-11-19). Node.js 26.13.1 after 2026-11-24.
+- CI/CD: the owner chose Docker first, CI later. How to get real pipeline runs is still to decide.
+
+**Check it**
+
+`bash scripts/check.sh` passes, and so does `ZTS_DOCKER=1 .venv/bin/pytest modules/infrastructure/docker_for_testers` (21 passed). The download was tested from a clean folder: `cp .env.example .env`, `docker compose run --rm --build tests`, 5 passed.
+
+**Next step**
+
+Phase 4: Linux and shell.
+
+---
+
 ## 2026-11-17 · Phase 3 · Topic 9: Reporting and logging (Allure lesson still to come)
 
 **Done**

@@ -1,0 +1,53 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# A whole test environment: a database, the app, and a container that runs the tests.
+# Your own computer only.
+#
+#   cp .env.example .env                once, then change the password
+#   docker compose run --rm --build tests   start the database and the app, then run the tests
+#   docker compose down -v              stop everything and delete the test data
+
+name: docker-for-testers
+
+services:
+  db:
+    image: postgres:17.12@sha256:0d938e975177bef9f1f61f3f9dbcf2e0aa0a139568f66d3415ed8892eb97f6ac
+    environment:
+      POSTGRES_DB: books
+      POSTGRES_USER: books_tester
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Copy .env.example to .env first}
+    ports:
+      - "127.0.0.1:${DB_PORT:-58132}:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "books_tester", "-d", "books"]
+      interval: 2s
+      retries: 30
+
+  api:
+    build: ./app
+    image: books-api:local
+    environment:
+      # Inside the network, the database's address is its service name: db.
+      DATABASE_URL: postgresql://books_tester:${POSTGRES_PASSWORD}@db:5432/books
+    ports:
+      - "127.0.0.1:${API_PORT:-58180}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 2s
+      retries: 30
+
+  tests:
+    build: .
+    image: books-tests:local
+    # Only started when you ask for it: docker compose run --rm tests
+    profiles: ["tests"]
+    environment:
+      API_URL: http://api:8000
+      DATABASE_URL: postgresql://books_tester:${POSTGRES_PASSWORD}@db:5432/books
+    volumes:
+      - ./reports:/tests/reports
+    depends_on:
+      api:
+        condition: service_healthy

@@ -1,0 +1,9 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# Only requirements.txt, pytest.ini and tests/ go into the test image.
+# Never .env (your passwords), reports or local folders.
+.env
+reports/
+app/
+.venv/
+**/__pycache__/
+.pytest_cache/

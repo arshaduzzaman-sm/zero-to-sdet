@@ -221,6 +221,21 @@ that teaches it.
 
     Learn more: [Docker for testers](infrastructure/docker-for-testers/index.md)
 
+[](){ #docker-compose }**Docker Compose**
+:   A Docker tool that starts several containers from one file, in the right order, so they can work together.
+
+    Learn more: [Compose test environments](infrastructure/docker-for-testers/compose-test-environments.md)
+
+[](){ #docker-image }**Docker image**
+:   A read-only package with a program and everything it needs. Docker makes containers from it, like cakes from one recipe.
+
+    Learn more: [Images and containers](infrastructure/docker-for-testers/images-and-containers.md)
+
+[](){ #dockerfile }**Dockerfile**
+:   A text file with the steps to build a Docker image, read from top to bottom.
+
+    Learn more: [Dockerfile for a test suite](infrastructure/docker-for-testers/dockerfile-for-a-test-suite.md)
+
 [](){ #dynamic-testing }**Dynamic testing**
 :   Testing by running the software and checking what it does.
 
@@ -344,6 +359,11 @@ that teaches it.
 
     Learn more: [How browsers and locators work](core-automation/ui-automation/how-browsers-and-locators-work.md)
 
+[](){ #health-check }**Health check**
+:   A small command that tells whether a service is ready to use, so other services can wait for it.
+
+    Learn more: [Compose test environments](infrastructure/docker-for-testers/compose-test-environments.md)
+
 [](){ #http }**HTTP (Hypertext Transfer Protocol)**
 :   The set of rules web browsers and APIs use to send requests and answers.
 
@@ -370,6 +390,11 @@ that teaches it.
 :   A web page shown inside another web page, like a payment form from a payment company. Tests must reach into it to use it.
 
     Learn more: [Forms, dialogs, frames and tabs](core-automation/ui-automation/forms-dialogs-frames-and-tabs.md)
+
+[](){ #image-digest }**Image digest**
+:   A long code starting with sha256 that names one exact Docker image. Unlike a tag, it can never point to a different image.
+
+    Learn more: [Images and containers](infrastructure/docker-for-testers/images-and-containers.md)
 
 [](){ #inspection }**Inspection**
 :   The most formal kind of review, with set roles, a checklist, prepared reviewers and a written list of findings.

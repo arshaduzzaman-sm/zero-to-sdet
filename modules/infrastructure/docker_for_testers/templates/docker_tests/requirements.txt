@@ -1,0 +1,5 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# The test runner's packages. Built into the test image by the Dockerfile.
+pytest==9.2.0
+requests==2.34.2
+psycopg[binary]==3.3.9

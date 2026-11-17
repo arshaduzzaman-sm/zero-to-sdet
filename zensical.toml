@@ -227,7 +227,12 @@ nav = [
     ] },
     { "Pipelines and environments" = [
       { "CI/CD (teaching topic)" = ["infrastructure/ci-cd/index.md"] },
-      { "Docker for testers" = ["infrastructure/docker-for-testers/index.md"] },
+      { "Docker for testers" = [
+        "infrastructure/docker-for-testers/index.md",
+        { "Images and containers" = "infrastructure/docker-for-testers/images-and-containers.md" },
+        { "Dockerfile for a test suite" = "infrastructure/docker-for-testers/dockerfile-for-a-test-suite.md" },
+        { "Compose test environments" = "infrastructure/docker-for-testers/compose-test-environments.md" },
+      ] },
       { "Cloud and Kubernetes basics" = ["infrastructure/cloud-and-kubernetes/index.md"] },
       { "Observability" = ["infrastructure/observability/index.md"] },
     ] },
