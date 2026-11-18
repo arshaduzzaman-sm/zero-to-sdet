@@ -4,7 +4,7 @@ description: "The full SDET learning path on one map: what to learn first, what 
 tags:
   - Getting started
   - Career
-updated: "2026-11-16"
+updated: "2026-11-18"
 nav_title: "Learning Path"
 order: 60
 nav_section: "start-here"
@@ -58,14 +58,13 @@ Everyone moves at their own speed, and that is fine.
 1. [How to use this site](start-here/how-to-use-this-site/index.md)
 2. [Environment setup](start-here/environment-setup/index.md): Python, VS Code and a virtual environment
 3. [Python for testers](start-here/python-for-testers/index.md): just enough Python to write tests
-4. [Practice App tour](start-here/practice-app-tour/index.md): the shop you will test in every lesson
-5. [The SDET role](think-like-a-tester/the-sdet-role/index.md)
-6. [Test design techniques](think-like-a-tester/test-design-techniques/index.md)
-7. [pytest framework](core-automation/pytest-framework/index.md): your first automated test
-8. [API testing](core-automation/api-testing/index.md)
-9. [Database testing](core-automation/database-testing/index.md)
-10. [Git in a team](professional-sdet/git-in-a-team/index.md)
-11. [Debugging toolkit](infrastructure/debugging-toolkit/index.md)
+4. [The SDET role](think-like-a-tester/the-sdet-role/index.md)
+5. [Test design techniques](think-like-a-tester/test-design-techniques/index.md)
+6. [pytest framework](core-automation/pytest-framework/index.md): your first automated test
+7. [API testing](core-automation/api-testing/index.md)
+8. [Database testing](core-automation/database-testing/index.md)
+9. [Git in a team](professional-sdet/git-in-a-team/index.md)
+10. [Debugging toolkit](infrastructure/debugging-toolkit/index.md)
 
 <p class="zts-path-progress" data-zts-path hidden></p>
 

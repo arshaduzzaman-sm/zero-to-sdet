@@ -1,7 +1,7 @@
 ---
 title: "Start Here: How to Begin Your SDET Journey"
-description: "Start here if you are new: set up your computer, learn Python for testing, and meet the Practice App."
-updated: "2026-11-16"
+description: "Start here if you are new: set up your computer and learn just enough Python for testing."
+updated: "2026-11-18"
 nav_title: "Start Here"
 order: 10
 ---
@@ -22,7 +22,7 @@ Python to write a test, and the Practice App running on your own machine.
 
 Everything here is free. You never need to make an account to learn.
 
-## Your first four steps
+## Your first three steps
 
 Go in this order. Each step takes you to the next one.
 
@@ -39,10 +39,6 @@ Go in this order. Each step takes you to the next one.
 3.  **[Learn Python for testing](python-for-testers/index.md)**
 
     Just enough Python to write real tests. Skip it if you already code.
-
-4.  **[Meet the Practice App](practice-app-tour/index.md)**
-
-    Start the small online shop you will test in every lesson.
 
 </div>
 

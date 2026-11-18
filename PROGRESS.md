@@ -49,6 +49,19 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-18 · Owner request: stop promoting the Practice App Tour
+
+**Done**
+
+- Owner: the Practice App Tour is not important; readers already have working apps and need solution-level guides.
+- Removed it from the home page, the Start Here route (now three steps) and the manual-tester learning path. The page itself is kept, because 26 pages link to it; deleting it needs the owner's explicit "yes".
+
+**Open questions**
+
+- Delete or merge the Practice App Tour page later? (Needs the owner's "yes", and the 26 links changed.)
+
+---
+
 ## 2026-11-18 · Phase 4 · Everyday tools, plus home page note and pull request rules
 
 **Done**

@@ -173,7 +173,7 @@ The site follows six stages. Go in order, or jump to the one you need today.
 
 1.  **[Start Here](start-here/index.md)**
 
-    Set up your computer, learn Python for testing, and meet the Practice App.
+    Set up your computer and learn just enough Python for testing.
 
 2.  **[Think Like a Tester](think-like-a-tester/index.md)**
 
@@ -209,7 +209,7 @@ Every lesson follows the same pattern, so you always know what comes next.
 4. **Common mistakes.** The errors people hit, and how to fix them.
 5. **Try it yourself.** A small exercise, with the answer hidden until you want it.
 
-The examples come from real work: the tasks, plans, code and checklists people use in testing jobs every day. You can read and learn without installing anything. If you want a safe place to practise, the [Practice App](start-here/practice-app-tour/index.md) is a small online shop built for testing.
+The examples come from real work: the tasks, plans, code and checklists people use in testing jobs every day. Every guide is written so you can use it on your own app.
 
 ## Why I made this
 
