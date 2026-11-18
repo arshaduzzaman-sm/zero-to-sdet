@@ -249,7 +249,7 @@ nav = [
       { "Everyday tools" = ["infrastructure/everyday-tools/index.md"] },
     ] },
     { "Pipelines and environments" = [
-      { "CI/CD (teaching topic)" = ["infrastructure/ci-cd/index.md"] },
+      { "CI/CD for testers" = ["infrastructure/ci-cd/index.md"] },
       { "Docker for testers" = [
         "infrastructure/docker-for-testers/index.md",
         { "Images and containers" = "infrastructure/docker-for-testers/images-and-containers.md" },

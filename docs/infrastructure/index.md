@@ -46,11 +46,11 @@ Tests need somewhere to run. This pillar covers the pipelines, containers, serve
 
 <div class="grid cards zts-topics" markdown>
 
--   [**CI/CD (teaching topic)**](ci-cd/index.md)
+-   [**CI/CD for testers**](ci-cd/index.md)
 
-    Run your tests on every change with GitHub Actions.
+    Design a test pipeline: when it runs, secrets, reports, a ready workflow.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 -   [**Docker for testers**](docker-for-testers/index.md)
 

@@ -3,7 +3,7 @@ title: "Software Testing Glossary: Every SDET Term in Plain English"
 description: "Plain-English meanings of every testing and automation term used on Zero to SDET, each linked to the lesson that teaches it."
 tags:
   - Quick reference
-updated: "2026-11-17"
+updated: "2026-11-18"
 nav_title: "Glossary"
 order: 40
 nav_section: "toolbox"
@@ -142,7 +142,7 @@ that teaches it.
 [](){ #cicd }**CI/CD (Continuous Integration and Continuous Delivery)**
 :   A setup that builds the app and runs the tests every time someone changes the code, then helps ship it.
 
-    Learn more: [CI/CD (teaching topic)](infrastructure/ci-cd/index.md)
+    Learn more: [CI/CD for testers](infrastructure/ci-cd/index.md)
 
 [](){ #class }**Class**
 :   A blueprint that bundles data and actions together. Page objects and API clients are classes.

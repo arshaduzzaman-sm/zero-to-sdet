@@ -50,6 +50,21 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-18 · Phase 4 · CI/CD for testers (Phase 4 complete)
+
+**Done**
+
+- `docs/infrastructure/ci-cd/index.md`, the first page in the new "solution level" format: the problem, the pipeline design (what runs when, with a diagram and the reasons), run it locally first, a failure and its summary, the workflow explained part by part, secrets and variables, actionlint, blocking merges, errors table.
+- Kit `modules/infrastructure/ci_cd/templates/ci_kit/`: `github_workflows/tests.yml` (pull request, main, nightly, by hand; read-only permissions; concurrency; 15-minute limit; Python matrix; actions pinned to commit SHAs: checkout v7.0.1, setup-python v7.1.0, upload-artifact v7.0.2 from 2026-10-07), `ci_summary.py` (JUnit XML to a summary table, also to `GITHUB_STEP_SUMMARY`), smoke tests with `BASE_URL`/`API_AUTH`, and `pipeline_checklist.md`.
+- Honest limit: no workflow runs in this repository until Phase 9, so the page shows real local runs and real actionlint 1.7.12 output (Docker image, nothing installed), not GitHub's screens.
+- Topic test: 18 checks (workflow safety rules, pass run, fail run, missing `BASE_URL`, missing report), plus actionlint with `ZTS_DOCKER=1`.
+
+**Next step**
+
+Phase 5: A day in the life.
+
+---
+
 ## 2026-11-18 · Owner decision: no ZIP downloads; full plan for the rest
 
 **Done**

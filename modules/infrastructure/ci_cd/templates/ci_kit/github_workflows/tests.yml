@@ -1,0 +1,61 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# Put this file in your repository at .github/workflows/tests.yml
+# It runs the tests on every pull request, on every push to main, every night,
+# and when you press "Run workflow". CHANGE the parts marked CHANGE.
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]                       # CHANGE: your main branch
+  schedule:
+    - cron: "0 2 * * *"                    # every night at 02:00 UTC
+  workflow_dispatch:                       # a "Run workflow" button
+
+permissions:
+  contents: read                           # the job can read the code, nothing more
+
+concurrency:                               # a new push stops the older run of the same branch
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15                    # a stuck test can't block the pipeline for hours
+    strategy:
+      fail-fast: false                     # one failing version doesn't stop the others
+      matrix:
+        python-version: ["3.12", "3.13"]   # CHANGE: the versions your team supports
+    env:
+      BASE_URL: ${{ vars.BASE_URL }}       # Settings → Secrets and variables → Actions → Variables
+      API_AUTH: ${{ secrets.API_AUTH }}    # Settings → Secrets and variables → Actions → Secrets
+    steps:
+      - name: Get the code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install the packages
+        run: python -m pip install -r requirements.txt
+
+      - name: Run the tests
+        run: python -m pytest -ra --junitxml=reports/junit.xml
+
+      - name: Write the summary
+        if: always()                       # also when tests failed: that's when you need it
+        run: python ci_summary.py reports/junit.xml
+
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: test-report-python-${{ matrix.python-version }}
+          path: reports/
+          retention-days: 14

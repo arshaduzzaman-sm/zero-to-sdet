@@ -184,7 +184,7 @@ Click a stage to open it.
 
 **Pipelines and environments**
 
-- [CI/CD (teaching topic)](https://arshaduzzaman-sm.github.io/zero-to-sdet/infrastructure/ci-cd/): Run your tests on every change with GitHub Actions. *(coming soon)*
+- [CI/CD for testers](https://arshaduzzaman-sm.github.io/zero-to-sdet/infrastructure/ci-cd/): Design a test pipeline: when it runs, secrets, reports, a ready workflow.
 - [Docker for testers](https://arshaduzzaman-sm.github.io/zero-to-sdet/infrastructure/docker-for-testers/): Run the same tests the same way on any computer.
 - [Cloud and Kubernetes basics](https://arshaduzzaman-sm.github.io/zero-to-sdet/infrastructure/cloud-and-kubernetes/): Cloud test environments and Kubernetes in plain words. *(coming soon)*
 - [Observability](https://arshaduzzaman-sm.github.io/zero-to-sdet/infrastructure/observability/): Logs, metrics and traces, and testing safely in production. *(coming soon)*
