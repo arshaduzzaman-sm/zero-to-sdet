@@ -94,7 +94,7 @@ Click a stage to open it.
 </details>
 
 <details>
-<summary><b>Work Playbooks</b> (7 topics)</summary>
+<summary><b>Work Playbooks</b> (8 topics)</summary>
 
 [Open the Work Playbooks overview](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/)
 
@@ -115,6 +115,10 @@ Click a stage to open it.
 **UI work**
 
 - [Automate UI tests, step by step](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/automate-ui-tests/): Install, pick the flows, plan, copy ready tests, run, read screenshots and traces.
+
+**Files and data**
+
+- [Test file upload and import, step by step](https://arshaduzzaman-sm.github.io/zero-to-sdet/work-playbooks/test-file-upload-and-import/): Get the rules, try by hand, plan, copy upload and import tests, run, read.
 
 **Speed**
 

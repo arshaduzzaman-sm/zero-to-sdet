@@ -8,7 +8,7 @@ hide:
   - author
   - feedback
   - path
-updated: "2026-11-17"
+updated: "2026-11-18"
 ---
 
 <div class="zts-hero" markdown>
@@ -76,6 +76,10 @@ Got a task at work today? Pick it and go straight to the page that helps. The [W
 -   :lucide-database: **[Check data in a database, step by step](work-playbooks/check-database-data/index.md)**
 
     Safe access, a plan, and ready checks for duplicates, orphans and wrong totals.
+
+-   :lucide-file-up: **[Test file upload and CSV import, step by step](work-playbooks/test-file-upload-and-import/index.md)**
+
+    Size limits, renamed files, Excel CSVs and half-saved imports.
 
 -   :lucide-layers: **[Test several databases](core-automation/multi-database-testing/index.md)**
 

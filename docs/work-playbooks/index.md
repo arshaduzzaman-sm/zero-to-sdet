@@ -1,7 +1,7 @@
 ---
 title: "Work Playbooks: Step-by-Step Answers to Real Testing Tasks"
 description: "Practical playbooks for testers and SDETs with a real task at work: how to plan it, how to test it, and ready scripts and templates to run against your own app."
-updated: "2026-11-17"
+updated: "2026-11-18"
 nav_title: "Work Playbooks"
 order: 15
 ---
@@ -75,6 +75,18 @@ You have a task at work and you're not sure where to start. Each playbook takes 
 -   [**Automate UI tests, step by step**](automate-ui-tests/index.md)
 
     Install, pick the flows, plan, copy ready tests, run, read screenshots and traces.
+
+    <span class="zts-chip">Beginner</span>
+
+</div>
+
+## Files and data
+
+<div class="grid cards zts-topics" markdown>
+
+-   [**Test file upload and import, step by step**](test-file-upload-and-import/index.md)
+
+    Get the rules, try by hand, plan, copy upload and import tests, run, read.
 
     <span class="zts-chip">Beginner</span>
 

@@ -49,6 +49,25 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-18 · Work Playbooks · Guide: test file upload and CSV import, step by step
+
+**Done**
+
+- `docs/work-playbooks/test-file-upload-and-import/` (level Beginner, group "Files and data"): get the rules (types, size limit and its edge, field name, columns, what one bad row does, encoding), try by hand with curl and read back what was saved, decide the tests, plan, set up, copy templates, run, read results by severity, errors table. Every output and error comes from a real run.
+- Template project `modules/work_playbooks/test_file_upload_and_import/templates/upload_tests/`: `tests/conftest.py` makes every test file in code (real PNG and PDF first bytes, files exactly at and over the limit, CSVs with or without Excel's BOM), `test_upload.py` (11 tests), `test_import.py` (5 tests, unique emails per run), `test_plan.md`, and `practice_api.py` (Python only, 127.0.0.1, files kept in memory) with three planted bugs: size limit 50 MB instead of 5 MB, type checked by name only, half-imports before a bad row. `--fixed` mode. Only pytest and requests, already pinned.
+- Results the page explains: 3 failed, 13 passed with the bugs; 16 passed with `--fixed`. The half-import bug is also found by hand in step 2 (the answer says `"imported": 0`, but the first row is saved).
+- Home "I need to…" has an entry for it.
+
+**Check it**
+
+`bash scripts/check.sh` passes (the topic test runs the template against both API modes and checks nothing is written to disk). The download was tested in a clean folder: 3 failed, 13 passed.
+
+**Next step**
+
+The next step-by-step guide.
+
+---
+
 ## 2026-11-17 · Work Playbooks · Guide: check API speed under load, step by step
 
 **Done**
