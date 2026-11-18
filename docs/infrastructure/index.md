@@ -30,9 +30,9 @@ Tests need somewhere to run. This pillar covers the pipelines, containers, serve
 
 -   [**Debugging toolkit**](debugging-toolkit/index.md)
 
-    Find the real cause of a failure with DevTools, curl and stack traces.
+    Read the failure, run it alone, logs, the debugger, curl -v and DevTools.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Everyday tools**](everyday-tools/index.md)
 

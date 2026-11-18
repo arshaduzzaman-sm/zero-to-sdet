@@ -44,7 +44,7 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:performance" title="Checking that the app stays fast when many people use it.">Performance <span class="zts-tag__count">3</span></a>
 <a class="zts-tag" href="#tag:playwright" title="Automating web pages with Playwright.">Playwright <span class="zts-tag__count">12</span></a>
 <a class="zts-tag" href="#tag:practice-app" title="The small online shop you test in every lesson.">Practice App <span class="zts-tag__count">2</span></a>
-<a class="zts-tag" href="#tag:pytest" title="The Python test tool used across this site.">pytest <span class="zts-tag__count">55</span></a>
+<a class="zts-tag" href="#tag:pytest" title="The Python test tool used across this site.">pytest <span class="zts-tag__count">56</span></a>
 <a class="zts-tag" href="#tag:python" title="The programming language used for every example on this site.">Python <span class="zts-tag__count">38</span></a>
 <a class="zts-tag" href="#tag:quality-metrics" title="Numbers that show how good the product and the testing are.">Quality metrics <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:quick-reference" title="Short pages to look things up fast.">Quick reference <span class="zts-tag__count">4</span></a>
@@ -54,7 +54,7 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:robot-framework" title="A keyword-driven test tool where tests read like a list of steps.">Robot Framework <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:security" title="Finding common security holes before attackers do.">Security <span class="zts-tag__count">7</span></a>
 <a class="zts-tag" href="#tag:teamwork" title="Working well with developers, product owners and other testers.">Teamwork <span class="zts-tag__count">15</span></a>
-<a class="zts-tag" href="#tag:templates" title="Ready code and documents you can copy into your own work.">Templates <span class="zts-tag__count">46</span></a>
+<a class="zts-tag" href="#tag:templates" title="Ready code and documents you can copy into your own work.">Templates <span class="zts-tag__count">47</span></a>
 <a class="zts-tag" href="#tag:test-data" title="Creating and managing the data your tests need.">Test data <span class="zts-tag__count">17</span></a>
 <a class="zts-tag" href="#tag:test-design" title="Choosing what to test so you find the most bugs with the fewest tests.">Test design <span class="zts-tag__count">32</span></a>
 <a class="zts-tag" href="#tag:test-planning" title="Deciding what to test, when, and how much is enough.">Test planning <span class="zts-tag__count">24</span></a>

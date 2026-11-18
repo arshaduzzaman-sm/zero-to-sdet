@@ -49,6 +49,23 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-18 · Phase 4 · Debugging toolkit
+
+**Done**
+
+- `docs/infrastructure/debugging-toolkit/` (was "Coming soon"): read a failure from the bottom up, run one test alone (passes or fails differently = shared state), `--lf -x`, debug logs with `--log-cli-level`, `-l` (with a secrets warning), `pytest --pdb` and `breakpoint()`, one fix at a time, `curl -v` and browser developer tools, errors table and checklist. All outputs from real runs in a clean virtual environment.
+- Kit `modules/infrastructure/debugging_toolkit/templates/`: `debug_practice/` (a tiny cart with three planted bugs: a shared default list, float money, a crash on unknown codes; one bug hides another) and `debugging_checklist.md`. Topic test checks the failures together and alone, and that the fixes from the page make all 5 tests pass.
+
+**Check it**
+
+`bash scripts/check.sh` passes.
+
+**Next step**
+
+Phase 4: Everyday tools.
+
+---
+
 ## 2026-11-18 · Phase 4 · Networking for testers
 
 **Done**
