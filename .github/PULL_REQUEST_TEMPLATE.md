@@ -4,15 +4,26 @@
 
 ## Why
 
+## Type of change
+
+- [ ] Fix: a mistake, a typo, a broken link or a command that does not work
+- [ ] Update: a newer tool version, with outputs captured again
+- [ ] New topic or lesson (an issue said yes: #___)
+- [ ] Site or scripts
+
 ## How to check it
 
 <!-- Which page to open, what command to run, what you should see. -->
 
 ## Checklist
 
-- [ ] `.venv/bin/zensical build --strict` passes
-- [ ] `.venv/bin/python scripts/build_nav.py --check` passes (new or moved pages)
-- [ ] Pre-commit passed (gitleaks and the other checks)
-- [ ] No passwords, tokens, real emails, personal paths or employer material
+- [ ] `scripts/check.sh` passes
+- [ ] I ran every command I changed myself, and every output is from a real run
+- [ ] Every error I added to a "When it goes wrong" table was reproduced
+- [ ] Written in my own words, with sources linked; nothing copied from books, courses or other sites
+- [ ] No passwords, tokens, real emails, personal paths, internal addresses or employer material
+- [ ] Only fake data (`@example.com`, `local_only_password`)
+- [ ] No new packages, or an issue agreed to them and they are pinned with hashes
 - [ ] New images are cropped, blurred where needed, and have no metadata
-- [ ] Follows the [Style guide](../STYLE_GUIDE.md) and the lesson checklist in [CONTRIBUTING](../CONTRIBUTING.md)
+- [ ] Follows the [Style guide](../STYLE_GUIDE.md) and the [rules for pull requests](../CONTRIBUTING.md#rules-for-pull-requests)
+- [ ] I agree my code is shared under MIT and my text under CC BY 4.0

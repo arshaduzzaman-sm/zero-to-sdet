@@ -22,7 +22,7 @@ updated: "2026-11-18"
 <p class="zts-hero__sub">Learn software testing and test automation, step by step. Real templates and code you can use at work. Free.</p>
 
 [Start learning](start-here/index.md){ .md-button .md-button--primary }
-[:fontawesome-brands-github: Star on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet){ .md-button }
+[Why I made this](#why-i-made-this){ .md-button }
 
 </div>
 
@@ -213,12 +213,19 @@ The examples come from real work: the tasks, plans, code and checklists people u
 
 ## Why I made this
 
-Everything on this site comes from my own work as a tester and from what many generous people have shared online. I gathered it in one place, in order and in plain words, so that anyone can learn from it. You can read [the full note](about.md#why-i-made-this) on the About page.
+As a tester, I kept meeting the same problem. The answers I needed were all online: in official guides, blog posts, conference talks, open-source projects and forum answers. But they were spread across a hundred tabs, written for different levels, and almost never in the order a working tester needs them.
 
-<div class="zts-cta" markdown>
+So I did what testers do. I collected the evidence, checked it, and put it in order. This site is the result.
 
-**Free, and it will stay free.** If this site helps you, a star on GitHub helps other testers find it.
+Nothing here is a secret, and I don't claim to have invented it. What I added is the work around it:
 
-[:fontawesome-brands-github: Star Zero to SDET on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet){ .md-button }
+- **One place, one order.** From your first test to leading quality for a whole team.
+- **Checked, not copied.** I ran every command myself. Every output on a page comes from a real run.
+- **Ready for real work.** Plans, scripts and checklists you can use on your own app tomorrow.
+- **Credit where it's due.** Every page links to its original sources, so you can go deeper.
 
-</div>
+I believe good testing knowledge should be free and easy to find. If one person gets unstuck at work, passes an interview, or moves from manual testing into automation because of a page here, it was worth building.
+
+Thank you to everyone who shares what they know. This site stands on your work.
+
+**Arshaduzzaman SM**

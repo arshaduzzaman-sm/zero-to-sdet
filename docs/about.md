@@ -1,7 +1,7 @@
 ---
 title: "About Zero to SDET"
 description: "Who writes Zero to SDET, why it exists, how it is licensed, and how you can help make it better."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # About Zero to SDET
@@ -67,8 +67,20 @@ If visitor counting is added later, it will be a privacy-friendly counter that s
 
 ## Help make it better
 
-- **Found a mistake?** Use the "Edit this page" button at the top of any page, or open an issue on [GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet).
-- **Want a new topic?** Suggest it on GitHub.
-- **Found the site useful?** A star on [GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet) helps other testers find it.
+Zero to SDET is open source, and suggestions are welcome. Here is how a change gets in:
+
+1. **Anyone can suggest a change.** The "Edit this page" pencil at the top of a page opens a copy on GitHub. What you change there becomes a **suggestion** (a pull request), not a live edit.
+2. **Nothing goes live without review.** The maintainer reads every suggestion, runs the checks, and approves it, asks for changes, or explains why not.
+3. **Bigger ideas start as an issue.** For a new topic or a rewrite, open an issue on [GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet) first, so no one spends a weekend on something that won't fit.
+
+The rules for every suggestion are short:
+
+- Every output on a page comes from a **real run**. Never invent one.
+- Write in **your own words** and link the source. Never copy text from books, courses or other sites.
+- **No secrets, no real personal data, no employer or client material.**
+- No ads, affiliate links or tracking.
+- One fix or one topic per suggestion.
+
+The full rules are in [CONTRIBUTING.md](https://github.com/arshaduzzaman-sm/zero-to-sdet/blob/main/CONTRIBUTING.md). Security problems go privately, as [SECURITY.md](https://github.com/arshaduzzaman-sm/zero-to-sdet/blob/main/SECURITY.md) explains, never in a public issue.
 
 See the [Changelog](changelog.md) for what is new.

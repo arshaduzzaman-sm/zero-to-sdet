@@ -36,9 +36,9 @@ Tests need somewhere to run. This pillar covers the pipelines, containers, serve
 
 -   [**Everyday tools**](everyday-tools/index.md)
 
-    Postman or Bruno, the VS Code debugger, and searching big logs.
+    Copy a request as curl, turn it into a pytest test, debug it in VS Code.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 </div>
 

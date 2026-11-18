@@ -1,0 +1,9 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+curl 'https://dummyjson.com/products/add' \
+  -H 'accept: application/json' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'authorization: Bearer <token copied from the browser>' \
+  -H 'content-type: application/json' \
+  -H 'origin: https://dummyjson.com' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' \
+  --data-raw '{"title":"Practice book","price":24.5}'

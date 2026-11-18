@@ -133,11 +133,51 @@ A topic is done when all its lessons are done, its templates pass locally, its
 `index.md` is a complete "First time? Start here" playbook, and it has a Bug Hunt
 against the Practice App.
 
-## Pull requests
+## Rules for pull requests
 
-- One topic or one fix per pull request, so it is easy to review.
-- Say what changed, why, and how to check it (the template asks for this).
-- Never include passwords, tokens, real emails, personal paths or employer material.
+Anyone can suggest a change. Nothing reaches the site until the maintainer has
+reviewed and approved it. These rules keep the site correct, safe and free.
+
+### How a change gets in
+
+1. **Small fix?** (typo, broken link, wrong command): open a pull request straight away.
+2. **Bigger change?** (new topic, a rewrite, a new tool or package): open an issue
+   first and wait for a "yes". It saves you from work that won't fit.
+3. Fork the repository and make a branch from `main`, named for what it does:
+   `fix/api-testing-port`, `topic/contract-testing`, `docs/clearer-step-3`.
+4. Make **one fix or one topic** per pull request. Small pull requests get reviewed fast.
+5. Run `scripts/check.sh`. Every check must pass.
+6. Open the pull request and fill in every part of the form.
+7. The maintainer reviews it. Only the maintainer merges. They may approve it,
+   ask for changes, make small edits themselves, or close it with a reason.
+8. If changes are asked for and nothing happens for 30 days, the pull request may be
+   closed. You can always open it again.
+
+### What every pull request must follow
+
+| Rule | Why |
+| --- | --- |
+| Every output on a page comes from a **real run**. Run each command yourself. | Learners copy what they see. An invented output wastes their day. |
+| Every error in a "When it goes wrong" table was **reproduced**. | Same reason. |
+| Write in **your own words**. Link the source; never copy text from books, courses or other sites. | Copyright, and plain words are the point of this site. |
+| **No secrets, no real personal data, no employer or client material**: no tokens, real emails, internal addresses, personal paths or screenshots of work tools. | This repository is public. Anything pushed can be copied forever. |
+| Only fake data: `@example.com` emails, `local_only_password`. | Same reason. |
+| **No ads, affiliate links, tracking or self-promotion.** | The site is free and private for learners. |
+| New packages only after an issue says yes. Pinned, with hashes, and released at least two weeks ago. | Protects everyone who installs the templates. |
+| Python 3.13 and Playwright for browser tests. | One clear path is easier to learn. |
+| Follow the [Style guide](STYLE_GUIDE.md): plain words, short sentences, readability grade 8 or lower. | Many readers use English as a second language. |
+| No unrelated changes (reformatting other files, renaming things you didn't need to). | Keeps the review about one thing. |
+| If you used an AI tool, you are still responsible for every line. Check and run all of it. | AI tools invent outputs and links. |
+
+### Commit messages
+
+Say what the commit does, in plain words: `Fix the port number in API testing step 3`.
+One idea per commit is best.
+
+### Review is about the work, not the person
+
+Every reviewer and contributor follows the [Code of Conduct](CODE_OF_CONDUCT.md).
+Questions are welcome. Nobody is expected to know everything.
 
 ## Licenses
 

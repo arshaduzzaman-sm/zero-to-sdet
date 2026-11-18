@@ -49,6 +49,27 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-18 · Phase 4 · Everyday tools, plus home page note and pull request rules
+
+**Done**
+
+- `docs/infrastructure/everyday-tools/index.md`: copy a request as curl (browser, Postman, Bruno), try it, decide the checks, turn it into a pytest test, keep tokens in environment variables, run, debug in VS Code. Every output is from a real run against DummyJSON.
+- Kit `modules/infrastructure/everyday_tools/templates/everyday_kit/`: `curl_to_pytest.py` (standard library only; drops browser headers; moves `Authorization`, `Cookie`, `X-Api-Key` to `API_AUTH`, `API_COOKIE`, `API_KEY`), an example copied request, and VS Code `settings.json`, `launch.json`, `extensions.json` in a `vscode` folder (the page says to rename it to `.vscode`).
+- Topic test: 13 offline checks against a local server, plus the DummyJSON example with `ZTS_ONLINE=1`.
+- Changed from the placeholder: no Postman or Bruno collection file (both export curl, which the converter reads); log searching links to the Linux page.
+- Owner request: the home page hero no longer has "Star on GitHub". It now links to a new "Why I made this" note on the home page (everything is online; gathered, checked and put in order in one place). No project-process details on the home page.
+- Owner request: strict rules for pull requests in `CONTRIBUTING.md` (issue first for big changes, one change per PR, real outputs only, own words, no secrets or employer material, no ads, no unapproved packages, only the maintainer merges). Short version on the About page. PR form updated. `.github/CODEOWNERS` added.
+
+**Open questions**
+
+- Phase 9 (owner, GitHub settings): protect `main` (require a pull request, passing checks and Code Owner review) so the CODEOWNERS rule takes effect.
+
+**Next step**
+
+CI/CD for testers, to finish Phase 4.
+
+---
+
 ## 2026-11-18 · Phase 4 · Debugging toolkit
 
 **Done**
