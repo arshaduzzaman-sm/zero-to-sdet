@@ -50,6 +50,21 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-18 · Phase 5 · Your first weeks in a new job
+
+**Done**
+
+- `docs/professional-sdet/your-first-weeks/index.md` (solution-level format): the first month as a plan with a diagram and proof per week, access and questions, run the suite before reading it (`--collect-only`), map the framework, follow one test, map the system, a first useful pull request, earning trust, the 30-60-90 plan, errors table.
+- Kit `modules/professional_sdet/your_first_weeks/templates/first_weeks_kit/`: `map_test_suite.py` (standard library `ast`; tests per file, fixtures and scope, markers, skips with or without a reason, environment variables, fixed waits, addresses), a small `sample_framework` "written by someone else", a framework reading checklist, questions to ask. The onboarding checklist and 30-60-90 plan are reused from the SDET role topic, not copied.
+- `--collect-only` outputs captured in a clean virtual environment (no Playwright plugin), so they match what a reader sees.
+- Topic test: 28 checks.
+
+**Next step**
+
+Phase 5: SDET in Agile.
+
+---
+
 ## 2026-11-18 · Phase 5 · A day in the life
 
 **Done**

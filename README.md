@@ -233,7 +233,7 @@ Click a stage to open it.
 **Working in a team**
 
 - [A day in the life](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/a-day-in-the-life/): Plan the day: nightly run, stand-up, one ticket end to end, reviews, handover.
-- [Your first weeks in a new job](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/your-first-weeks/): Learn a framework someone else wrote and earn trust in a new team. *(coming soon)*
+- [Your first weeks in a new job](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/your-first-weeks/): Map a framework you didn't write, make a first useful change, earn trust.
 - [SDET in Agile](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/sdet-in-agile/): Scrum, user stories, Three Amigos and shift-left, from a tester's view. *(coming soon)*
 - [Git in a team](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/git-in-a-team/): Branches, good pull requests, code review and merge conflicts. *(coming soon)*
 - [Jira and test management](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/jira-and-test-management/): Tickets, workflows, and linking tests to stories. *(coming soon)*

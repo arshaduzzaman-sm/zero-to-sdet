@@ -24,9 +24,9 @@ Knowing tools is half the job. This pillar covers how SDETs work with people: in
 
 -   [**Your first weeks in a new job**](your-first-weeks/index.md)
 
-    Learn a framework someone else wrote and earn trust in a new team.
+    Map a framework you didn't write, make a first useful change, earn trust.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**SDET in Agile**](sdet-in-agile/index.md)
 
