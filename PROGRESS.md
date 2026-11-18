@@ -49,6 +49,24 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-18 · Phase 4 · Networking for testers
+
+**Done**
+
+- `docs/infrastructure/networking-for-testers/` (was "Coming soon"): the four steps of every request (name, connect, HTTPS, answer) and who to talk to for each; name problems; refused vs timed out; certificate errors (expired, wrong name, self-signed, missing trusted list); redirects and slow answers; cookie flags and CORS; a checklist; errors table. Real outputs from example.com, badssl.com (a public site broken on purpose for practice) and a local practice server.
+- Kit `modules/infrastructure/networking_for_testers/templates/net_kit/`: `net_check.py` (Python only; uses certifi if installed; names the failing step; shows redirects, cookie flags and CORS answers), `practice_server.py` (127.0.0.1, planted cookie and CORS problems, a slow page, a redirect), `network_checklist.md`, `requirements.txt` (certifi, already pinned).
+- Found while building: the uv Python has no trusted certificate list, so even example.com failed; the script now uses certifi, and the page teaches the error. badssl.com sometimes resets connections; the script now explains that instead of crashing.
+
+**Check it**
+
+`bash scripts/check.sh` passes; `ZTS_ONLINE=1` adds the example.com and badssl.com checks (14 passed).
+
+**Next step**
+
+Phase 4: Debugging toolkit.
+
+---
+
 ## 2026-11-18 · Phase 4 · Linux and shell (owner: "complete it, we will update later")
 
 **Done**

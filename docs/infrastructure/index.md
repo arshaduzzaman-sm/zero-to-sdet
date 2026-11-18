@@ -24,9 +24,9 @@ Tests need somewhere to run. This pillar covers the pipelines, containers, serve
 
 -   [**Networking for testers**](networking-for-testers/index.md)
 
-    DNS, ports, HTTPS, cookies and CORS, explained for testers.
+    Name, port, certificate, answer: find which step breaks, with a ready script.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Debugging toolkit**](debugging-toolkit/index.md)
 
