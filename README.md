@@ -177,7 +177,7 @@ Click a stage to open it.
 
 **Your toolkit**
 
-- [Linux and shell](https://arshaduzzaman-sm.github.io/zero-to-sdet/infrastructure/linux-and-shell/): The commands you need to read logs and move around a server. *(coming soon)*
+- [Linux and shell](https://arshaduzzaman-sm.github.io/zero-to-sdet/infrastructure/linux-and-shell/): Read logs, search with grep, count with pipes, find ports, a ready log script.
 - [Networking for testers](https://arshaduzzaman-sm.github.io/zero-to-sdet/infrastructure/networking-for-testers/): DNS, ports, HTTPS, cookies and CORS, explained for testers. *(coming soon)*
 - [Debugging toolkit](https://arshaduzzaman-sm.github.io/zero-to-sdet/infrastructure/debugging-toolkit/): Find the real cause of a failure with DevTools, curl and stack traces. *(coming soon)*
 - [Everyday tools](https://arshaduzzaman-sm.github.io/zero-to-sdet/infrastructure/everyday-tools/): Postman or Bruno, the VS Code debugger, and searching big logs. *(coming soon)*

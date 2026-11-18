@@ -49,6 +49,25 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-18 · Phase 4 · Linux and shell (owner: "complete it, we will update later")
+
+**Done**
+
+- Owner asked to finish the project without stopping; remaining "Coming soon" topics are now built one by one in brief order, each as one practical step-by-step page with real outputs.
+- `docs/infrastructure/linux-and-shell/` (was "Coming soon"): get a shell (Git Bash or WSL on Windows), move around, read big logs (`wc`, `tail`, `less`, `tail -f`), search with `grep` (`-c -i -n -v -r -C`), count with pipes (`awk | sort | uniq -c`), follow one request id across log files, a ready `log_summary.sh`, ports, processes, variables and exit codes, errors table.
+- Kit `modules/infrastructure/linux_and_shell/templates/shell_kit/`: `make_practice_logs.py` (same 400 + 18 lines everywhere, UTC times), `log_summary.sh`, `shell_cheat_sheet.md`. Topic test checks the logs are identical every time and the script prints what the page shows.
+- Found while building: the ZIP doesn't keep the run permission, so the page says `chmod +x` first; `ls -la` output was left off the page (it shows the login name and local time); GNU grep's binary message was reproduced in a Linux container.
+
+**Check it**
+
+`bash scripts/check.sh` passes. The download was tested in a clean folder.
+
+**Next step**
+
+Phase 4: Networking for testers.
+
+---
+
 ## 2026-11-18 · Work Playbooks · Guide: test file upload and CSV import, step by step
 
 **Done**

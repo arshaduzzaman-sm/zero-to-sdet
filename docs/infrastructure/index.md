@@ -1,7 +1,7 @@
 ---
 title: "Infrastructure for Testers: CI/CD, Docker, Linux and Debugging"
 description: "Learn the tools around your tests: CI/CD pipelines, Docker, Linux, networking, debugging, cloud and observability."
-updated: "2026-11-17"
+updated: "2026-11-18"
 nav_title: "Infrastructure"
 order: 40
 ---
@@ -18,9 +18,9 @@ Tests need somewhere to run. This pillar covers the pipelines, containers, serve
 
 -   [**Linux and shell**](linux-and-shell/index.md)
 
-    The commands you need to read logs and move around a server.
+    Read logs, search with grep, count with pipes, find ports, a ready log script.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Networking for testers**](networking-for-testers/index.md)
 
