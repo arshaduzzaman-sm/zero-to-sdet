@@ -9,7 +9,7 @@ tags:
 nav_title: "Static testing and reviews"
 order: 50
 summary: "Find bugs before any code runs, by reviewing requirements and stories."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # Static Testing and Reviews: Find Bugs Before Any Code Runs
@@ -145,7 +145,7 @@ Review one story per sprint with the worksheet, even when nobody asks. Next, rea
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/static-testing-and-reviews.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/think_like_a_tester/static_testing_and_reviews/templates).
 
 Copy these into your own notes or project. Each file starts with a line that says where it came from.
 

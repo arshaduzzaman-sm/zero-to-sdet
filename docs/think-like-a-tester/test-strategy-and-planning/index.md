@@ -9,7 +9,7 @@ tags:
 nav_title: "Test strategy and planning"
 order: 80
 summary: "Decide what to test first, what not to automate, and when testing is done."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # Test Strategy and Planning: Decide What to Test, How Deeply, and When You're Done
@@ -142,7 +142,7 @@ When you start automating, the [pytest framework](../../core-automation/pytest-f
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/test-strategy-and-planning.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/think_like_a_tester/test_strategy_and_planning/templates).
 
 Copy these into your own project. Each file starts with a line that says where it came from.
 

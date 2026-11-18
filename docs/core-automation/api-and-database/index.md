@@ -10,7 +10,7 @@ nav_title: "API + database"
 order: 50
 group: "API and databases"
 summary: "Call the API, then prove the change landed in the database."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # API + Database Testing With pytest: Check What the API Really Saved
@@ -139,7 +139,7 @@ Next, [data-driven testing](../data-driven-testing/index.md) runs the same check
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/api-and-database.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/core_automation/api_and_database/templates).
 
 Copy the whole `api_db_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 

@@ -10,7 +10,7 @@ nav_title: "Test a new API endpoint"
 order: 10
 group: "API work"
 summary: "From \"please test this by Friday\" to a plan, tests and a report."
-updated: "2026-11-17"
+updated: "2026-11-18"
 ---
 
 # How to Test a New API Endpoint When the Docs Are Thin
@@ -205,7 +205,7 @@ For this endpoint, the summary would read: *"The happy path works. Bad input is 
 
 ## Templates
 
-**[Download every file for this playbook (ZIP)](../../downloads/new-api-endpoint.zip)**: the probe, the cases, the plan, the checks and the report in one folder. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/work_playbooks/new_api_endpoint/templates).
 
 === "api_probe.py"
 

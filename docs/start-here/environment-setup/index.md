@@ -9,7 +9,7 @@ tags:
 nav_title: "Environment setup"
 order: 20
 summary: "Install Python, VS Code and Docker, and run your first tests from a download."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # Environment Setup: Python, VS Code and Docker for Test Automation
@@ -169,19 +169,17 @@ Docker runs programs in **containers**: sealed boxes with everything the program
 
 ### 6. Get the files for a topic
 
-Every topic page has a **Templates** section with a download link: **Download every file for this topic (ZIP)**. The ZIP has every template and example of that topic, in one folder.
+Every topic page has a **Templates** section. Each file is in its own tab, and every code block has a **copy** button in its top-right corner.
 
-1. Open [pytest framework](../../core-automation/pytest-framework/index.md#templates) and click the download link.
-2. Unzip it. You get a folder called `pytest-framework`, with `templates/` (files to copy into your own work) and `examples/` (the code the lessons run) inside.
-
-!!! note "The Practice App needs the whole project"
-    The topic downloads don't include the Practice App. For it, get the whole project once, with Git:
+- **A few files?** Make a new folder, make each file with the same name, and paste the code in.
+- **A bigger project?** Get the whole site's code once, with Git. Every topic's files are then in the `modules/` folder:
 
     ```bash
     git clone https://github.com/arshaduzzaman-sm/zero-to-sdet.git
+    cd zero-to-sdet/modules/core_automation/pytest_framework/templates
     ```
 
-    Or, on the [project's GitHub page](https://github.com/arshaduzzaman-sm/zero-to-sdet), click **Code**, then **Download ZIP**. The [Practice App tour](../practice-app-tour/index.md) starts it from there.
+    No Git? On the [project's GitHub page](https://github.com/arshaduzzaman-sm/zero-to-sdet), click **Code**, then **Download ZIP**.
 
 ### 7. Run your first tests
 
@@ -190,7 +188,7 @@ This is the routine for every project, on this site and at work.
 1. **Go into the project folder.** `cd` means "change directory". Drag the folder onto the terminal window to paste its path, or type it:
 
     ```bash
-    cd pytest-framework/templates/pytest_skeleton
+    cd zero-to-sdet/modules/core_automation/pytest_framework/templates/pytest_skeleton
     ```
 
 2. **Make a virtual environment with Python 3.13, and turn it on:**
@@ -262,7 +260,7 @@ If you can't install programs, for example on a locked work laptop, use **GitHub
 GitHub gives free accounts a monthly allowance of Codespaces hours. Stop the codespace when you're done, so it doesn't use them up.
 
 !!! success "Check: you should now be able to"
-    Open a terminal, check your Python is 3.13, run Docker's test container, download a topic's ZIP, make a virtual environment with 3.13, install its `requirements.txt`, and see `3 passed`.
+    Open a terminal, check your Python is 3.13, run Docker's test container, get a topic's files, make a virtual environment with 3.13, install its `requirements.txt`, and see `3 passed`.
 
 ## When it goes wrong
 
@@ -293,11 +291,11 @@ GitHub gives free accounts a monthly allowance of Codespaces hours. Stop the cod
 
 ## Try it yourself
 
-Download the [data-driven testing](../../core-automation/data-driven-testing/index.md#templates) ZIP, and run the tests in its `templates/data_driven_tests` folder in a new virtual environment.
+Run the [data-driven testing](../../core-automation/data-driven-testing/index.md#templates) tests in a new virtual environment. In the project you got with Git (step 6), they are in `modules/core_automation/data_driven_testing/templates/data_driven_tests`.
 
 ??? success "Solution"
     ```bash
-    cd data-driven-testing/templates/data_driven_tests
+    cd zero-to-sdet/modules/core_automation/data_driven_testing/templates/data_driven_tests
     python3.13 -m venv .venv
     source .venv/bin/activate         # Windows: .venv\Scripts\Activate.ps1
     python -m pip install -r requirements.txt

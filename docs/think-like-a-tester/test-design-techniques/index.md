@@ -9,7 +9,7 @@ tags:
 nav_title: "Test design techniques"
 order: 40
 summary: "Boundary values, decision tables and more: find the tests that catch the most bugs."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # Test Design Techniques: Find the Tests That Catch the Most Bugs
@@ -143,7 +143,7 @@ Use the worksheets on your next real story, even a small one. After a few times,
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/test-design-techniques.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/think_like_a_tester/test_design_techniques/templates).
 
 Copy these into your own notes or project. Each file starts with a line that says where it came from.
 

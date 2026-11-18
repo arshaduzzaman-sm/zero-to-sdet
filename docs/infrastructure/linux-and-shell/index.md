@@ -30,7 +30,7 @@ A **shell** is the text window where you type commands. Servers use **bash**; ma
 | **Linux** | Terminal |
 | **Windows** | **Git Bash** (comes with [Git for Windows](https://git-scm.com/downloads/win)), or WSL. Not PowerShell: its commands are different |
 
-1. **Download the kit**: [linux-and-shell.zip](../../downloads/linux-and-shell.zip). Unzip it, and open a terminal in the `templates/shell_kit` folder.
+1. **Get the files**: copy them from [Templates](#templates) below into a new folder, or take the whole folder [from GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/infrastructure/linux_and_shell/templates). Then open a terminal in the `shell_kit` folder.
 2. **Make the practice logs**: one hour of a small web shop's logs, the same on every computer:
 
     ```bash
@@ -184,7 +184,7 @@ When you report a bug from the app, look for the request id in the browser's dev
 
 For the first look at any log, the kit has `log_summary.sh`: lines per level, the most common errors, the slowest requests.
 
-The first time, allow it to run (a ZIP file doesn't keep that setting):
+The first time, allow it to run (a copied file doesn't have that setting yet):
 
 ```bash
 chmod +x log_summary.sh
@@ -273,7 +273,7 @@ errors found
 
 ## Templates
 
-**[Download the kit (ZIP)](../../downloads/linux-and-shell.zip)**: the practice logs maker, the log summary script and the cheat sheet.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/infrastructure/linux_and_shell/templates).
 
 === "Cheat sheet"
 

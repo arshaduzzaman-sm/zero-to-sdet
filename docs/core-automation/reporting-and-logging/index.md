@@ -10,7 +10,7 @@ nav_title: "Reporting and logging"
 order: 90
 group: "Reports"
 summary: "Reports people can read: pytest-html, JUnit XML, logs and screenshots."
-updated: "2026-11-17"
+updated: "2026-11-18"
 ---
 
 # Test Reporting and Logging in Python With pytest
@@ -127,7 +127,7 @@ Send a developer the report of a failed run, and ask: "Can you tell what went wr
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/reporting-and-logging.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/core_automation/reporting_and_logging/templates).
 
 Copy the whole `report_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 

@@ -10,7 +10,7 @@ nav_title: "API testing"
 order: 20
 group: "API and databases"
 summary: "Send requests from Python and check status codes, JSON, headers and auth."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # API Testing With Python: Requests, Status Codes, Auth and Schemas
@@ -144,7 +144,7 @@ Next, [database testing](../database-testing/index.md) checks what the API saved
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/api-testing.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/core_automation/api_testing/templates).
 
 Copy the whole `booker_api_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 

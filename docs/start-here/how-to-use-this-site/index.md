@@ -7,7 +7,7 @@ tags:
 nav_title: "How to use this site"
 order: 10
 summary: "Pick a path, read a page, download the files, track your progress, ask for help."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # How to Use This Site: Paths, Pages, Downloads and Help
@@ -103,11 +103,11 @@ Every output on this site comes from a real run. Yours will match, except:
 - **Paths.** `...` stands for the start of a long folder path, which is different on every computer.
 - **Versions.** The last line of each page says which versions it was written for. Use those, and what you see will match.
 
-### 5. Download the files and run them
+### 5. Copy the files and run them
 
-Each topic's **Templates** section starts with **Download every file for this topic (ZIP)**: every template and example, ready to open. Or copy one file from the tabs under it. Each file starts with a line saying where it came from: keep it. The code is free to use at work, under the [MIT license](../../about.md#free-to-use-with-credit).
+Each topic's **Templates** section has every file in its own tab, with a **copy** button. The whole folder is also on GitHub. Each file starts with a line saying where it came from: keep it. The code is free to use at work, under the [MIT license](../../about.md#free-to-use-with-credit).
 
-[Environment setup](../environment-setup/index.md) shows how to install Python and Docker, then run a download, step by step.
+[Environment setup](../environment-setup/index.md) shows how to install Python and Docker, then run a topic's files, step by step.
 
 ### 6. Track your progress
 
@@ -154,10 +154,10 @@ Find the lesson that explains what to do when pytest-bdd says `Step definition i
 
 ## Quick check
 
-1. Where do you find the files for a topic, all in one download?
+1. Where do you find the files for a topic?
 
     ??? question "Answer"
-        In the topic's **Templates** section: **Download every file for this topic (ZIP)**.
+        In the topic's **Templates** section, each in a tab with a copy button. The whole folder is on GitHub too.
 
 2. Your test run says `in 0.61s` and the page says `in 0.48s`. Is something wrong?
 

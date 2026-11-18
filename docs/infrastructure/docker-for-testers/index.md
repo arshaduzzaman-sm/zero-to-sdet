@@ -10,7 +10,7 @@ nav_title: "Docker for testers"
 order: 60
 group: "Pipelines and environments"
 summary: "Run the same tests the same way on any computer."
-updated: "2026-11-17"
+updated: "2026-11-18"
 ---
 
 # Docker for Testers: Images, Test-Runner Dockerfiles and Compose Environments
@@ -133,7 +133,7 @@ Ask a teammate to run it on their computer, from a fresh clone, with only Docker
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/docker-for-testers.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/infrastructure/docker_for_testers/templates).
 
 Copy the whole `docker_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 

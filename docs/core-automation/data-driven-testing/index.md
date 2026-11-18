@@ -10,7 +10,7 @@ nav_title: "Data-driven testing"
 order: 60
 group: "API and databases"
 summary: "Feed tests from CSV, JSON, YAML or Excel, with fake data from Faker."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # Data-Driven Testing in Python: CSV, JSON, YAML, Excel, Faker and Robot Framework
@@ -148,7 +148,7 @@ Next, [BDD testing](../bdd-testing/index.md) takes readable tests further, with 
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/data-driven-testing.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/core_automation/data_driven_testing/templates).
 
 Copy the whole `data_driven_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 

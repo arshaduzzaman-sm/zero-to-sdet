@@ -84,11 +84,10 @@ flowchart LR
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/TOPIC-SLUG.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/SECTION/TOPIC/templates).
 
 <!-- One tab per main file (=== "name" with a --8<-- snippet), then a "How to use them" tab.
-     Replace TOPIC-SLUG with the topic's folder name. scripts/build_downloads.py --check
-     fails until the page links to its download. -->
+     Replace SECTION/TOPIC with the topic's folder in modules/. -->
 
 ## Bug Hunt
 

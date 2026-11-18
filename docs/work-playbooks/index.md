@@ -12,7 +12,7 @@ You have a task at work and you're not sure where to start. Each playbook takes 
 
 !!! info "How to use a playbook"
     1. Find the task that looks like yours.
-    2. Download its kit (one ZIP per playbook).
+    2. Copy its files from the page.
     3. Follow the steps with your own app's address and login.
     4. Copy the plan and the report into your ticket.
 

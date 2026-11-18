@@ -10,7 +10,7 @@ nav_title: "pytest framework"
 order: 10
 group: "Foundations"
 summary: "Your first automated tests: project layout, fixtures, parametrize and markers."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # pytest Framework: Turn Hand-Run Checks Into a Real Test Project
@@ -143,7 +143,7 @@ Next is [API testing](../api-testing/index.md), where these fixtures and environ
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/pytest-framework.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/core_automation/pytest_framework/templates).
 
 Copy these into your own project. Each file starts with a line that says where it came from.
 

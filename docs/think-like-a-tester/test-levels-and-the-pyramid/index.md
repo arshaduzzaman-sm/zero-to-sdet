@@ -9,7 +9,7 @@ tags:
 nav_title: "Test levels and the pyramid"
 order: 30
 summary: "Unit, integration, API, UI and end-to-end tests, and how many of each to write."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # Test Levels and the Test Pyramid: Which Tests to Write, and How Many
@@ -168,7 +168,7 @@ Run the pyramid report every few weeks, and add it to your team's review of the 
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/test-levels-and-the-pyramid.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/think_like_a_tester/test_levels_and_the_pyramid/templates).
 
 Copy these into your own project. Each file starts with a comment line that says where it came from.
 

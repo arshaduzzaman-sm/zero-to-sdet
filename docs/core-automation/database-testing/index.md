@@ -10,7 +10,7 @@ nav_title: "Database testing"
 order: 30
 group: "API and databases"
 summary: "Write SQL to prove the right data was saved, and test schemas and rules."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # Database Testing for Beginners: A Practical Guide With SQL and pytest
@@ -158,7 +158,7 @@ Next, [multi-database testing](../multi-database-testing/index.md) runs the same
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/database-testing.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/core_automation/database_testing/templates).
 
 Copy the whole `shop_db_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 

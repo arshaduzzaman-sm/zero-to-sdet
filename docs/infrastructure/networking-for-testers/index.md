@@ -24,7 +24,7 @@ updated: "2026-11-18"
 
 You need **Python 3.13**. If you don't have it, follow [environment setup](../../start-here/environment-setup/index.md) first.
 
-1. **Download the kit**: [networking-for-testers.zip](../../downloads/networking-for-testers.zip). Unzip it, and open a terminal in the `templates/net_kit` folder.
+1. **Get the files**: copy them from [Templates](#templates) below into a new folder, or take the whole folder [from GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/infrastructure/networking_for_testers/templates). Then open a terminal in the `net_kit` folder.
 2. Optional, for HTTPS on some computers: `python -m pip install -r requirements.txt` (installs `certifi`, a list of trusted certificates. If you have requests, you have it).
 3. **Start the practice server** in this terminal, and open a second terminal for the checks:
 
@@ -246,7 +246,7 @@ When you're done: **Ctrl+C** stops the practice server.
 
 ## Templates
 
-**[Download the kit (ZIP)](../../downloads/networking-for-testers.zip)**: the check script, the practice server and the checklist.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/infrastructure/networking_for_testers/templates).
 
 === "net_check.py"
 

@@ -27,6 +27,7 @@ Newest entry first. No secrets or personal data in this file.
 | Navigation | Seven fixed tabs; menu and section overviews generated from page front matter by `scripts/build_nav.py`. | 2026-11-15 |
 | Readability tool | pyphen + own Flesch-Kincaid formula instead of textstat (textstat pulls in nltk and 7 more packages; fewer dependencies is safer). | 2026-11-15 |
 | Share images | Own script with Pillow (owner approved): made at build time into site/, cached, never committed. Zensical cannot make them yet. | 2026-11-15 |
+| Topic downloads | No ZIP downloads (owner decision). Every file is on the page with a copy button; the whole folder is linked on GitHub. `scripts/build_downloads.py` removed. | 2026-11-18 |
 | Code of Conduct contact | LinkedIn for now; discussed again in Phase 9 (owner may create a project email). | 2026-11-15 |
 | Focus: lessons first | The site and its lessons are the main product; the Practice App is a helper. Finish Phase 1.5 small (starter set of about 6 planted bugs, one short tour page), then build lessons. After that the app only changes when a lesson needs it. Every lesson must teach fully from the page alone, with real output or a screenshot after every step, for readers who never run the app. | 2026-11-15 |
 | Pillar 6: AI-Powered QA | Owner added a new pillar of 11 topics (brief section 11 and Phase 7.5). Saved now, built later. The Pillar 3 topic "AI in testing" moves into it as "Testing AI features". Templates use a fake model in tests (offline, no key, no cost). AI provider for examples: decide when the phase starts. | 2026-11-15 |
@@ -46,6 +47,20 @@ Newest entry first. No secrets or personal data in this file.
 | pytest-playwright | `pytest-playwright` 0.10.0 added to `requirements.in` for the UI tests guide (owner said yes), pinned with hashes. New indirect packages: python-slugify 9.1.3 (capped `<9.2`: 9.2.0 was one day old) and text-unidecode 1.3. Practice site for UI: Sauce Demo (owner's choice). | 2026-11-17 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-18 · Owner decision: no ZIP downloads; full plan for the rest
+
+**Done**
+
+- Full plan for the rest of the project, approved by the owner: no ZIPs, "solution level" pages (problem, solution design with a diagram, steps, full code, real results, when stuck), and the order of the 37 remaining topics (CI/CD → Phase 5 → Toolbox → Phase 6 → Phase 7 → Phase 7.5 → Phase 8; Phase 9 with the owner).
+- Removed `scripts/build_downloads.py`, its step in `scripts/check.sh` and in `deploy/github-pages.yml`.
+- 31 pages: "Download the kit" became "Get the files: copy them from Templates below, or take the folder from GitHub". Environment setup, How to use this site and the Work Playbooks overview now explain copying and `git clone`. The new-topic template has no ZIP link.
+
+**Next step**
+
+CI/CD for testers.
 
 ---
 

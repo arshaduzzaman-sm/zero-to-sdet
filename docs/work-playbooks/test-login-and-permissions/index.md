@@ -10,7 +10,7 @@ nav_title: "Test login and permissions, step by step"
 order: 35
 group: "Login and access"
 summary: "How login works, who may do what, ready tests for tokens and access, run, read."
-updated: "2026-11-17"
+updated: "2026-11-18"
 ---
 
 # How to Test Login, Tokens and Permissions in an API, Step by Step
@@ -29,7 +29,7 @@ You'll practise on a **small practice API** that runs on your own computer. It h
 
 You need **Python 3.13** and **VS Code**. If you don't have them, follow [environment setup](../../start-here/environment-setup/index.md) first.
 
-1. **Download the template project**: [test-login-and-permissions.zip](../../downloads/test-login-and-permissions.zip). Unzip it. Inside, open the `templates/auth_tests` folder in VS Code (**File → Open Folder**).
+1. **Get the files**: copy them from [Templates](#templates) below into a new folder, or take the whole folder [from GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/work_playbooks/test_login_and_permissions/templates). Then open the `auth_tests` folder in VS Code (**File → Open Folder**).
 
 2. **Open a terminal** in VS Code (**Terminal → New Terminal**), make a virtual environment and install pytest and requests:
 
@@ -311,7 +311,7 @@ Still stuck? Go deeper:
 
 ## Templates
 
-**[Download the whole project (ZIP)](../../downloads/test-login-and-permissions.zip)**: the plan, the tests and the practice API, ready to run.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/work_playbooks/test_login_and_permissions/templates).
 
 === "test_plan.md"
 

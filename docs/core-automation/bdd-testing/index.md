@@ -10,7 +10,7 @@ nav_title: "BDD testing"
 order: 70
 group: "BDD and UI"
 summary: "Tests in plain English with Gherkin, using behave or pytest-bdd."
-updated: "2026-11-16"
+updated: "2026-11-18"
 ---
 
 # BDD Testing in Python With behave and pytest-bdd
@@ -147,7 +147,7 @@ Next, [UI automation](../ui-automation/index.md) goes deep into Playwright: loca
 
 ## Templates
 
-**[Download every file for this topic (ZIP)](../../downloads/bdd-testing.zip)**: the templates and the examples in one folder, ready to open. Or copy only the parts you need below.
+**Every file is below, ready to copy.** The whole folder is also [on GitHub](https://github.com/arshaduzzaman-sm/zero-to-sdet/tree/main/modules/core_automation/bdd_testing/templates).
 
 Copy the whole `bdd_tests` folder, or the parts you need. Each file starts with a line that says where it came from.
 
