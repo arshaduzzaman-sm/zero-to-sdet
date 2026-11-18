@@ -50,6 +50,20 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-18 · Phase 5 · A day in the life
+
+**Done**
+
+- `docs/professional-sdet/a-day-in-the-life/index.md` (solution-level format): the shape of a working day with a diagram and reasons, the nightly run before stand-up, a stand-up update template, one ticket in five moves (linked to the existing guides), pull request reviews, end-of-day handover, release day, errors table.
+- Kit `modules/professional_sdet/a_day_in_the_life/templates/day_kit/`: `morning_triage.py` (standard library; reads JUnit XML, groups the same error, splits known from new using `known_issues.txt`, exit 1 when something is new), a pretend failing nightly run, daily checklist, stand-up template, PR review checklist.
+- Topic test: 12 checks, all outputs on the page come from real runs.
+
+**Next step**
+
+Phase 5: Your first weeks in a new job.
+
+---
+
 ## 2026-11-18 · Phase 4 · CI/CD for testers (Phase 4 complete)
 
 **Done**

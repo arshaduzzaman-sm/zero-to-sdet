@@ -1,7 +1,7 @@
 ---
 title: "The Professional SDET: Teamwork, Releases, Career and Leadership"
 description: "How SDETs work in real teams: Agile, Git, releases, incidents, metrics, clean code, interviews and leading quality."
-updated: "2026-11-16"
+updated: "2026-11-18"
 nav_title: "Professional SDET"
 order: 60
 ---
@@ -18,9 +18,9 @@ Knowing tools is half the job. This pillar covers how SDETs work with people: in
 
 -   [**A day in the life**](a-day-in-the-life/index.md)
 
-    From ticket to test to bug report: what a working day looks like.
+    Plan the day: nightly run, stand-up, one ticket end to end, reviews, handover.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Your first weeks in a new job**](your-first-weeks/index.md)
 
