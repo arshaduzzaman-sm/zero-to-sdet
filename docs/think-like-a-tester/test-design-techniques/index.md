@@ -9,7 +9,7 @@ tags:
 nav_title: "Test design techniques"
 order: 40
 summary: "Boundary values, decision tables and more: find the tests that catch the most bugs."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Test Design Techniques: Find the Tests That Catch the Most Bugs
@@ -228,13 +228,6 @@ Copy these into your own notes or project. Each file starts with a line that say
     5. For settings like browsers and devices, run `python pairwise.py NAME=a,b NAME=c,d` to get a small set that covers every pair.
     6. Keep the error guessing and the two checklists next to every test plan, and add your team's own bugs to them.
     7. Put `.coveragerc` in your project's main folder, then run `python -m coverage run -m pytest` and `python -m coverage report` to find code no test runs.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, look at a rule with a limit, like free shipping from $50.00. Test one cent below the limit, exactly at it, and one cent above. Which one shows the bug?
-
-    Check your answer in the [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts), Bug Hunt **BH-01** (folded, so you can't see it by accident).
 
 ## Official resources
 

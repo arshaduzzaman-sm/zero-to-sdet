@@ -10,7 +10,7 @@ nav_title: "BDD testing"
 order: 70
 group: "BDD and UI"
 summary: "Tests in plain English with Gherkin, using behave or pytest-bdd."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # BDD Testing in Python With behave and pytest-bdd
@@ -204,11 +204,6 @@ Copy the whole `bdd_tests` folder, or the parts you need. Each file starts with 
     3. Write your own feature files with your product owner, then the steps. Keep steps thin: the drivers do the work.
     4. Use one tool or both. behave needs `features/steps/`, `features/environment.py` and `behave.ini`. pytest-bdd needs `tests/` and `pytest.ini`.
     5. The other files: `pytest.ini`, `behave.ini`, `drivers/__init__.py`, and `shop_app/` (the practice shop and the code that starts it).
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    The [Practice App](../../start-here/practice-app-tour/index.md) has a cart badge in its header. Bug Hunt BH-05 asks: add 3 of one book, then look at the badge on every page. Write it as a scenario first ("Given an empty cart, when I add 3 copies of one book, then the cart badge shows 3"), then automate it with a UI driver for the Practice App. The [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) has the folded answer.
 
 ## Official resources
 

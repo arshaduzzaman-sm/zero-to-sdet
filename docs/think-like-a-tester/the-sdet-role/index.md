@@ -9,7 +9,7 @@ tags:
 nav_title: "The SDET role"
 order: 20
 summary: "What an SDET does, how to start the job well, and the templates for your first 90 days."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # The SDET Role: What the Job Is, and How to Start It Well
@@ -189,13 +189,6 @@ Copy these into your own project and change the parts in `<angle brackets>`. Eac
     2. **Week 2:** write your 30-60-90 day plan, and agree it with your lead.
     3. **Before each automation task:** run the check through the readiness checklist. Keep the filled-in copy: it explains your choice later.
     4. **Smoke test:** save `test_smoke.py` in your test folder. Install pytest (`pip install pytest`), set `BASE_URL` to your test environment, and run `pytest test_smoke.py -v`. Without `BASE_URL`, every test is skipped, so it never fails by accident.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, compare two views of the same number. Add the same book to your cart three times, then look at the cart badge in the top bar, and at the cart page. Do they agree? Check `/api/cart` too: which one is right?
-
-    Check your answer in the [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts), Bug Hunt **BH-05** (folded, so you can't see it by accident).
 
 ## Official resources
 

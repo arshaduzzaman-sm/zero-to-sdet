@@ -9,7 +9,7 @@ tags:
 nav_title: "Environments"
 order: 70
 summary: "Run the same tests on local or staging, with secrets kept out of files."
-updated: "2026-11-16"
+updated: "2026-11-19"
 ---
 
 # Environments in pytest: Local or Staging With One Option, Secrets Kept Out
@@ -108,7 +108,7 @@ Tests with `https://staging...` written inside them break when the URL changes, 
     ====================== 1 skipped, 63 deselected in 0.07s =======================
     ```
 
-    `staging.example.com` doesn't exist, so the test skips, and the reason says why. The text in brackets comes from your system, so it looks a little different on Windows or Linux. With the [Practice App](../../start-here/practice-app-tour/index.md) running, `python -m pytest -m api` on local passes.
+    `staging.example.com` doesn't exist, so the test skips, and the reason says why. The text in brackets comes from your system, so it looks a little different on Windows or Linux.
 
 7. **Decide when a skip should be a failure.** On your laptop, "no server" is a reason to skip. In the pipeline's staging job, it's a real problem: staging should be up. A common rule: skip locally, and fail in the pipeline. You can do that with a variable, for example `if os.environ.get("CI"): pytest.fail(...)` instead of `pytest.skip(...)`.
 

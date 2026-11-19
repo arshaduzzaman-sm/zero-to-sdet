@@ -45,8 +45,24 @@ Newest entry first. No secrets or personal data in this file.
 | Data-driven testing packages | `openpyxl` 3.1.5 (with `et-xmlfile` 2.0.0) for Excel test data and `robotframework` 7.5.1 for keyword-driven testing, added to `requirements.in` and pinned with hashes. Owner said yes. Faker was already pinned; factories are plain dataclasses, so no factory library. | 2026-11-16 |
 | BDD and browser packages | `behave` 1.3.3, `pytest-bdd` 9.0.1 and `playwright` 1.64.1 added to `requirements.in`, pinned with hashes (owner said yes). New indirect packages: parse, parse-type, gherkin-official, cucumber-expressions, cucumber-tag-expressions, mako, markupsafe, six, colorama, greenlet, pyee. Releases under two weeks old are capped in `requirements.in` (playwright, gherkin-official, cucumber-expressions, cucumber-tag-expressions). Chromium for Playwright is downloaded once per computer into the user cache, never into the repo. | 2026-11-16 |
 | pytest-playwright | `pytest-playwright` 0.10.0 added to `requirements.in` for the UI tests guide (owner said yes), pinned with hashes. New indirect packages: python-slugify 9.1.3 (capped `<9.2`: 9.2.0 was one day old) and text-unidecode 1.3. Practice site for UI: Sauce Demo (owner's choice). | 2026-11-17 |
+| Practice App Tour and Bug Hunts | Removed: the tour page and the Bug Hunt boxes on 19 pages (owner: "practice app do not need"). The `practice-app/` folder itself stays. | 2026-11-19 |
+| Going public | Owner chose to publish now, before the remaining topics: repo public, Pages on, unfinished topics show "Coming soon". About page later. | 2026-11-19 |
 
 Step 0.4 is complete: every decision in brief section 14 is decided.
+
+---
+
+## 2026-11-19 · Going public (owner request)
+
+**Done**
+
+- Removed the Practice App Tour page, the Bug Hunt sections that pointed at it (19 pages), its glossary entry, the template's Bug Hunt section and the CONTRIBUTING line.
+- Code of Conduct: reports now start with an empty "Code of Conduct report" issue or GitHub's "Report content"; no LinkedIn message.
+- Before going public: gitleaks over the whole history (87 commits, no leaks), every commit authored and committed by the owner only, no AI attribution in any message, no personal paths or emails in any commit.
+
+**Next step**
+
+Make the repository public, switch Pages to GitHub Actions, move the publish workflow into `.github/workflows/`, protect `main`, and check the live site.
 
 ---
 

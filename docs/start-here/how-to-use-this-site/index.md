@@ -6,8 +6,8 @@ tags:
   - Getting started
 nav_title: "How to use this site"
 order: 10
-summary: "Pick a path, read a page, download the files, track your progress, ask for help."
-updated: "2026-11-18"
+summary: "Pick a path, read a page, copy the files, track your progress, ask for help."
+updated: "2026-11-19"
 ---
 
 # How to Use This Site: Paths, Pages, Downloads and Help
@@ -60,9 +60,8 @@ A **topic** is one area of the work, like [API testing](../../core-automation/ap
 3. **Jump to what you need**: the topic's lessons, each one skill.
 4. **Nine sections**, the way an experienced tester handles any new task: understand the ask, picture the system (a diagram), learn just enough, get something running, decide what to put in, write a one-page plan, build in small steps, check it with your team, and keep learning.
 5. **How an experienced SDET thinks about this**, **Red flags** and **Stuck? Try this**: the habits, the warning signs, and the first things to try when it doesn't work.
-6. **Templates**: the files to use at work, with a download link for all of them.
-7. **Bug Hunt** (optional): a bug to find in the [Practice App](../practice-app-tour/index.md).
-8. **Official resources**: where to read more.
+6. **Templates**: the files to use at work, ready to copy, with a link to the whole folder on GitHub.
+7. **Official resources**: where to read more.
 
 ### 3. Read a lesson
 

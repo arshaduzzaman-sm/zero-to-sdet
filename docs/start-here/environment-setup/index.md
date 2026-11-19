@@ -8,8 +8,8 @@ tags:
   - Docker
 nav_title: "Environment setup"
 order: 20
-summary: "Install Python, VS Code and Docker, and run your first tests from a download."
-updated: "2026-11-18"
+summary: "Install Python, VS Code and Docker, and run your first tests."
+updated: "2026-11-19"
 ---
 
 # Environment Setup: Python, VS Code and Docker for Test Automation

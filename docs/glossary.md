@@ -610,11 +610,6 @@ that teaches it.
 
     Learn more: [Positive and negative cases](think-like-a-tester/test-cases/positive-and-negative-cases.md)
 
-[](){ #practice-app }**Practice App**
-:   The small online shop built for this site. It runs on your own computer and has bugs planted on purpose for you to find.
-
-    Learn more: [Practice App tour](start-here/practice-app-tour/index.md)
-
 [](){ #pre-commit }**pre-commit**
 :   A tool that runs checks automatically every time you commit, and stops the commit if something is wrong.
 

@@ -9,7 +9,7 @@ tags:
 nav_title: "Python for testers"
 order: 30
 summary: "Just enough Python to write real tests: data, loops, functions, classes and files."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Python for Testers: Just Enough Python to Write Real Tests and Tools
@@ -171,11 +171,6 @@ Copy these into your own project. Each file starts with a line that says where i
     2. **compare_json.py:** compare an expected API response with the real one. Use `--ignore` for values that change every time, like IDs and dates. The [JSON lesson](json.md) shows it in use.
     3. **script_starter.py:** copy it whenever you start a new helper script. It already has arguments, a clear error for a missing file, and exit codes.
     4. **The exercises:** in the `exercises` folder, fill in each function, then run `python -m pytest` there. The answers are in `solutions`, but try first.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../practice-app-tour/index.md) running, save the answer from `http://127.0.0.1:8080/api/health` as a JSON file. Use `compare_json.py` to compare it with what the [Practice App tour](../practice-app-tour/index.md) says it should contain.
 
 ## Official resources
 

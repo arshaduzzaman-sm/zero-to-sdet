@@ -9,7 +9,7 @@ tags:
 nav_title: "Learning a new testing area"
 order: 10
 summary: "A 9-step playbook for any testing task you have never done before."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Learning a New Testing Area: a 9-Step Playbook for Any Task
@@ -200,13 +200,6 @@ Copy these into your own project. Each one starts with a comment line that says 
     ```markdown
     --8<-- "modules/think_like_a_tester/learning_a_new_testing_area/examples/password_reset_test_plan.md"
     ```
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, use the playbook on its password reset. Follow steps 1 to 7 above. The risk list in step 5 already points at a planted bug. Hint: try the "High" risks first. One of them doesn't behave the way the email says.
-
-    Check your answer in the [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts), Bug Hunt **BH-06** (folded, so you can't see it by accident).
 
 ## Official resources
 

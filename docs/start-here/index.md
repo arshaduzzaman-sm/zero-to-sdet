@@ -1,7 +1,7 @@
 ---
 title: "Start Here: How to Begin Your SDET Journey"
 description: "Start here if you are new: set up your computer and learn just enough Python for testing."
-updated: "2026-11-18"
+updated: "2026-11-19"
 nav_title: "Start Here"
 order: 10
 ---
@@ -58,25 +58,19 @@ word in plain English.
 
 -   [**How to use this site**](how-to-use-this-site/index.md)
 
-    Pick a path, read a page, download the files, track your progress, ask for help.
+    Pick a path, read a page, copy the files, track your progress, ask for help.
 
     <span class="zts-chip">Beginner</span>
 
 -   [**Environment setup**](environment-setup/index.md)
 
-    Install Python, VS Code and Docker, and run your first tests from a download.
+    Install Python, VS Code and Docker, and run your first tests.
 
     <span class="zts-chip">Beginner</span>
 
 -   [**Python for testers**](python-for-testers/index.md)
 
     Just enough Python to write real tests: data, loops, functions, classes and files.
-
-    <span class="zts-chip">Beginner</span>
-
--   [**Practice App tour**](practice-app-tour/index.md)
-
-    Meet the small online shop you will test in every lesson.
 
     <span class="zts-chip">Beginner</span>
 

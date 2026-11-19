@@ -89,11 +89,6 @@ flowchart LR
 <!-- One tab per main file (=== "name" with a --8<-- snippet), then a "How to use them" tab.
      Replace SECTION/TOPIC with the topic's folder in modules/. -->
 
-## Bug Hunt
-
-<!-- Optional: an "Optional: try it on the Practice App" box with a planted bug.
-     Answers on the tour page, folded by default. -->
-
 ## Official resources
 
 <!-- Official documentation only. -->

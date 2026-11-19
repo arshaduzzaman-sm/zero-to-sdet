@@ -31,7 +31,7 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:debugging" title="Finding out why something failed, step by step.">Debugging <span class="zts-tag__count">11</span></a>
 <a class="zts-tag" href="#tag:docker" title="Running apps and tests in containers, the same way on every computer.">Docker <span class="zts-tag__count">8</span></a>
 <a class="zts-tag" href="#tag:flaky-tests" title="Tests that pass one day and fail the next, and how to fix them.">Flaky tests <span class="zts-tag__count">1</span></a>
-<a class="zts-tag" href="#tag:getting-started" title="The first pages to read if you are new.">Getting started <span class="zts-tag__count">10</span></a>
+<a class="zts-tag" href="#tag:getting-started" title="The first pages to read if you are new.">Getting started <span class="zts-tag__count">9</span></a>
 <a class="zts-tag" href="#tag:git" title="Saving and sharing code changes with your team.">Git <span class="zts-tag__count">2</span></a>
 <a class="zts-tag" href="#tag:interviews" title="Getting ready for SDET job interviews.">Interviews <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:leadership" title="Leading quality for a team or a whole company.">Leadership <span class="zts-tag__count">2</span></a>
@@ -43,7 +43,7 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:observability" title="Logs, metrics and traces that show what an app is doing.">Observability <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:performance" title="Checking that the app stays fast when many people use it.">Performance <span class="zts-tag__count">3</span></a>
 <a class="zts-tag" href="#tag:playwright" title="Automating web pages with Playwright.">Playwright <span class="zts-tag__count">14</span></a>
-<a class="zts-tag" href="#tag:practice-app" title="The small online shop you test in every lesson.">Practice App <span class="zts-tag__count">2</span></a>
+<a class="zts-tag" href="#tag:practice-app" title="The small online shop you test in every lesson.">Practice App <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:pytest" title="The Python test tool used across this site.">pytest <span class="zts-tag__count">57</span></a>
 <a class="zts-tag" href="#tag:python" title="The programming language used for every example on this site.">Python <span class="zts-tag__count">38</span></a>
 <a class="zts-tag" href="#tag:quality-metrics" title="Numbers that show how good the product and the testing are.">Quality metrics <span class="zts-tag__count">2</span></a>

@@ -9,7 +9,7 @@ tags:
 nav_title: "Test strategy and planning"
 order: 80
 summary: "Decide what to test first, what not to automate, and when testing is done."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Test Strategy and Planning: Decide What to Test, How Deeply, and When You're Done
@@ -188,11 +188,6 @@ Copy these into your own project. Each file starts with a line that says where i
     2. Write the plan in `test_plan.md`. Keep `exit_criteria.toml` next to it, and run `python exit_check.py exit_criteria.toml results.toml` before sign-off.
     3. For each check you might automate, go through the checklist, and run `automation_roi.py` with your own numbers.
     4. The scripts need only Python 3.11 or newer. Nothing to install.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, write a risk list for its checkout, score it, and spend 30 minutes on the deep risks only. Did the risk order lead you to any of the planted bugs? Compare with the [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) answers.
 
 ## Official resources
 

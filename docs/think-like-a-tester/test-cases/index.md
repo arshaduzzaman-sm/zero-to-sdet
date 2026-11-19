@@ -9,7 +9,7 @@ tags:
 nav_title: "Test cases"
 order: 60
 summary: "Write clear test cases, positive and negative, linked to what they check."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Test Cases: Write Clear Checks Anyone Can Run, and Link Them to the Rules
@@ -175,11 +175,6 @@ Copy these into your own project. Each file starts with a line that says where i
     2. Give every requirement an ID (like REF-1), and put it in the Covers column of each case.
     3. Run `python traceability.py requirements.txt test_cases.csv` to see gaps.
     4. For automated tests, save the covers plugin as `conftest.py`, mark tests with `@pytest.mark.covers("REF-1")`, and run `pytest --requirements REF-1,REF-2`.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, pick one feature, like the cart or password reset, and write three test cases with the Markdown template: one positive, one negative, one at a limit. Run them by hand. Did each expected result say exactly what you saw?
 
 ## Official resources
 

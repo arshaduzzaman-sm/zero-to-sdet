@@ -216,11 +216,6 @@ Copy the whole `booker_api_tests` folder, or the parts you need. Each file start
     3. For your own API: change `BOOKER_URL`, the login in `api/auth.py`, the test data in `api/data.py`, and the schemas.
     4. Keep the patterns: one file per resource or method, a fixture that cleans up, `check_status` for clear failures, a schema check on every body.
 
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, point `ApiClient` at `http://127.0.0.1:8080` and write a test for Bug Hunt BH-04: can one customer download another customer's invoice? The [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) has the folded answer.
-
 ## Official resources
 
 - [Requests: Quickstart](https://requests.readthedocs.io/en/latest/user/quickstart/)

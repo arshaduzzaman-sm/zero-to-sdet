@@ -10,7 +10,7 @@ nav_title: "Multi-database testing"
 order: 40
 group: "API and databases"
 summary: "Run one test on MySQL, PostgreSQL, SQLite and MongoDB."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Multi-Database Testing With Python: PostgreSQL, MySQL, SQLite and MongoDB
@@ -194,11 +194,6 @@ Copy the whole `multi_db_tests` folder, or the parts you need. Each file starts 
     3. For your own databases: change `config/databases.yaml`, the `schema.sql` files in `queries/`, the CSV files in `test_data/`, and the expected values in the tests.
     4. Against real databases, set `LOAD_TEST_DATA=none`. Loading test data drops and re-creates the tables.
     5. The other files: `postgres_client.py`, `mysql_client.py` and `sqlite_client.py` in `db_clients/`, the per-database queries in `queries/`, and the test data in `test_data/`.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    The [Practice App](../../start-here/practice-app-tour/index.md) copies its orders from PostgreSQL to a MySQL reporting database. Bug Hunt BH-03 asks: cancel an order, then check whether the reports still count it as a sale. Point a copy of this template at both databases, with `LOAD_TEST_DATA=none`, and compare. The [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) has the folded answer.
 
 ## Official resources
 

@@ -9,7 +9,7 @@ tags:
 nav_title: "Static testing and reviews"
 order: 50
 summary: "Find bugs before any code runs, by reviewing requirements and stories."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Static Testing and Reviews: Find Bugs Before Any Code Runs
@@ -198,11 +198,6 @@ Copy these into your own notes or project. Each file starts with a line that say
     3. Send the questions as a numbered list, each with your best guess.
     4. Use the comment labels from the review comments guide in every review, for stories and code.
     5. For code: save the pre-commit file as `.pre-commit-config.yaml` and the Ruff file as `ruff.toml` in your project's main folder, then run `pre-commit install`.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, open its API docs and read the description of one endpoint, like the cart or the password reset, without calling it. Write down every word that could mean two things, and one case the description doesn't cover. Then call the endpoint and see which meaning the app picked.
 
 ## Official resources
 

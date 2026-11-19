@@ -10,7 +10,7 @@ nav_title: "Reporting and logging"
 order: 90
 group: "Reports"
 summary: "Reports people can read: pytest-html, JUnit XML, logs and screenshots."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Test Reporting and Logging in Python With pytest
@@ -163,11 +163,6 @@ Copy the whole `report_tests` folder, or the parts you need. Each file starts wi
     4. Copy the hooks in `tests/conftest.py`: the report title, the test name in the log, and the screenshot on failure. Point `SHOP_URL` at your app; delete `shop_app/` when you don't need it.
     5. Keep `tests/test_logging.py`: it fails the day someone logs a password.
     6. The other files: `tests/test_api.py`, `tests/test_pages.py`, `requirements.txt` and `.gitignore` (keeps `reports/` out of Git).
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    Point this suite's API client at the [Practice App](../../start-here/practice-app-tour/index.md) and log every call while you work through its Bug Hunts. When you find a bug, attach the log lines of the failing call to your bug report. The [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) lists the hunts, with folded answers.
 
 ## Official resources
 

@@ -10,7 +10,7 @@ nav_title: "Data-driven testing"
 order: 60
 group: "API and databases"
 summary: "Feed tests from CSV, JSON, YAML or Excel, with fake data from Faker."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Data-Driven Testing in Python: CSV, JSON, YAML, Excel, Faker and Robot Framework
@@ -207,11 +207,6 @@ Copy the whole `data_driven_tests` folder, or the parts you need. Each file star
     3. Keep a `case` column (or pass `id_field=`) and, for known failures, a `known_bug` column.
     4. Point `test_discounts_excel.py` at the real sheet and its name. `tools/make_discount_sheet.py` only builds the sample.
     5. The other files: `test_order_totals_json.py`, `test_shipping_yaml.py`, `robot/signup_rules.robot`, and the JSON and YAML files in `test_data/`.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    The [Practice App](../../start-here/practice-app-tour/index.md) gives free shipping from $50.00. Bug Hunt BH-01 asks: what happens at exactly $50.00? Write the cart totals as rows (49.99, 50.00, 50.01) and run them through one test. The [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) has the folded answer.
 
 ## Official resources
 

@@ -10,7 +10,7 @@ nav_title: "API + database"
 order: 50
 group: "API and databases"
 summary: "Call the API, then prove the change landed in the database."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # API + Database Testing With pytest: Check What the API Really Saved
@@ -192,11 +192,6 @@ Copy the whole `api_db_tests` folder, or the parts you need. Each file starts wi
     3. For your own API: change the paths and fields in the fixtures and tests, the table and column names in the SQL, and the expected values.
     4. Keep `cleanup.add` on every row a test makes, and wait for late writes before cleanup, as `place_order` does.
     5. Point it at a test database only. The tests insert and delete rows.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    The [Practice App](../../start-here/practice-app-tour/index.md) has an API and a PostgreSQL database. Bug Hunt BH-03 asks: cancel an order, then check whether the reports still count it as a sale. Do it as an API + database test: cancel through the app, then read the order's row and the reports database, with a copy of this template pointed at them. The [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) has the folded answer.
 
 ## Official resources
 

@@ -10,7 +10,7 @@ nav_title: "Database testing"
 order: 30
 group: "API and databases"
 summary: "Write SQL to prove the right data was saved, and test schemas and rules."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Database Testing for Beginners: A Practical Guide With SQL and pytest
@@ -222,11 +222,6 @@ Copy the whole `shop_db_tests` folder, or the parts you need. Each file starts w
     2. Start a test database, set `DATABASE_URL`, then `python -m pytest`. Without it, every test is skipped with a reason.
     3. For your own database: in `tests/conftest.py`, delete the lines that make the `shop_test` schema and run the `.sql` files. Change `EXPECTED` and the rules to match your tables.
     4. Keep the patterns: everything through the `db` fixture, exact error classes, one rule per test, and a test that proves each rule can fail.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, open its main database with `docker compose exec postgres psql -U bookshelf -d bookshelf` from the `practice-app` folder, and list its tables with `\dt`. Then write data rules for its `orders`, `order_items` and `payments` tables, and run them. Read, don't change: `SELECT` is safe. If you do change something, `docker compose exec app python -m bookshelf reset` restores the seed data. The [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) lists the Bug Hunts.
 
 ## Official resources
 

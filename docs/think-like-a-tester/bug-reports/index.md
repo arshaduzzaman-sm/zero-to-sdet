@@ -9,7 +9,7 @@ tags:
 nav_title: "Bug reports"
 order: 70
 summary: "Report a bug so a developer can fix it fast: steps, severity and priority."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Bug Reports: Write Reports Developers Can Act On Fast
@@ -156,11 +156,6 @@ Copy these into your own project. Each file starts with a line that says where i
     1. Write each bug in the Markdown template, then run `python bug_report_check.py my_bug.md` before you send it.
     2. On GitHub, save the issue form as `.github/ISSUE_TEMPLATE/bug_report.yml`. Everyone who opens a bug then gets the same fields.
     3. Agree the severity guide with your team once, and link it from the form or the README.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, find any one of its planted bugs, then write a full report with the template and run the checker on it. Compare your report with the answer in the [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) (folded, so you can't see it by accident).
 
 ## Official resources
 

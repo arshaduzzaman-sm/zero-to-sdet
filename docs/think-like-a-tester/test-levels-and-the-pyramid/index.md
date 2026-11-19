@@ -9,7 +9,7 @@ tags:
 nav_title: "Test levels and the pyramid"
 order: 30
 summary: "Unit, integration, API, UI and end-to-end tests, and how many of each to write."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Test Levels and the Test Pyramid: Which Tests to Write, and How Many
@@ -203,13 +203,6 @@ Copy these into your own project. Each file starts with a comment line that says
     3. Run one level with `pytest -m unit`, or skip the slow ones with `pytest -m "not ui"`.
     4. Put `pyramid_report.py` in the main folder and run `python pyramid_report.py` to see the shape.
     5. Print the decision chart, or keep it open, when you plan new tests.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, find a bug that a unit test could catch, but that you can also see in the browser. Hint: look at money, right at a limit. Then ask yourself: which is the lowest level that would have caught it?
-
-    Check your answer in the [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts), Bug Hunt **BH-01** (folded, so you can't see it by accident).
 
 ## Official resources
 

@@ -10,7 +10,7 @@ nav_title: "UI automation"
 order: 80
 group: "BDD and UI"
 summary: "Click, type and check web pages with Playwright and Page Objects."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # UI Automation in Python With Playwright and Page Objects
@@ -189,11 +189,6 @@ Copy the whole `ui_tests` folder, or the parts you need. Each file starts with a
     3. Write one page object per page of your app in `pages/`, starting with the page your first test needs. Keep the header (or any part on many pages) as its own component.
     4. Write tests in `tests/`. Set up through your API, check through the page with `expect()`.
     5. The other files: `pages/login_page.py`, `pages/__init__.py`, `tests/test_books.py`, `tests/test_login.py`, `first_look.py` (a first script without pytest), `requirements.txt` and `.gitignore` (keeps `reports/` out of Git).
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    The [Practice App](../../start-here/practice-app-tour/index.md) has its own cart badge in the header. Bug Hunt BH-05 asks: add 3 copies of one book, then look at the badge on every page. Write a `Header` component and a test for it with this template's patterns, and run it against the Practice App with `SHOP_URL`. The [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) has the folded answer.
 
 ## Official resources
 

@@ -10,7 +10,7 @@ nav_title: "Docker for testers"
 order: 60
 group: "Pipelines and environments"
 summary: "Run the same tests the same way on any computer."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # Docker for Testers: Images, Test-Runner Dockerfiles and Compose Environments
@@ -175,11 +175,6 @@ Copy the whole `docker_tests` folder, or the parts you need. Each file starts wi
     4. In `docker-compose.yml`, replace `api` with your app (its image, or `build:` pointing at its Dockerfile) and give it a health check. Keep `db`, or swap it for your database.
     5. Make your tests read addresses from the environment, as `tests/conftest.py` does with `API_URL` and `DATABASE_URL`. Set them under the `tests` service.
     6. The other files: `app/` (the practice book API: delete it when you have your own app), `.env.example`, `.gitignore`, and `tests/test_books_api.py`.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    The [Practice App](../../start-here/practice-app-tour/index.md) runs in Docker Compose too. Start it, then use this topic's commands on it: `docker compose ps`, `docker compose logs app`, and `docker exec` to look inside. When you find one of its bugs, the app's log lines from `docker compose logs` belong in your bug report. The [Practice App tour](../../start-here/practice-app-tour/index.md#bug-hunts) lists the hunts, with folded answers.
 
 ## Official resources
 

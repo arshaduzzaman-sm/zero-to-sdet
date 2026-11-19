@@ -154,9 +154,6 @@
   meaning: A tool that controls a real web browser from code, so a test can click, type and check a page.
   page: core-automation/ui-automation/index.md
 
-- term: Practice App
-  meaning: The small online shop built for this site. It runs on your own computer and has bugs planted on purpose for you to find.
-  page: start-here/practice-app-tour/index.md
 
 - term: Pull request
   meaning: A request to add your code changes to the team's main code. Others review it first.

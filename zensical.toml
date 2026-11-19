@@ -45,7 +45,6 @@ nav = [
       { "Virtual environments and pip" = "start-here/python-for-testers/virtual-environments-and-pip.md" },
       { "Reading other people's code" = "start-here/python-for-testers/reading-other-peoples-code.md" },
     ] },
-    { "Practice App tour" = "start-here/practice-app-tour/index.md" },
     { "Skills Matrix" = "start-here/skills-matrix.md" },
     { "Learning Path" = "learning-path.md" },
   ] },

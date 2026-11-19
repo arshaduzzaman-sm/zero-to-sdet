@@ -38,7 +38,7 @@ This Code of Conduct applies within all community spaces (including issues, pull
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at a private message to the maintainer, Arshaduzzaman SM, on [LinkedIn](https://www.linkedin.com/in/arshaduzzaman-sm/). All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement by opening a new issue titled "Code of Conduct report", with no details in it. The maintainer, Arshaduzzaman SM, will answer there and agree on a private way to continue. You can also report a comment, issue or user directly to GitHub with its "Report content" option. All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the reporter of any incident.
 

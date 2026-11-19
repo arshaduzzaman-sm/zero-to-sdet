@@ -10,7 +10,7 @@ nav_title: "pytest framework"
 order: 10
 group: "Foundations"
 summary: "Your first automated tests: project layout, fixtures, parametrize and markers."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # pytest Framework: Turn Hand-Run Checks Into a Real Test Project
@@ -190,11 +190,6 @@ Copy these into your own project. Each file starts with a line that says where i
     3. Change `config/environments.toml` to your app's URLs, and the token variable names to your own.
     4. Replace `tests/test_example.py` with your tests. Keep `conftest.py`, and add your own fixtures under the ones that are there.
     5. If your tests import your app's code, add `pythonpath = src` to `pytest.ini`, like the example project.
-
-## Bug Hunt
-
-!!! example "Optional: try it on the Practice App"
-    If you have the [Practice App](../../start-here/practice-app-tour/index.md) running, run the example project's health check against it: `python -m pytest -m api`. It should pass. Then stop the app and run it again: the test should be skipped with "no server at ...", not fail. Why is skipping right here, and when would failing be better?
 
 ## Official resources
 

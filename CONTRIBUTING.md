@@ -130,8 +130,7 @@ A lesson is done when:
 - [ ] It is linked from the [Skills Matrix](docs/start-here/skills-matrix.md)
 
 A topic is done when all its lessons are done, its templates pass locally, its
-`index.md` is a complete "First time? Start here" playbook, and it has a Bug Hunt
-against the Practice App.
+`index.md` is a complete "First time? Start here" playbook.
 
 ## Rules for pull requests
 
