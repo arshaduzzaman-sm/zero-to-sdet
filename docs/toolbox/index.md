@@ -1,7 +1,7 @@
 ---
 title: "SDET Toolbox: Cheat Sheets, Test Ideas and Templates"
 description: "Quick reference for SDETs: cheat sheets, ready lists of test ideas, every template on the site and the glossary."
-updated: "2026-11-15"
+updated: "2026-11-19"
 nav_title: "Toolbox"
 order: 70
 ---
@@ -30,7 +30,7 @@ Quick answers for busy days: cheat sheets, ready-made lists of test ideas, and e
 
     Every template on the site, in one place.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Glossary**](../glossary.md)
 

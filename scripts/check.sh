@@ -55,6 +55,7 @@ run "Python lint (ruff check)" must .venv/bin/ruff check .
 run "Python format (ruff format --check)" must .venv/bin/ruff format --check .
 run "Menu and overview pages up to date" must "$PY" scripts/build_nav.py --check
 run "Glossary, tags and hover explanations up to date" must "$PY" scripts/build_reference.py --check
+run "Template index up to date" must "$PY" scripts/build_template_index.py --check
 run "Hidden page dates up to date" warn "$PY" scripts/update_page_dates.py --check
 run "Website builds with no warnings" must .venv/bin/zensical build --strict
 run "Share images for every page" must "$PY" scripts/build_share_images.py

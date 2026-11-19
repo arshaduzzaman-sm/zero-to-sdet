@@ -267,7 +267,7 @@ Click a stage to open it.
 
 - [Cheat sheets](https://arshaduzzaman-sm.github.io/zero-to-sdet/toolbox/cheat-sheets/): One-page reminders: SQL, pytest, HTTP, Git, Linux, Docker and more. *(coming soon)*
 - [Test idea banks](https://arshaduzzaman-sm.github.io/zero-to-sdet/toolbox/test-idea-banks/): Ready lists of test ideas for login, search, checkout and more. *(coming soon)*
-- [Template index](https://arshaduzzaman-sm.github.io/zero-to-sdet/toolbox/template-index/): Every template on the site, in one place. *(coming soon)*
+- [Template index](https://arshaduzzaman-sm.github.io/zero-to-sdet/toolbox/template-index/): Every template on the site, in one place.
 - [Glossary](https://arshaduzzaman-sm.github.io/zero-to-sdet/glossary/): Every testing word on this site, in plain English.
 - [Tags](https://arshaduzzaman-sm.github.io/zero-to-sdet/tags/): Find lessons by subject: API, database, BDD, debugging and more.
 

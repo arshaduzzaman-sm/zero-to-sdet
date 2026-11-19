@@ -45,6 +45,12 @@ repos:
         language: system
         pass_filenames: false
         files: ^(docs/.*\.md|data/.*\.yml|includes/.*|scripts/build_(nav|reference)\.py)$
+      - id: build-template-index
+        name: the template index lists every template
+        entry: .venv/bin/python scripts/build_template_index.py --check
+        language: system
+        pass_filenames: false
+        files: ^(modules/.*/templates/.*|docs/.*\.md|scripts/build_(nav|template_index)\.py)$
       - id: credit-lines
         name: every template starts with the credit line
         entry: .venv/bin/python scripts/check_credit_lines.py

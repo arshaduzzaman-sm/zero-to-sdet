@@ -50,6 +50,19 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-19 · Phase 5 · Toolbox: Template index
+
+**Done**
+
+- `scripts/build_template_index.py`: lists every Git-tracked file under `modules/*/*/templates/` on `docs/toolbox/template-index/index.md`, grouped like the menu, with a "what it is" line taken from each file (docstring, heading or first comment) and a GitHub link. 316 files in 39 topics today.
+- The page explains how to search it. `--check` runs in `scripts/check.sh` and as a pre-commit hook, so the list can't go out of date.
+
+**Next step**
+
+Toolbox: cheat sheets, then test idea banks. After the Toolbox: a new API lesson "How the web works" (client and server, HTML, AJAX, JSON, REST), asked for by the owner.
+
+---
+
 ## 2026-11-19 · Phase 5 · Communicating your work (Part 2 complete)
 
 **Done**
