@@ -1,7 +1,7 @@
 ---
 title: "The Professional SDET: Teamwork, Releases, Career and Leadership"
 description: "How SDETs work in real teams: Agile, Git, releases, incidents, metrics, clean code, interviews and leading quality."
-updated: "2026-11-18"
+updated: "2026-11-19"
 nav_title: "Professional SDET"
 order: 60
 ---
@@ -30,9 +30,9 @@ Knowing tools is half the job. This pillar covers how SDETs work with people: in
 
 -   [**SDET in Agile**](sdet-in-agile/index.md)
 
-    Scrum, user stories, Three Amigos and shift-left, from a tester's view.
+    Check stories before the sprint, Three Amigos, shift-left, Definition of Done.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 -   [**Git in a team**](git-in-a-team/index.md)
 

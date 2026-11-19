@@ -50,6 +50,20 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-19 · Phase 5 · SDET in Agile
+
+**Done**
+
+- `docs/professional-sdet/sdet-in-agile/index.md` (solution-level format): where testing goes in each part of a sprint (diagram and reasons), SDLC models and what each means for testing, checking stories before the sprint, Three Amigos, criteria to tests with the right level, testing during the sprint, Definition of Done, errors table.
+- Kit `modules/professional_sdet/sdet_in_agile/templates/agile_kit/`: `story_check.py` (standard library; vague words with the question to ask, criteria without examples, areas the story never mentions; exit 1 when there are questions), a vague story and its refined version, acceptance criteria template, Definition of Done, sprint testing checklist.
+- Topic test: 20 checks.
+
+**Next step**
+
+Phase 5: Git in a team.
+
+---
+
 ## 2026-11-18 · Phase 5 · Your first weeks in a new job
 
 **Done**
