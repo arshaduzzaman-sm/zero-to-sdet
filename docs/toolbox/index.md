@@ -18,7 +18,7 @@ Quick answers for busy days: cheat sheets, ready-made lists of test ideas, and e
 
     One-page reminders: SQL, pytest, HTTP, Git, Linux, Docker and more.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Test idea banks**](test-idea-banks/index.md)
 

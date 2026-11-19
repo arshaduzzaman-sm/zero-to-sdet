@@ -315,7 +315,17 @@ nav = [
   ] },
   { "Toolbox" = [
     "toolbox/index.md",
-    { "Cheat sheets" = "toolbox/cheat-sheets/index.md" },
+    { "Cheat sheets" = [
+      "toolbox/cheat-sheets/index.md",
+      { "SQL" = "toolbox/cheat-sheets/sql.md" },
+      { "HTTP and curl" = "toolbox/cheat-sheets/http.md" },
+      { "pytest" = "toolbox/cheat-sheets/pytest.md" },
+      { "Playwright locators" = "toolbox/cheat-sheets/locators.md" },
+      { "Gherkin" = "toolbox/cheat-sheets/gherkin.md" },
+      { "Git" = "toolbox/cheat-sheets/git.md" },
+      { "Linux shell" = "toolbox/cheat-sheets/shell.md" },
+      { "Docker" = "toolbox/cheat-sheets/docker.md" },
+    ] },
     { "Test idea banks" = "toolbox/test-idea-banks/index.md" },
     { "Template index" = "toolbox/template-index/index.md" },
     { "Glossary" = "glossary.md" },

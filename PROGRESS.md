@@ -50,6 +50,22 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-19 · Phase 5 · Toolbox: Cheat sheets
+
+**Done**
+
+- `docs/toolbox/cheat-sheets/index.md` (solution-level format) plus one page per sheet: SQL, HTTP and curl, pytest, Playwright locators, Gherkin, Git, Linux shell, Docker. The pytest, Git and shell pages reuse the existing sheets by snippet.
+- Kit `modules/toolbox/cheat_sheets/templates/`: five new sheets, `practice_shop.sql` (four planted data problems), `try_sql.py` (standard library), `locator_practice.html` and `test_locators.py` (every locator on the sheet), `team_cheat_sheet.md` (a fill-in sheet for the reader's own project).
+- Topic test: SQL blocks run on the practice shop, the weekly checks find the planted problems, status code names match Python's list, Gherkin examples parse, every locator is in the Playwright test and it passes; with `ZTS_DOCKER=1`, every Docker command and flag is checked with `--help` only.
+- `check_credit_lines.py` now allows `<!doctype html>` above the credit line.
+- Shareable images of the sheets: not made. The page shows how to print or save a sheet as PDF (print styles hide the menu, checked).
+
+**Next step**
+
+Toolbox: test idea banks.
+
+---
+
 ## 2026-11-19 · Phase 5 · Toolbox: Template index
 
 **Done**

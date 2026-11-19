@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/ -->
+<!-- A small page with one example of everything on the locators cheat sheet. -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Locator practice</title></head>
+<body>
+  <nav><a href="#cart">Cart (2)</a> <a href="#help">Help</a></nav>
+  <h1>Practice shop</h1>
+
+  <form onsubmit="event.preventDefault()">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="you@example.com">
+    <label><input type="checkbox" name="news"> Send me news</label>
+    <label for="country">Country</label>
+    <select id="country"><option>Bangladesh</option><option>United Kingdom</option></select>
+    <button type="button" data-testid="save-button">Save</button>
+  </form>
+
+  <ul class="products">
+    <li class="product">Practice book <span class="price">24.50</span> <button>Add to cart</button></li>
+    <li class="product">Test mug <span class="price">9.99</span> <button>Add to cart</button></li>
+    <li class="product">Bug sticker <span class="price">1.50</span> <button disabled>Sold out</button></li>
+  </ul>
+
+  <img src="data:," alt="Shop logo">
+  <p title="Saved at 10:00">Last saved: today</p>
+  <div role="alert" hidden>Saved!</div>
+
+  <script>
+    document.querySelector("[data-testid=save-button]").addEventListener("click", () => {
+      document.querySelector("[role=alert]").hidden = false;
+    });
+  </script>
+</body>
+</html>

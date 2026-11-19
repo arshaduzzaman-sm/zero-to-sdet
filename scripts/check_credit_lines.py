@@ -9,7 +9,7 @@ Template files are the files inside any `templates/` folder under `modules/`
 (and in `_new_topic_template/`). The comment uses each file type's own style:
 `#` for Python, YAML, Gherkin, Robot Framework, shell and Dockerfiles, `//` for JavaScript and
 Java, `--` for SQL, `<!-- -->` for Markdown, HTML and XML (JMeter plans).
-A first line like `#!/usr/bin/env bash` or `<?xml ...?>` may come before it.
+A first line like `#!/usr/bin/env bash`, `<?xml ...?>` or `<!doctype html>` may come before it.
 JSON, CSV and Excel files cannot hold comments, so they are skipped.
 
 Usage (from the repository root):
@@ -58,7 +58,7 @@ STYLE_BY_NAME = {
     "docker-compose.yml": HASH,
 }
 NO_COMMENTS = {".json", ".csv", ".gitkeep", ".png", ".jpg", ".svg", ".pdf", ".xlsx"}
-PREAMBLE = ("#!", "<?xml", "# -*- coding", "# syntax=")  # may stay above the credit line
+PREAMBLE = ("#!", "<?xml", "<!doctype", "# -*- coding", "# syntax=")  # may stay above the credit
 
 
 def credit_line(path: Path) -> str | None:
