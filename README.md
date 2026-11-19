@@ -242,7 +242,7 @@ Click a stage to open it.
 
 **Releases and quality**
 
-- [Regression, hotfixes and incidents](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/regression-hotfixes-and-incidents/): Pick the right tests for a change, and stay calm in an incident. *(coming soon)*
+- [Regression, hotfixes and incidents](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/regression-hotfixes-and-incidents/): Pick the right tests for a change, and stay calm in an incident.
 - [Quality metrics](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/quality-metrics/): Measure what matters, and know what not to measure. *(coming soon)*
 - [Release sign-off](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/release-sign-off/): Make a clear go or no-go call for a release. *(coming soon)*
 

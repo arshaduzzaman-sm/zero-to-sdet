@@ -68,7 +68,7 @@ Knowing tools is half the job. This pillar covers how SDETs work with people: in
 
     Pick the right tests for a change, and stay calm in an incident.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 -   [**Quality metrics**](quality-metrics/index.md)
 

@@ -50,6 +50,21 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-19 · Phase 5 · Regression, hotfixes and incidents
+
+**Done**
+
+- `docs/professional-sdet/regression-hotfixes-and-incidents/index.md` (solution-level format): smoke, area and full regression suites (diagram and when each runs), tagging with pytest markers, picking tests for a change, testing a hotfix, the tester's job during an incident, root cause with "why" questions, blameless postmortem, errors table.
+- Kit `modules/professional_sdet/regression_hotfixes_and_incidents/templates/hotfix_kit/`: `pick_tests.py` (standard library; changed files to areas via `test_map.ini`; shared or unknown code means full regression), `test_map.ini`, a tagged `sample_suite` (11 tests), hotfix checklist, incident notes, postmortem template.
+- pytest outputs captured in a clean virtual environment. pytest 9 rejects an unknown marker in `-m` (exit 4): reproduced and used in the errors table.
+- Topic test: 19 checks.
+
+**Next step**
+
+Phase 5: Communicating your work (last topic of Part 2).
+
+---
+
 ## 2026-11-19 · Phase 5 · Working with developers
 
 **Done**
