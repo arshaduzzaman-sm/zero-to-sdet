@@ -50,6 +50,21 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-19 · Phase 5 · Git in a team
+
+**Done**
+
+- `docs/professional-sdet/git-in-a-team/index.md` (solution-level format): the team workflow with a diagram and its rules, branch, diff, commit, push, a colleague's change, a real rebase conflict, resolving it, why a plain push is refused, `--force-with-lease`, good pull requests, errors table.
+- Kit `modules/professional_sdet/git_in_a_team/templates/git_kit/`: `git_practice.sh` (a pretend server and two copies in one new folder, fake names set only inside them, relative remote so no paths show; `setup`, `colleague`, `reset`), a pull request template for test code, a team cheat sheet, a `.gitignore` for test projects.
+- All Git outputs captured from a real run of the practice script (Git 2.54, fake names, no dates or paths shown). The "committed to main by mistake" recipe was checked in a scratch copy.
+- Topic test: 9 checks, including the whole page flow.
+
+**Next step**
+
+Phase 5: Working with developers.
+
+---
+
 ## 2026-11-19 · Phase 5 · SDET in Agile
 
 **Done**

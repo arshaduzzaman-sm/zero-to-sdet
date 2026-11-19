@@ -235,7 +235,7 @@ Click a stage to open it.
 - [A day in the life](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/a-day-in-the-life/): Plan the day: nightly run, stand-up, one ticket end to end, reviews, handover.
 - [Your first weeks in a new job](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/your-first-weeks/): Map a framework you didn't write, make a first useful change, earn trust.
 - [SDET in Agile](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/sdet-in-agile/): Check stories before the sprint, Three Amigos, shift-left, Definition of Done.
-- [Git in a team](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/git-in-a-team/): Branches, good pull requests, code review and merge conflicts. *(coming soon)*
+- [Git in a team](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/git-in-a-team/): Branches, pull requests, a real merge conflict, and pushing safely.
 - [Jira and test management](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/jira-and-test-management/): Tickets, workflows, and linking tests to stories. *(coming soon)*
 - [Working with developers](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/working-with-developers/): Talk about bugs without blame, review code and pair well. *(coming soon)*
 - [Communicating your work](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/communicating-your-work/): Estimates, status updates and explaining risk to managers. *(coming soon)*

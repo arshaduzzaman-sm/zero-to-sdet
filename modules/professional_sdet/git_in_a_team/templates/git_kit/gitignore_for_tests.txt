@@ -1,0 +1,21 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# Rename this file to .gitignore in your test project. Git will never add these.
+
+# Secrets and local settings
+.env
+*.pem
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Test output: made fresh on every run, and may contain tokens or screenshots of data
+reports/
+test-results/
+allure-results/
+*.log
+
+# Editors and systems
+.idea/
+.DS_Store
