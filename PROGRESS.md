@@ -62,9 +62,13 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 - Repository made public. Pages source: GitHub Actions. The publish workflow moved to `.github/workflows/pages.yml` (all five actions pinned to commit SHAs matching their tags, each older than two weeks; actionlint clean).
 
+- `main` protected: no force pushes, no deletion.
+- First publish green. Live site checked in a browser: home page, three new pages, the 404 page, a Mermaid diagram and search all work. The only failed request is the theme asking GitHub for a latest release (there is none yet); harmless.
+- The terminal's GitHub login is now the owner's main account `arshaduzzaman-sm`, with the `workflow` scope.
+
 **Next step**
 
-Watch the first publish, protect `main`, and check the live site.
+Advanced: contract testing. Later, owner: About page photo and bio; giscus comments (needs repo_id and category_id).
 
 ---
 
