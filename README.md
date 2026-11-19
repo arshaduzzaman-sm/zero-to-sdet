@@ -198,7 +198,7 @@ Click a stage to open it.
 
 **Services and integrations**
 
-- [Mocking and stubbing](https://arshaduzzaman-sm.github.io/zero-to-sdet/advanced-testing/mocking-and-stubbing/): Replace slow or unreliable parts with fakes you control. *(coming soon)*
+- [Mocking and stubbing](https://arshaduzzaman-sm.github.io/zero-to-sdet/advanced-testing/mocking-and-stubbing/): Replace slow or unreliable parts with fakes you control.
 - [Contract testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/advanced-testing/contract-testing/): Catch breaking API changes between teams before release, with Pact. *(coming soon)*
 - [Testing microservices](https://arshaduzzaman-sm.github.io/zero-to-sdet/advanced-testing/testing-microservices/): Test one service alone, then the conversations between services. *(coming soon)*
 - [GraphQL testing](https://arshaduzzaman-sm.github.io/zero-to-sdet/advanced-testing/graphql-testing/): Test GraphQL queries, mutations, schemas and errors. *(coming soon)*

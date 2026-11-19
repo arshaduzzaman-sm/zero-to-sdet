@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/ -->
+<!-- A checkout page. Its JavaScript calls POST /api/pay and shows what happened. -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Checkout</title></head>
+<body>
+  <h1>Checkout</h1>
+  <p>Order 101: Practice book, £24.49</p>
+  <button id="pay">Pay £24.49</button>
+  <p id="message" role="status"></p>
+  <script>
+    const show = (text) => (document.querySelector("#message").textContent = text);
+    document.querySelector("#pay").addEventListener("click", async () => {
+      show("Paying...");
+      try {
+        const response = await fetch("/api/pay", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ order_id: 101 }),
+        });
+        const answer = await response.json();
+        show(answer.message);
+      } catch (error) {
+        show("No connection. Your order is saved: try again.");
+      }
+    });
+  </script>
+</body>
+</html>

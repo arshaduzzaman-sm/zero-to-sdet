@@ -1,0 +1,10 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+# WireMock with the same mapping files as stub_server.py. Start: docker compose up -d
+# Then run the tests against it: STUB_URL=http://127.0.0.1:8799 python -m pytest
+services:
+  wiremock:
+    image: wiremock/wiremock:3.13.2-3
+    ports:
+      - "127.0.0.1:8799:8080"
+    volumes:
+      - ./stubs:/home/wiremock:ro

@@ -1,7 +1,7 @@
 ---
 title: "Advanced Software Testing: Performance, Security, Contracts and More"
 description: "Go beyond the basics: mocking, contract, performance, security, accessibility, mobile, AI and microservices testing."
-updated: "2026-11-16"
+updated: "2026-11-19"
 nav_title: "Advanced Testing"
 order: 50
 ---
@@ -20,7 +20,7 @@ The skills for bigger systems: testing at scale, under load, across services, an
 
     Replace slow or unreliable parts with fakes you control.
 
-    <span class="zts-chip">Advanced</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Advanced</span>
 
 -   [**Contract testing**](contract-testing/index.md)
 

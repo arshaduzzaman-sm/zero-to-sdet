@@ -50,6 +50,20 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-19 · Phase 6 · Mocking and stubbing
+
+**Done**
+
+- `docs/advanced-testing/mocking-and-stubbing/index.md` (solution-level format): three levels to replace a service (diagram), stub/mock/fake/spy, unittest.mock with autospec and patch, a stub server, page.route in the browser, moving to WireMock, errors table.
+- Kit `modules/advanced_testing/mocking_and_stubbing/templates/mock_kit/`: `shop/payments.py` (code under test), `stub_server.py` (standard library, reads WireMock mapping files, WireMock admin request list), four mappings (one per test card), tests at each level (14), `ui/checkout.html`, `docker-compose.yml` for WireMock 3.13.2-3.
+- Topic test: 21 checks; with `ZTS_DOCKER=1`, the stub tests also pass against real WireMock with the same files (owner approved the image download; only the `zts-wiremock` project was started and removed).
+
+**Next step**
+
+Advanced: contract testing.
+
+---
+
 ## 2026-11-19 · Phase 3 · API testing: How the web works (owner request)
 
 **Done**

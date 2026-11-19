@@ -3,7 +3,7 @@ title: "Software Testing Glossary: Every SDET Term in Plain English"
 description: "Plain-English meanings of every testing and automation term used on Zero to SDET, each linked to the lesson that teaches it."
 tags:
   - Quick reference
-updated: "2026-11-18"
+updated: "2026-11-19"
 nav_title: "Glossary"
 order: 40
 nav_section: "toolbox"
