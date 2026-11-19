@@ -50,6 +50,20 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-19 · Phase 5 · Working with developers
+
+**Done**
+
+- `docs/professional-sdet/working-with-developers/index.md` (solution-level format): the path of a bug with a diagram and reasons, answering "works on my machine" with evidence, talking without blame, disagreeing well, code review both ways, pairing, building the relationship, errors table.
+- Kit `modules/professional_sdet/working_with_developers/templates/dev_kit/`: `evidence.py` (standard library; sends a request several times, records UTC time, status, ms, request id, app version, prints Markdown for the ticket and a curl command; the token is never printed), a practice API that fails every third request (`--fixed` mode), a "talking about bugs" phrase guide, a pairing session template.
+- Topic test: 10 checks. An unverified Linux error number was left out of the errors table.
+
+**Next step**
+
+Phase 5: Regression, hotfixes and incidents.
+
+---
+
 ## 2026-11-19 · Phase 5 · Git in a team
 
 **Done**

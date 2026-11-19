@@ -48,9 +48,9 @@ Knowing tools is half the job. This pillar covers how SDETs work with people: in
 
 -   [**Working with developers**](working-with-developers/index.md)
 
-    Talk about bugs without blame, review code and pair well.
+    Answer 'works on my machine' with evidence, talk without blame, pair.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 -   [**Communicating your work**](communicating-your-work/index.md)
 

@@ -237,7 +237,7 @@ Click a stage to open it.
 - [SDET in Agile](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/sdet-in-agile/): Check stories before the sprint, Three Amigos, shift-left, Definition of Done.
 - [Git in a team](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/git-in-a-team/): Branches, pull requests, a real merge conflict, and pushing safely.
 - [Jira and test management](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/jira-and-test-management/): Tickets, workflows, and linking tests to stories. *(coming soon)*
-- [Working with developers](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/working-with-developers/): Talk about bugs without blame, review code and pair well. *(coming soon)*
+- [Working with developers](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/working-with-developers/): Answer 'works on my machine' with evidence, talk without blame, pair.
 - [Communicating your work](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/communicating-your-work/): Estimates, status updates and explaining risk to managers. *(coming soon)*
 
 **Releases and quality**
