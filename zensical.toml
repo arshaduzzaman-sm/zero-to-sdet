@@ -157,6 +157,7 @@ nav = [
     { "API and databases" = [
       { "API testing" = [
         "core-automation/api-testing/index.md",
+        { "How the web works" = "core-automation/api-testing/how-the-web-works.md" },
         { "How HTTP works" = "core-automation/api-testing/how-http-works.md" },
         { "GET, POST, PUT, PATCH, DELETE" = "core-automation/api-testing/http-methods.md" },
         { "Status codes" = "core-automation/api-testing/status-codes.md" },

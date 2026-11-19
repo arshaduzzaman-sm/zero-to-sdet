@@ -35,6 +35,11 @@ that teaches it.
 
     Learn more: [Accessibility testing](advanced-testing/accessibility-testing/index.md)
 
+[](){ #ajax }**AJAX (Asynchronous JavaScript and XML)**
+:   When JavaScript in a web page asks the server for data in the background and updates the page without loading a new one. Today the data is almost always JSON.
+
+    Learn more: [How the web works](core-automation/api-testing/how-the-web-works.md)
+
 [](){ #ambiguity }**Ambiguity**
 :   Words that two people can read in different ways, like "fast" or "recent". Testers ask for a number or a clear rule instead.
 
@@ -86,6 +91,11 @@ that teaches it.
     Learn more: [What not to automate](think-like-a-tester/test-strategy-and-planning/what-not-to-automate.md)
 
 ## B
+
+[](){ #backend }**Backend**
+:   The part of an app that runs on the servers: the API, the rules, and the database.
+
+    Learn more: [How the web works](core-automation/api-testing/how-the-web-works.md)
 
 [](){ #background-job }**Background job**
 :   Work an app does after it has already answered the request, like sending an email or writing a history row.
@@ -148,6 +158,11 @@ that teaches it.
 :   A blueprint that bundles data and actions together. Page objects and API clients are classes.
 
     Learn more: [Classes and objects](start-here/python-for-testers/classes-and-objects.md)
+
+[](){ #client }**Client**
+:   The program that asks: a browser, a phone app, or your test. It sends a request and waits for the answer.
+
+    Learn more: [How the web works](core-automation/api-testing/how-the-web-works.md)
 
 [](){ #conftestpy }**conftest.py**
 :   A file pytest loads by itself, where you put fixtures and options that many test files share.
@@ -235,6 +250,11 @@ that teaches it.
 :   A text file with the steps to build a Docker image, read from top to bottom.
 
     Learn more: [Dockerfile for a test suite](infrastructure/docker-for-testers/dockerfile-for-a-test-suite.md)
+
+[](){ #dom }**DOM (Document Object Model)**
+:   The page as the browser holds it right now, after JavaScript has changed it. It can differ from the HTML the server sent.
+
+    Learn more: [How the web works](core-automation/api-testing/how-the-web-works.md)
 
 [](){ #dynamic-testing }**Dynamic testing**
 :   Testing by running the software and checking what it does.
@@ -330,6 +350,11 @@ that teaches it.
 
     Learn more: [pytest framework](core-automation/pytest-framework/index.md)
 
+[](){ #frontend }**Frontend**
+:   The part of an app that runs on the user's device: the web page, its JavaScript, or the phone app.
+
+    Learn more: [How the web works](core-automation/api-testing/how-the-web-works.md)
+
 [](){ #function }**Function**
 :   A named piece of work that takes inputs and returns a result. Every pytest test is a function.
 
@@ -363,6 +388,11 @@ that teaches it.
 :   A small command that tells whether a service is ready to use, so other services can wait for it.
 
     Learn more: [Compose test environments](infrastructure/docker-for-testers/compose-test-environments.md)
+
+[](){ #html }**HTML (HyperText Markup Language)**
+:   The text a web page is made of, with tags like <h1> for a heading and <button> for a button. The browser turns it into what you see.
+
+    Learn more: [How the web works](core-automation/api-testing/how-the-web-works.md)
 
 [](){ #http }**HTTP (Hypertext Transfer Protocol)**
 :   The set of rules web browsers and APIs use to send requests and answers.
@@ -657,7 +687,7 @@ that teaches it.
 [](){ #rest }**REST (Representational State Transfer)**
 :   The most common style of web API. You use web addresses for things and HTTP methods like GET and POST for actions.
 
-    Learn more: [API testing](core-automation/api-testing/index.md)
+    Learn more: [How the web works](core-automation/api-testing/how-the-web-works.md)
 
 [](){ #risk }**Risk**
 :   Something that could go wrong, and how much it would hurt users or the company. Testers test the biggest risks first.
@@ -700,6 +730,11 @@ that teaches it.
 :   Rows a test puts straight into the database before it starts, so the app has something to work with.
 
     Learn more: [Seed then call](core-automation/api-and-database/seed-then-call.md)
+
+[](){ #server }**Server**
+:   The program that answers requests. It runs the app's rules and talks to the database.
+
+    Learn more: [How the web works](core-automation/api-testing/how-the-web-works.md)
 
 [](){ #severity }**Severity**
 :   How badly a bug hurts the people using the app, from critical (money, data or security) to trivial (a typo). The reporter sets it.

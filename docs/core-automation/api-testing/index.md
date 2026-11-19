@@ -10,7 +10,7 @@ nav_title: "API testing"
 order: 20
 group: "API and databases"
 summary: "Send requests from Python and check status codes, JSON, headers and auth."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # API Testing With Python: Requests, Status Codes, Auth and Schemas
@@ -30,16 +30,17 @@ Most of what an app does happens behind its screens, in an **API**: the web page
 
 ## Jump to what you need
 
-1. [How HTTP works](how-http-works.md): a request, a response, and what's in each
-2. [GET, POST, PUT, PATCH and DELETE](http-methods.md): the five methods, on one booking
-3. [Status codes](status-codes.md): what 200, 201, 404 and 500 mean, and what an API gets wrong
-4. [Headers and JSON](headers-and-json.md): what goes with every request, and the two ways to send data
-5. [Query and path parameters](query-and-path-params.md): `?page=2` and `/booking/42`
-6. [Authentication](authentication.md): API key, Basic, Bearer token and OAuth2
-7. [Schema validation](schema-validation.md): check the shape of every answer in one line
-8. [Chaining requests](chaining-requests.md): use one answer in the next request, and clean up
-9. [File upload](file-upload.md): send a file, and check what arrived
-10. [API client class](api-client-class.md): one place for the base URL, headers, logging and clear failures
+1. [How the web works](how-the-web-works.md): client and server, HTML, AJAX, JSON and REST, and frontend vs backend bugs
+2. [How HTTP works](how-http-works.md): a request, a response, and what's in each
+3. [GET, POST, PUT, PATCH and DELETE](http-methods.md): the five methods, on one booking
+4. [Status codes](status-codes.md): what 200, 201, 404 and 500 mean, and what an API gets wrong
+5. [Headers and JSON](headers-and-json.md): what goes with every request, and the two ways to send data
+6. [Query and path parameters](query-and-path-params.md): `?page=2` and `/booking/42`
+7. [Authentication](authentication.md): API key, Basic, Bearer token and OAuth2
+8. [Schema validation](schema-validation.md): check the shape of every answer in one line
+9. [Chaining requests](chaining-requests.md): use one answer in the next request, and clean up
+10. [File upload](file-upload.md): send a file, and check what arrived
+11. [API client class](api-client-class.md): one place for the base URL, headers, logging and clear failures
 
 ## 1. Understand the ask
 
@@ -70,7 +71,7 @@ Every test follows that shape: set up what it needs, check one thing, clean up.
 
 ## 3. Learn just enough
 
-Read [how HTTP works](how-http-works.md) and [GET, POST, PUT, PATCH and DELETE](http-methods.md) first (30 minutes together). Then skim the [booking API docs](https://restful-booker.herokuapp.com/apidoc/index.html): reading the docs before the first request is half of API testing.
+New to how web apps talk? Start with [how the web works](how-the-web-works.md). Then read [how HTTP works](how-http-works.md) and [GET, POST, PUT, PATCH and DELETE](http-methods.md) (30 minutes together). Then skim the [booking API docs](https://restful-booker.herokuapp.com/apidoc/index.html): reading the docs before the first request is half of API testing.
 
 ## 4. Get something running
 

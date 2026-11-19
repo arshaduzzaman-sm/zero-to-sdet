@@ -50,6 +50,21 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-19 · Phase 3 · API testing: How the web works (owner request)
+
+**Done**
+
+- `docs/core-automation/api-testing/how-the-web-works.md` (solution-level format, first in the API testing list): client and server (sequence diagram), HTML vs the DOM, AJAX in the Network tab, REST resources and methods, the six JSON value kinds, refusals, and how to tell a frontend bug from a backend bug.
+- Kit `modules/core_automation/api_testing/templates/web_kit/`: `web_demo.py` (standard library practice shop on port 8797 with a REST API, `--bug frontend` and `--bug backend`), `page/index.html` and `page/app.js` (fetch), `watch_requests.py` (Playwright: lists every request a page makes and the AJAX answers).
+- Test `modules/core_automation/api_testing/tests/test_web_kit.py`: 17 checks, browser ones skipped when Chromium isn't installed.
+- Glossary: AJAX, HTML, DOM, client, server, frontend, backend added; REST points to the new page.
+
+**Next step**
+
+Part 4: Advanced (14 topics), starting with mocking and stubbing.
+
+---
+
 ## 2026-11-19 · Phase 5 · Toolbox: Test idea banks (Part 3 complete)
 
 **Done**

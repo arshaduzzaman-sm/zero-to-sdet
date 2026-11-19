@@ -1,0 +1,25 @@
+<!doctype html>
+<!-- Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/ -->
+<!-- The client: the HTML the browser gets first. The products are NOT in it: app.js asks the API for them. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Practice shop</title>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <h1>Practice shop</h1>
+  <p id="status">Loading products...</p>
+  <ul id="products"></ul>
+
+  <h2>Add to cart</h2>
+  <form id="cart-form">
+    <label for="product">Product</label>
+    <select id="product"></select>
+    <label for="quantity">Quantity</label>
+    <input id="quantity" type="number" value="1">
+    <button type="submit">Add to cart</button>
+  </form>
+  <p id="message" role="status"></p>
+</body>
+</html>

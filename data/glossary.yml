@@ -178,7 +178,7 @@
 - term: REST
   stands_for: Representational State Transfer
   meaning: The most common style of web API. You use web addresses for things and HTTP methods like GET and POST for actions.
-  page: core-automation/api-testing/index.md
+  page: core-automation/api-testing/how-the-web-works.md
 
 - term: SDET
   stands_for: Software Development Engineer in Test
@@ -711,3 +711,34 @@
 - term: Health check
   meaning: A small command that tells whether a service is ready to use, so other services can wait for it.
   page: infrastructure/docker-for-testers/compose-test-environments.md
+
+- term: AJAX
+  stands_for: Asynchronous JavaScript and XML
+  meaning: When JavaScript in a web page asks the server for data in the background and updates the page without loading a new one. Today the data is almost always JSON.
+  page: core-automation/api-testing/how-the-web-works.md
+
+- term: HTML
+  stands_for: HyperText Markup Language
+  meaning: The text a web page is made of, with tags like <h1> for a heading and <button> for a button. The browser turns it into what you see.
+  page: core-automation/api-testing/how-the-web-works.md
+
+- term: DOM
+  stands_for: Document Object Model
+  meaning: The page as the browser holds it right now, after JavaScript has changed it. It can differ from the HTML the server sent.
+  page: core-automation/api-testing/how-the-web-works.md
+
+- term: Client
+  meaning: "The program that asks: a browser, a phone app, or your test. It sends a request and waits for the answer."
+  page: core-automation/api-testing/how-the-web-works.md
+
+- term: Server
+  meaning: The program that answers requests. It runs the app's rules and talks to the database.
+  page: core-automation/api-testing/how-the-web-works.md
+
+- term: Frontend
+  meaning: "The part of an app that runs on the user's device: the web page, its JavaScript, or the phone app."
+  page: core-automation/api-testing/how-the-web-works.md
+
+- term: Backend
+  meaning: "The part of an app that runs on the servers: the API, the rules, and the database."
+  page: core-automation/api-testing/how-the-web-works.md
