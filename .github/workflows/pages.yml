@@ -1,7 +1,5 @@
-# Publish the website to GitHub Pages.
-#
-# NOT ACTIVE YET. GitHub runs only files inside .github/workflows/, and this
-# file is kept outside on purpose until Phase 9 (see deploy/README.md).
+# Publish the website to GitHub Pages on every push to main.
+# Switched on 2026-11-19, when the repository went public (see deploy/README.md).
 #
 # Security choices:
 # - Every action is pinned to a full commit SHA, not a tag, so a moved or

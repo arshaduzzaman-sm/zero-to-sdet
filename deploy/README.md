@@ -1,8 +1,6 @@
 # Publishing the website
 
-The website is built for GitHub Pages at `https://arshaduzzaman-sm.github.io/zero-to-sdet/`. It is **not published yet**. The repository stays private until Phase 9, and on the free plan GitHub Pages works only from a public repository.
-
-`github-pages.yml` is the ready publish workflow. It sits here, outside `.github/workflows/`, so GitHub doesn't run it.
+The website is published with GitHub Pages at `https://arshaduzzaman-sm.github.io/zero-to-sdet/`. The repository went public on 2026-11-19, and the publish workflow is active at `.github/workflows/pages.yml`: every push to `main` builds and publishes the site.
 
 ## What is already checked
 
@@ -13,7 +11,7 @@ The website is built for GitHub Pages at `https://arshaduzzaman-sm.github.io/zer
 - A 404 page is built. No file in the site starts with `_`, so nothing is hidden by GitHub.
 - Share images use fonts kept in `docs/assets/fonts/`, so they build the same on GitHub's Linux machines.
 
-## Switching it on (Phase 9, after the security audit)
+## How it was switched on (2026-11-19)
 
 Do these in order. Don't skip the first two.
 
@@ -24,7 +22,7 @@ Do these in order. Don't skip the first two.
 
     ```bash
     mkdir -p .github/workflows
-    git mv deploy/github-pages.yml .github/workflows/pages.yml
+    git mv deploy/github-pages.yml .github/workflows/pages.yml   # done
     ```
 
 5. Open the Actions tab and wait for "Publish website" to go green. Then open the site address above and check the home page, one lesson, search, dark mode and the 404 page.

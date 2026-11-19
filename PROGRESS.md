@@ -60,9 +60,11 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 - Code of Conduct: reports now start with an empty "Code of Conduct report" issue or GitHub's "Report content"; no LinkedIn message.
 - Before going public: gitleaks over the whole history (87 commits, no leaks), every commit authored and committed by the owner only, no AI attribution in any message, no personal paths or emails in any commit.
 
+- Repository made public. Pages source: GitHub Actions. The publish workflow moved to `.github/workflows/pages.yml` (all five actions pinned to commit SHAs matching their tags, each older than two weeks; actionlint clean).
+
 **Next step**
 
-Make the repository public, switch Pages to GitHub Actions, move the publish workflow into `.github/workflows/`, protect `main`, and check the live site.
+Watch the first publish, protect `main`, and check the live site.
 
 ---
 
