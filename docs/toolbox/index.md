@@ -24,7 +24,7 @@ Quick answers for busy days: cheat sheets, ready-made lists of test ideas, and e
 
     Ready lists of test ideas for login, search, checkout and more.
 
-    <span class="zts-chip">Beginner</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Beginner</span>
 
 -   [**Template index**](template-index/index.md)
 

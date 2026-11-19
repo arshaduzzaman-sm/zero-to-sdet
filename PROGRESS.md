@@ -50,6 +50,21 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-19 · Phase 5 · Toolbox: Test idea banks (Part 3 complete)
+
+**Done**
+
+- `docs/toolbox/test-idea-banks/index.md` (solution-level format): how banks combine for one feature (diagram), the five areas every bank has, making one checklist, cutting it down and adding what's special, CSV export for test tools, growing the banks, errors table.
+- Kit `modules/toolbox/test_idea_banks/templates/`: nine banks in `ideas/` (login, sign-up, search, cart and checkout, payments, bank transfer, file sharing, notifications, roles and permissions; 191 ideas) and `idea_checklist.py` (standard library: `--list`, Markdown checklist, `--only`, `--csv`).
+- Topic test: 26 checks. A confusing message for a bank with no readable ideas was found while reproducing errors, and fixed.
+- Part 3 of the plan (Toolbox) is complete.
+
+**Next step**
+
+The new lesson the owner asked for: "How the web works" (client and server, HTML, AJAX, JSON, REST) at the start of API testing. Then Part 4: Advanced.
+
+---
+
 ## 2026-11-19 · Phase 5 · Toolbox: Cheat sheets
 
 **Done**
