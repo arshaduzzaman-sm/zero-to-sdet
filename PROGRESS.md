@@ -50,6 +50,21 @@ Step 0.4 is complete: every decision in brief section 14 is decided.
 
 ---
 
+## 2026-11-19 · Phase 5 · Communicating your work (Part 2 complete)
+
+**Done**
+
+- `docs/professional-sdet/communicating-your-work/index.md` (solution-level format): one set of facts for three readers (diagram), GREEN/AMBER/RED verdicts, notes on what was and wasn't tested, explaining risk in plain words with options, range estimates (three-point), test summary report, demos, errors table.
+- Kit `modules/professional_sdet/communicating_your_work/templates/comms_kit/`: `status_update.py` (standard library; JUnit XML plus `status_notes.ini` to a chat line, a manager email and a ticket comment; RED for failing tests or blockers, AMBER for known risks), `estimate.py` (three-point estimate, likely range and worst case), example notes, estimate sheet, a pretend release run, test summary report, risk message guide.
+- Topic test: 15 checks. One Atlassian link moved (404) and was replaced with the working page.
+- Part 2 of the plan (7 working-in-a-team topics) is complete.
+
+**Next step**
+
+Part 3: Toolbox (cheat sheets, test idea banks, template index). The Allure lesson is now allowed (allure 3.33.0 is two weeks old).
+
+---
+
 ## 2026-11-19 · Phase 5 · Regression, hotfixes and incidents
 
 **Done**

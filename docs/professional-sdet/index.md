@@ -54,9 +54,9 @@ Knowing tools is half the job. This pillar covers how SDETs work with people: in
 
 -   [**Communicating your work**](communicating-your-work/index.md)
 
-    Estimates, status updates and explaining risk to managers.
+    Clear GREEN/AMBER/RED status, risk in plain words, honest estimates.
 
-    <span class="zts-chip">Intermediate</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
+    <span class="zts-chip">Intermediate</span>
 
 </div>
 

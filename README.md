@@ -238,7 +238,7 @@ Click a stage to open it.
 - [Git in a team](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/git-in-a-team/): Branches, pull requests, a real merge conflict, and pushing safely.
 - [Jira and test management](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/jira-and-test-management/): Tickets, workflows, and linking tests to stories. *(coming soon)*
 - [Working with developers](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/working-with-developers/): Answer 'works on my machine' with evidence, talk without blame, pair.
-- [Communicating your work](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/communicating-your-work/): Estimates, status updates and explaining risk to managers. *(coming soon)*
+- [Communicating your work](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/communicating-your-work/): Clear GREEN/AMBER/RED status, risk in plain words, honest estimates.
 
 **Releases and quality**
 

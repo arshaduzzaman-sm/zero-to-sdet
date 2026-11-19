@@ -1,0 +1,8 @@
+# Template from Zero to SDET: https://arshaduzzaman-sm.github.io/zero-to-sdet/
+task,best,likely,worst
+Read the story and ask questions,1,2,4
+Write API tests for discount codes,4,6,12
+Write one UI test for checkout,2,4,8
+Exploratory testing,2,3,5
+Test data and environment set-up,1,2,8
+Bug reports and retesting fixes,2,4,10
