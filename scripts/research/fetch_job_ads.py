@@ -1,6 +1,6 @@
 """Fetch open QA/SDET job ads from public Greenhouse, Lever and Ashby job-board APIs.
 
-Used for the skills matrix coverage check (PROJECT_BRIEF.md, section 2, core idea 3).
+Used for the skills matrix coverage check.
 Standard library only. Saves one JSON file per ad; ad text is NOT committed.
 
 Usage:

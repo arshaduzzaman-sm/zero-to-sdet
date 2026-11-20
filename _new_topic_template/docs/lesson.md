@@ -86,7 +86,7 @@ summary: "One plain sentence: what this lesson teaches."
 
 ## Try it yourself
 
-<!-- An exercise against the Practice App. -->
+<!-- An exercise on the reader's own app or the topic's demo. -->
 
 ??? success "Solution"
     <!-- Folded by default. -->

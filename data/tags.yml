@@ -60,8 +60,6 @@
   about: Checking that the app stays fast when many people use it.
 - name: Playwright
   about: Automating web pages with Playwright.
-- name: Practice App
-  about: The small online shop you test in every lesson.
 - name: pytest
   about: The Python test tool used across this site.
 - name: Python

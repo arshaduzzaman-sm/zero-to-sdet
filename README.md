@@ -35,9 +35,9 @@ Development Engineer in Test): a tester who writes code to test software.
   example "Can you set up API tests for our new service?", and walks you through it.
 - **Templates that run.** Every code sample is a tested template you can copy into your
   own project.
-- **A safe place to practise.** All lessons use the **Practice App**, a small online
-  shop with planted bugs that runs on your own computer or in your own Codespace.
-  Every lesson also shows what you would see, so you can learn from the page alone.
+- **Built for your own app.** Settings come from environment variables, so the same
+  template points at your team's app, not a toy. Every page also shows the real
+  output, so you can learn from the page alone.
 
 > [!NOTE]
 > The site structure is ready and lessons are being written now. Topics marked
@@ -249,7 +249,7 @@ Click a stage to open it.
 
 - [Clean test code](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/clean-test-code/): Test code that is easy to read, change and trust. *(coming soon)*
 - [Leading quality](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/leading-quality/): Design test architecture, choose tools and lead quality for a team. *(coming soon)*
-- [Capstone project](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/capstone-project/): Build a full framework against the Practice App, from API to CI. *(coming soon)*
+- [Capstone project](https://arshaduzzaman-sm.github.io/zero-to-sdet/professional-sdet/capstone-project/): Build a full test framework for your own app, from API to CI. *(coming soon)*
 
 **Your career**
 
@@ -285,9 +285,9 @@ helps you set up your computer.
 [Template index](https://arshaduzzaman-sm.github.io/zero-to-sdet/toolbox/template-index/),
 copy it, and keep the first comment line that says where it came from.
 
-**To practise with the Practice App:** run `docker compose up -d` in the
-[`practice-app`](practice-app/README.md) folder, or open it in the cloud with
-nothing to install:
+**To run the code yourself:** clone the repository and follow
+[Environment setup](https://arshaduzzaman-sm.github.io/zero-to-sdet/start-here/environment-setup/),
+or open it in the cloud with nothing to install:
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/arshaduzzaman-sm/zero-to-sdet?quickstart=1)
 
@@ -300,11 +300,13 @@ nothing to install:
 | --- | --- |
 | [`docs/`](docs/) | The website: every lesson as a Markdown page |
 | [`modules/`](modules/) | The templates, examples, exercises and solutions, each with tests |
-| [`practice-app/`](practice-app/README.md) | Bookshelf, the small shop every lesson tests |
+| [`practice-app/`](practice-app/README.md) | Bookshelf, a small sample shop you can run and test locally (optional) |
 | [`.devcontainer/`](.devcontainer/devcontainer.json) | GitHub Codespaces setup |
 | [`_new_topic_template/`](_new_topic_template/README.md) | The starting point for every new topic |
 | [`scripts/`](scripts/) | Helpers: build the menu, add a topic, run every check |
 | [`overrides/`](overrides/) | Small changes to the website theme |
+| [`data/`](data/) | The glossary and the tag list, used to build those pages |
+| [`.github/`](.github/) | Workflow, issue templates, Style guide, Security policy, Code of Conduct |
 | [`zensical.toml`](zensical.toml) | Website settings |
 
 ## How to help
@@ -314,11 +316,11 @@ nothing to install:
 - **A template does not run?** Open a
   [Template or code problem](https://github.com/arshaduzzaman-sm/zero-to-sdet/issues/new?template=template-problem.yml) issue.
 - **Want to fix or write something?** Read [CONTRIBUTING.md](CONTRIBUTING.md) and the
-  [Style guide](STYLE_GUIDE.md).
-- **Found a security problem?** Please don't open a public issue. See [SECURITY.md](SECURITY.md).
+  [Style guide](.github/STYLE_GUIDE.md).
+- **Found a security problem?** Please don't open a public issue. See [SECURITY.md](.github/SECURITY.md).
 - **Finding it useful?** Give the repository a ⭐. It helps other testers find it.
 
-Everyone taking part follows the [Code of Conduct](CODE_OF_CONDUCT.md).
+Everyone taking part follows the [Code of Conduct](.github/CODE_OF_CONDUCT.md).
 
 ## License
 

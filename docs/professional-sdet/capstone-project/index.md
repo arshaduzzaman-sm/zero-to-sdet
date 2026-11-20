@@ -5,11 +5,10 @@ level: Advanced
 status: draft
 tags:
   - Career
-  - Practice App
 nav_title: "Capstone project"
 order: 130
 group: "Building and leading"
-summary: "Build a full framework against the Practice App, from API to CI."
+summary: "Build a full test framework for your own app, from API to CI."
 ---
 
 # Capstone project
@@ -19,7 +18,7 @@ summary: "Build a full framework against the Practice App, from API to CI."
 
 ## What you will learn
 
-- A full framework against the Practice App: API, DB, UI, BDD, reports, Docker, CI
+- A full test framework for your own app: API, DB, UI, BDD, reports, Docker, CI
 
 ## Templates you will get
 

@@ -1,5 +1,4 @@
 # Runs locally before every commit. Install once with: pre-commit install
-# ruff and the other checks from PROJECT_BRIEF.md step 1.12 are added later.
 minimum_pre_commit_version: "4.0.0"
 
 repos:

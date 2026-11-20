@@ -102,7 +102,7 @@ Knowing tools is half the job. This pillar covers how SDETs work with people: in
 
 -   [**Capstone project**](capstone-project/index.md)
 
-    Build a full framework against the Practice App, from API to CI.
+    Build a full test framework for your own app, from API to CI.
 
     <span class="zts-chip">Advanced</span> <span class="zts-chip zts-chip--soon">Coming soon</span>
 

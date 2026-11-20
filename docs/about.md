@@ -1,7 +1,7 @@
 ---
 title: "About Zero to SDET"
 description: "Who writes Zero to SDET, why it exists, how it is licensed, and how you can help make it better."
-updated: "2026-11-18"
+updated: "2026-11-19"
 ---
 
 # About Zero to SDET
@@ -81,6 +81,6 @@ The rules for every suggestion are short:
 - No ads, affiliate links or tracking.
 - One fix or one topic per suggestion.
 
-The full rules are in [CONTRIBUTING.md](https://github.com/arshaduzzaman-sm/zero-to-sdet/blob/main/CONTRIBUTING.md). Security problems go privately, as [SECURITY.md](https://github.com/arshaduzzaman-sm/zero-to-sdet/blob/main/SECURITY.md) explains, never in a public issue.
+The full rules are in [CONTRIBUTING.md](https://github.com/arshaduzzaman-sm/zero-to-sdet/blob/main/CONTRIBUTING.md). Security problems go privately, as [SECURITY.md](https://github.com/arshaduzzaman-sm/zero-to-sdet/blob/main/.github/SECURITY.md) explains, never in a public issue.
 
 See the [Changelog](changelog.md) for what is new.

@@ -4,7 +4,7 @@
 # docs/assets/javascripts/vendor/*.min.js. They are minified, so gitleaks
 # mistakes variable names for keys (for example "atlasCount" in Mermaid).
 # Each file is checked against npm's published hash before it is added, and the
-# browser checks it again with its SHA-384 hash (see deploy/README.md).
+# browser checks it again with its SHA-384 hash (see CONTRIBUTING.md, "Publishing the website").
 # Nothing else is skipped. Never add our own code or settings files here.
 
 [extend]

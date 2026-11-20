@@ -15,7 +15,7 @@
   The theme only calls mermaid.initialize(config) and mermaid.render(id, text).
   Works with instant navigation: the stand-in stays in place between pages.
 
-  To update Mermaid: see deploy/README.md, "Updating Mermaid".
+  To update Mermaid: see CONTRIBUTING.md, "Updating Mermaid".
   scripts/check_built_site.py checks the hash below matches the file.
 */
 (function () {

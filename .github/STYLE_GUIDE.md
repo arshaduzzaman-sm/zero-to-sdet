@@ -16,7 +16,7 @@ Every topic's `index.md` is a playbook for someone doing this for the first time
 1. **Understand the ask.** Questions to ask your lead on day one: what system, why now, what "done" means, deadline, environments, access.
 2. **Picture the system.** A simple diagram of what you are testing and where the data flows.
 3. **Learn just enough.** A 30–60 minute reading path through the official docs, in order, with what to skip for now.
-4. **Get something running.** Copy the topic's template and run a first test against the Practice App within an hour.
+4. **Get something running.** Copy the topic's template and run a first test within an hour.
 5. **Decide what to test.** Test ideas specific to this area, sorted by risk, using the test design techniques.
 6. **Write a one-page plan** with the test plan template, and share it before building.
 7. **Build in small steps.** Smoke test, then happy path, then negative cases, then edge cases.
@@ -38,7 +38,7 @@ Each playbook also has a **"How an experienced SDET thinks about this"** box, a 
 8. The template: code tabs (code · how to run · expected output), pulled from `modules/`.
 9. **"Common mistakes"** box.
 10. **"If you see this error"** box: the real error text and the fix.
-11. **"Try it yourself":** an exercise against the Practice App, with the solution in a collapsed block.
+11. **"Try it yourself":** an exercise on the reader's own app or the topic's demo, with the solution in a collapsed block.
 12. **Quick check:** three questions.
 13. **References:** every source used, plus the tool version the page was written for and the date the links were last checked.
 14. Footer: previous / next, "Edit this page on GitHub", comments, feedback widget, author line.
@@ -93,7 +93,7 @@ Each playbook also has a **"How an experienced SDET thinks about this"** box, a 
 ### 7.8 Example names and data
 
 - The main example person in the site is **Arshad** (first name only). Use him wherever an example needs a person:
-  - Practice App main test user: username `arshad`, name `Arshad`, email `arshad@example.com`, password `Test@1234` (clearly fake).
+  - Main test user: name `Arshad Test`, email `arshad@example.com`, password `local_only_password` (clearly fake).
   - Code: `create_user(name="Arshad")`, `assert response.json()["name"] == "Arshad"`.
   - Gherkin: `Given Arshad is logged in`, `When Arshad adds 2 books to the cart`.
   - SQL: `INSERT INTO customers (name) VALUES ('Arshad');`
@@ -187,7 +187,7 @@ plain sentence, in the same pull request.
 
 Every testing word lives in `data/glossary.yml`: the term, a plain meaning, and
 the page that teaches it. `scripts/build_reference.py` builds the A to Z
-[Glossary](docs/glossary.md) from it. For short forms (API, BDD, CI/CD) add
+[Glossary](../docs/glossary.md) from it. For short forms (API, BDD, CI/CD) add
 `stands_for:` and the meaning appears on hover everywhere the short form is
 used on the site, with nothing to add to the page.
 

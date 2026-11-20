@@ -40,7 +40,7 @@ summary: "One plain sentence for the card on the section overview."
 
 ```mermaid
 flowchart LR
-    A("Your test") --> B("Practice App API") --> C[("Database")]
+    A("Your test") --> B("Your app's API") --> C[("Database")]
 ```
 
 ## 3. Learn just enough
@@ -50,7 +50,7 @@ flowchart LR
 
 ## 4. Get something running
 
-<!-- Copy the topic's template and run a first test against the Practice App
+<!-- Copy the topic's template and run a first test against your own app
      within an hour. Show the command and the expected output. -->
 
 ## 5. Decide what to test

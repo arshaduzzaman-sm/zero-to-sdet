@@ -18,15 +18,15 @@ Examples of real problems:
 - Personal data (a real email, path, IP address or name) in a page, screenshot or commit
 - A problem in the website itself, or in a script in `scripts/`
 
-### Not a security problem: the Practice App's planted bugs
+### Not a security problem: planted bugs in practice code
 
-The Practice App (`practice-app/`) is a small shop **built for practice**. It
-contains about 30 deliberate bugs, some of them security bugs, so learners can
-find them in the "Bug Hunt" at the end of each topic. These are not
-vulnerabilities to report. For the same reason:
+Some practice code has bugs **on purpose**, so learners can find them: the
+sample shop in `practice-app/`, and the small demo servers in `modules/` (for
+example a `--bug` mode). These are not vulnerabilities to report. For the same
+reason:
 
-- Run the Practice App only on your own computer. Every service binds to
-  `localhost` only.
+- Run practice code only on your own computer. Every server binds to
+  `127.0.0.1` (localhost) only.
 - Never deploy it to a public server.
 
 ## Supported versions
@@ -42,7 +42,7 @@ Only the latest version of the `main` branch and the live website are supported.
 | Passwords, API keys, tokens | Database passwords, GitHub tokens, cloud keys | `.env` (git-ignored) + `.env.example` with fake values |
 | Personal details | Emails, phone numbers, addresses | GitHub's no-reply commit email; contact only through the About page links |
 | Computer details | Username and machine name in the terminal prompt, `/Users/<name>/...` paths, local IPs, Wi-Fi names | A neutral prompt (for example `$`) and generic paths like `~/projects/zero-to-sdet` |
-| Employer or client material | Company code, URLs, data, screenshots, ticket text | The Practice App and public practice APIs |
+| Employer or client material | Company code, URLs, data, screenshots, ticket text | The site's own demo servers, `example.com` and public practice APIs |
 | Real people's data | Names, emails, any production data | Fake data from Faker |
 | Hidden image data | GPS and device info in photos | Strip metadata before adding images |
 

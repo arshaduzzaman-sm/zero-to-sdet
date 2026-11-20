@@ -11,7 +11,7 @@ order: 10
 New to test automation? Welcome. This is the right place to begin.
 
 By the end of this section you will have a computer ready for testing, enough
-Python to write a test, and the Practice App running on your own machine.
+Python to write a test, and your first tests running on your own machine.
 
 ## What you need
 

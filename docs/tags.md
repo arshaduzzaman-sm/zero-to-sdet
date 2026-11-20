@@ -43,7 +43,6 @@ every page about that subject, across all sections.
 <a class="zts-tag" href="#tag:observability" title="Logs, metrics and traces that show what an app is doing.">Observability <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:performance" title="Checking that the app stays fast when many people use it.">Performance <span class="zts-tag__count">3</span></a>
 <a class="zts-tag" href="#tag:playwright" title="Automating web pages with Playwright.">Playwright <span class="zts-tag__count">14</span></a>
-<a class="zts-tag" href="#tag:practice-app" title="The small online shop you test in every lesson.">Practice App <span class="zts-tag__count">1</span></a>
 <a class="zts-tag" href="#tag:pytest" title="The Python test tool used across this site.">pytest <span class="zts-tag__count">57</span></a>
 <a class="zts-tag" href="#tag:python" title="The programming language used for every example on this site.">Python <span class="zts-tag__count">38</span></a>
 <a class="zts-tag" href="#tag:quality-metrics" title="Numbers that show how good the product and the testing are.">Quality metrics <span class="zts-tag__count">2</span></a>
